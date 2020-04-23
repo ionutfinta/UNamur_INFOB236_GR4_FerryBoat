@@ -75,5 +75,6 @@
 <org.eventb.core.guard name="(" org.eventb.core.label="grd1_1" org.eventb.core.predicate="at_once ∈ {1,2,3}"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd2_1" org.eventb.core.predicate="bs_m &gt; 0 ∧ at_once ≤ bs_m"/>
 <org.eventb.core.action name="*" org.eventb.core.assignment="bs_m ≔ bs_m − at_once" org.eventb.core.label="act1_1"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd3_1" org.eventb.core.predicate="lift_level = 1"/>
 </org.eventb.core.event>
 </org.eventb.core.machineFile>

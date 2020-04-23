@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="98">
+<org.eventb.core.poFile org.eventb.core.poStamp="100">
 <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0"/>
 <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="82">
 <org.eventb.core.poIdentifier name="bs_m" org.eventb.core.type="ℤ"/>
@@ -320,13 +320,13 @@
 <org.eventb.core.poPredicateSet name="EVTALLHYPmax_busy_slotw" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTHYPmax_busy_slotwload_at_onch" org.eventb.core.poStamp="97">
 <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="max_bs_p(lift_level)≥load_at_once+bs_p(lift_level)" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#\/|org.eventb.core.guard#."/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="Unboard/grd6_1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="98">
+<org.eventb.core.poSequent name="Unboard/grd6_1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="99">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTHYPmax_busy_slotxunload_at_onch"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="lift_level∈dom(bs_p)∧bs_p∈ℤ ⇸ ℤ" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#0|org.eventb.core.guard#,"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#0|org.eventb.core.guard#,"/>
 <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTHYPmax_busy_slotxunload_at_onch"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="Unboard/inv2_1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="97">
+<org.eventb.core.poSequent name="Unboard/inv2_1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="99">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotx"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="bs_p{lift_level ↦ bs_p(lift_level) − unload_at_once}∈{1,2,3} → ℕ" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#9"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#\/"/>
@@ -335,7 +335,7 @@
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poSequent#Unboard\/inv2_1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#HYP+|org.eventb.core.poPredicate#PRD1"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="Unboard/inv3_1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="97">
+<org.eventb.core.poSequent name="Unboard/inv3_1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="99">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotx"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℤ·x∈{1,2,3}⇒(bs_p{lift_level ↦ bs_p(lift_level) − unload_at_once})(x)≤max_bs_p(x)" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#;"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#\/"/>
@@ -344,7 +344,7 @@
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poSequent#Unboard\/inv3_1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#HYP,|org.eventb.core.poPredicate#PRD2"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="Unboard/inv5_1_glue2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="97">
+<org.eventb.core.poSequent name="Unboard/inv5_1_glue2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="99">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotx"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="busy_slots − unload_at_once=(bs_p{lift_level ↦ bs_p(lift_level) − unload_at_once})(1)+(bs_p{lift_level ↦ bs_p(lift_level) − unload_at_once})(2)+(bs_p{lift_level ↦ bs_p(lift_level) − unload_at_once})(3)" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#D"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#\/"/>
@@ -353,7 +353,7 @@
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poSequent#Unboard\/inv5_1_glue2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="Unboard/inv8_1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="97">
+<org.eventb.core.poSequent name="Unboard/inv8_1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="99">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotx"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="bs_m+unload_at_once∈ℕ∧bs_m+unload_at_once≤max_bs_m" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#L"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#\/"/>
@@ -362,7 +362,7 @@
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poSequent#Unboard\/inv8_1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD7"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="Unboard/act3_1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="98">
+<org.eventb.core.poSequent name="Unboard/act3_1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="99">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotx"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="lift_level∈dom(bs_p)∧bs_p∈ℤ ⇸ ℤ" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#0|org.eventb.core.action#+"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#0|org.eventb.core.action#+"/>
@@ -374,14 +374,14 @@
 <org.eventb.core.poIdentifier name="bs_p'" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
 <org.eventb.core.poIdentifier name="busy_slots'" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTHYPmax_busy_slotxunload_at_onch" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTIDENTmax_busy_slotx" org.eventb.core.poStamp="97">
+<org.eventb.core.poPredicateSet name="EVTHYPmax_busy_slotxunload_at_onch" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTIDENTmax_busy_slotx" org.eventb.core.poStamp="99">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="unload_at_once∈ℕ" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#\/|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="0&lt;unload_at_once∧unload_at_once≤3" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#\/|org.eventb.core.guard#)"/>
-<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="0≤busy_slots − unload_at_once" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#\/|org.eventb.core.guard#+"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="unload_at_once≤busy_slots" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#\/|org.eventb.core.guard#+"/>
 <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="bs_m+unload_at_once≤max_bs_m" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#0|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="lift_level≠0" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#0|org.eventb.core.guard#)"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPmax_busy_slotx" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTHYPmax_busy_slotxunload_at_onch" org.eventb.core.poStamp="97">
+<org.eventb.core.poPredicateSet name="EVTALLHYPmax_busy_slotx" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTHYPmax_busy_slotxunload_at_onch" org.eventb.core.poStamp="99">
 <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="bs_p(lift_level)≥unload_at_once" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#0|org.eventb.core.guard#,"/>
 </org.eventb.core.poPredicateSet>
 <org.eventb.core.poSequent name="MoveLift/inv6_1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="94">
@@ -417,7 +417,7 @@
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="spot_number+bs_m≤max_bs_m" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#H|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="lift_level=1" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#H|org.eventb.core.guard#*"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="LeaveLift/inv8_1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="98">
+<org.eventb.core.poSequent name="LeaveLift/inv8_1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="100">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slot{"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="bs_m − at_once∈ℕ∧bs_m − at_once≤max_bs_m" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#L"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#M"/>
@@ -429,9 +429,10 @@
 <org.eventb.core.poIdentifier name="bs_m'" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="at_once" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPmax_busy_slot{" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTIDENTmax_busy_slot{" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="EVTALLHYPmax_busy_slot{" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTIDENTmax_busy_slot{" org.eventb.core.poStamp="100">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="at_once∈{1,2,3}" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#M|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="bs_m&gt;0∧at_once≤bs_m" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#M|org.eventb.core.guard#)"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="lift_level=1" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#M|org.eventb.core.guard#+"/>
 </org.eventb.core.poPredicateSet>
 <org.eventb.core.poPredicateSet name="HYP+" org.eventb.core.parentSet="/FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="82">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="max_bs_p∈{1,2,3} → ℕ" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#2"/>
