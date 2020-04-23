@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="5">
+<org.eventb.core.poFile org.eventb.core.poStamp="6">
 <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0"/>
 <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/FerryBoat/initialModel.bpo|org.eventb.core.poFile#initialModel|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="busy_slots" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="max_busy_slots" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+<org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="6">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/initialModel.bpo|org.eventb.core.poFile#initialModel|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slott"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈ℕ" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.invariant#)"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="60∈ℕ" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.invariant#)"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#'"/>
 <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.invariant#)"/>
 <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FerryBoat/initialModel.bpo|org.eventb.core.poFile#initialModel|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/FerryBoat/initialModel.bpo|org.eventb.core.poFile#initialModel|org.eventb.core.poSequent#INITIALISATION\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
@@ -21,9 +21,9 @@
 <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FerryBoat/initialModel.bpo|org.eventb.core.poFile#initialModel|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/FerryBoat/initialModel.bpo|org.eventb.core.poFile#initialModel|org.eventb.core.poSequent#INITIALISATION\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FerryBoat/initialModel.bpo|org.eventb.core.poFile#initialModel|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="INITIALISATION/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
+<org.eventb.core.poSequent name="INITIALISATION/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="6">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/initialModel.bpo|org.eventb.core.poFile#initialModel|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slott"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≤0" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.invariant#-"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0≤60" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.invariant#-"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#'"/>
 <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.invariant#-"/>
 <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FerryBoat/initialModel.bpo|org.eventb.core.poFile#initialModel|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/FerryBoat/initialModel.bpo|org.eventb.core.poFile#initialModel|org.eventb.core.poSequent#INITIALISATION\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>

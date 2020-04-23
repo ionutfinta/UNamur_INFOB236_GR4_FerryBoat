@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="initialModel"/>
+<org.eventb.core.variable name="(" org.eventb.core.identifier="max_busy_slots"/>
+<org.eventb.core.variable name="+" org.eventb.core.identifier="busy_slots"/>
+<org.eventb.core.event name="," org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="max_bs_p1 ≔ 20" org.eventb.core.label="act3"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="max_bs_p2 ≔ 20" org.eventb.core.label="act4"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="max_bs_p3 ≔ 20" org.eventb.core.label="act5"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="bs_p1 ≔ 0" org.eventb.core.label="act6"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="bs_p2 ≔ 0" org.eventb.core.label="act7"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="bs_p3 ≔ 0" org.eventb.core.label="act8"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="lift_level ≔ 0" org.eventb.core.label="act9"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="max_bs_m ≔ 12" org.eventb.core.label="act10"/>
+<org.eventb.core.action name="/" org.eventb.core.assignment="bs_m ≔ 0" org.eventb.core.label="act11"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="-" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Boat_ready">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="Boat_ready"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="." org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Boat_leave">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="Boat_leave"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="/" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Board">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="Board"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="0" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Unboard">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="Unboard"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="1" org.eventb.core.identifier="max_bs_p1"/>
+<org.eventb.core.invariant name="2" org.eventb.core.label="inv1" org.eventb.core.predicate="max_bs_p1 ∈ ℕ"/>
+<org.eventb.core.variable name="3" org.eventb.core.identifier="max_bs_p2"/>
+<org.eventb.core.invariant name="4" org.eventb.core.label="inv2" org.eventb.core.predicate="max_bs_p2 ∈ ℕ"/>
+<org.eventb.core.variable name="5" org.eventb.core.identifier="max_bs_p3"/>
+<org.eventb.core.invariant name="6" org.eventb.core.label="inv3" org.eventb.core.predicate="max_bs_p3 ∈ ℕ"/>
+<org.eventb.core.invariant name="9" org.eventb.core.label="inv4" org.eventb.core.predicate="max_busy_slots = max_bs_p1+max_bs_p2+max_bs_p3"/>
+<org.eventb.core.invariant name=";" org.eventb.core.label="inv5" org.eventb.core.predicate="bs_p1 ∈ ℕ ∧ bs_p1 ≤ max_bs_p1"/>
+<org.eventb.core.variable name="&gt;" org.eventb.core.identifier="bs_p1"/>
+<org.eventb.core.variable name="?" org.eventb.core.identifier="bs_p2"/>
+<org.eventb.core.variable name="@" org.eventb.core.identifier="bs_p3"/>
+<org.eventb.core.invariant name="B" org.eventb.core.label="inv6" org.eventb.core.predicate="bs_p2 ∈ ℕ ∧ bs_p2 ≤ max_bs_p2"/>
+<org.eventb.core.invariant name="C" org.eventb.core.label="inv7" org.eventb.core.predicate="bs_p3 ∈ ℕ ∧ bs_p3 ≤ max_bs_p3"/>
+<org.eventb.core.invariant name="D" org.eventb.core.label="inv8" org.eventb.core.predicate="busy_slots ≥ bs_p1+bs_p2+bs_p3"/>
+<org.eventb.core.variable name="E" org.eventb.core.identifier="lift_level"/>
+<org.eventb.core.invariant name="F" org.eventb.core.label="inv9" org.eventb.core.predicate="lift_level ∈ ℕ1 ∧ lift_level &lt; 4 "/>
+<org.eventb.core.event name="G" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="MoveLift">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="selected_level"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="selected_level ∈ ℕ1 ∧ selected_level &lt; 4"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="lift_level ≔ selected_level" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="H" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="BoardLift">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="selected_vehicles"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="selected_vehicles ≤ max_bs_m − bs_m"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="bs_m ≔ bs_m + selected_vehicles" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="lift_level = 1"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="I" org.eventb.core.identifier="max_bs_m"/>
+<org.eventb.core.invariant name="J" org.eventb.core.label="inv10" org.eventb.core.predicate="max_bs_m ∈ ℕ"/>
+<org.eventb.core.variable name="K" org.eventb.core.identifier="bs_m"/>
+<org.eventb.core.invariant name="L" org.eventb.core.label="inv11" org.eventb.core.predicate="bs_m ∈ ℕ ∧ bs_m ≤ max_bs_m"/>
+</org.eventb.core.machineFile>
