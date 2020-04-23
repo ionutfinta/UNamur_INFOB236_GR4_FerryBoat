@@ -10,7 +10,7 @@
 <org.eventb.core.action name="*" org.eventb.core.assignment="bs_p1 ≔ 0" org.eventb.core.label="act6"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="bs_p2 ≔ 0" org.eventb.core.label="act7"/>
 <org.eventb.core.action name="," org.eventb.core.assignment="bs_p3 ≔ 0" org.eventb.core.label="act8"/>
-<org.eventb.core.action name="-" org.eventb.core.assignment="lift_level ≔ 0" org.eventb.core.label="act9"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="lift_level ≔ 1" org.eventb.core.label="act9"/>
 <org.eventb.core.action name="." org.eventb.core.assignment="max_bs_m ≔ 12" org.eventb.core.label="act10"/>
 <org.eventb.core.action name="/" org.eventb.core.assignment="bs_m ≔ 0" org.eventb.core.label="act11"/>
 </org.eventb.core.event>
@@ -22,6 +22,8 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="/" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Board">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Board"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="current_level"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd4" org.eventb.core.predicate="current_level = lift_level"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="0" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Unboard">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Unboard"/>
