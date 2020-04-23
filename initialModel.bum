@@ -9,12 +9,18 @@
 <org.eventb.core.event name="*" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Boat_ready">
 <org.eventb.core.parameter name="'" org.eventb.core.identifier="total_capacity"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="total_capacity ∈ ℕ"/>
-<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="total_capacity &gt; 0"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="0 &lt; total_capacity"/>
 <org.eventb.core.action name="*" org.eventb.core.assignment="max_busy_slots ≔ total_capacity" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd3" org.eventb.core.predicate="max_busy_slots = 0"/>
 </org.eventb.core.event>
 <org.eventb.core.variable name="+" org.eventb.core.identifier="busy_slots"/>
 <org.eventb.core.invariant name="," org.eventb.core.label="inv2" org.eventb.core.predicate="busy_slots ∈ ℕ"/>
 <org.eventb.core.invariant name="-" org.eventb.core.label="inv3" org.eventb.core.predicate="busy_slots ≤ max_busy_slots"/>
+<org.eventb.core.event name="0" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Boat_leave">
+<org.eventb.core.action name="'" org.eventb.core.assignment="busy_slots ≔ 0" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="max_busy_slots ≔ 0" org.eventb.core.label="act2"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd1" org.eventb.core.predicate="0 &lt; max_busy_slots"/>
+</org.eventb.core.event>
 <org.eventb.core.event name="." org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Board">
 <org.eventb.core.parameter name="'" org.eventb.core.identifier="load_at_once"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="load_at_once ∈ ℕ"/>
@@ -27,6 +33,6 @@
 <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="unload_at_once ∈ ℕ"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="0 &lt; unload_at_once ∧ unload_at_once &lt; 12"/>
 <org.eventb.core.action name="*" org.eventb.core.assignment="busy_slots ≔ busy_slots − unload_at_once" org.eventb.core.label="act1"/>
-<org.eventb.core.guard name="+" org.eventb.core.label="grd3" org.eventb.core.predicate="0 &lt; busy_slots − unload_at_once"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd3" org.eventb.core.predicate="0 ≤ busy_slots − unload_at_once"/>
 </org.eventb.core.event>
 </org.eventb.core.machineFile>
