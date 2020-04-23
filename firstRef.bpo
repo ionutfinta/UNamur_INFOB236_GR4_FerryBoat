@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="63">
+<org.eventb.core.poFile org.eventb.core.poStamp="81">
 <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0"/>
 <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="48">
 <org.eventb.core.poIdentifier name="bs_m" org.eventb.core.type="ℤ"/>
@@ -31,9 +31,9 @@
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#D"/>
 <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#HYP-"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="63">
+<org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="70">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slott"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{1 ↦ 20,2 ↦ 20,3 ↦ 20}∈{1,2,3} → ℕ" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#2"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{1 ↦ 0,2 ↦ 0,3 ↦ 0}∈{1,2,3} → ℕ" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#2"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#'"/>
 <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#,"/>
 <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#2"/>
@@ -49,18 +49,18 @@
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poSequent#INITIALISATION\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#HYP+|org.eventb.core.poPredicate#PRD1"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="INITIALISATION/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="63">
+<org.eventb.core.poSequent name="INITIALISATION/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="70">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slott"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℤ·x∈{1,2,3}⇒{1 ↦ 0,2 ↦ 0,3 ↦ 0}(x)≤{1 ↦ 20,2 ↦ 20,3 ↦ 20}(x)" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#;"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℤ·x∈{1,2,3}⇒{1 ↦ 0,2 ↦ 0,3 ↦ 0}(x)≤{1 ↦ 0,2 ↦ 0,3 ↦ 0}(x)" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#;"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#'"/>
 <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#,"/>
 <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#;"/>
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poSequent#INITIALISATION\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#HYP,|org.eventb.core.poPredicate#PRD2"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="INITIALISATION/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="63">
+<org.eventb.core.poSequent name="INITIALISATION/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="70">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slott"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="60={1 ↦ 20,2 ↦ 20,3 ↦ 20}(1)+{1 ↦ 20,2 ↦ 20,3 ↦ 20}(2)+{1 ↦ 20,2 ↦ 20,3 ↦ 20}(3)" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#B"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0={1 ↦ 0,2 ↦ 0,3 ↦ 0}(1)+{1 ↦ 0,2 ↦ 0,3 ↦ 0}(2)+{1 ↦ 0,2 ↦ 0,3 ↦ 0}(3)" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#B"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#'"/>
 <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#,"/>
 <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#B"/>
@@ -113,23 +113,118 @@
 <org.eventb.core.poIdentifier name="busy_slots'" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
 <org.eventb.core.poPredicateSet name="EVTALLHYPmax_busy_slott" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTIDENTmax_busy_slott" org.eventb.core.poStamp="48"/>
-<org.eventb.core.poSequent name="Boat_ready/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="63">
+<org.eventb.core.poSequent name="Boat_ready/grd2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="79">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTHYPmax_busy_slotu("/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℤ·x∈{1,2,3}⇒x∈dom(max_bs_p)∧max_bs_p∈ℤ ⇸ ℤ" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.guard#,"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.guard#,"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTHYPmax_busy_slotu("/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="Boat_ready/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="79">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTHYPmax_busy_slotu)"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℤ·x∈{1,2,3}⇒x∈dom(bs_p)∧bs_p∈ℤ ⇸ ℤ" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.guard#-"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.guard#-"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTHYPmax_busy_slotu)"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="Boat_ready/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="81">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTHYPmax_busy_slotu*"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="1∈dom(p_capacities)∧p_capacities∈ℤ ⇸ ℤ∧2∈dom(p_capacities)∧3∈dom(p_capacities)" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.guard#internal4"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.guard#internal4"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTHYPmax_busy_slotu*"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="Boat_ready/total_capacity/WWD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of witness" org.eventb.core.poStamp="81">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotu"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="total_capacity=max_bs_p(1)+max_bs_p(2)+max_bs_p(3)" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#B"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="1∈dom(p_capacities)∧p_capacities∈ℤ ⇸ ℤ∧2∈dom(p_capacities)∧3∈dom(p_capacities)" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.witness#internal2"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.witness#internal2"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poSequent#Boat_ready\/total_capacity\/WWD|org.eventb.core.poPredicateSet#SEQHYP"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="Boat_ready/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="81">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotu"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{1 ↦ p_capacities(1),2 ↦ p_capacities(2),3 ↦ p_capacities(3)}∈{1,2,3} → ℕ" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#2"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#2"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poSequent#Boat_ready\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#HYP+|org.eventb.core.poPredicate#PRD0"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="Boat_ready/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="81">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotu"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℤ·x∈{1,2,3}⇒bs_p(x)≤{1 ↦ p_capacities(1),2 ↦ p_capacities(2),3 ↦ p_capacities(3)}(x)" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#;"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#;"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poSequent#Boat_ready\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#HYP,|org.eventb.core.poPredicate#PRD2"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="Boat_ready/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="81">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotu"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="p_capacities(1)+p_capacities(2)+p_capacities(3)={1 ↦ p_capacities(1),2 ↦ p_capacities(2),3 ↦ p_capacities(3)}(1)+{1 ↦ p_capacities(1),2 ↦ p_capacities(2),3 ↦ p_capacities(3)}(2)+{1 ↦ p_capacities(1),2 ↦ p_capacities(2),3 ↦ p_capacities(3)}(3)" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#B"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*"/>
 <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-"/>
 <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.invariant#B"/>
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poSequent#Boat_ready\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#HYP-|org.eventb.core.poPredicate#PRD3"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTmax_busy_slotu" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="63">
+<org.eventb.core.poSequent name="Boat_ready/grd1/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="81">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotu"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="p_capacities(1)+p_capacities(2)+p_capacities(3)∈ℕ" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*|org.eventb.core.guard#("/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*|org.eventb.core.guard#("/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poSequent#Boat_ready\/grd1\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="Boat_ready/grd2/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="81">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotu"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0&lt;p_capacities(1)+p_capacities(2)+p_capacities(3)" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*|org.eventb.core.guard#)"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*|org.eventb.core.guard#)"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poSequent#Boat_ready\/grd2\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="Boat_ready/grd3/GRD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="81">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotu"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="max_busy_slots=0" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*|org.eventb.core.guard#+"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*|org.eventb.core.guard#+"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poSequent#Boat_ready\/grd3\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="Boat_ready/act2/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="81">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotu"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="1∈dom(p_capacities)∧p_capacities∈ℤ ⇸ ℤ∧2∈dom(p_capacities)∧3∈dom(p_capacities)" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.action#("/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.action#("/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotu"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="Boat_ready/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="81">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotu"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="1∈dom(p_capacities)∧p_capacities∈ℤ ⇸ ℤ∧2∈dom(p_capacities)∧3∈dom(p_capacities)" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.action#internal3"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.action#internal3"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotu"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="Boat_ready/act1/SIM" org.eventb.core.accurate="true" org.eventb.core.poDesc="Action simulation" org.eventb.core.poStamp="81">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotu"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="p_capacities(1)+p_capacities(2)+p_capacities(3)=p_capacities(1)+p_capacities(2)+p_capacities(3)" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*|org.eventb.core.action#*"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*|org.eventb.core.action#*"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poSequent#Boat_ready\/act1\/SIM|org.eventb.core.poPredicateSet#SEQHYP"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTmax_busy_slotu" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="75">
 <org.eventb.core.poIdentifier name="max_busy_slots'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="p_capacities" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
 <org.eventb.core.poIdentifier name="total_capacity" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="max_bs_p'" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPmax_busy_slotu" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTIDENTmax_busy_slotu" org.eventb.core.poStamp="63">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="total_capacity∈ℕ" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*|org.eventb.core.guard#("/>
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="0&lt;total_capacity" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*|org.eventb.core.guard#)"/>
-<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="max_busy_slots=0" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#*|org.eventb.core.guard#+"/>
+<org.eventb.core.poPredicateSet name="EVTHYPmax_busy_slotu(" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTIDENTmax_busy_slotu" org.eventb.core.poStamp="75">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="p_capacities∈{1,2,3} → ℕ" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.guard#+"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTHYPmax_busy_slotu)" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTHYPmax_busy_slotu(" org.eventb.core.poStamp="75">
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="∀x⦂ℤ·x∈{1,2,3}⇒max_bs_p(x)=0" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.guard#,"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTHYPmax_busy_slotu*" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTHYPmax_busy_slotu)" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="∀x⦂ℤ·x∈{1,2,3}⇒bs_p(x)=0" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.guard#-"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPmax_busy_slotu" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTHYPmax_busy_slotu*" org.eventb.core.poStamp="81">
+<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="p_capacities(1)+p_capacities(2)+p_capacities(3)&gt;0" org.eventb.core.source="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.guard#internal4"/>
 </org.eventb.core.poPredicateSet>
 <org.eventb.core.poSequent name="Boat_leave/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="63">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/UNamur_INFOB236_GR4_FerryBoat/firstRef.bpo|org.eventb.core.poFile#firstRef|org.eventb.core.poPredicateSet#EVTALLHYPmax_busy_slotv"/>

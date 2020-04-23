@@ -4,14 +4,22 @@
 <org.eventb.core.variable name="(" org.eventb.core.identifier="max_busy_slots"/>
 <org.eventb.core.variable name="+" org.eventb.core.identifier="busy_slots"/>
 <org.eventb.core.event name="," org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
-<org.eventb.core.action name="'" org.eventb.core.assignment="max_bs_p ≔ {1↦20, 2↦20, 3↦20}" org.eventb.core.label="act3"/>
+<org.eventb.core.action name="'" org.eventb.core.assignment="max_bs_p ≔ {1↦0, 2↦0, 3↦0}" org.eventb.core.label="act3"/>
 <org.eventb.core.action name="*" org.eventb.core.assignment="bs_p ≔ {1↦0, 2↦0, 3↦0}" org.eventb.core.label="act6"/>
 <org.eventb.core.action name="-" org.eventb.core.assignment="lift_level ≔ 1" org.eventb.core.label="act9"/>
 <org.eventb.core.action name="." org.eventb.core.assignment="max_bs_m ≔ 12" org.eventb.core.label="act10"/>
 <org.eventb.core.action name="/" org.eventb.core.assignment="bs_m ≔ 0" org.eventb.core.label="act11"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="-" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Boat_ready">
+<org.eventb.core.event name="-" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Boat_ready">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Boat_ready"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd1" org.eventb.core.predicate="p_capacities ∈ ({1,2,3} → ℕ)"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="max_bs_p ≔ {1↦p_capacities(1),2↦p_capacities(2),3↦p_capacities(3)}" org.eventb.core.label="act2"/>
+<org.eventb.core.parameter name=")" org.eventb.core.identifier="p_capacities"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd2" org.eventb.core.predicate="∀x·x∈{1,2,3} ⇒ max_bs_p(x) = 0"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="∀x·x∈{1,2,3} ⇒ bs_p(x) = 0"/>
+<org.eventb.core.witness name="internal2" org.eventb.core.label="total_capacity" org.eventb.core.predicate="total_capacity = p_capacities(1) + p_capacities(2) + p_capacities(3)"/>
+<org.eventb.core.action name="internal3" org.eventb.core.assignment="max_busy_slots ≔ p_capacities(1) + p_capacities(2) + p_capacities(3)" org.eventb.core.label="act3"/>
+<org.eventb.core.guard name="internal4" org.eventb.core.label="grd4" org.eventb.core.predicate="p_capacities(1) + p_capacities(2) + p_capacities(3) &gt; 0"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="." org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Boat_leave">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Boat_leave"/>
