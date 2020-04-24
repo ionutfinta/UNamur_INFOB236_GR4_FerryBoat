@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="secondRef"/>
+<org.eventb.core.seesContext name="V" org.eventb.core.target="secondRef_ctx"/>
+<org.eventb.core.seesContext name="`" org.eventb.core.target="firstRef_ctx"/>
+<org.eventb.core.variable name="(" org.eventb.core.identifier="max_busy_slots"/>
+<org.eventb.core.variable name="+" org.eventb.core.identifier="busy_slots"/>
+<org.eventb.core.variable name="1" org.eventb.core.comment="maximum espace/pont" org.eventb.core.identifier="max_bs_p"/>
+<org.eventb.core.variable name="@" org.eventb.core.comment="espaces occupés/pont" org.eventb.core.identifier="bs_p"/>
+<org.eventb.core.variable name="E" org.eventb.core.identifier="lift_level"/>
+<org.eventb.core.variable name="K" org.eventb.core.comment="busy_slot for lift" org.eventb.core.identifier="bs_m"/>
+<org.eventb.core.variable name="W" org.eventb.core.comment="all reservations" org.eventb.core.identifier="reservations"/>
+<org.eventb.core.variable name="a" org.eventb.core.comment="function of space/floor" org.eventb.core.identifier="reserved_spaces"/>
+<org.eventb.core.variable name="d" org.eventb.core.identifier="auth_on_ids"/>
+<org.eventb.core.event name="e" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="'" org.eventb.core.assignment="boarded_ids ≔ ∅" org.eventb.core.label="act3_3"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="queue1 ≔ FALSE" org.eventb.core.label="act4_3"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="queue2 ≔ FALSE" org.eventb.core.label="act5_3"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="lift_vehicles ≔ ∅" org.eventb.core.label="act6_3"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="id_is_left ≔ ∅" org.eventb.core.label="act7_3"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="f" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Boat_ready">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="Boat_ready"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="g" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Boat_leave">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="Boat_leave"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="boarded_ids ≔ ∅" org.eventb.core.label="act3_3"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="lift_vehicles ≔ ∅" org.eventb.core.label="act4_3"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="id_is_left ≔ {(1↦FALSE)}" org.eventb.core.label="act5_3"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="h" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Board">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="Board"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="i" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Unboard">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="Unboard"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="boarded_ids ≔ boarded_ids ∖ {vehicle_id}" org.eventb.core.label="act1_3"/>
+<org.eventb.core.parameter name=")" org.eventb.core.identifier="vehicle_id"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd1_3" org.eventb.core.predicate="vehicle_id ∈ boarded_ids"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="j" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="MoveLift">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="MoveLift"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="k" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="BoardLift">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="BoardLift"/>
+<org.eventb.core.guard name="/" org.eventb.core.label="grd1_3" org.eventb.core.predicate="id_is_left(vehicle_id) = TRUE ⇒ &#13;&#10;&#9;position ∈ {1} × {x·x∈1‥(3−vehicle_slot(vehicle_type)) ∧ (1 ↦ x)∉ dom(lift_vehicles) ∣ x }"/>
+<org.eventb.core.parameter name=")" org.eventb.core.identifier="position"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd2_3" org.eventb.core.predicate="id_is_left(vehicle_id) = FALSE ⇒ &#13;&#10;&#9;position ∈ {2} × {x·x∈1‥(3−vehicle_slot(vehicle_type)) ∧ (2 ↦ x) ∉ dom(lift_vehicles) ∣ x }"/>
+<org.eventb.core.action name="," org.eventb.core.assignment="boarded_ids ≔ {vehicle_id} ∪ boarded_ids" org.eventb.core.label="act1_3"/>
+<org.eventb.core.action name="0" org.eventb.core.assignment="lift_vehicles(position) ≔ vehicle_id" org.eventb.core.label="act2_3"/>
+<org.eventb.core.action name="2" org.eventb.core.assignment="queue1 :∣ id_is_left(vehicle_id) = TRUE ⇔ queue1' = FALSE" org.eventb.core.label="act4_3"/>
+<org.eventb.core.action name="3" org.eventb.core.assignment="queue2 :∣ id_is_left(vehicle_id) = FALSE ⇔ queue2' = FALSE" org.eventb.core.label="act5_3"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="l" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="LeaveLift">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="LeaveLift"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="m" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Reserve">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="Reserve"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="n" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Vehicle_auth_on">
+<org.eventb.core.refinesEvent name="'" org.eventb.core.target="Vehicle_auth_on"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="is_left"/>
+<org.eventb.core.action name=")" org.eventb.core.assignment="id_is_left(vehicle_id) ≔ is_left" org.eventb.core.label="act1_3"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd1_3" org.eventb.core.predicate="is_left ∈ BOOL"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd2_3" org.eventb.core.predicate="is_left = TRUE ⇒ queue1 = TRUE"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd3_3" org.eventb.core.predicate="is_left = FALSE ⇒ queue2 = TRUE"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="o" org.eventb.core.identifier="boarded_ids"/>
+<org.eventb.core.invariant name="p" org.eventb.core.label="inv1_3" org.eventb.core.predicate="boarded_ids ⊆ ℕ"/>
+<org.eventb.core.variable name="q" org.eventb.core.identifier="queue1"/>
+<org.eventb.core.invariant name="r" org.eventb.core.label="inv2_3" org.eventb.core.predicate="queue1 ∈ BOOL"/>
+<org.eventb.core.variable name="s" org.eventb.core.identifier="queue2"/>
+<org.eventb.core.invariant name="t" org.eventb.core.label="inv3_3" org.eventb.core.predicate="queue2 ∈ BOOL"/>
+<org.eventb.core.event name="u" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Vehicle_in">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="queue_1"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="queue_2"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd1_3" org.eventb.core.predicate="queue_1 ∈ BOOL"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd2_3" org.eventb.core.predicate="queue_2 ∈ BOOL"/>
+<org.eventb.core.guard name="/" org.eventb.core.label="grd3_3" org.eventb.core.predicate="TRUE ∈ {queue_1, queue_2}"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="queue1 ≔ queue_1" org.eventb.core.label="act1_3"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="queue2 ≔ queue_2" org.eventb.core.label="act2_3"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd4_3" org.eventb.core.predicate="(queue_1 ≠ queue1) ⇔ (queue_1 = TRUE)"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd5_3" org.eventb.core.predicate="(queue_2 ≠ queue2) ⇔ (queue_2 = TRUE)"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="v" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Vehicle_out">
+<org.eventb.core.parameter name="'" org.eventb.core.identifier="queue_1"/>
+<org.eventb.core.parameter name="(" org.eventb.core.identifier="queue_2"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd1_3" org.eventb.core.predicate="queue_1 ∈ BOOL"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd2_3" org.eventb.core.predicate="queue_2 ∈ BOOL"/>
+<org.eventb.core.guard name="/" org.eventb.core.label="grd3_3" org.eventb.core.predicate="FALSE ∈ {queue_1, queue_2}"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd4_3" org.eventb.core.predicate="queue_1 ≠ queue1 ⇒ queue_1 = FALSE"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd5_3" org.eventb.core.predicate="queue_2 ≠ queue2 ⇒ queue_2 = FALSE"/>
+<org.eventb.core.guard name="0" org.eventb.core.label="grd6_3" org.eventb.core.predicate="TRUE ∈ {queue1, queue2}"/>
+<org.eventb.core.guard name="1" org.eventb.core.label="grd7_3" org.eventb.core.predicate="{queue1, queue2} ≠ {queue_1, queue_2}"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="queue1 ≔ queue_1" org.eventb.core.label="act1_3"/>
+<org.eventb.core.action name="." org.eventb.core.assignment="queue2 ≔ queue_2" org.eventb.core.label="act2_3"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="w" org.eventb.core.identifier="lift_vehicles"/>
+<org.eventb.core.invariant name="x" org.eventb.core.label="inv4_3" org.eventb.core.predicate="lift_vehicles ∈ (1‥2 × 1‥3) ⇸ ℕ"/>
+<org.eventb.core.variable name="{" org.eventb.core.identifier="id_is_left"/>
+<org.eventb.core.invariant name="|" org.eventb.core.label="inv5_3" org.eventb.core.predicate="id_is_left ∈ ℕ ⇸ BOOL"/>
+</org.eventb.core.machineFile>
