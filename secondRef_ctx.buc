@@ -8,4 +8,5 @@
 <org.eventb.core.carrierSet name="," org.eventb.core.identifier="VEHICLE_TYPES"/>
 <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="-" org.eventb.core.identifier="vehicle_slot"/>
 <org.eventb.core.axiom name="." org.eventb.core.label="axm2" org.eventb.core.predicate="vehicle_slot = {voiture↦1,camion_1↦1,camion_2↦2,camion_3↦3}"/>
+<org.eventb.core.axiom name="/" org.eventb.core.label="axm3" org.eventb.core.predicate="ran(vehicle_slot)= {1,2,3}" org.eventb.core.theorem="true"/>
 </org.eventb.core.contextFile>

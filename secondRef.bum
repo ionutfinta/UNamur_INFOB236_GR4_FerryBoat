@@ -93,7 +93,6 @@
 <org.eventb.core.action name="0" org.eventb.core.assignment="next_reservation_id ≔ next_reservation_id + 1" org.eventb.core.label="act3_2"/>
 </org.eventb.core.event>
 <org.eventb.core.invariant name="_" org.eventb.core.comment="returns equivalent of bs_p for reservations" org.eventb.core.label="inv5_2" org.eventb.core.predicate="reserved_spaces∈(floors → ℕ)"/>
-<org.eventb.core.invariant name="^" org.eventb.core.label="inv7_2" org.eventb.core.predicate="next_reservation_id ∉ dom(reservations)"/>
 <org.eventb.core.seesContext name="`" org.eventb.core.target="firstRef_ctx"/>
 <org.eventb.core.variable name="a" org.eventb.core.comment="function of space/floor" org.eventb.core.identifier="reserved_spaces"/>
 <org.eventb.core.invariant name="b" org.eventb.core.label="inv6_2" org.eventb.core.predicate="∀f·f∈floors ⇒ reserved_spaces(f) ≤ max_bs_p(f)"/>
@@ -107,5 +106,6 @@
 <org.eventb.core.guard name="-" org.eventb.core.comment="checks all conditions for user to be authorized on" org.eventb.core.label="grd4_2" org.eventb.core.predicate="lift_level = 1"/>
 </org.eventb.core.event>
 <org.eventb.core.variable name="d" org.eventb.core.identifier="auth_on_ids"/>
+<org.eventb.core.invariant name="^" org.eventb.core.label="inv7_2" org.eventb.core.predicate="next_reservation_id ∉ dom(reservations)"/>
 <org.eventb.core.invariant name="e" org.eventb.core.label="inv8_2" org.eventb.core.predicate="auth_on_ids ⊂ ℕ"/>
 </org.eventb.core.machineFile>

@@ -1,2 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<org.eventb.core.prFile version="1"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+<org.eventb.core.prProof name="axm3/THM" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="VEHICLE_TYPES">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3}))" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p2" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p3,p4,p5,p6,p7,p8,p9"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p3,p4,p5,p6,p7,p8,p9"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with vehicle_slot={voiture ↦ 1,camion_1 ↦ 1,camion_2 ↦ 2,camion_3 ↦ 3}" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10">
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p11" org.eventb.core.prHyps=""/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
+</org.eventb.core.prRule>
+<org.eventb.core.prIdent name="camion_1" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prIdent name="camion_2" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prIdent name="camion_3" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prIdent name="vehicle_slot" org.eventb.core.type="ℙ(VEHICLE_TYPES×ℤ)"/>
+<org.eventb.core.prIdent name="voiture" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="vehicle_slot={voiture ↦ 1,camion_1 ↦ 1,camion_2 ↦ 2,camion_3 ↦ 3}"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬voiture=camion_2"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬camion_1=camion_2"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬camion_2=camion_3"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="⊤"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="VEHICLE_TYPES={voiture,camion_1,camion_2,camion_3}"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬voiture=camion_3"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="¬voiture=camion_1"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬camion_1=camion_3"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="ran({voiture ↦ 1,camion_1 ↦ 1,camion_2 ↦ 2,camion_3 ↦ 3})={1,2,3}"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="ran(vehicle_slot)={1,2,3}"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3})"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+</org.eventb.core.prProof>
+</org.eventb.core.prFile>
