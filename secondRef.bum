@@ -9,18 +9,16 @@
 <org.eventb.core.variable name="K" org.eventb.core.comment="busy_slot for lift" org.eventb.core.identifier="bs_m"/>
 <org.eventb.core.event name="L" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
 <org.eventb.core.action name="(" org.eventb.core.assignment="reservations ≔ ∅" org.eventb.core.label="act1_2"/>
-<org.eventb.core.action name=")" org.eventb.core.assignment="next_reservation_id ≔ 0" org.eventb.core.label="act2_2"/>
 <org.eventb.core.action name="*" org.eventb.core.assignment="reserved_spaces ≔ {f↦0∣f∈floors}" org.eventb.core.label="act3_2"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="auth_on_ids ≔ ∅" org.eventb.core.label="act4_2"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="M" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Boat_ready">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Boat_ready"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd4_2" org.eventb.core.predicate="reserved_spaces = ∅"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd4_2" org.eventb.core.predicate="reserved_spaces = {f↦0∣f∈floors}"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="N" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Boat_leave">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Boat_leave"/>
 <org.eventb.core.action name="(" org.eventb.core.assignment="reservations ≔ ∅" org.eventb.core.label="act5_2"/>
-<org.eventb.core.action name=")" org.eventb.core.assignment="next_reservation_id ≔ 0" org.eventb.core.label="act6_2"/>
 <org.eventb.core.action name="*" org.eventb.core.assignment="reserved_spaces ≔ {f↦0∣f∈floors}" org.eventb.core.label="act7_2"/>
 <org.eventb.core.guard name="+" org.eventb.core.comment="no people allowed on when leaving" org.eventb.core.label="grd2_2" org.eventb.core.predicate="auth_on_ids = ∅"/>
 </org.eventb.core.event>
@@ -36,6 +34,9 @@
 <org.eventb.core.guard name="." org.eventb.core.label="grd7_2" org.eventb.core.predicate="vehicle_slot(vehicle_type) + bs_p(lift_level) ≤ max_bs_p(lift_level)"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="bs_p(lift_level) ≔ bs_p(lift_level) + vehicle_slot(vehicle_type)" org.eventb.core.label="act2_2"/>
 <org.eventb.core.action name="," org.eventb.core.assignment="bs_m ≔ bs_m − vehicle_slot(vehicle_type)" org.eventb.core.label="act3_2"/>
+<org.eventb.core.parameter name="4" org.eventb.core.identifier="vehicle_id"/>
+<org.eventb.core.guard name="5" org.eventb.core.label="grd8_2" org.eventb.core.predicate="reservations(vehicle_id)=(lift_level↦vehicle_type)"/>
+<org.eventb.core.guard name="6" org.eventb.core.label="grd9_2" org.eventb.core.predicate="vehicle_id ∈ dom(reservations)"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="P" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Unboard">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Unboard"/>
@@ -56,46 +57,43 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="R" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="BoardLift">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="BoardLift"/>
-<org.eventb.core.parameter name="'" org.eventb.core.identifier="vehicle_type"/>
 <org.eventb.core.action name=")" org.eventb.core.assignment="bs_m ≔ vehicle_slot(vehicle_type) + bs_m" org.eventb.core.label="act1_2"/>
-<org.eventb.core.guard name="+" org.eventb.core.label="grd1_2" org.eventb.core.predicate="vehicle_type ∈ VEHICLE_TYPES"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd3_2" org.eventb.core.predicate="vehicle_slot(vehicle_type) + bs_m ≤ max_bs_m"/>
 <org.eventb.core.guard name="*" org.eventb.core.label="grd4_1" org.eventb.core.predicate="lift_level = 1"/>
 <org.eventb.core.witness name="-" org.eventb.core.label="spot_number" org.eventb.core.predicate="spot_number = vehicle_slot(vehicle_type)"/>
 <org.eventb.core.parameter name="." org.eventb.core.identifier="vehicle_id"/>
 <org.eventb.core.guard name="/" org.eventb.core.label="grd5_2" org.eventb.core.predicate="vehicle_id ∈ auth_on_ids"/>
 <org.eventb.core.action name="0" org.eventb.core.assignment="auth_on_ids ≔ auth_on_ids∖{vehicle_id}" org.eventb.core.comment="prevents two people to use the same id" org.eventb.core.label="act2_2"/>
+<org.eventb.core.parameter name="1" org.eventb.core.identifier="vehicle_type"/>
+<org.eventb.core.guard name="2" org.eventb.core.label="grd1_2" org.eventb.core.predicate="vehicle_type ∈ VEHICLE_TYPES"/>
+<org.eventb.core.guard name="3" org.eventb.core.label="grd2_2" org.eventb.core.predicate="reservations(vehicle_id)∈{f↦v∣f∈floors ∧ v=vehicle_type}"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="S" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="LeaveLift">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="LeaveLift"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd3_1" org.eventb.core.predicate="lift_level = 1"/>
 <org.eventb.core.parameter name="'" org.eventb.core.identifier="vehicle_type"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd1_2" org.eventb.core.predicate="vehicle_type ∈ VEHICLE_TYPES"/>
 <org.eventb.core.guard name=")" org.eventb.core.label="grd2_2" org.eventb.core.predicate="bs_m &gt; 0 ∧ vehicle_slot(vehicle_type) ≤ bs_m"/>
 <org.eventb.core.action name="*" org.eventb.core.assignment="bs_m ≔ bs_m − vehicle_slot(vehicle_type)" org.eventb.core.label="act1_2"/>
 <org.eventb.core.witness name="+" org.eventb.core.label="at_once" org.eventb.core.predicate="at_once = vehicle_slot(vehicle_type)"/>
-<org.eventb.core.guard name="," org.eventb.core.label="grd3_1" org.eventb.core.predicate="lift_level = 1"/>
 </org.eventb.core.event>
 <org.eventb.core.seesContext name="V" org.eventb.core.target="secondRef_ctx"/>
 <org.eventb.core.variable name="W" org.eventb.core.comment="all reservations" org.eventb.core.identifier="reservations"/>
 <org.eventb.core.invariant name="X" org.eventb.core.label="inv2_2" org.eventb.core.predicate="reservations ∈ (ℕ ⇸ (floors×VEHICLE_TYPES))"/>
-<org.eventb.core.variable name="Y" org.eventb.core.comment="next assigned id (can't be last_id at the start)" org.eventb.core.identifier="next_reservation_id"/>
-<org.eventb.core.invariant name="Z" org.eventb.core.label="inv3_2" org.eventb.core.predicate="next_reservation_id ∈ ℕ"/>
 <org.eventb.core.event name="[" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Reserve">
 <org.eventb.core.parameter name="'" org.eventb.core.identifier="vehicle_type"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd1_2" org.eventb.core.predicate="vehicle_type ∈ VEHICLE_TYPES"/>
 <org.eventb.core.parameter name=")" org.eventb.core.identifier="floor"/>
-<org.eventb.core.guard name="*" org.eventb.core.comment="remplir voiture" org.eventb.core.label="grd2_2" org.eventb.core.predicate="vehicle_type = voiture ⇒ (∀f·f∈floors∧f&gt;floor ⇒ reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f))"/>
-<org.eventb.core.guard name="+" org.eventb.core.label="grd3_2" org.eventb.core.predicate="floor∈{1,2,3}"/>
-<org.eventb.core.guard name="," org.eventb.core.comment="remplir camions" org.eventb.core.label="grd4_2" org.eventb.core.predicate="vehicle_type ≠ voiture ⇒ (∀f·f∈floors∧f&lt;floor ⇒ reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f))"/>
-<org.eventb.core.action name="-" org.eventb.core.assignment="reservations(next_reservation_id) ≔ (floor↦vehicle_type)" org.eventb.core.label="act1_2"/>
+<org.eventb.core.guard name="*" org.eventb.core.comment="remplir voiture" org.eventb.core.label="grd2_2" org.eventb.core.predicate="(vehicle_type = voiture) ⇒ (∀f·f∈floors∧f&gt;floor ⇒ (reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f)))"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd3_2" org.eventb.core.predicate="floor∈floors"/>
+<org.eventb.core.guard name="," org.eventb.core.comment="remplir camions" org.eventb.core.label="grd4_2" org.eventb.core.predicate="(vehicle_type ≠ voiture) ⇒ (∀f·f∈floors∧f&lt;floor ⇒ (reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f)))"/>
+<org.eventb.core.action name="-" org.eventb.core.assignment="reservations(card(reservations)+1) ≔ (floor↦vehicle_type)" org.eventb.core.label="act1_2"/>
 <org.eventb.core.action name="." org.eventb.core.assignment="reserved_spaces(floor) ≔ reserved_spaces(floor) + vehicle_slot(vehicle_type)" org.eventb.core.label="act2_2"/>
 <org.eventb.core.guard name="/" org.eventb.core.label="grd5_2" org.eventb.core.predicate="reserved_spaces(floor) + vehicle_slot(vehicle_type) ≤ max_bs_p(floor)"/>
-<org.eventb.core.action name="0" org.eventb.core.assignment="next_reservation_id ≔ next_reservation_id + 1" org.eventb.core.label="act3_2"/>
 </org.eventb.core.event>
 <org.eventb.core.invariant name="_" org.eventb.core.comment="returns equivalent of bs_p for reservations" org.eventb.core.label="inv5_2" org.eventb.core.predicate="reserved_spaces∈(floors → ℕ)"/>
 <org.eventb.core.seesContext name="`" org.eventb.core.target="firstRef_ctx"/>
 <org.eventb.core.variable name="a" org.eventb.core.comment="function of space/floor" org.eventb.core.identifier="reserved_spaces"/>
-<org.eventb.core.invariant name="b" org.eventb.core.label="inv6_2" org.eventb.core.predicate="∀f·f∈floors ⇒ reserved_spaces(f) ≤ max_bs_p(f)"/>
 <org.eventb.core.event name="c" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Vehicle_auth_on">
 <org.eventb.core.guard name="'" org.eventb.core.label="grd1_2" org.eventb.core.predicate="vehicle_type ∈ VEHICLE_TYPES"/>
 <org.eventb.core.parameter name="(" org.eventb.core.identifier="vehicle_id"/>
@@ -104,8 +102,8 @@
 <org.eventb.core.guard name="+" org.eventb.core.label="grd3_2" org.eventb.core.predicate="reservations(vehicle_id)∈{f↦v∣f∈floors ∧ v=vehicle_type}"/>
 <org.eventb.core.action name="," org.eventb.core.assignment="auth_on_ids ≔ auth_on_ids ∪ {vehicle_id}" org.eventb.core.label="act1_2"/>
 <org.eventb.core.guard name="-" org.eventb.core.comment="checks all conditions for user to be authorized on" org.eventb.core.label="grd4_2" org.eventb.core.predicate="lift_level = 1"/>
+<org.eventb.core.guard name="." org.eventb.core.label="grd5_2" org.eventb.core.predicate="vehicle_id ∉ auth_on_ids"/>
 </org.eventb.core.event>
 <org.eventb.core.variable name="d" org.eventb.core.identifier="auth_on_ids"/>
-<org.eventb.core.invariant name="^" org.eventb.core.label="inv7_2" org.eventb.core.predicate="next_reservation_id ∉ dom(reservations)"/>
-<org.eventb.core.invariant name="e" org.eventb.core.label="inv8_2" org.eventb.core.predicate="auth_on_ids ⊂ ℕ"/>
+<org.eventb.core.invariant name="e" org.eventb.core.label="inv8_2" org.eventb.core.predicate="auth_on_ids ⊆ ℕ"/>
 </org.eventb.core.machineFile>
