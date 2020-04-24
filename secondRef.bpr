@@ -6115,16 +6115,16 @@
 <org.eventb.core.lang name="L"/>
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3}))" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p28" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37,p38,p39,p40,p41,p42,p43"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p29" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37,p38,p39,p40,p41,p42,p43"/>
 <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p37,p38,p39,p40,p41,p42,p43"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p21" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44,p45"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p27" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p46"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p23" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44,p45"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p46"/>
 <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
 <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p47"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p29,p4,p22,p18,p15,p2,p24,p8,p1,p3,p34,p25,p31,p16,p5,p14,p19,p17,p35,p9,p7,p20,p36,p23,p33,p10,p12,p13,p30,p11,p26,p6,p32,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46">
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p30,p5,p24,p20,p16,p2,p26,p9,p1,p3,p34,p27,p32,p17,p6,p15,p21,p18,p35,p10,p8,p22,p36,p25,p4,p11,p13,p14,p31,p12,p28,p7,p33,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
@@ -6157,53 +6157,53 @@
 <org.eventb.core.prPred name="p40" org.eventb.core.predicate="¬voiture=camion_3"/>
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="busy_slots∈ℕ"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="∀x⦂ℤ·x∈floors⇒bs_p(x)≤max_bs_p(x)"/>
-<org.eventb.core.prPred name="p4" org.eventb.core.predicate="ran(vehicle_slot)={1,2,3}"/>
-<org.eventb.core.prPred name="p5" org.eventb.core.predicate="3∈dom(max_bs_p)"/>
-<org.eventb.core.prPred name="p6" org.eventb.core.predicate="floor∈dom(max_bs_p)"/>
-<org.eventb.core.prPred name="p46" org.eventb.core.predicate="¬vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f))"/>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="lift_level∈floors∪{0}"/>
-<org.eventb.core.prPred name="p8" org.eventb.core.predicate="max_bs_p∈floors → ℕ"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="3∈dom(bs_p)"/>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="floor∈floors"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&gt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)&gt;max_bs_p(f))"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="ran(vehicle_slot)={1,2,3}"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="3∈dom(max_bs_p)"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="floor∈dom(max_bs_p)"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="lift_level∈floors∪{0}"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="max_bs_p∈floors → ℕ"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="3∈dom(bs_p)"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="floor∈floors"/>
 <org.eventb.core.prPred name="p39" org.eventb.core.predicate="¬voiture=camion_2"/>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="vehicle_type∈dom(vehicle_slot)"/>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="reserved_spaces(floor)+vehicle_slot(vehicle_type)≤max_bs_p(floor)"/>
-<org.eventb.core.prPred name="p13" org.eventb.core.predicate="floor∈dom(reserved_spaces)"/>
-<org.eventb.core.prPred name="p14" org.eventb.core.predicate="busy_slots=bs_p(1)+bs_p(2)+bs_p(3)"/>
-<org.eventb.core.prPred name="p15" org.eventb.core.predicate="max_busy_slots∈ℕ"/>
-<org.eventb.core.prPred name="p16" org.eventb.core.predicate="2∈dom(max_bs_p)"/>
-<org.eventb.core.prPred name="p17" org.eventb.core.predicate="bs_p∈ℤ ⇸ ℤ"/>
-<org.eventb.core.prPred name="p18" org.eventb.core.predicate="floors={1,2,3}"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="vehicle_type∈dom(vehicle_slot)"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="reserved_spaces(floor)+vehicle_slot(vehicle_type)≤max_bs_p(floor)"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="floor∈dom(reserved_spaces)"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="busy_slots=bs_p(1)+bs_p(2)+bs_p(3)"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="max_busy_slots∈ℕ"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="2∈dom(max_bs_p)"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="bs_p∈ℤ ⇸ ℤ"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="vehicle_type≠voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)&gt;max_bs_p(f))"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="floors={1,2,3}"/>
 <org.eventb.core.prPred name="p45" org.eventb.core.predicate="bs_m≤max_bs_m"/>
 <org.eventb.core.prPred name="p43" org.eventb.core.predicate="¬camion_2=camion_3"/>
-<org.eventb.core.prPred name="p19" org.eventb.core.predicate="1∈dom(bs_p)"/>
-<org.eventb.core.prPred name="p20" org.eventb.core.predicate="reservations∈ℕ ⇸ floors × VEHICLE_TYPES"/>
-<org.eventb.core.prPred name="p21" org.eventb.core.predicate="bs_m∈ℕ∧bs_m≤max_bs_m"/>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="1∈dom(bs_p)"/>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="reservations∈ℕ ⇸ floors × VEHICLE_TYPES"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="bs_m∈ℕ∧bs_m≤max_bs_m"/>
 <org.eventb.core.prPred name="p38" org.eventb.core.predicate="¬voiture=camion_1"/>
 <org.eventb.core.prPred name="p42" org.eventb.core.predicate="¬camion_1=camion_3"/>
-<org.eventb.core.prPred name="p22" org.eventb.core.predicate="max_bs_m=6"/>
-<org.eventb.core.prPred name="p23" org.eventb.core.predicate="auth_on_ids⊆ℕ"/>
-<org.eventb.core.prPred name="p24" org.eventb.core.predicate="busy_slots≤max_busy_slots"/>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="max_bs_m=6"/>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="auth_on_ids⊆ℕ"/>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="busy_slots≤max_busy_slots"/>
 <org.eventb.core.prPred name="p47" org.eventb.core.predicate="vehicle_type∈VEHICLE_TYPES"/>
-<org.eventb.core.prPred name="p25" org.eventb.core.predicate="1∈dom(max_bs_p)"/>
-<org.eventb.core.prPred name="p26" org.eventb.core.predicate="vehicle_slot∈VEHICLE_TYPES ⇸ ℤ"/>
-<org.eventb.core.prPred name="p27" org.eventb.core.predicate="vehicle_type≠voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f))"/>
-<org.eventb.core.prPred name="p28" org.eventb.core.predicate="partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3})"/>
-<org.eventb.core.prPred name="p29" org.eventb.core.predicate="vehicle_slot={voiture ↦ 1,camion_1 ↦ 1,camion_2 ↦ 2,camion_3 ↦ 3}"/>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="1∈dom(max_bs_p)"/>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="vehicle_slot∈VEHICLE_TYPES ⇸ ℤ"/>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3})"/>
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="vehicle_slot={voiture ↦ 1,camion_1 ↦ 1,camion_2 ↦ 2,camion_3 ↦ 3}"/>
 <org.eventb.core.prPred name="p41" org.eventb.core.predicate="¬camion_1=camion_2"/>
-<org.eventb.core.prPred name="p30" org.eventb.core.predicate="reserved_spaces∈ℤ ⇸ ℤ"/>
-<org.eventb.core.prPred name="p31" org.eventb.core.predicate="max_bs_p∈ℤ ⇸ ℤ"/>
-<org.eventb.core.prPred name="p32" org.eventb.core.predicate="finite(reservations)"/>
-<org.eventb.core.prPred name="p33" org.eventb.core.predicate="vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&gt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f))"/>
+<org.eventb.core.prPred name="p31" org.eventb.core.predicate="reserved_spaces∈ℤ ⇸ ℤ"/>
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="max_bs_p∈ℤ ⇸ ℤ"/>
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="finite(reservations)"/>
+<org.eventb.core.prPred name="p46" org.eventb.core.predicate="¬vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)&gt;max_bs_p(f))"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="reservations{card(reservations)+1 ↦ (floor ↦ vehicle_type)}∈ℕ ⇸ floors × VEHICLE_TYPES"/>
 <org.eventb.core.prPred name="p34" org.eventb.core.predicate="max_busy_slots=max_bs_p(1)+max_bs_p(2)+max_bs_p(3)"/>
 <org.eventb.core.prPred name="p35" org.eventb.core.predicate="2∈dom(bs_p)"/>
 <org.eventb.core.prPred name="p36" org.eventb.core.predicate="reserved_spaces∈floors → ℕ"/>
 <org.eventb.core.prPred name="p44" org.eventb.core.predicate="bs_m∈ℕ"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="Reserve/inv4_2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="floor0" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32" org.eventb.core.prSets="VEHICLE_TYPES">
 <org.eventb.core.lang name="L"/>
@@ -6332,20 +6332,20 @@
 <org.eventb.core.prReas name="r5" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
 </org.eventb.core.prProof>
-<org.eventb.core.prProof name="Reserve/inv5_2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34" org.eventb.core.prSets="VEHICLE_TYPES">
+<org.eventb.core.prProof name="Reserve/inv5_2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35" org.eventb.core.prSets="VEHICLE_TYPES">
 <org.eventb.core.lang name="L"/>
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3}))" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p27" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p35,p36,p37,p38,p39,p40,p41"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p35,p36,p37,p38,p39,p40,p41"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p29" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36,p37,p38,p39,p40,p41,p42"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p36,p37,p38,p39,p40,p41,p42"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42,p43"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p26" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p44"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p23" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p43,p44"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p45"/>
 <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p45"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p28,p4,p21,p17,p14,p2,p23,p8,p1,p3,p32,p24,p30,p15,p5,p13,p18,p16,p33,p9,p7,p19,p34,p22,p31,p11,p12,p29,p10,p25,p6,p35,p36,p37,p38,p39,p40,p41,p42,p43,p44">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p46"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p30,p5,p24,p20,p16,p2,p26,p9,p1,p3,p33,p27,p32,p17,p6,p15,p21,p18,p34,p10,p8,p22,p35,p25,p4,p11,p13,p14,p31,p12,p28,p7,p36,p37,p38,p39,p40,p41,p42,p43,p44,p45">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
@@ -6374,55 +6374,56 @@
 <org.eventb.core.prIdent name="vehicle_type" org.eventb.core.type="VEHICLE_TYPES"/>
 <org.eventb.core.prIdent name="voiture" org.eventb.core.type="VEHICLE_TYPES"/>
 <org.eventb.core.prPred name="p1" org.eventb.core.predicate="bs_p∈floors → ℕ"/>
-<org.eventb.core.prPred name="p35" org.eventb.core.predicate="VEHICLE_TYPES={voiture,camion_1,camion_2,camion_3}"/>
-<org.eventb.core.prPred name="p38" org.eventb.core.predicate="¬voiture=camion_3"/>
+<org.eventb.core.prPred name="p36" org.eventb.core.predicate="VEHICLE_TYPES={voiture,camion_1,camion_2,camion_3}"/>
+<org.eventb.core.prPred name="p39" org.eventb.core.predicate="¬voiture=camion_3"/>
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="busy_slots∈ℕ"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="∀x⦂ℤ·x∈floors⇒bs_p(x)≤max_bs_p(x)"/>
-<org.eventb.core.prPred name="p4" org.eventb.core.predicate="ran(vehicle_slot)={1,2,3}"/>
-<org.eventb.core.prPred name="p5" org.eventb.core.predicate="3∈dom(max_bs_p)"/>
-<org.eventb.core.prPred name="p6" org.eventb.core.predicate="floor∈dom(max_bs_p)"/>
-<org.eventb.core.prPred name="p44" org.eventb.core.predicate="¬vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f))"/>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="lift_level∈floors∪{0}"/>
-<org.eventb.core.prPred name="p8" org.eventb.core.predicate="max_bs_p∈floors → ℕ"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="3∈dom(bs_p)"/>
-<org.eventb.core.prPred name="p37" org.eventb.core.predicate="¬voiture=camion_2"/>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="vehicle_type∈dom(vehicle_slot)"/>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="reserved_spaces(floor)+vehicle_slot(vehicle_type)≤max_bs_p(floor)"/>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="floor∈dom(reserved_spaces)"/>
-<org.eventb.core.prPred name="p13" org.eventb.core.predicate="busy_slots=bs_p(1)+bs_p(2)+bs_p(3)"/>
-<org.eventb.core.prPred name="p14" org.eventb.core.predicate="max_busy_slots∈ℕ"/>
-<org.eventb.core.prPred name="p15" org.eventb.core.predicate="2∈dom(max_bs_p)"/>
-<org.eventb.core.prPred name="p16" org.eventb.core.predicate="bs_p∈ℤ ⇸ ℤ"/>
-<org.eventb.core.prPred name="p17" org.eventb.core.predicate="floors={1,2,3}"/>
-<org.eventb.core.prPred name="p43" org.eventb.core.predicate="bs_m≤max_bs_m"/>
-<org.eventb.core.prPred name="p41" org.eventb.core.predicate="¬camion_2=camion_3"/>
-<org.eventb.core.prPred name="p18" org.eventb.core.predicate="1∈dom(bs_p)"/>
-<org.eventb.core.prPred name="p19" org.eventb.core.predicate="reservations∈ℕ ⇸ floors × VEHICLE_TYPES"/>
-<org.eventb.core.prPred name="p20" org.eventb.core.predicate="bs_m∈ℕ∧bs_m≤max_bs_m"/>
-<org.eventb.core.prPred name="p36" org.eventb.core.predicate="¬voiture=camion_1"/>
-<org.eventb.core.prPred name="p40" org.eventb.core.predicate="¬camion_1=camion_3"/>
-<org.eventb.core.prPred name="p21" org.eventb.core.predicate="max_bs_m=6"/>
-<org.eventb.core.prPred name="p22" org.eventb.core.predicate="auth_on_ids⊆ℕ"/>
-<org.eventb.core.prPred name="p23" org.eventb.core.predicate="busy_slots≤max_busy_slots"/>
-<org.eventb.core.prPred name="p45" org.eventb.core.predicate="vehicle_type∈VEHICLE_TYPES"/>
-<org.eventb.core.prPred name="p24" org.eventb.core.predicate="1∈dom(max_bs_p)"/>
-<org.eventb.core.prPred name="p25" org.eventb.core.predicate="vehicle_slot∈VEHICLE_TYPES ⇸ ℤ"/>
-<org.eventb.core.prPred name="p26" org.eventb.core.predicate="vehicle_type≠voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f))"/>
-<org.eventb.core.prPred name="p27" org.eventb.core.predicate="partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3})"/>
-<org.eventb.core.prPred name="p28" org.eventb.core.predicate="vehicle_slot={voiture ↦ 1,camion_1 ↦ 1,camion_2 ↦ 2,camion_3 ↦ 3}"/>
-<org.eventb.core.prPred name="p39" org.eventb.core.predicate="¬camion_1=camion_2"/>
-<org.eventb.core.prPred name="p29" org.eventb.core.predicate="reserved_spaces∈ℤ ⇸ ℤ"/>
-<org.eventb.core.prPred name="p30" org.eventb.core.predicate="max_bs_p∈ℤ ⇸ ℤ"/>
-<org.eventb.core.prPred name="p31" org.eventb.core.predicate="vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&gt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f))"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&gt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)&gt;max_bs_p(f))"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="ran(vehicle_slot)={1,2,3}"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="3∈dom(max_bs_p)"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="floor∈dom(max_bs_p)"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="lift_level∈floors∪{0}"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="max_bs_p∈floors → ℕ"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="3∈dom(bs_p)"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="floor∈floors"/>
+<org.eventb.core.prPred name="p38" org.eventb.core.predicate="¬voiture=camion_2"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="vehicle_type∈dom(vehicle_slot)"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="reserved_spaces(floor)+vehicle_slot(vehicle_type)≤max_bs_p(floor)"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="floor∈dom(reserved_spaces)"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="busy_slots=bs_p(1)+bs_p(2)+bs_p(3)"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="max_busy_slots∈ℕ"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="2∈dom(max_bs_p)"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="bs_p∈ℤ ⇸ ℤ"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="vehicle_type≠voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)&gt;max_bs_p(f))"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="floors={1,2,3}"/>
+<org.eventb.core.prPred name="p44" org.eventb.core.predicate="bs_m≤max_bs_m"/>
+<org.eventb.core.prPred name="p42" org.eventb.core.predicate="¬camion_2=camion_3"/>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="1∈dom(bs_p)"/>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="reservations∈ℕ ⇸ floors × VEHICLE_TYPES"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="bs_m∈ℕ∧bs_m≤max_bs_m"/>
+<org.eventb.core.prPred name="p37" org.eventb.core.predicate="¬voiture=camion_1"/>
+<org.eventb.core.prPred name="p41" org.eventb.core.predicate="¬camion_1=camion_3"/>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="max_bs_m=6"/>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="auth_on_ids⊆ℕ"/>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="busy_slots≤max_busy_slots"/>
+<org.eventb.core.prPred name="p46" org.eventb.core.predicate="vehicle_type∈VEHICLE_TYPES"/>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="1∈dom(max_bs_p)"/>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="vehicle_slot∈VEHICLE_TYPES ⇸ ℤ"/>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3})"/>
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="vehicle_slot={voiture ↦ 1,camion_1 ↦ 1,camion_2 ↦ 2,camion_3 ↦ 3}"/>
+<org.eventb.core.prPred name="p40" org.eventb.core.predicate="¬camion_1=camion_2"/>
+<org.eventb.core.prPred name="p31" org.eventb.core.predicate="reserved_spaces∈ℤ ⇸ ℤ"/>
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="max_bs_p∈ℤ ⇸ ℤ"/>
+<org.eventb.core.prPred name="p45" org.eventb.core.predicate="¬vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)&gt;max_bs_p(f))"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="reserved_spaces{floor ↦ reserved_spaces(floor)+vehicle_slot(vehicle_type)}∈floors → ℕ"/>
-<org.eventb.core.prPred name="p32" org.eventb.core.predicate="max_busy_slots=max_bs_p(1)+max_bs_p(2)+max_bs_p(3)"/>
-<org.eventb.core.prPred name="p33" org.eventb.core.predicate="2∈dom(bs_p)"/>
-<org.eventb.core.prPred name="p34" org.eventb.core.predicate="reserved_spaces∈floors → ℕ"/>
-<org.eventb.core.prPred name="p42" org.eventb.core.predicate="bs_m∈ℕ"/>
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="max_busy_slots=max_bs_p(1)+max_bs_p(2)+max_bs_p(3)"/>
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="2∈dom(bs_p)"/>
+<org.eventb.core.prPred name="p35" org.eventb.core.predicate="reserved_spaces∈floors → ℕ"/>
+<org.eventb.core.prPred name="p43" org.eventb.core.predicate="bs_m∈ℕ"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="inv4_2/THM" org.eventb.core.confidence="0" org.eventb.core.prFresh="floor" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="" org.eventb.core.prSets="VEHICLE_TYPES">
 <org.eventb.core.lang name="L"/>
@@ -10987,22 +10988,22 @@
 <org.eventb.core.lang name="L"/>
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3}))" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p23" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p30,p31,p32,p33,p34,p35,p36"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p24" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p30,p31,p32,p33,p34,p35,p36"/>
 <org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p30,p31,p32,p33,p34,p35,p36"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p25">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p26">
 <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p37">
 <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p37" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p41">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38,p39"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p22" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38,p39"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
 <org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
 <org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p42"/>
 <org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p41" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p43">
 <org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p43" org.eventb.core.prHyps="p29">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
-<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="p9"/>
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10">
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p10"/>
 </org.eventb.core.prAnte>
 <org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
 <org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
@@ -11012,19 +11013,19 @@
 <org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p44" org.eventb.core.prHyps="p29"/>
 </org.eventb.core.prAnte>
 <org.eventb.core.prAnte name=")" org.eventb.core.prGoal="p45">
-<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p45" org.eventb.core.prHyps="p24,p4,p18,p14,p11,p2,p20,p7,p1,p3,p27,p21,p25,p12,p5,p10,p15,p13,p28,p8,p6,p16,p29,p19,p26,p9,p30,p31,p32,p33,p34,p35,p36,p38,p39,p40">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p45" org.eventb.core.prHyps="p25,p5,p20,p16,p12,p2,p22,p8,p1,p3,p27,p23,p26,p13,p6,p11,p17,p14,p28,p9,p7,p18,p29,p21,p4,p10,p30,p31,p32,p33,p34,p35,p36,p38,p39,p40">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 <org.eventb.core.prAnte name="*" org.eventb.core.prGoal="p46">
-<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p46" org.eventb.core.prHyps="p24,p4,p18,p14,p11,p2,p20,p7,p1,p3,p27,p21,p25,p12,p5,p10,p15,p13,p28,p8,p6,p16,p29,p19,p26,p9,p30,p31,p32,p33,p34,p35,p36,p38,p39,p40">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p46" org.eventb.core.prHyps="p25,p5,p20,p16,p12,p2,p22,p8,p1,p3,p27,p23,p26,p13,p6,p11,p17,p14,p28,p9,p7,p18,p29,p21,p4,p10,p30,p31,p32,p33,p34,p35,p36,p38,p39,p40">
 <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 <org.eventb.core.prAnte name="+" org.eventb.core.prGoal="p47">
-<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p47" org.eventb.core.prHyps="p7">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p9">
-<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p9" org.eventb.core.prHyps="p9"/>
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p47" org.eventb.core.prHyps="p8">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10">
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p10"/>
 </org.eventb.core.prAnte>
 <org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
 <org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
@@ -11064,57 +11065,57 @@
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="busy_slots∈ℕ"/>
 <org.eventb.core.prPred name="p41" org.eventb.core.predicate="floor∈dom(reserved_spaces)∧reserved_spaces∈ℤ ⇸ ℤ∧vehicle_type∈dom(vehicle_slot)∧vehicle_slot∈VEHICLE_TYPES ⇸ ℤ∧floor∈dom(max_bs_p)"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="∀x⦂ℤ·x∈floors⇒bs_p(x)≤max_bs_p(x)"/>
-<org.eventb.core.prPred name="p4" org.eventb.core.predicate="ran(vehicle_slot)={1,2,3}"/>
-<org.eventb.core.prPred name="p5" org.eventb.core.predicate="3∈dom(max_bs_p)"/>
-<org.eventb.core.prPred name="p40" org.eventb.core.predicate="¬vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f))"/>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&gt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)&gt;max_bs_p(f))"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="ran(vehicle_slot)={1,2,3}"/>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="3∈dom(max_bs_p)"/>
 <org.eventb.core.prPred name="p47" org.eventb.core.predicate="floor∈dom(max_bs_p)"/>
-<org.eventb.core.prPred name="p6" org.eventb.core.predicate="lift_level∈floors∪{0}"/>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="max_bs_p∈floors → ℕ"/>
-<org.eventb.core.prPred name="p8" org.eventb.core.predicate="3∈dom(bs_p)"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="floor∈floors"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="lift_level∈floors∪{0}"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="max_bs_p∈floors → ℕ"/>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="3∈dom(bs_p)"/>
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="floor∈floors"/>
 <org.eventb.core.prPred name="p32" org.eventb.core.predicate="¬voiture=camion_2"/>
 <org.eventb.core.prPred name="p45" org.eventb.core.predicate="vehicle_type∈dom(vehicle_slot)"/>
 <org.eventb.core.prPred name="p43" org.eventb.core.predicate="floor∈dom(reserved_spaces)"/>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="busy_slots=bs_p(1)+bs_p(2)+bs_p(3)"/>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="max_busy_slots∈ℕ"/>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="2∈dom(max_bs_p)"/>
-<org.eventb.core.prPred name="p13" org.eventb.core.predicate="bs_p∈ℤ ⇸ ℤ"/>
-<org.eventb.core.prPred name="p14" org.eventb.core.predicate="floors={1,2,3}"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="busy_slots=bs_p(1)+bs_p(2)+bs_p(3)"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="max_busy_slots∈ℕ"/>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="2∈dom(max_bs_p)"/>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="bs_p∈ℤ ⇸ ℤ"/>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="vehicle_type≠voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)&gt;max_bs_p(f))"/>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="floors={1,2,3}"/>
 <org.eventb.core.prPred name="p39" org.eventb.core.predicate="bs_m≤max_bs_m"/>
 <org.eventb.core.prPred name="p36" org.eventb.core.predicate="¬camion_2=camion_3"/>
-<org.eventb.core.prPred name="p15" org.eventb.core.predicate="1∈dom(bs_p)"/>
-<org.eventb.core.prPred name="p16" org.eventb.core.predicate="reservations∈ℕ ⇸ floors × VEHICLE_TYPES"/>
-<org.eventb.core.prPred name="p17" org.eventb.core.predicate="bs_m∈ℕ∧bs_m≤max_bs_m"/>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="1∈dom(bs_p)"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="reservations∈ℕ ⇸ floors × VEHICLE_TYPES"/>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="bs_m∈ℕ∧bs_m≤max_bs_m"/>
 <org.eventb.core.prPred name="p31" org.eventb.core.predicate="¬voiture=camion_1"/>
 <org.eventb.core.prPred name="p35" org.eventb.core.predicate="¬camion_1=camion_3"/>
-<org.eventb.core.prPred name="p18" org.eventb.core.predicate="max_bs_m=6"/>
-<org.eventb.core.prPred name="p19" org.eventb.core.predicate="auth_on_ids⊆ℕ"/>
-<org.eventb.core.prPred name="p20" org.eventb.core.predicate="busy_slots≤max_busy_slots"/>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="max_bs_m=6"/>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="auth_on_ids⊆ℕ"/>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="busy_slots≤max_busy_slots"/>
 <org.eventb.core.prPred name="p42" org.eventb.core.predicate="vehicle_type∈VEHICLE_TYPES"/>
-<org.eventb.core.prPred name="p21" org.eventb.core.predicate="1∈dom(max_bs_p)"/>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="1∈dom(max_bs_p)"/>
 <org.eventb.core.prPred name="p46" org.eventb.core.predicate="vehicle_slot∈VEHICLE_TYPES ⇸ ℤ"/>
-<org.eventb.core.prPred name="p22" org.eventb.core.predicate="vehicle_type≠voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f))"/>
-<org.eventb.core.prPred name="p23" org.eventb.core.predicate="partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3})"/>
-<org.eventb.core.prPred name="p24" org.eventb.core.predicate="vehicle_slot={voiture ↦ 1,camion_1 ↦ 1,camion_2 ↦ 2,camion_3 ↦ 3}"/>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3})"/>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="vehicle_slot={voiture ↦ 1,camion_1 ↦ 1,camion_2 ↦ 2,camion_3 ↦ 3}"/>
 <org.eventb.core.prPred name="p34" org.eventb.core.predicate="¬camion_1=camion_2"/>
 <org.eventb.core.prPred name="p44" org.eventb.core.predicate="reserved_spaces∈ℤ ⇸ ℤ"/>
-<org.eventb.core.prPred name="p25" org.eventb.core.predicate="max_bs_p∈ℤ ⇸ ℤ"/>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="max_bs_p∈ℤ ⇸ ℤ"/>
 <org.eventb.core.prPred name="p37" org.eventb.core.predicate="floor∈dom(reserved_spaces)∧reserved_spaces∈ℤ ⇸ ℤ∧vehicle_type∈dom(vehicle_slot)∧vehicle_slot∈VEHICLE_TYPES ⇸ ℤ∧floor∈dom(max_bs_p)∧⊤"/>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="floor∈dom(reserved_spaces)∧reserved_spaces∈ℤ ⇸ ℤ∧vehicle_type∈dom(vehicle_slot)∧vehicle_slot∈VEHICLE_TYPES ⇸ ℤ∧floor∈dom(max_bs_p)∧max_bs_p∈ℤ ⇸ ℤ"/>
-<org.eventb.core.prPred name="p26" org.eventb.core.predicate="vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&gt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f))"/>
+<org.eventb.core.prPred name="p40" org.eventb.core.predicate="¬vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)&gt;max_bs_p(f))"/>
 <org.eventb.core.prPred name="p27" org.eventb.core.predicate="max_busy_slots=max_bs_p(1)+max_bs_p(2)+max_bs_p(3)"/>
 <org.eventb.core.prPred name="p28" org.eventb.core.predicate="2∈dom(bs_p)"/>
 <org.eventb.core.prPred name="p29" org.eventb.core.predicate="reserved_spaces∈floors → ℕ"/>
 <org.eventb.core.prPred name="p38" org.eventb.core.predicate="bs_m∈ℕ"/>
 <org.eventb.core.prExpr name="e0" org.eventb.core.expression="floors"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
 <org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
 <org.eventb.core.prReas name="r8" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-<org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="Vehicle_auth_on/grd3_2/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="VEHICLE_TYPES">
@@ -12362,26 +12363,6 @@
 <org.eventb.core.prIdent name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
 <org.eventb.core.prIdent name="vehicle_type" org.eventb.core.type="VEHICLE_TYPES"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f))">
-<org.eventb.core.prIdent name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
-<org.eventb.core.prIdent name="floor" org.eventb.core.type="ℤ"/>
-<org.eventb.core.prIdent name="floors" org.eventb.core.type="ℙ(ℤ)"/>
-<org.eventb.core.prIdent name="max_bs_p" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
-<org.eventb.core.prIdent name="reserved_spaces" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
-<org.eventb.core.prIdent name="vehicle_slot" org.eventb.core.type="ℙ(VEHICLE_TYPES×ℤ)"/>
-<org.eventb.core.prIdent name="vehicle_type" org.eventb.core.type="VEHICLE_TYPES"/>
-<org.eventb.core.prIdent name="voiture" org.eventb.core.type="VEHICLE_TYPES"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="vehicle_type≠voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)≥max_bs_p(f))">
-<org.eventb.core.prIdent name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
-<org.eventb.core.prIdent name="floor" org.eventb.core.type="ℤ"/>
-<org.eventb.core.prIdent name="floors" org.eventb.core.type="ℙ(ℤ)"/>
-<org.eventb.core.prIdent name="max_bs_p" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
-<org.eventb.core.prIdent name="reserved_spaces" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
-<org.eventb.core.prIdent name="vehicle_slot" org.eventb.core.type="ℙ(VEHICLE_TYPES×ℤ)"/>
-<org.eventb.core.prIdent name="vehicle_type" org.eventb.core.type="VEHICLE_TYPES"/>
-<org.eventb.core.prIdent name="voiture" org.eventb.core.type="VEHICLE_TYPES"/>
-</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p0" org.eventb.core.predicate="partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3})">
 <org.eventb.core.prIdent name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
 <org.eventb.core.prIdent name="camion_1" org.eventb.core.type="VEHICLE_TYPES"/>
@@ -12399,16 +12380,36 @@
 <org.eventb.core.prIdent name="camion_1" org.eventb.core.type="VEHICLE_TYPES"/>
 <org.eventb.core.prIdent name="camion_2" org.eventb.core.type="VEHICLE_TYPES"/>
 </org.eventb.core.prPred>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="¬vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)&gt;max_bs_p(f))">
+<org.eventb.core.prIdent name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
+<org.eventb.core.prIdent name="floor" org.eventb.core.type="ℤ"/>
+<org.eventb.core.prIdent name="floors" org.eventb.core.type="ℙ(ℤ)"/>
+<org.eventb.core.prIdent name="max_bs_p" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
+<org.eventb.core.prIdent name="reserved_spaces" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
+<org.eventb.core.prIdent name="vehicle_slot" org.eventb.core.type="ℙ(VEHICLE_TYPES×ℤ)"/>
+<org.eventb.core.prIdent name="vehicle_type" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prIdent name="voiture" org.eventb.core.type="VEHICLE_TYPES"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p9" org.eventb.core.predicate="bs_m∈ℕ">
 <org.eventb.core.prIdent name="bs_m" org.eventb.core.type="ℤ"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="vehicle_type≠voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)&gt;max_bs_p(f))">
+<org.eventb.core.prIdent name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
+<org.eventb.core.prIdent name="floor" org.eventb.core.type="ℤ"/>
+<org.eventb.core.prIdent name="floors" org.eventb.core.type="ℙ(ℤ)"/>
+<org.eventb.core.prIdent name="max_bs_p" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
+<org.eventb.core.prIdent name="reserved_spaces" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
+<org.eventb.core.prIdent name="vehicle_slot" org.eventb.core.type="ℙ(VEHICLE_TYPES×ℤ)"/>
+<org.eventb.core.prIdent name="vehicle_type" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prIdent name="voiture" org.eventb.core.type="VEHICLE_TYPES"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prPred name="p10" org.eventb.core.predicate="bs_m≤max_bs_m">
 <org.eventb.core.prIdent name="bs_m" org.eventb.core.type="ℤ"/>
 <org.eventb.core.prIdent name="max_bs_m" org.eventb.core.type="ℤ"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="BoardLift/grd2_2/WD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="VEHICLE_TYPES">
 <org.eventb.core.lang name="L"/>
@@ -12493,10 +12494,10 @@
 <org.eventb.core.prIdent name="max_bs_m" org.eventb.core.type="ℤ"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="Board/grd8_2/WD" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="VEHICLE_TYPES">
 <org.eventb.core.lang name="L"/>
@@ -12588,9 +12589,9 @@
 <org.eventb.core.prIdent name="max_bs_m" org.eventb.core.type="ℤ"/>
 </org.eventb.core.prPred>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 </org.eventb.core.prProof>
 </org.eventb.core.prFile>
