@@ -6,6 +6,6 @@
 <org.eventb.core.scConstant name="camion_1" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.constant#(" org.eventb.core.type="VEHICLE_TYPES"/>
 <org.eventb.core.scConstant name="camion_2" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.constant#*" org.eventb.core.type="VEHICLE_TYPES"/>
 <org.eventb.core.scConstant name="camion_3" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.constant#+" org.eventb.core.type="VEHICLE_TYPES"/>
-<org.eventb.core.scConstant de.prob.symbolic.symbolicAttribute="false" name="vehicle_slot" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.constant#-" org.eventb.core.type="ℙ(VEHICLE_TYPES×ℤ)"/>
+<org.eventb.core.scConstant name="vehicle_slot" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.constant#-" org.eventb.core.type="ℙ(VEHICLE_TYPES×ℤ)"/>
 <org.eventb.core.scConstant name="voiture" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.constant#'" org.eventb.core.type="VEHICLE_TYPES"/>
 </org.eventb.core.scContextFile>
