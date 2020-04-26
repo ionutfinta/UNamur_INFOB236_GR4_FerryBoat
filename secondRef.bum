@@ -118,4 +118,5 @@
 <org.eventb.core.invariant name="e" org.eventb.core.label="inv8_2" org.eventb.core.predicate="auth_on_ids ⊆ ℕ"/>
 <org.eventb.core.variable name="f" org.eventb.core.identifier="in_lift_ids"/>
 <org.eventb.core.invariant name="g" org.eventb.core.label="inv1_2" org.eventb.core.predicate="in_lift_ids ⊆ ℕ1"/>
+<org.eventb.core.seesContext name="h" org.eventb.core.target="sum_ctx"/>
 </org.eventb.core.machineFile>

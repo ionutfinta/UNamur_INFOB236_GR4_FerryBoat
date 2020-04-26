@@ -2,6 +2,6 @@
 <org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
 <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="'" org.eventb.core.identifier="max_bs_m"/>
 <org.eventb.core.axiom name="(" org.eventb.core.label="axm1_1" org.eventb.core.predicate="max_bs_m = 6"/>
-<org.eventb.core.axiom name="*" org.eventb.core.label="axm2_1" org.eventb.core.predicate="floors = {1,2,3}"/>
+<org.eventb.core.axiom name="*" org.eventb.core.label="axm2_1" org.eventb.core.predicate="floors = 1‥3"/>
 <org.eventb.core.constant name="+" org.eventb.core.identifier="floors"/>
 </org.eventb.core.contextFile>

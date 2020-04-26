@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.psFile>
-<org.eventb.core.psStatus name="inv3_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="inv4_1_glue1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="inv5_1_glue2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="INITIALISATION/inv1_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="INITIALISATION/inv2_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="INITIALISATION/inv3_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="INITIALISATION/inv4_1_glue1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="INITIALISATION/inv5_1_glue2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="INITIALISATION/inv6_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="INITIALISATION/inv8_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Boat_ready/grd2_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Boat_ready/grd3_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Boat_ready/inv1_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Boat_ready/inv3_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Boat_ready/inv4_1_glue1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Boat_ready/grd1/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Boat_ready/grd3/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Boat_ready/act1/SIM" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Boat_leave/inv1_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Boat_leave/inv2_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Boat_leave/inv3_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Boat_leave/inv4_1_glue1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Boat_leave/inv5_1_glue2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Board/grd5_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Board/inv2_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Board/inv3_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Board/inv5_1_glue2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Board/inv8_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Board/act2_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Unboard/grd5_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Unboard/inv2_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Unboard/inv3_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Unboard/inv5_1_glue2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Unboard/inv8_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Unboard/act3_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="MoveLift/inv6_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="BoardLift/inv8_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="LeaveLift/inv8_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="0" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="inv3_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="29" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="inv4_1_glue1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="inv5_1_glue2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv1_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="29" org.eventb.core.psManual="true"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv2_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="29" org.eventb.core.psManual="true"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv3_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="29" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv4_1_glue1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv5_1_glue2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv6_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="29" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv7_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="37" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_ready/grd3_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_ready/grd4_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_ready/total_capacity/WWD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_ready/inv1_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_ready/inv3_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_ready/inv4_1_glue1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_ready/grd1/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_ready/grd3/GRD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_ready/act1_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_ready/act1/SIM" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_leave/inv1_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_leave/inv2_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_leave/inv3_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_leave/inv4_1_glue1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Boat_leave/inv5_1_glue2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Board/grd5_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Board/inv2_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Board/inv3_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Board/inv5_1_glue2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Board/inv7_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="37" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Board/act2_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Unboard/grd5_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Unboard/inv2_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Unboard/inv3_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Unboard/inv5_1_glue2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Unboard/inv7_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="37" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Unboard/act3_1/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="MoveLift/inv6_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="36" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="BoardLift/inv7_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="37" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="LeaveLift/inv7_1/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="37" org.eventb.core.psManual="false"/>
 </org.eventb.core.psFile>

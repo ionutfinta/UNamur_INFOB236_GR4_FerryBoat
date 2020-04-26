@@ -11,16 +11,14 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="-" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Boat_ready">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Boat_ready"/>
-<org.eventb.core.parameter name=")" org.eventb.core.identifier="capacity_p1"/>
-<org.eventb.core.witness name="internal2" org.eventb.core.label="total_capacity" org.eventb.core.predicate="total_capacity = capacity_p1 + capacity_p2 + capacity_p3"/>
-<org.eventb.core.action name="internal3" org.eventb.core.assignment="max_busy_slots ≔ capacity_p1 + capacity_p2 + capacity_p3" org.eventb.core.label="act1_1"/>
-<org.eventb.core.guard name="+" org.eventb.core.label="grd0_1" org.eventb.core.predicate="capacity_p1 ∈ ℕ ∧ capacity_p2 ∈ ℕ ∧ capacity_p3 ∈ ℕ"/>
-<org.eventb.core.guard name="internal4" org.eventb.core.label="grd1_1" org.eventb.core.predicate="capacity_p1 + capacity_p2 + capacity_p3 &gt; 0"/>
-<org.eventb.core.parameter name="internal5" org.eventb.core.identifier="capacity_p2"/>
-<org.eventb.core.parameter name="internal6" org.eventb.core.identifier="capacity_p3"/>
-<org.eventb.core.guard name="," org.eventb.core.label="grd2_1" org.eventb.core.predicate="∀x·x∈floors ⇒ max_bs_p(x) = 0"/>
-<org.eventb.core.guard name="-" org.eventb.core.label="grd3_1" org.eventb.core.predicate="∀x·x∈floors ⇒ bs_p(x) = 0"/>
-<org.eventb.core.action name="(" org.eventb.core.assignment="max_bs_p ≔ {1↦capacity_p1,2↦capacity_p2,3↦capacity_p3}" org.eventb.core.label="act2_1"/>
+<org.eventb.core.parameter name=")" org.eventb.core.identifier="capacities"/>
+<org.eventb.core.witness name="internal2" org.eventb.core.label="total_capacity" org.eventb.core.predicate="total_capacity = sum_array_values(capacities)"/>
+<org.eventb.core.action name="internal3" org.eventb.core.assignment="max_busy_slots ≔ sum_array_values(capacities)" org.eventb.core.label="act1_1"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd1_1" org.eventb.core.predicate="capacities ∈ floors → ℕ"/>
+<org.eventb.core.guard name="internal4" org.eventb.core.label="grd2_1" org.eventb.core.predicate="ran(capacities) ≠ {0}"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd3_1" org.eventb.core.predicate="∀x·x∈floors ⇒ max_bs_p(x) = 0"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="grd4_1" org.eventb.core.predicate="∀x·x∈floors ⇒ bs_p(x) = 0"/>
+<org.eventb.core.action name="(" org.eventb.core.assignment="max_bs_p ≔ capacities" org.eventb.core.label="act2_1"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="." org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Boat_leave">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Boat_leave"/>
@@ -44,17 +42,17 @@
 <org.eventb.core.guard name="," org.eventb.core.label="grd5_1" org.eventb.core.predicate="unload_at_once ≤ bs_p(lift_level)"/>
 </org.eventb.core.event>
 <org.eventb.core.variable name="1" org.eventb.core.comment="maximum espace/pont" org.eventb.core.identifier="max_bs_p"/>
-<org.eventb.core.invariant name="2" org.eventb.core.label="inv1_1" org.eventb.core.predicate="max_bs_p ∈ (floors→ℕ)  "/>
+<org.eventb.core.invariant name="2" org.eventb.core.label="inv1_1" org.eventb.core.predicate="max_bs_p ∈ (floors→ℕ)"/>
 <org.eventb.core.invariant name="9" org.eventb.core.label="inv2_1" org.eventb.core.predicate="bs_p ∈ (floors→ℕ)"/>
 <org.eventb.core.invariant name=";" org.eventb.core.label="inv3_1" org.eventb.core.predicate="∀x·x∈floors ⇒ bs_p(x) ≤ max_bs_p(x)"/>
 <org.eventb.core.variable name="@" org.eventb.core.comment="espaces occupés/pont" org.eventb.core.identifier="bs_p"/>
-<org.eventb.core.invariant name="B" org.eventb.core.label="inv4_1_glue1" org.eventb.core.predicate="max_busy_slots = max_bs_p(1)+max_bs_p(2)+max_bs_p(3)"/>
-<org.eventb.core.invariant name="D" org.eventb.core.label="inv5_1_glue2" org.eventb.core.predicate="busy_slots = bs_p(1)+bs_p(2)+bs_p(3)"/>
+<org.eventb.core.invariant name="B" org.eventb.core.label="inv4_1_glue1" org.eventb.core.predicate="max_busy_slots = sum_array_values(max_bs_p)"/>
+<org.eventb.core.invariant name="D" org.eventb.core.label="inv5_1_glue2" org.eventb.core.predicate="busy_slots = sum_array_values(bs_p)"/>
 <org.eventb.core.variable name="E" org.eventb.core.identifier="lift_level"/>
-<org.eventb.core.invariant name="F" org.eventb.core.comment="0 when invalid floor" org.eventb.core.label="inv6_1" org.eventb.core.predicate="lift_level ∈ floors∪{0}"/>
+<org.eventb.core.invariant name="F" org.eventb.core.comment="0 when invalid floor" org.eventb.core.label="inv6_1" org.eventb.core.predicate="lift_level ∈ floors ∪ {0}"/>
 <org.eventb.core.event name="G" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="MoveLift">
 <org.eventb.core.parameter name="'" org.eventb.core.identifier="selected_level"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd1_1" org.eventb.core.predicate="selected_level ∈ floors"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1_1" org.eventb.core.predicate="selected_level ∈ floors ∪ {0}"/>
 <org.eventb.core.action name=")" org.eventb.core.assignment="lift_level ≔ selected_level" org.eventb.core.label="act1_1"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="H" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="BoardLift">
@@ -65,7 +63,7 @@
 <org.eventb.core.guard name="*" org.eventb.core.label="grd3_1" org.eventb.core.predicate="lift_level = 1"/>
 </org.eventb.core.event>
 <org.eventb.core.variable name="K" org.eventb.core.identifier="bs_m"/>
-<org.eventb.core.invariant name="L" org.eventb.core.label="inv8_1" org.eventb.core.predicate="bs_m ∈ ℕ ∧ bs_m ≤ max_bs_m"/>
+<org.eventb.core.invariant name="L" org.eventb.core.label="inv7_1" org.eventb.core.predicate="bs_m ∈ ℕ ∧ bs_m ≤ max_bs_m"/>
 <org.eventb.core.event name="M" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="LeaveLift">
 <org.eventb.core.parameter name="'" org.eventb.core.identifier="at_once"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd1_1" org.eventb.core.predicate="at_once ∈ ℕ1"/>
@@ -74,4 +72,5 @@
 <org.eventb.core.guard name="+" org.eventb.core.label="grd3_1" org.eventb.core.predicate="lift_level = 1"/>
 </org.eventb.core.event>
 <org.eventb.core.seesContext name="N" org.eventb.core.target="firstRef_ctx"/>
+<org.eventb.core.seesContext name="O" org.eventb.core.target="sum_ctx"/>
 </org.eventb.core.machineFile>
