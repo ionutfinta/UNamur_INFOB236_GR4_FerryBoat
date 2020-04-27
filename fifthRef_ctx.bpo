@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="20">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="20">
+<org.eventb.core.poIdentifier name="SENS_STATES" org.eventb.core.type="ℙ(SENS_STATES)"/>
+<org.eventb.core.poIdentifier name="Detecting" org.eventb.core.type="SENS_STATES"/>
+<org.eventb.core.poIdentifier name="Not_Detecting" org.eventb.core.type="SENS_STATES"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef_ctx.bpo|org.eventb.core.poFile#fifthRef_ctx|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="20">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="partition(SENS_STATES,{Detecting},{Not_Detecting})" org.eventb.core.source="/FerryBoat/fifthRef_ctx.buc|org.eventb.core.contextFile#fifthRef_ctx|org.eventb.core.axiom#,"/>
+</org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

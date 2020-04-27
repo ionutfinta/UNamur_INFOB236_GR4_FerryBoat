@@ -30,7 +30,6 @@
 <org.eventb.core.action name="1" org.eventb.core.assignment="busy_slots ≔ busy_slots + vehicle_slot(vehicle_type)" org.eventb.core.label="act1_2"/>
 <org.eventb.core.guard name="0" org.eventb.core.label="grd2_2" org.eventb.core.predicate="vehicle_type ∈ VEHICLE_TYPES"/>
 <org.eventb.core.guard name="2" org.eventb.core.label="grd3_2" org.eventb.core.predicate="busy_slots + vehicle_slot(vehicle_type) ≤ max_busy_slots"/>
-<org.eventb.core.guard name="*" org.eventb.core.label="grd5_2" org.eventb.core.predicate="lift_level ≠ 0"/>
 <org.eventb.core.guard name="-" org.eventb.core.label="grd6_2" org.eventb.core.predicate="vehicle_slot(vehicle_type) ≤ bs_m"/>
 <org.eventb.core.guard name="." org.eventb.core.label="grd7_2" org.eventb.core.predicate="vehicle_slot(vehicle_type) + bs_p(lift_level) ≤ max_bs_p(lift_level)"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="bs_p(lift_level) ≔ bs_p(lift_level) + vehicle_slot(vehicle_type)" org.eventb.core.label="act2_2"/>

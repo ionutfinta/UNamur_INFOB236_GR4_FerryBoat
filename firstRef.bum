@@ -27,7 +27,6 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="/" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Board">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Board"/>
-<org.eventb.core.guard name="*" org.eventb.core.label="grd3_1" org.eventb.core.predicate="lift_level ≠ 0"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="bs_p(lift_level) ≔ bs_p(lift_level) + load_at_once" org.eventb.core.label="act2_1"/>
 <org.eventb.core.action name="," org.eventb.core.assignment="bs_m ≔ bs_m − load_at_once" org.eventb.core.label="act3_1"/>
 <org.eventb.core.guard name="-" org.eventb.core.label="grd4_1" org.eventb.core.predicate="bs_m ≥ load_at_once"/>
@@ -36,7 +35,6 @@
 <org.eventb.core.event name="0" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Unboard">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Unboard"/>
 <org.eventb.core.guard name="(" org.eventb.core.label="grd3_1" org.eventb.core.predicate="bs_m + unload_at_once ≤ max_bs_m"/>
-<org.eventb.core.guard name=")" org.eventb.core.label="grd4_1" org.eventb.core.predicate="lift_level ≠ 0"/>
 <org.eventb.core.action name="*" org.eventb.core.assignment="bs_m ≔ bs_m + unload_at_once" org.eventb.core.label="act2_1"/>
 <org.eventb.core.action name="+" org.eventb.core.assignment="bs_p(lift_level) ≔ bs_p(lift_level) − unload_at_once" org.eventb.core.label="act3_1"/>
 <org.eventb.core.guard name="," org.eventb.core.label="grd5_1" org.eventb.core.predicate="unload_at_once ≤ bs_p(lift_level)"/>
@@ -49,10 +47,10 @@
 <org.eventb.core.invariant name="B" org.eventb.core.label="inv4_1_glue1" org.eventb.core.predicate="max_busy_slots = sum_array_values(max_bs_p)"/>
 <org.eventb.core.invariant name="D" org.eventb.core.label="inv5_1_glue2" org.eventb.core.predicate="busy_slots = sum_array_values(bs_p)"/>
 <org.eventb.core.variable name="E" org.eventb.core.identifier="lift_level"/>
-<org.eventb.core.invariant name="F" org.eventb.core.comment="0 when invalid floor" org.eventb.core.label="inv6_1" org.eventb.core.predicate="lift_level ∈ floors ∪ {0}"/>
+<org.eventb.core.invariant name="F" org.eventb.core.label="inv6_1" org.eventb.core.predicate="lift_level ∈ floors"/>
 <org.eventb.core.event name="G" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="MoveLift">
 <org.eventb.core.parameter name="'" org.eventb.core.identifier="selected_level"/>
-<org.eventb.core.guard name="(" org.eventb.core.label="grd1_1" org.eventb.core.predicate="selected_level ∈ floors ∪ {0}"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1_1" org.eventb.core.predicate="selected_level ∈ floors"/>
 <org.eventb.core.action name=")" org.eventb.core.assignment="lift_level ≔ selected_level" org.eventb.core.label="act1_1"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="H" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="BoardLift">
