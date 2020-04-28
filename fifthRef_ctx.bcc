@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
-<org.eventb.core.scAxiom name="'" org.eventb.core.label="axm4" org.eventb.core.predicate="partition(SENS_STATES,{Detecting},{Not_Detecting})" org.eventb.core.source="/FerryBoat/fifthRef_ctx.buc|org.eventb.core.contextFile#fifthRef_ctx|org.eventb.core.axiom#," org.eventb.core.theorem="false"/>
-<org.eventb.core.scConstant name="Detecting" org.eventb.core.source="/FerryBoat/fifthRef_ctx.buc|org.eventb.core.contextFile#fifthRef_ctx|org.eventb.core.constant#'" org.eventb.core.type="SENS_STATES"/>
-<org.eventb.core.scConstant name="Not_Detecting" org.eventb.core.source="/FerryBoat/fifthRef_ctx.buc|org.eventb.core.contextFile#fifthRef_ctx|org.eventb.core.constant#-" org.eventb.core.type="SENS_STATES"/>
-<org.eventb.core.scCarrierSet name="SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef_ctx.buc|org.eventb.core.contextFile#fifthRef_ctx|org.eventb.core.carrierSet#*" org.eventb.core.type="ℙ(SENS_STATES)"/>
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="axm4" org.eventb.core.predicate="partition(SENS_STATES,{Detecting},{Not_Detecting})" org.eventb.core.source="/ferryBoat/fifthRef_ctx.buc|org.eventb.core.contextFile#fifthRef_ctx|org.eventb.core.axiom#," org.eventb.core.theorem="false"/>
+<org.eventb.core.scConstant name="Detecting" org.eventb.core.source="/ferryBoat/fifthRef_ctx.buc|org.eventb.core.contextFile#fifthRef_ctx|org.eventb.core.constant#'" org.eventb.core.type="SENS_STATES"/>
+<org.eventb.core.scConstant name="Not_Detecting" org.eventb.core.source="/ferryBoat/fifthRef_ctx.buc|org.eventb.core.contextFile#fifthRef_ctx|org.eventb.core.constant#-" org.eventb.core.type="SENS_STATES"/>
+<org.eventb.core.scCarrierSet name="SENS_STATES" org.eventb.core.source="/ferryBoat/fifthRef_ctx.buc|org.eventb.core.contextFile#fifthRef_ctx|org.eventb.core.carrierSet#*" org.eventb.core.type="ℙ(SENS_STATES)"/>
 </org.eventb.core.scContextFile>
