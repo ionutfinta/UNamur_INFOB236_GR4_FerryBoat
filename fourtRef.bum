@@ -36,9 +36,17 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="'*" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="Board">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Board"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="lift_out = TRUE"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="(lift_level = 1) ⇒ lvl_1_access = TRUE"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd3" org.eventb.core.predicate="(lift_level = 2) ⇒ lvl_2_access = TRUE"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd4" org.eventb.core.predicate="(lift_level = 3) ⇒ lvl_3_access = TRUE"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="'+" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="Unboard">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Unboard"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="lift_out = TRUE"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="(lift_level = 1) ⇒ lvl_1_access = TRUE"/>
+<org.eventb.core.guard name="*" org.eventb.core.label="grd3" org.eventb.core.predicate="(lift_level = 2) ⇒ lvl_2_access = TRUE"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd4" org.eventb.core.predicate="(lift_level = 3) ⇒ lvl_3_access = TRUE"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="'," org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="MoveLift">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="MoveLift"/>
@@ -67,23 +75,23 @@
 <org.eventb.core.event name="'2" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="Vehicle_out">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Vehicle_out"/>
 </org.eventb.core.event>
-<org.eventb.core.variable name="'3" org.eventb.core.comment="lift to bridges" org.eventb.core.generated="false" org.eventb.core.identifier="lift_in"/>
-<org.eventb.core.variable name="'4" org.eventb.core.comment="ground to lift" org.eventb.core.generated="false" org.eventb.core.identifier="lift_out"/>
+<org.eventb.core.variable name="'3" org.eventb.core.comment="ground to lift" org.eventb.core.generated="false" org.eventb.core.identifier="lift_in"/>
+<org.eventb.core.variable name="'4" org.eventb.core.comment="lift to bridges" org.eventb.core.generated="false" org.eventb.core.identifier="lift_out"/>
 <org.eventb.core.invariant name="'5" org.eventb.core.generated="false" org.eventb.core.label="inv1" org.eventb.core.predicate="lift_in ∈ BOOL"/>
 <org.eventb.core.invariant name="'6" org.eventb.core.generated="false" org.eventb.core.label="inv2" org.eventb.core.predicate="lift_out ∈ BOOL"/>
-<org.eventb.core.event name="'7" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="Switch_lift_in">
+<org.eventb.core.event name="'7" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="Switch_lift_out">
 <org.eventb.core.parameter name="'" org.eventb.core.generated="false" org.eventb.core.identifier="boolean"/>
-<org.eventb.core.guard name="(" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="(lift_in = TRUE) ⇒ boolean = FALSE"/>
-<org.eventb.core.guard name=")" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="(lift_in = FALSE) ⇒ boolean = TRUE"/>
-<org.eventb.core.action name="*" org.eventb.core.assignment="lift_in ≔ boolean" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="(" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="(lift_out = TRUE) ⇒ boolean = FALSE"/>
+<org.eventb.core.guard name=")" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="(lift_out = FALSE) ⇒ boolean = TRUE"/>
+<org.eventb.core.action name="*" org.eventb.core.assignment="lift_out ≔ boolean" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="'8" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="Switch_lift_out">
+<org.eventb.core.event name="'8" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="Switch_lift_in">
 <org.eventb.core.parameter name="'" org.eventb.core.generated="false" org.eventb.core.identifier="boolean"/>
 <org.eventb.core.guard name="(" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="lift_level = 1"/>
 <org.eventb.core.guard name=")" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="(auth_on_ids = ∅) ⇒ boolean = FALSE"/>
 <org.eventb.core.guard name="*" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="(auth_on_ids ≠ ∅) ⇒ boolean = TRUE"/>
-<org.eventb.core.action name="+" org.eventb.core.assignment="lift_out ≔ boolean" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
-<org.eventb.core.guard name="," org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="boolean ≠ lift_out"/>
+<org.eventb.core.action name="+" org.eventb.core.assignment="lift_in ≔ boolean" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="," org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="boolean ≠ lift_in"/>
 </org.eventb.core.event>
 <org.eventb.core.variable name="'9" org.eventb.core.generated="false" org.eventb.core.identifier="lvl_1_access"/>
 <org.eventb.core.variable name="':" org.eventb.core.generated="false" org.eventb.core.identifier="lvl_2_access"/>
@@ -117,9 +125,8 @@
 <org.eventb.core.event name="'E" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="Switch_lift_access">
 <org.eventb.core.parameter name="'" org.eventb.core.generated="false" org.eventb.core.identifier="boolean"/>
 <org.eventb.core.guard name="(" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="lift_level = 1"/>
-<org.eventb.core.guard name=")" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="(auth_on_ids = ∅) ⇒ boolean = FALSE"/>
-<org.eventb.core.guard name="*" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="(auth_on_ids ≠ ∅) ⇒ boolean = TRUE"/>
-<org.eventb.core.guard name="+" org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="boolean ≠ lift_access"/>
+<org.eventb.core.guard name="+" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="(lift_access = TRUE) ⇒ boolean = FALSE"/>
 <org.eventb.core.action name="," org.eventb.core.assignment="lift_access ≔ boolean" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+<org.eventb.core.guard name="-" org.eventb.core.label="grd3" org.eventb.core.predicate="(lift_access = FALSE) ⇒ boolean = TRUE"/>
 </org.eventb.core.event>
 </org.eventb.core.machineFile>

@@ -1424,60 +1424,69 @@
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
 </org.eventb.core.prProof>
-<org.eventb.core.prProof name="Switch_lift_out/grd5_5/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28" org.eventb.core.prSets="SENS_STATES,VEHICLE_TYPES">
+<org.eventb.core.prProof name="Switch_lift_out/grd5_5/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2" org.eventb.core.prSets="SENS_STATES">
 <org.eventb.core.lang name="L"/>
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3}))" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p24" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p29,p30,p31,p32,p33,p34,p35"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p29,p30,p31,p32,p33,p34,p35"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p3" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p4,p5,p6,p7,p8,p9,p10"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p4,p5,p6,p7,p8,p9,p10"/>
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="Partition rewrites in hyp (partition(SENS_STATES,{Detecting},{Not_Detecting}))" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p16" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36,p37"/>
-<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p36,p37"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p11" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p12,p13"/>
+<org.eventb.core.prHypAction name="SELECT1" org.eventb.core.prHyps="p12,p13"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38,p39"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p40" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
-<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
-<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p14" org.eventb.core.prHyps="p16" org.eventb.core.prInfHyps="p15"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p43"/>
-<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p44"/>
-<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p45"/>
-<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p46"/>
-<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p47"/>
-<org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p48"/>
-<org.eventb.core.prHypAction name="HIDE6" org.eventb.core.prHyps="p49"/>
-<org.eventb.core.prHypAction name="HIDE7" org.eventb.core.prHyps="p50"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p52" org.eventb.core.prHyps="p51">
-<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p52" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p53">
-<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p17" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p18"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p19" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p20"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p21" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p22"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p23" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p24,p25"/>
+<org.eventb.core.prHypAction name="REWRITE4" org.eventb.core.prHidden="p15" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p26"/>
+<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p41" org.eventb.core.prHyps="p51" org.eventb.core.prInfHyps="p54"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p27"/>
+<org.eventb.core.prHypAction name="HIDE1" org.eventb.core.prHyps="p28"/>
+<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p29"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p30"/>
+<org.eventb.core.prHypAction name="HIDE4" org.eventb.core.prHyps="p31"/>
+<org.eventb.core.prHypAction name="HIDE5" org.eventb.core.prHyps="p32"/>
+<org.eventb.core.prHypAction name="HIDE6" org.eventb.core.prHyps="p33"/>
+<org.eventb.core.prHypAction name="HIDE7" org.eventb.core.prHyps="p34"/>
+<org.eventb.core.prHypAction name="REWRITE8" org.eventb.core.prHidden="p18" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p35"/>
+<org.eventb.core.prHypAction name="REWRITE9" org.eventb.core.prHidden="p20" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p36"/>
+<org.eventb.core.prHypAction name="REWRITE10" org.eventb.core.prHidden="p22" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p37"/>
+<org.eventb.core.prHypAction name="REWRITE11" org.eventb.core.prHidden="p26" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p38"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p54"/>
-<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with lift_level=1" org.eventb.core.prGoal="p53" org.eventb.core.prHyps="p8">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p55">
-<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with boolean=TRUE" org.eventb.core.prHyps="p51">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p35" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p39"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p36" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p40"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p37" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p41"/>
+<org.eventb.core.prHypAction name="REWRITE3" org.eventb.core.prHidden="p38" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p42"/>
+<org.eventb.core.prRule name="r4" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p44" org.eventb.core.prHyps="p43">
+<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="∧ goal" org.eventb.core.prGoal="p44" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p45">
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p9" org.eventb.core.prInfHyps="p56"/>
-<org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p42" org.eventb.core.prInfHyps="p57"/>
-<org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p9,p42"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p46" org.eventb.core.prHyps="p43" org.eventb.core.prInfHyps="p47"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p56" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p58"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p57" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p59"/>
-<org.eventb.core.prRule name="r5" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
+<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p47"/>
+<org.eventb.core.prRule name="r6" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with boolean=TRUE" org.eventb.core.prHyps="p43">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p9" org.eventb.core.prHyps="p58" org.eventb.core.prInfHyps="p60"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p48" org.eventb.core.prInfHyps="p49"/>
+<org.eventb.core.prHypAction name="DESELECT1" org.eventb.core.prHyps="p48"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p60"/>
-<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p55" org.eventb.core.prHyps="p25,p5,p20,p27,p2,p10,p13,p3,p23,p7,p1,p4,p21,p17,p28,p22,p26,p14,p18,p11,p15,p6,p8,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p42,p51,p58,p59">
-<org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p49" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p50"/>
+<org.eventb.core.prRule name="r7" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="total function dom substitution in goal" org.eventb.core.prGoal="p45" org.eventb.core.prHyps="p2">
+<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
+<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="hyp" org.eventb.core.prGoal="p1" org.eventb.core.prHyps="p1"/>
+</org.eventb.core.prAnte>
+<org.eventb.core.prString name=".pos" org.eventb.core.prSValue="1"/>
+<org.eventb.core.prExprRef name=".subst" org.eventb.core.prRef="e0"/>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
@@ -1488,14 +1497,12 @@
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
-</org.eventb.core.prRule>
+<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p51">
+<org.eventb.core.prRule name="r9" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p51" org.eventb.core.prHyps="p2"/>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-<org.eventb.core.prAnte name="(" org.eventb.core.prGoal="p61">
-<org.eventb.core.prRule name="r8" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="functional goal" org.eventb.core.prGoal="p61" org.eventb.core.prHyps="p15"/>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
@@ -1510,118 +1517,188 @@
 </org.eventb.core.prAnte>
 <org.eventb.core.prString name=".pos" org.eventb.core.prSValue=""/>
 </org.eventb.core.prRule>
+<org.eventb.core.prIdent name="Sensor_state" org.eventb.core.type="ℙ(ℤ×SENS_STATES)"/>
+<org.eventb.core.prIdent name="boolean" org.eventb.core.type="BOOL"/>
+<org.eventb.core.prIdent name="floors" org.eventb.core.type="ℙ(ℤ)"/>
+<org.eventb.core.prIdent name="lift_level" org.eventb.core.type="ℤ"/>
+<org.eventb.core.prPred name="p48" org.eventb.core.predicate="lift_out=TRUE⇒boolean=FALSE">
+<org.eventb.core.prIdent name="lift_out" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p49" org.eventb.core.predicate="lift_out=TRUE⇒TRUE=FALSE">
+<org.eventb.core.prIdent name="lift_out" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p26" org.eventb.core.predicate="∀x⦂ℙ(ℤ×ℤ)·x∈ℤ ↔ ℤ∧finite(x)∧¬x=(∅ ⦂ ℙ(ℤ×ℤ))⇒¬x=(∅ ⦂ ℙ(ℤ×ℤ))∧(∃b⦂ℤ·∀x0⦂ℤ·x0∈dom(x)⇒b≥x0)∧max(dom(x))∈dom(x)∧x∈ℤ ⇸ ℤ∧x ∖ {max(dom(x)) ↦ x(max(dom(x)))}∈dom(sum_array_values)">
+<org.eventb.core.prIdent name="sum_array_values" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p13" org.eventb.core.predicate="¬Detecting=Not_Detecting">
 <org.eventb.core.prIdent name="Detecting" org.eventb.core.type="SENS_STATES"/>
 <org.eventb.core.prIdent name="Not_Detecting" org.eventb.core.type="SENS_STATES"/>
-<org.eventb.core.prIdent name="Sensor_state" org.eventb.core.type="ℙ(ℤ×SENS_STATES)"/>
-<org.eventb.core.prIdent name="auth_on_ids" org.eventb.core.type="ℙ(ℤ)"/>
-<org.eventb.core.prIdent name="boarded_ids" org.eventb.core.type="ℙ(ℤ)"/>
-<org.eventb.core.prIdent name="boolean" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p35" org.eventb.core.predicate="sum=(λx⦂ℙ(ℤ)·⊤∧finite(x)∧x=(∅ ⦂ ℙ(ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ)·⊤∧finite(x)∧¬x=(∅ ⦂ ℙ(ℤ)) ∣ max(x)+sum(x ∖ {max(x)}))">
+<org.eventb.core.prIdent name="sum" org.eventb.core.type="ℙ(ℙ(ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p30" org.eventb.core.predicate="lift_out∈BOOL">
+<org.eventb.core.prIdent name="lift_out" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p51" org.eventb.core.predicate="Sensor_state∈ℤ ⇸ SENS_STATES"/>
+<org.eventb.core.prPred name="p40" org.eventb.core.predicate="∀x⦂ℙ(ℤ)·finite(x)∧¬x=(∅ ⦂ ℙ(ℤ))⇒¬x=(∅ ⦂ ℙ(ℤ))∧(∃b⦂ℤ·∀x0⦂ℤ·x0∈x⇒b≥x0)∧x ∖ {max(x)}∈dom(sum)∧sum∈ℙ(ℤ) ⇸ ℤ">
+<org.eventb.core.prIdent name="sum" org.eventb.core.type="ℙ(ℙ(ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p42" org.eventb.core.predicate="∀x⦂ℙ(ℤ×ℤ)·finite(x)∧¬x=(∅ ⦂ ℙ(ℤ×ℤ))⇒¬x=(∅ ⦂ ℙ(ℤ×ℤ))∧(∃b⦂ℤ·∀x0⦂ℤ·x0∈dom(x)⇒b≥x0)∧max(dom(x))∈dom(x)∧x∈ℤ ⇸ ℤ∧x ∖ {max(dom(x)) ↦ x(max(dom(x)))}∈dom(sum_array_values)">
+<org.eventb.core.prIdent name="sum_array_values" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="¬voiture=camion_2">
+<org.eventb.core.prIdent name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
+<org.eventb.core.prIdent name="camion_2" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prIdent name="voiture" org.eventb.core.type="VEHICLE_TYPES"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p46" org.eventb.core.predicate="lift_out=FALSE⇒boolean=TRUE">
+<org.eventb.core.prIdent name="lift_out" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p43" org.eventb.core.predicate="boolean=TRUE"/>
+<org.eventb.core.prPred name="p11" org.eventb.core.predicate="partition(SENS_STATES,{Detecting},{Not_Detecting})">
+<org.eventb.core.prIdent name="Detecting" org.eventb.core.type="SENS_STATES"/>
+<org.eventb.core.prIdent name="Not_Detecting" org.eventb.core.type="SENS_STATES"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p38" org.eventb.core.predicate="∀x⦂ℙ(ℤ×ℤ)·⊤∧finite(x)∧¬x=(∅ ⦂ ℙ(ℤ×ℤ))⇒¬x=(∅ ⦂ ℙ(ℤ×ℤ))∧(∃b⦂ℤ·∀x0⦂ℤ·x0∈dom(x)⇒b≥x0)∧max(dom(x))∈dom(x)∧x∈ℤ ⇸ ℤ∧x ∖ {max(dom(x)) ↦ x(max(dom(x)))}∈dom(sum_array_values)">
+<org.eventb.core.prIdent name="sum_array_values" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p36" org.eventb.core.predicate="∀x⦂ℙ(ℤ)·⊤∧finite(x)∧¬x=(∅ ⦂ ℙ(ℤ))⇒¬x=(∅ ⦂ ℙ(ℤ))∧(∃b⦂ℤ·∀x0⦂ℤ·x0∈x⇒b≥x0)∧x ∖ {max(x)}∈dom(sum)∧sum∈ℙ(ℤ) ⇸ ℤ">
+<org.eventb.core.prIdent name="sum" org.eventb.core.type="ℙ(ℙ(ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p16" org.eventb.core.predicate="sum_array_values∈ℙ(ℤ × ℤ) ⇸ ℤ">
+<org.eventb.core.prIdent name="sum_array_values" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p14" org.eventb.core.predicate="∀x⦂ℙ(ℤ×ℤ)·x∈ℤ ↔ ℤ∧finite(x)∧card(x)&gt;0⇒dom(x)≠(∅ ⦂ ℙ(ℤ))∧(∃b⦂ℤ·∀x0⦂ℤ·x0∈dom(x)⇒b≥x0)∧max(dom(x))∈dom(x)∧x∈ℤ ⇸ ℤ∧x ∖ {max(dom(x)) ↦ x(max(dom(x)))}∈dom(sum_array_values)∧sum_array_values∈ℙ(ℤ × ℤ) ⇸ ℤ">
+<org.eventb.core.prIdent name="sum_array_values" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬camion_1=camion_3">
+<org.eventb.core.prIdent name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
+<org.eventb.core.prIdent name="camion_1" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prIdent name="camion_3" org.eventb.core.type="VEHICLE_TYPES"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p20" org.eventb.core.predicate="∀x⦂ℙ(ℤ)·x∈ℙ(ℤ)∧finite(x)∧¬x=(∅ ⦂ ℙ(ℤ))⇒¬x=(∅ ⦂ ℙ(ℤ))∧(∃b⦂ℤ·∀x0⦂ℤ·x0∈x⇒b≥x0)∧x ∖ {max(x)}∈dom(sum)∧sum∈ℙ(ℤ) ⇸ ℤ">
+<org.eventb.core.prIdent name="sum" org.eventb.core.type="ℙ(ℙ(ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p50" org.eventb.core.predicate="lift_out=FALSE">
+<org.eventb.core.prIdent name="lift_out" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="lift_level∈floors"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="boolean=TRUE⇒lift_level∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES"/>
+<org.eventb.core.prPred name="p12" org.eventb.core.predicate="SENS_STATES={Detecting,Not_Detecting}">
+<org.eventb.core.prIdent name="Detecting" org.eventb.core.type="SENS_STATES"/>
+<org.eventb.core.prIdent name="Not_Detecting" org.eventb.core.type="SENS_STATES"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p15" org.eventb.core.predicate="∀x⦂ℙ(ℤ×ℤ)·x∈ℤ ↔ ℤ∧finite(x)∧card(x)&gt;0⇒dom(x)≠(∅ ⦂ ℙ(ℤ))∧(∃b⦂ℤ·∀x0⦂ℤ·x0∈dom(x)⇒b≥x0)∧max(dom(x))∈dom(x)∧x∈ℤ ⇸ ℤ∧x ∖ {max(dom(x)) ↦ x(max(dom(x)))}∈dom(sum_array_values)∧⊤">
+<org.eventb.core.prIdent name="sum_array_values" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p21" org.eventb.core.predicate="sum_array_values=(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ↔ ℤ∧finite(x)∧card(x)=0 ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ↔ ℤ∧finite(x)∧card(x)&gt;0 ∣ sum_array_values(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))">
+<org.eventb.core.prIdent name="sum_array_values" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p28" org.eventb.core.predicate="queue2∈BOOL">
+<org.eventb.core.prIdent name="queue2" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p45" org.eventb.core.predicate="lift_level∈dom(Sensor_state)"/>
+<org.eventb.core.prPred name="p24" org.eventb.core.predicate="bs_m∈ℕ">
 <org.eventb.core.prIdent name="bs_m" org.eventb.core.type="ℤ"/>
-<org.eventb.core.prIdent name="bs_p" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
-<org.eventb.core.prIdent name="busy_slots" org.eventb.core.type="ℤ"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p47" org.eventb.core.predicate="lift_out=FALSE⇒⊤">
+<org.eventb.core.prIdent name="lift_out" org.eventb.core.type="BOOL"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p17" org.eventb.core.predicate="sum=(λx⦂ℙ(ℤ)·x∈ℙ(ℤ)∧finite(x)∧card(x)=0 ∣ 0)∪(λx⦂ℙ(ℤ)·x∈ℙ(ℤ)∧finite(x)∧card(x)&gt;0 ∣ max(x)+sum(x ∖ {max(x)}))">
+<org.eventb.core.prIdent name="sum" org.eventb.core.type="ℙ(ℙ(ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p19" org.eventb.core.predicate="∀x⦂ℙ(ℤ)·x∈ℙ(ℤ)∧finite(x)∧card(x)&gt;0⇒x≠(∅ ⦂ ℙ(ℤ))∧(∃b⦂ℤ·∀x0⦂ℤ·x0∈x⇒b≥x0)∧x ∖ {max(x)}∈dom(sum)∧sum∈ℙ(ℤ) ⇸ ℤ">
+<org.eventb.core.prIdent name="sum" org.eventb.core.type="ℙ(ℙ(ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="VEHICLE_TYPES={voiture,camion_1,camion_2,camion_3}">
+<org.eventb.core.prIdent name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
 <org.eventb.core.prIdent name="camion_1" org.eventb.core.type="VEHICLE_TYPES"/>
 <org.eventb.core.prIdent name="camion_2" org.eventb.core.type="VEHICLE_TYPES"/>
 <org.eventb.core.prIdent name="camion_3" org.eventb.core.type="VEHICLE_TYPES"/>
-<org.eventb.core.prIdent name="floors" org.eventb.core.type="ℙ(ℤ)"/>
-<org.eventb.core.prIdent name="id_is_left" org.eventb.core.type="ℙ(ℤ×BOOL)"/>
-<org.eventb.core.prIdent name="in_lift_ids" org.eventb.core.type="ℙ(ℤ)"/>
-<org.eventb.core.prIdent name="lift_depth" org.eventb.core.type="ℤ"/>
-<org.eventb.core.prIdent name="lift_level" org.eventb.core.type="ℤ"/>
-<org.eventb.core.prIdent name="lift_out" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="lift_vehicles" org.eventb.core.type="ℙ(ℤ×ℤ×ℤ)"/>
-<org.eventb.core.prIdent name="max_bs_m" org.eventb.core.type="ℤ"/>
-<org.eventb.core.prIdent name="max_bs_p" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
-<org.eventb.core.prIdent name="max_busy_slots" org.eventb.core.type="ℤ"/>
-<org.eventb.core.prIdent name="queues" org.eventb.core.type="ℤ"/>
-<org.eventb.core.prIdent name="reservations" org.eventb.core.type="ℙ(ℤ×(ℤ×VEHICLE_TYPES))"/>
-<org.eventb.core.prIdent name="reserved_spaces" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
-<org.eventb.core.prIdent name="vehicle_slot" org.eventb.core.type="ℙ(VEHICLE_TYPES×ℤ)"/>
 <org.eventb.core.prIdent name="voiture" org.eventb.core.type="VEHICLE_TYPES"/>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="queues=2"/>
-<org.eventb.core.prPred name="p37" org.eventb.core.predicate="¬Detecting=Not_Detecting"/>
-<org.eventb.core.prPred name="p4" org.eventb.core.predicate="∀x⦂ℤ·x∈floors⇒bs_p(x)≤max_bs_p(x)"/>
-<org.eventb.core.prPred name="p5" org.eventb.core.predicate="ran(vehicle_slot)={1,2,3}"/>
-<org.eventb.core.prPred name="p46" org.eventb.core.predicate="lift_out∈BOOL"/>
-<org.eventb.core.prPred name="p6" org.eventb.core.predicate="∀x⦂ℤ·x∈1 ‥ 3⇒(Sensor_state(x)=Detecting⇒lift_level=x)"/>
-<org.eventb.core.prPred name="p61" org.eventb.core.predicate="Sensor_state∈ℤ ⇸ SENS_STATES"/>
-<org.eventb.core.prPred name="p31" org.eventb.core.predicate="¬voiture=camion_2"/>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="auth_on_ids=(∅ ⦂ ℙ(ℤ))⇒boolean=FALSE"/>
-<org.eventb.core.prPred name="p40" org.eventb.core.predicate="auth_on_ids≠(∅ ⦂ ℙ(ℤ))⇒boolean=TRUE"/>
-<org.eventb.core.prPred name="p51" org.eventb.core.predicate="boolean=TRUE"/>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="boolean≠lift_out"/>
-<org.eventb.core.prPred name="p14" org.eventb.core.predicate="boarded_ids⊆ℕ"/>
-<org.eventb.core.prPred name="p16" org.eventb.core.predicate="partition(SENS_STATES,{Detecting},{Not_Detecting})"/>
-<org.eventb.core.prPred name="p58" org.eventb.core.predicate="¬auth_on_ids=(∅ ⦂ ℙ(ℤ))"/>
-<org.eventb.core.prPred name="p34" org.eventb.core.predicate="¬camion_1=camion_3"/>
-<org.eventb.core.prPred name="p20" org.eventb.core.predicate="max_bs_m=6"/>
-<org.eventb.core.prPred name="p21" org.eventb.core.predicate="lift_level∈floors"/>
-<org.eventb.core.prPred name="p22" org.eventb.core.predicate="auth_on_ids⊆ℕ"/>
-<org.eventb.core.prPred name="p42" org.eventb.core.predicate="¬boolean=lift_out"/>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="boolean=TRUE⇒lift_level∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES"/>
-<org.eventb.core.prPred name="p36" org.eventb.core.predicate="SENS_STATES={Detecting,Not_Detecting}"/>
-<org.eventb.core.prPred name="p44" org.eventb.core.predicate="queue2∈BOOL">
-<org.eventb.core.prIdent name="queue2" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p53" org.eventb.core.predicate="lift_level∈dom(Sensor_state)"/>
-<org.eventb.core.prPred name="p38" org.eventb.core.predicate="bs_m∈ℕ"/>
-<org.eventb.core.prPred name="p1" org.eventb.core.predicate="bs_p∈floors → ℕ"/>
-<org.eventb.core.prPred name="p29" org.eventb.core.predicate="VEHICLE_TYPES={voiture,camion_1,camion_2,camion_3}"/>
-<org.eventb.core.prPred name="p32" org.eventb.core.predicate="¬voiture=camion_3"/>
-<org.eventb.core.prPred name="p3" org.eventb.core.predicate="busy_slots∈ℕ"/>
-<org.eventb.core.prPred name="p43" org.eventb.core.predicate="queue1∈BOOL">
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬voiture=camion_3">
+<org.eventb.core.prIdent name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
+<org.eventb.core.prIdent name="camion_3" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prIdent name="voiture" org.eventb.core.type="VEHICLE_TYPES"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p27" org.eventb.core.predicate="queue1∈BOOL">
 <org.eventb.core.prIdent name="queue1" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p54" org.eventb.core.predicate="¬auth_on_ids=(∅ ⦂ ℙ(ℤ))⇒⊤"/>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="max_bs_p∈floors → ℕ"/>
-<org.eventb.core.prPred name="p8" org.eventb.core.predicate="lift_level=1"/>
-<org.eventb.core.prPred name="p55" org.eventb.core.predicate="1∈dom(Sensor_state)"/>
-<org.eventb.core.prPred name="p52" org.eventb.core.predicate="lift_level∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES"/>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="lift_depth=3"/>
-<org.eventb.core.prPred name="p45" org.eventb.core.predicate="lift_in∈BOOL">
+<org.eventb.core.prPred name="p41" org.eventb.core.predicate="sum_array_values=(λx⦂ℙ(ℤ×ℤ)·finite(x)∧x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·finite(x)∧¬x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ sum_array_values(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))">
+<org.eventb.core.prIdent name="sum_array_values" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p44" org.eventb.core.predicate="lift_level∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES"/>
+<org.eventb.core.prPred name="p22" org.eventb.core.predicate="sum_array_values=(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ↔ ℤ∧finite(x)∧x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ↔ ℤ∧finite(x)∧¬x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ sum_array_values(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))">
+<org.eventb.core.prIdent name="sum_array_values" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p29" org.eventb.core.predicate="lift_in∈BOOL">
 <org.eventb.core.prIdent name="lift_in" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="id_is_left∈ℕ ⇸ BOOL"/>
-<org.eventb.core.prPred name="p60" org.eventb.core.predicate="⊥⇒boolean=FALSE"/>
-<org.eventb.core.prPred name="p59" org.eventb.core.predicate="FALSE=lift_out"/>
-<org.eventb.core.prPred name="p13" org.eventb.core.predicate="max_busy_slots∈ℕ"/>
-<org.eventb.core.prPred name="p15" org.eventb.core.predicate="Sensor_state∈floors → SENS_STATES"/>
-<org.eventb.core.prPred name="p39" org.eventb.core.predicate="bs_m≤max_bs_m"/>
-<org.eventb.core.prPred name="p47" org.eventb.core.predicate="lvl_1_access∈BOOL">
+<org.eventb.core.prPred name="p39" org.eventb.core.predicate="sum=(λx⦂ℙ(ℤ)·finite(x)∧x=(∅ ⦂ ℙ(ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ)·finite(x)∧¬x=(∅ ⦂ ℙ(ℤ)) ∣ max(x)+sum(x ∖ {max(x)}))">
+<org.eventb.core.prIdent name="sum" org.eventb.core.type="ℙ(ℙ(ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="Sensor_state∈floors → SENS_STATES"/>
+<org.eventb.core.prPred name="p18" org.eventb.core.predicate="sum=(λx⦂ℙ(ℤ)·x∈ℙ(ℤ)∧finite(x)∧x=(∅ ⦂ ℙ(ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ)·x∈ℙ(ℤ)∧finite(x)∧¬x=(∅ ⦂ ℙ(ℤ)) ∣ max(x)+sum(x ∖ {max(x)}))">
+<org.eventb.core.prIdent name="sum" org.eventb.core.type="ℙ(ℙ(ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p25" org.eventb.core.predicate="bs_m≤max_bs_m">
+<org.eventb.core.prIdent name="bs_m" org.eventb.core.type="ℤ"/>
+<org.eventb.core.prIdent name="max_bs_m" org.eventb.core.type="ℤ"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p31" org.eventb.core.predicate="lvl_1_access∈BOOL">
 <org.eventb.core.prIdent name="lvl_1_access" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p48" org.eventb.core.predicate="lvl_2_access∈BOOL">
+<org.eventb.core.prPred name="p32" org.eventb.core.predicate="lvl_2_access∈BOOL">
 <org.eventb.core.prIdent name="lvl_2_access" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p49" org.eventb.core.predicate="lvl_3_access∈BOOL">
+<org.eventb.core.prPred name="p33" org.eventb.core.predicate="lvl_3_access∈BOOL">
 <org.eventb.core.prIdent name="lvl_3_access" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p35" org.eventb.core.predicate="¬camion_2=camion_3"/>
-<org.eventb.core.prPred name="p17" org.eventb.core.predicate="reservations∈ℕ ⇸ floors × VEHICLE_TYPES"/>
-<org.eventb.core.prPred name="p18" org.eventb.core.predicate="lift_vehicles∈1 ‥ queues × 1 ‥ lift_depth ⇸ ℕ"/>
-<org.eventb.core.prPred name="p19" org.eventb.core.predicate="bs_m∈ℕ∧bs_m≤max_bs_m"/>
-<org.eventb.core.prPred name="p30" org.eventb.core.predicate="¬voiture=camion_1"/>
-<org.eventb.core.prPred name="p23" org.eventb.core.predicate="busy_slots≤max_busy_slots"/>
-<org.eventb.core.prPred name="p24" org.eventb.core.predicate="partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3})"/>
-<org.eventb.core.prPred name="p50" org.eventb.core.predicate="lift_access∈BOOL">
+<org.eventb.core.prPred name="p10" org.eventb.core.predicate="¬camion_2=camion_3">
+<org.eventb.core.prIdent name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
+<org.eventb.core.prIdent name="camion_2" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prIdent name="camion_3" org.eventb.core.type="VEHICLE_TYPES"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p23" org.eventb.core.predicate="bs_m∈ℕ∧bs_m≤max_bs_m">
+<org.eventb.core.prIdent name="bs_m" org.eventb.core.type="ℤ"/>
+<org.eventb.core.prIdent name="max_bs_m" org.eventb.core.type="ℤ"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="¬voiture=camion_1">
+<org.eventb.core.prIdent name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
+<org.eventb.core.prIdent name="camion_1" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prIdent name="voiture" org.eventb.core.type="VEHICLE_TYPES"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="partition(VEHICLE_TYPES,{voiture},{camion_1},{camion_2},{camion_3})">
+<org.eventb.core.prIdent name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
+<org.eventb.core.prIdent name="camion_1" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prIdent name="camion_2" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prIdent name="camion_3" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prIdent name="voiture" org.eventb.core.type="VEHICLE_TYPES"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p37" org.eventb.core.predicate="sum_array_values=(λx⦂ℙ(ℤ×ℤ)·⊤∧finite(x)∧x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·⊤∧finite(x)∧¬x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ sum_array_values(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))">
+<org.eventb.core.prIdent name="sum_array_values" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p34" org.eventb.core.predicate="lift_access∈BOOL">
 <org.eventb.core.prIdent name="lift_access" org.eventb.core.type="BOOL"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p25" org.eventb.core.predicate="vehicle_slot={voiture ↦ 1,camion_1 ↦ 1,camion_2 ↦ 2,camion_3 ↦ 3}"/>
-<org.eventb.core.prPred name="p33" org.eventb.core.predicate="¬camion_1=camion_2"/>
-<org.eventb.core.prPred name="p56" org.eventb.core.predicate="auth_on_ids=(∅ ⦂ ℙ(ℤ))⇒TRUE=FALSE"/>
-<org.eventb.core.prPred name="p26" org.eventb.core.predicate="in_lift_ids⊆ℕ1"/>
-<org.eventb.core.prPred name="p27" org.eventb.core.predicate="floors=1 ‥ 3"/>
-<org.eventb.core.prPred name="p41" org.eventb.core.predicate="¬auth_on_ids=(∅ ⦂ ℙ(ℤ))⇒boolean=TRUE"/>
-<org.eventb.core.prPred name="p57" org.eventb.core.predicate="¬TRUE=lift_out"/>
-<org.eventb.core.prPred name="p28" org.eventb.core.predicate="reserved_spaces∈floors → ℕ"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬camion_1=camion_2">
+<org.eventb.core.prIdent name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
+<org.eventb.core.prIdent name="camion_1" org.eventb.core.type="VEHICLE_TYPES"/>
+<org.eventb.core.prIdent name="camion_2" org.eventb.core.type="VEHICLE_TYPES"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prExpr name="e0" org.eventb.core.expression="floors"/>
+<org.eventb.core.prReas name="r9" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
 <org.eventb.core.prReas name="r6" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
-<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-<org.eventb.core.prReas name="r7" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
-<org.eventb.core.prReas name="r4" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.isFunGoal"/>
+<org.eventb.core.prReas name="r5" org.eventb.core.prRID="org.eventb.core.seqprover.conj:0"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.partitionRewrites"/>
+<org.eventb.core.prReas name="r7" org.eventb.core.prRID="org.eventb.core.seqprover.totalDom:2"/>
+<org.eventb.core.prReas name="r8" org.eventb.core.prRID="org.eventb.core.seqprover.hyp"/>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="Switch_lvl_1_access/grd4/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27" org.eventb.core.prSets="SENS_STATES,VEHICLE_TYPES">
 <org.eventb.core.lang name="L"/>
