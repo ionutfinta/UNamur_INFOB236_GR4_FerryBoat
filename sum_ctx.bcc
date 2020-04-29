@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase">
-<org.eventb.core.scAxiom name="'" org.eventb.core.label="axm_sum" org.eventb.core.predicate="sum=(λx⦂ℙ(ℤ)·x∈ℙ(ℤ)∧finite(x)∧card(x)=0 ∣ 0)∪(λx⦂ℙ(ℤ)·x∈ℙ(ℤ)∧finite(x)∧card(x)&gt;0 ∣ max(x)+sum(x ∖ {max(x)}))" org.eventb.core.source="/FerryBoat/sum_ctx.buc|org.eventb.core.contextFile#sum_ctx|org.eventb.core.axiom#_4_76MYomEeqg9v5NgA6HRA" org.eventb.core.theorem="false"/>
-<org.eventb.core.scAxiom name="(" org.eventb.core.label="axm_sum_av" org.eventb.core.predicate="sum_array_values=(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ↔ ℤ∧finite(x)∧card(x)=0 ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ↔ ℤ∧finite(x)∧card(x)&gt;0 ∣ sum_array_values(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))" org.eventb.core.source="/FerryBoat/sum_ctx.buc|org.eventb.core.contextFile#sum_ctx|org.eventb.core.axiom#_4_76MoomEeqg9v5NgA6HRA" org.eventb.core.theorem="false"/>
-<org.eventb.core.scConstant name="sum" org.eventb.core.source="/FerryBoat/sum_ctx.buc|org.eventb.core.contextFile#sum_ctx|org.eventb.core.constant#_z_iicIomEeqg9v5NgA6HRA" org.eventb.core.type="ℙ(ℙ(ℤ)×ℤ)"/>
-<org.eventb.core.scConstant name="sum_array_values" org.eventb.core.source="/FerryBoat/sum_ctx.buc|org.eventb.core.contextFile#sum_ctx|org.eventb.core.constant#_4_76MIomEeqg9v5NgA6HRA" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
-</org.eventb.core.scContextFile>

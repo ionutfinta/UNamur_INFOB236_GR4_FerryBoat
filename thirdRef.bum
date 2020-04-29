@@ -115,5 +115,4 @@
 <org.eventb.core.variable name="s" org.eventb.core.identifier="queue2"/>
 <org.eventb.core.variable name="w" org.eventb.core.identifier="lift_vehicles"/>
 <org.eventb.core.variable name="{" org.eventb.core.identifier="id_is_left"/>
-<org.eventb.core.seesContext name="''" org.eventb.core.target="sum_ctx"/>
 </org.eventb.core.machineFile>

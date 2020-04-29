@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.comment="Discrete integral function for Event-B Rodin&#13;&#10;   DATE: 25/04/2020&#13;&#10;   AUTHOR: FINTA IONUT ANDREI" org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+<org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="'" org.eventb.core.identifier="integral"/>
+<org.eventb.core.axiom name="(" org.eventb.core.comment="Function that sums all the elements of a discrete function&#13;&#10;Simple case: Empty Set&#13;&#10;Recursive case: Set with cardinality &gt; 1" org.eventb.core.label="f_integral" org.eventb.core.predicate="integral ∈ (ℤ⇸ℤ) → ℤ ∧&#13;&#10;integral = (λ x · x = ∅ ∣ 0) ∪&#13;&#10;&#9;(λ x · x ∈ ℤ ⇸ ℤ ∧ finite(x) ∧ card(x) &gt; 0 ∧ finite(dom(x)) ∣ &#13;&#10;&#9;integral(x ∖ {(max(dom(x)) ↦ x(max(dom(x))))}) + x(max(dom(x))))"/>
+</org.eventb.core.contextFile>

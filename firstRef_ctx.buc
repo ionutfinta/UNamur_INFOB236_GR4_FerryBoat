@@ -4,4 +4,5 @@
 <org.eventb.core.axiom name="(" org.eventb.core.label="axm1_1" org.eventb.core.predicate="max_bs_m = 6"/>
 <org.eventb.core.axiom name="*" org.eventb.core.label="axm2_1" org.eventb.core.predicate="floors = 1‥3"/>
 <org.eventb.core.constant name="+" org.eventb.core.identifier="floors"/>
+<org.eventb.core.extendsContext name="," org.eventb.core.target="integral_ctx"/>
 </org.eventb.core.contextFile>
