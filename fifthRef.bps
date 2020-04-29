@@ -6,12 +6,12 @@
 <org.eventb.core.psStatus name="Board/grd1_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="75" org.eventb.core.psManual="false"/>
 <org.eventb.core.psStatus name="Unboard/grd1_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="75" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
 <org.eventb.core.psStatus name="MoveLift/inv2_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="69" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Switch_lift_in/grd3_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="71" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Switch_lift_out/grd5_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="71" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Switch_lvl_1_access/grd4/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="69" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Switch_lvl_2_access/grd4_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="69" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Switch_lvl_3_access/grd4_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="69" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Switch_lift_access/grd5_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="77" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Switch_lift_in/grd3_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="80" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Switch_lift_out/grd5_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="79" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Switch_lvl_1_access/grd4/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="81" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Switch_lvl_2_access/grd4_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="82" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Switch_lvl_3_access/grd4_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="85" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Switch_lift_access/grd5_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="83" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
 <org.eventb.core.psStatus name="Sensor_detects/grd3_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="69" org.eventb.core.psManual="false"/>
 <org.eventb.core.psStatus name="Sensor_detects/grd1_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="69" org.eventb.core.psManual="false"/>
 <org.eventb.core.psStatus name="Sensor_detects/grd5_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="69" org.eventb.core.psManual="false"/>
