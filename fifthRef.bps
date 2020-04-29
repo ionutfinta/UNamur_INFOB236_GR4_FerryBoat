@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <org.eventb.core.psFile>
-<org.eventb.core.psStatus name="inv2_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="INITIALISATION/inv1_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="INITIALISATION/inv2_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Board/grd1_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Unboard/grd1_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="MoveLift/inv2_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Switch_lift_in/grd3_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Switch_lift_out/grd5_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Switch_lvl_1_access/grd4/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Switch_lvl_2_access/grd4_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Switch_lvl_3_access/grd4_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Switch_lift_access/grd5_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Sensor_detects/grd3_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Sensor_detects/grd1_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Sensor_detects/grd5_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Sensor_detects/inv1_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Sensor_detects/inv2_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Sensor_stops_detecting/grd3_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Sensor_stops_detecting/inv1_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
-<org.eventb.core.psStatus name="Sensor_stops_detecting/inv2_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="62" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="inv2_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv1_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="INITIALISATION/inv2_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Board/grd1_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Unboard/grd1_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="MoveLift/inv2_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Switch_lift_in/grd3_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Switch_lift_out/grd5_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Switch_lvl_1_access/grd4/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Switch_lvl_2_access/grd4_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Switch_lvl_3_access/grd4_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Switch_lift_access/grd5_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Sensor_detects/grd3_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Sensor_detects/grd1_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Sensor_detects/grd5_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Sensor_detects/inv1_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Sensor_detects/inv2_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Sensor_stops_detecting/grd3_5/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Sensor_stops_detecting/inv1_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
+<org.eventb.core.psStatus name="Sensor_stops_detecting/inv2_5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="63" org.eventb.core.psManual="false"/>
 </org.eventb.core.psFile>
