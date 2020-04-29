@@ -107,9 +107,9 @@
 <org.eventb.core.action name="," org.eventb.core.assignment="Sensor_state(sensor) ≔ Not_Detecting" org.eventb.core.label="act1_5"/>
 <org.eventb.core.guard name="-" org.eventb.core.label="grd4_5" org.eventb.core.predicate="lift_in = FALSE"/>
 <org.eventb.core.guard name="." org.eventb.core.label="grd5_5" org.eventb.core.predicate="lift_out = FALSE"/>
-<org.eventb.core.guard name="/" org.eventb.core.label="grd6_5" org.eventb.core.predicate="sensor = 1 ⇒ lift_access = FALSE ∧ lvl_1_access = FALSE ∧ auth_on_ids = ∅ "/>
+<org.eventb.core.guard name="/" org.eventb.core.label="grd6_5" org.eventb.core.predicate="sensor = 1 ⇒ lift_access = FALSE ∧ lvl_1_access = FALSE"/>
 <org.eventb.core.guard name="0" org.eventb.core.label="grd7_5" org.eventb.core.predicate="sensor = 2 ⇒ lvl_2_access = FALSE"/>
 <org.eventb.core.guard name="1" org.eventb.core.label="grd8_5" org.eventb.core.predicate="sensor = 3 ⇒ lvl_3_access = FALSE"/>
 </org.eventb.core.event>
-<org.eventb.core.invariant name="_smwSAIfsEeq8_v9CZEJDO;" org.eventb.core.label="inv2_5" org.eventb.core.predicate="∀x·x∈1‥3 ⇒ (Sensor_state(x) = Detecting ⇒ lift_level = x)"/>
+<org.eventb.core.invariant name="_smwSAIfsEeq8_v9CZEJDO;" org.eventb.core.label="inv2_5" org.eventb.core.predicate="card({floor∣floor ∈ 1‥3 ∧ Sensor_state(floor) = Detecting})≤1"/>
 </org.eventb.core.machineFile>
