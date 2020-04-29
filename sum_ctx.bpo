@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="4">
-<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poFile org.eventb.core.poStamp="2">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="sum" org.eventb.core.type="ℙ(ℙ(ℤ)×ℤ)"/>
+<org.eventb.core.poIdentifier name="sum_array_values" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="axm1/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Axiom" org.eventb.core.poStamp="4">
+<org.eventb.core.poSequent name="axm_sum/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Axiom" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/sum_ctx.bpo|org.eventb.core.poFile#sum_ctx|org.eventb.core.poPredicateSet#ABSHYP"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℙ(ℤ)·x∈ℙ(ℤ)∧finite(x)∧card(x)&gt;0⇒x≠(∅ ⦂ ℙ(ℤ))∧(∃b⦂ℤ·∀x0⦂ℤ·x0∈x⇒b≥x0)∧x ∖ {max(x)}∈dom(sum)∧sum∈ℙ(ℤ) ⇸ ℤ" org.eventb.core.source="/FerryBoat/sum_ctx.buc|org.eventb.core.contextFile#sum_ctx|org.eventb.core.axiom#_fTxjoYcpEeqNjdOIA2HjDA"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/sum_ctx.buc|org.eventb.core.contextFile#sum_ctx|org.eventb.core.axiom#_fTxjoYcpEeqNjdOIA2HjDA"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℙ(ℤ)·x∈ℙ(ℤ)∧finite(x)∧card(x)&gt;0⇒x≠(∅ ⦂ ℙ(ℤ))∧(∃b⦂ℤ·∀x0⦂ℤ·x0∈x⇒b≥x0)∧x ∖ {max(x)}∈dom(sum)∧sum∈ℙ(ℤ) ⇸ ℤ" org.eventb.core.source="/FerryBoat/sum_ctx.buc|org.eventb.core.contextFile#sum_ctx|org.eventb.core.axiom#_4_76MYomEeqg9v5NgA6HRA"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/sum_ctx.buc|org.eventb.core.contextFile#sum_ctx|org.eventb.core.axiom#_4_76MYomEeqg9v5NgA6HRA"/>
 <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/FerryBoat/sum_ctx.bpo|org.eventb.core.poFile#sum_ctx|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/FerryBoat/sum_ctx.bpo|org.eventb.core.poFile#sum_ctx|org.eventb.core.poPredicateSet#ABSHYP"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/FerryBoat/sum_ctx.bpo|org.eventb.core.poFile#sum_ctx|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="4">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="sum=(λx⦂ℙ(ℤ)·x∈ℙ(ℤ)∧finite(x)∧card(x)=0 ∣ 0)∪(λx⦂ℙ(ℤ)·x∈ℙ(ℤ)∧finite(x)∧card(x)&gt;0 ∣ max(x)+sum(x ∖ {max(x)}))" org.eventb.core.source="/FerryBoat/sum_ctx.buc|org.eventb.core.contextFile#sum_ctx|org.eventb.core.axiom#_fTxjoYcpEeqNjdOIA2HjDA"/>
+<org.eventb.core.poSequent name="axm_sum_av/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Axiom" org.eventb.core.poStamp="2">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/sum_ctx.bpo|org.eventb.core.poFile#sum_ctx|org.eventb.core.poPredicateSet#HYP'"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℙ(ℤ×ℤ)·x∈ℤ ↔ ℤ∧finite(x)∧card(x)&gt;0⇒dom(x)≠(∅ ⦂ ℙ(ℤ))∧(∃b⦂ℤ·∀x0⦂ℤ·x0∈dom(x)⇒b≥x0)∧max(dom(x))∈dom(x)∧x∈ℤ ⇸ ℤ∧x ∖ {max(dom(x)) ↦ x(max(dom(x)))}∈dom(sum_array_values)∧sum_array_values∈ℙ(ℤ × ℤ) ⇸ ℤ" org.eventb.core.source="/FerryBoat/sum_ctx.buc|org.eventb.core.contextFile#sum_ctx|org.eventb.core.axiom#_4_76MoomEeqg9v5NgA6HRA"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/sum_ctx.buc|org.eventb.core.contextFile#sum_ctx|org.eventb.core.axiom#_4_76MoomEeqg9v5NgA6HRA"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/FerryBoat/sum_ctx.bpo|org.eventb.core.poFile#sum_ctx|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/FerryBoat/sum_ctx.bpo|org.eventb.core.poFile#sum_ctx|org.eventb.core.poPredicateSet#HYP'"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="HYP'" org.eventb.core.parentSet="/FerryBoat/sum_ctx.bpo|org.eventb.core.poFile#sum_ctx|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="sum=(λx⦂ℙ(ℤ)·x∈ℙ(ℤ)∧finite(x)∧card(x)=0 ∣ 0)∪(λx⦂ℙ(ℤ)·x∈ℙ(ℤ)∧finite(x)∧card(x)&gt;0 ∣ max(x)+sum(x ∖ {max(x)}))" org.eventb.core.source="/FerryBoat/sum_ctx.buc|org.eventb.core.contextFile#sum_ctx|org.eventb.core.axiom#_4_76MYomEeqg9v5NgA6HRA"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/FerryBoat/sum_ctx.bpo|org.eventb.core.poFile#sum_ctx|org.eventb.core.poPredicateSet#HYP'" org.eventb.core.poStamp="2">
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="sum_array_values=(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ↔ ℤ∧finite(x)∧card(x)=0 ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ↔ ℤ∧finite(x)∧card(x)&gt;0 ∣ sum_array_values(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))" org.eventb.core.source="/FerryBoat/sum_ctx.buc|org.eventb.core.contextFile#sum_ctx|org.eventb.core.axiom#_4_76MoomEeqg9v5NgA6HRA"/>
 </org.eventb.core.poPredicateSet>
 </org.eventb.core.poFile>
