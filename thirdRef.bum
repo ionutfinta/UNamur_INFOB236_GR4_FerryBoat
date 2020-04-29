@@ -89,8 +89,9 @@
 <org.eventb.core.guard name="/" org.eventb.core.label="grd3_3" org.eventb.core.predicate="TRUE ∈ {queue_1, queue_2}"/>
 <org.eventb.core.action name="-" org.eventb.core.assignment="queue1 ≔ queue_1" org.eventb.core.label="act1_3"/>
 <org.eventb.core.action name="." org.eventb.core.assignment="queue2 ≔ queue_2" org.eventb.core.label="act2_3"/>
-<org.eventb.core.guard name="+" org.eventb.core.label="grd4_3" org.eventb.core.predicate="(queue_1 ≠ queue1) ⇔ (queue_1 = TRUE)"/>
-<org.eventb.core.guard name="," org.eventb.core.label="grd5_3" org.eventb.core.predicate="(queue_2 ≠ queue2) ⇔ (queue_2 = TRUE)"/>
+<org.eventb.core.guard name="+" org.eventb.core.label="grd4_3" org.eventb.core.predicate="(queue_1 ≠ queue1) ⇒ (queue_1 = TRUE)"/>
+<org.eventb.core.guard name="," org.eventb.core.label="grd5_3" org.eventb.core.predicate="(queue_2 ≠ queue2) ⇒ (queue_2 = TRUE)"/>
+<org.eventb.core.guard name="0" org.eventb.core.label="grd6_3" org.eventb.core.predicate="{queue_1, queue_2} ≠ {queue1, queue2}"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="v" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Vehicle_out">
 <org.eventb.core.parameter name="'" org.eventb.core.identifier="queue_1"/>

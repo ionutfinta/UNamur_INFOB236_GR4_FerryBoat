@@ -2268,7 +2268,7 @@
                 <setAttributeObjects>
                   <de.bmotionstudio.gef.editor.observer.SetAttributeObject>
                     <type>#PREDICATE</type>
-                    <eval>queue1 = TRUE</eval>
+                    <eval>queue2 = TRUE</eval>
                     <value class="boolean">true</value>
                     <attribute>de.bmotionstudio.gef.editor.attribute.BAttributeVisible</attribute>
                     <isExpressionMode>false</isExpressionMode>
@@ -2410,7 +2410,7 @@
                 <setAttributeObjects>
                   <de.bmotionstudio.gef.editor.observer.SetAttributeObject>
                     <type>#PREDICATE</type>
-                    <eval>queue2 = TRUE&#xd;
+                    <eval>queue1 = TRUE&#xd;
 </eval>
                     <value class="boolean">true</value>
                     <attribute>de.bmotionstudio.gef.editor.attribute.BAttributeVisible</attribute>
@@ -2544,20 +2544,18 @@
           <children/>
           <observers>
             <entry>
-              <string>de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate</string>
-              <de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate>
-                <list>
-                  <de.bmotionstudio.gef.editor.scheduler.PredicateOperation>
+              <string>de.bmotionstudio.gef.editor.observer.SetAttribute</string>
+              <de.bmotionstudio.gef.editor.observer.SetAttribute>
+                <setAttributeObjects>
+                  <de.bmotionstudio.gef.editor.observer.SetAttributeObject>
+                    <type>#PREDICATE</type>
+                    <eval>queue2=FALSE</eval>
                     <value class="boolean">true</value>
                     <attribute>de.bmotionstudio.gef.editor.attribute.BAttributeEnabled</attribute>
                     <isExpressionMode>false</isExpressionMode>
-                    <operationName>Vehicle_in</operationName>
-                    <predicate>queue_1 = FALSE &amp; queue_2 = TRUE</predicate>
-                    <random>false</random>
-                    <maxrandom>1</maxrandom>
-                  </de.bmotionstudio.gef.editor.scheduler.PredicateOperation>
-                </list>
-              </de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate>
+                  </de.bmotionstudio.gef.editor.observer.SetAttributeObject>
+                </setAttributeObjects>
+              </de.bmotionstudio.gef.editor.observer.SetAttribute>
             </entry>
           </observers>
           <events>
@@ -2567,7 +2565,7 @@
                 <predicateOperation>
                   <isExpressionMode>false</isExpressionMode>
                   <operationName>Vehicle_in</operationName>
-                  <predicate>queue_1 = FALSE &amp; queue_2 = TRUE</predicate>
+                  <predicate>queue_1 = queue1 &amp; queue_2 = TRUE</predicate>
                   <random>false</random>
                   <maxrandom>1</maxrandom>
                 </predicateOperation>
@@ -2673,20 +2671,18 @@
           <children/>
           <observers>
             <entry>
-              <string>de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate</string>
-              <de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate>
-                <list>
-                  <de.bmotionstudio.gef.editor.scheduler.PredicateOperation>
+              <string>de.bmotionstudio.gef.editor.observer.SetAttribute</string>
+              <de.bmotionstudio.gef.editor.observer.SetAttribute>
+                <setAttributeObjects>
+                  <de.bmotionstudio.gef.editor.observer.SetAttributeObject>
+                    <type>#PREDICATE</type>
+                    <eval>queue1 = FALSE</eval>
                     <value class="boolean">true</value>
                     <attribute>de.bmotionstudio.gef.editor.attribute.BAttributeEnabled</attribute>
                     <isExpressionMode>false</isExpressionMode>
-                    <operationName>Vehicle_in</operationName>
-                    <predicate>queue_1 = TRUE &amp; queue_2 = FALSE</predicate>
-                    <random>false</random>
-                    <maxrandom>1</maxrandom>
-                  </de.bmotionstudio.gef.editor.scheduler.PredicateOperation>
-                </list>
-              </de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate>
+                  </de.bmotionstudio.gef.editor.observer.SetAttributeObject>
+                </setAttributeObjects>
+              </de.bmotionstudio.gef.editor.observer.SetAttribute>
             </entry>
           </observers>
           <events>
@@ -2696,7 +2692,7 @@
                 <predicateOperation>
                   <isExpressionMode>false</isExpressionMode>
                   <operationName>Vehicle_in</operationName>
-                  <predicate>queue_1 = TRUE &amp; queue_2 = FALSE</predicate>
+                  <predicate>queue_1 = TRUE &amp; queue_2 = queue2</predicate>
                   <random>false</random>
                   <maxrandom>1</maxrandom>
                 </predicateOperation>
@@ -2794,20 +2790,18 @@
           <children/>
           <observers>
             <entry>
-              <string>de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate</string>
-              <de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate>
-                <list>
-                  <de.bmotionstudio.gef.editor.scheduler.PredicateOperation>
+              <string>de.bmotionstudio.gef.editor.observer.SetAttribute</string>
+              <de.bmotionstudio.gef.editor.observer.SetAttribute>
+                <setAttributeObjects>
+                  <de.bmotionstudio.gef.editor.observer.SetAttributeObject>
+                    <type>#PREDICATE</type>
+                    <eval>queue1 = FALSE &amp; queue2 = FALSE</eval>
                     <value class="boolean">true</value>
                     <attribute>de.bmotionstudio.gef.editor.attribute.BAttributeEnabled</attribute>
                     <isExpressionMode>false</isExpressionMode>
-                    <operationName>Vehicle_in</operationName>
-                    <predicate>queue_1 = TRUE &amp; queue_2 = TRUE</predicate>
-                    <random>false</random>
-                    <maxrandom>1</maxrandom>
-                  </de.bmotionstudio.gef.editor.scheduler.PredicateOperation>
-                </list>
-              </de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate>
+                  </de.bmotionstudio.gef.editor.observer.SetAttributeObject>
+                </setAttributeObjects>
+              </de.bmotionstudio.gef.editor.observer.SetAttribute>
             </entry>
           </observers>
           <events>
@@ -2817,7 +2811,7 @@
                 <predicateOperation>
                   <isExpressionMode>false</isExpressionMode>
                   <operationName>Vehicle_in</operationName>
-                  <predicate>queue_1 = TRUE &amp; queue_2 = FALSE</predicate>
+                  <predicate>queue_1 = TRUE &amp; queue_2 = TRUE</predicate>
                   <random>false</random>
                   <maxrandom>1</maxrandom>
                 </predicateOperation>
@@ -3423,20 +3417,18 @@
           <children/>
           <observers>
             <entry>
-              <string>de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate</string>
-              <de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate>
-                <list>
-                  <de.bmotionstudio.gef.editor.scheduler.PredicateOperation>
+              <string>de.bmotionstudio.gef.editor.observer.SetAttribute</string>
+              <de.bmotionstudio.gef.editor.observer.SetAttribute>
+                <setAttributeObjects>
+                  <de.bmotionstudio.gef.editor.observer.SetAttributeObject>
+                    <type>#PREDICATE</type>
+                    <eval>queue2 = FALSE</eval>
                     <value class="boolean">true</value>
                     <attribute>de.bmotionstudio.gef.editor.attribute.BAttributeEnabled</attribute>
                     <isExpressionMode>false</isExpressionMode>
-                    <operationName>Vehicle_out</operationName>
-                    <predicate>queue_1 = TRUE &amp; queue_2 = FALSE</predicate>
-                    <random>false</random>
-                    <maxrandom>1</maxrandom>
-                  </de.bmotionstudio.gef.editor.scheduler.PredicateOperation>
-                </list>
-              </de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate>
+                  </de.bmotionstudio.gef.editor.observer.SetAttributeObject>
+                </setAttributeObjects>
+              </de.bmotionstudio.gef.editor.observer.SetAttribute>
             </entry>
           </observers>
           <events>
@@ -3446,7 +3438,7 @@
                 <predicateOperation>
                   <isExpressionMode>false</isExpressionMode>
                   <operationName>Vehicle_out</operationName>
-                  <predicate>queue_1 = TRUE &amp; queue_2 = FALSE</predicate>
+                  <predicate>queue_1 = queue1 &amp; queue_2 = FALSE</predicate>
                   <random>false</random>
                   <maxrandom>1</maxrandom>
                 </predicateOperation>
@@ -3457,7 +3449,9 @@
             <entry>
               <string>de.bmotionstudio.gef.editor.attribute.BAttributeMisc</string>
               <de.bmotionstudio.gef.editor.attribute.BAttributeMisc>
-                <value class="de.bmotionstudio.gef.editor.attribute.BAttributeMisc" reference=".."/>
+                <value class="de.bmotionstudio.gef.editor.attribute.BAttributeMisc">
+                  <value class="de.bmotionstudio.gef.editor.attribute.BAttributeMisc" reference=".."/>
+                </value>
               </de.bmotionstudio.gef.editor.attribute.BAttributeMisc>
             </entry>
             <entry>
@@ -3550,20 +3544,18 @@
           <children/>
           <observers>
             <entry>
-              <string>de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate</string>
-              <de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate>
-                <list>
-                  <de.bmotionstudio.gef.editor.scheduler.PredicateOperation>
+              <string>de.bmotionstudio.gef.editor.observer.SetAttribute</string>
+              <de.bmotionstudio.gef.editor.observer.SetAttribute>
+                <setAttributeObjects>
+                  <de.bmotionstudio.gef.editor.observer.SetAttributeObject>
+                    <type>#PREDICATE</type>
+                    <eval>queue1 = TRUE</eval>
                     <value class="boolean">true</value>
                     <attribute>de.bmotionstudio.gef.editor.attribute.BAttributeEnabled</attribute>
                     <isExpressionMode>false</isExpressionMode>
-                    <operationName>Vehicle_out</operationName>
-                    <predicate>queue_1 = FALSE &amp; queue_2 = TRUE</predicate>
-                    <random>false</random>
-                    <maxrandom>1</maxrandom>
-                  </de.bmotionstudio.gef.editor.scheduler.PredicateOperation>
-                </list>
-              </de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate>
+                  </de.bmotionstudio.gef.editor.observer.SetAttributeObject>
+                </setAttributeObjects>
+              </de.bmotionstudio.gef.editor.observer.SetAttribute>
             </entry>
           </observers>
           <events>
@@ -3573,7 +3565,7 @@
                 <predicateOperation>
                   <isExpressionMode>false</isExpressionMode>
                   <operationName>Vehicle_out</operationName>
-                  <predicate>queue_1 = FALSE &amp; queue_2 = TRUE</predicate>
+                  <predicate>queue_1 = FALSE &amp; queue_2 = queue2</predicate>
                   <random>false</random>
                   <maxrandom>1</maxrandom>
                 </predicateOperation>
@@ -3584,7 +3576,9 @@
             <entry>
               <string>de.bmotionstudio.gef.editor.attribute.BAttributeMisc</string>
               <de.bmotionstudio.gef.editor.attribute.BAttributeMisc>
-                <value class="de.bmotionstudio.gef.editor.attribute.BAttributeMisc" reference=".."/>
+                <value class="de.bmotionstudio.gef.editor.attribute.BAttributeMisc">
+                  <value class="de.bmotionstudio.gef.editor.attribute.BAttributeMisc" reference=".."/>
+                </value>
               </de.bmotionstudio.gef.editor.attribute.BAttributeMisc>
             </entry>
             <entry>
@@ -3669,20 +3663,18 @@
           <children/>
           <observers>
             <entry>
-              <string>de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate</string>
-              <de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate>
-                <list>
-                  <de.bmotionstudio.gef.editor.scheduler.PredicateOperation>
+              <string>de.bmotionstudio.gef.editor.observer.SetAttribute</string>
+              <de.bmotionstudio.gef.editor.observer.SetAttribute>
+                <setAttributeObjects>
+                  <de.bmotionstudio.gef.editor.observer.SetAttributeObject>
+                    <type>#PREDICATE</type>
+                    <eval>queue1 = TRUE &amp; queue2 = TRUE</eval>
                     <value class="boolean">true</value>
                     <attribute>de.bmotionstudio.gef.editor.attribute.BAttributeEnabled</attribute>
                     <isExpressionMode>false</isExpressionMode>
-                    <operationName>Vehicle_out</operationName>
-                    <predicate>queue_1 = FALSE &amp; queue_2 = FALSE</predicate>
-                    <random>false</random>
-                    <maxrandom>1</maxrandom>
-                  </de.bmotionstudio.gef.editor.scheduler.PredicateOperation>
-                </list>
-              </de.bmotionstudio.gef.editor.observer.ListenOperationByPredicate>
+                  </de.bmotionstudio.gef.editor.observer.SetAttributeObject>
+                </setAttributeObjects>
+              </de.bmotionstudio.gef.editor.observer.SetAttribute>
             </entry>
           </observers>
           <events>
@@ -3703,7 +3695,9 @@
             <entry>
               <string>de.bmotionstudio.gef.editor.attribute.BAttributeMisc</string>
               <de.bmotionstudio.gef.editor.attribute.BAttributeMisc>
-                <value class="de.bmotionstudio.gef.editor.attribute.BAttributeMisc" reference=".."/>
+                <value class="de.bmotionstudio.gef.editor.attribute.BAttributeMisc">
+                  <value class="de.bmotionstudio.gef.editor.attribute.BAttributeMisc" reference=".."/>
+                </value>
               </de.bmotionstudio.gef.editor.attribute.BAttributeMisc>
             </entry>
             <entry>
