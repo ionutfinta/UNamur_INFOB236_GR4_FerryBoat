@@ -3,7 +3,7 @@
 <org.eventb.core.scRefinesMachine name="'" org.eventb.core.scTarget="/FerryBoat/initialModel.bcm" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.refinesMachine#'"/>
 <org.eventb.core.scSeesContext name="(" org.eventb.core.scTarget="/FerryBoat/firstRef_ctx.bcc" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.seesContext#N"/>
 <org.eventb.core.scInternalContext name="integral_ctx">
-<org.eventb.core.scAxiom name="'" org.eventb.core.label="f_integral" org.eventb.core.predicate="integral=(λx⦂ℙ(ℤ×ℤ)·x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ⇸ ℤ∧finite(x)∧card(x)&gt;0∧finite(dom(x)) ∣ integral(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))" org.eventb.core.source="/FerryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.axiom#(" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="f_integral" org.eventb.core.predicate="integral∈(ℤ → ℤ) → ℤ∧integral=(λx⦂ℙ(ℤ×ℤ)·x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ⇸ ℤ∧finite(x)∧card(x)&gt;0∧finite(dom(x)) ∣ integral(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))" org.eventb.core.source="/FerryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.axiom#(" org.eventb.core.theorem="false"/>
 <org.eventb.core.scConstant name="integral" org.eventb.core.source="/FerryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.constant#'" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
 </org.eventb.core.scInternalContext>
 <org.eventb.core.scInternalContext name="firstRef_ctx">
