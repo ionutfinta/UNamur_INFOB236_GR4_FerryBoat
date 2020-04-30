@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="1">
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
 <org.eventb.core.poIdentifier name="camion_1" org.eventb.core.type="VEHICLE_TYPES"/>
@@ -11,7 +11,7 @@
 <org.eventb.core.poPredicate name="VEHICLE_TYPEU" org.eventb.core.predicate="vehicle_slot={voiture ↦ 1,camion_1 ↦ 1,camion_2 ↦ 2,camion_3 ↦ 3}" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.axiom#."/>
 <org.eventb.core.poPredicate name="VEHICLE_TYPEV" org.eventb.core.predicate="ran(vehicle_slot)={1,2,3}" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.axiom#\/"/>
 <org.eventb.core.poIdentifier name="integral" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
-<org.eventb.core.poPredicate name="VEHICLE_TYPEW" org.eventb.core.predicate="integral∈(ℤ ⇸ ℤ) → ℤ∧integral=(λx⦂ℙ(ℤ×ℤ)·x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ⇸ ℤ∧finite(x)∧card(x)&gt;0∧finite(dom(x)) ∣ integral(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))" org.eventb.core.source="/FerryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.axiom#("/>
+<org.eventb.core.poPredicate name="VEHICLE_TYPEW" org.eventb.core.predicate="integral=(λx⦂ℙ(ℤ×ℤ)·x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ⇸ ℤ∧finite(x)∧card(x)&gt;0∧finite(dom(x)) ∣ integral(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))" org.eventb.core.source="/FerryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.axiom#("/>
 <org.eventb.core.poIdentifier name="floors" org.eventb.core.type="ℙ(ℤ)"/>
 <org.eventb.core.poIdentifier name="max_bs_m" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poPredicate name="VEHICLE_TYPEX" org.eventb.core.predicate="max_bs_m=6" org.eventb.core.source="/FerryBoat/firstRef_ctx.buc|org.eventb.core.contextFile#firstRef_ctx|org.eventb.core.axiom#("/>
@@ -74,13 +74,13 @@
 <org.eventb.core.poPredicate name="reserved_spacf3" org.eventb.core.predicate="lvl_3_access∈BOOL" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.invariant#'?"/>
 <org.eventb.core.poPredicate name="reserved_spacf4" org.eventb.core.predicate="lift_access∈BOOL" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.invariant#'D"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="inv2_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="inv2_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#HYPsecondRef_cu0"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="(∀floor⦂ℤ·floor∈1 ‥ 3⇒floor∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES)∧finite({floor⦂ℤ·floor∈1 ‥ 3∧Sensor_state(floor)=Detecting ∣ floor})" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.invariant#_smwSAIfsEeq8_v9CZEJDO;"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.invariant#_smwSAIfsEeq8_v9CZEJDO;"/>
 <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#HYPsecondRef_cu0"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="INITIALISATION/inv1_5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="INITIALISATION/inv1_5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTALLHYPreserved_spacet"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="{1 ↦ Detecting,2 ↦ Not_Detecting,3 ↦ Not_Detecting}∈floors → SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.invariant#_smwSAIfsEeq8_v9CZEJDO7"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#''"/>
@@ -89,7 +89,7 @@
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poSequent#INITIALISATION\/inv1_5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#HYPsecondRef_cu0|org.eventb.core.poPredicate#PRD0"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="INITIALISATION/inv2_5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="INITIALISATION/inv2_5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTALLHYPreserved_spacet"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card({floor⦂ℤ·floor∈1 ‥ 3∧{1 ↦ Detecting,2 ↦ Not_Detecting,3 ↦ Not_Detecting}(floor)=Detecting ∣ floor})≤1" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.invariant#_smwSAIfsEeq8_v9CZEJDO;"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#''"/>
@@ -150,7 +150,7 @@
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="0&lt;max_busy_slots" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#0|org.eventb.core.guard#)"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="auth_on_ids=(∅ ⦂ ℙ(ℤ))" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#N|org.eventb.core.guard#+"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="Board/grd1_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Board/grd1_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacewvehicle_typo"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="lift_level∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDN{|org.eventb.core.guard#("/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDN{|org.eventb.core.guard#("/>
@@ -181,7 +181,7 @@
 <org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacew" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacewvehicle_typo" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicate name="PRD11" org.eventb.core.predicate="Sensor_state(lift_level)=Detecting" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDN{|org.eventb.core.guard#("/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="Unboard/grd1_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Unboard/grd1_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacexvehicle_typt"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="lift_level∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDN\||org.eventb.core.guard#("/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDN\||org.eventb.core.guard#("/>
@@ -332,7 +332,7 @@
 <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="TRUE∈{queue1,queue2}" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#v|org.eventb.core.guard#0"/>
 <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="{queue1,queue2}≠{queue_1,queue_2}" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#v|org.eventb.core.guard#1"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="Switch_lift_in/grd3_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Switch_lift_in/grd3_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf(("/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="boolean=TRUE⇒1∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO,|org.eventb.core.guard#("/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO,|org.eventb.core.guard#("/>
@@ -349,7 +349,7 @@
 <org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf(" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf((" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="boolean=TRUE⇒Sensor_state(1)=Detecting" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO,|org.eventb.core.guard#("/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="Switch_lift_out/grd5_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Switch_lift_out/grd5_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf)'"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="boolean=TRUE⇒lift_level∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO-|org.eventb.core.guard#("/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO-|org.eventb.core.guard#("/>
@@ -365,7 +365,7 @@
 <org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf)" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf)'" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="boolean=TRUE⇒Sensor_state(lift_level)=Detecting" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO-|org.eventb.core.guard#("/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="Switch_lvl_1_access/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Switch_lvl_1_access/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf*("/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="boolean=TRUE⇒1∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO.|org.eventb.core.guard#("/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO.|org.eventb.core.guard#("/>
@@ -382,7 +382,7 @@
 <org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf*" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf*(" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="boolean=TRUE⇒Sensor_state(1)=Detecting" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO.|org.eventb.core.guard#("/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="Switch_lvl_2_access/grd4_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Switch_lvl_2_access/grd4_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf+("/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="boolean=TRUE⇒2∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO\/|org.eventb.core.guard#("/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO\/|org.eventb.core.guard#("/>
@@ -399,7 +399,7 @@
 <org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf+" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf+(" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="boolean=TRUE⇒Sensor_state(2)=Detecting" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO\/|org.eventb.core.guard#("/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="Switch_lvl_3_access/grd4_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Switch_lvl_3_access/grd4_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf,("/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="boolean=TRUE⇒3∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO0|org.eventb.core.guard#("/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO0|org.eventb.core.guard#("/>
@@ -416,7 +416,7 @@
 <org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf," org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf,(" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="boolean=TRUE⇒Sensor_state(3)=Detecting" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO0|org.eventb.core.guard#("/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="Switch_lift_access/grd5_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Switch_lift_access/grd5_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf-("/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="boolean=TRUE⇒1∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO1|org.eventb.core.guard#("/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO1|org.eventb.core.guard#("/>
@@ -433,25 +433,25 @@
 <org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf-" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf-(" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="boolean=TRUE⇒Sensor_state(1)=Detecting" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO1|org.eventb.core.guard#("/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="Sensor_detects/grd3_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Sensor_detects/grd3_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf.'"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="sensor∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO9|org.eventb.core.guard#,"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO9|org.eventb.core.guard#,"/>
 <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf.'"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="Sensor_detects/grd1_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Sensor_detects/grd1_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf.("/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="lift_level∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO9|org.eventb.core.guard#."/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO9|org.eventb.core.guard#."/>
 <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf.("/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="Sensor_detects/grd5_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Sensor_detects/grd5_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf.*"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℤ·x∈1 ‥ 3∧x≠lift_level⇒x∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO9|org.eventb.core.guard#0"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO9|org.eventb.core.guard#0"/>
 <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf.*"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="Sensor_detects/inv1_5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Sensor_detects/inv1_5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTALLHYPreserved_spacf."/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Sensor_state{sensor ↦ Detecting}∈floors → SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.invariant#_smwSAIfsEeq8_v9CZEJDO7"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO9"/>
@@ -459,7 +459,7 @@
 <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poSequent#Sensor_detects\/inv1_5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#HYPsecondRef_cu0|org.eventb.core.poPredicate#PRD0"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="Sensor_detects/inv2_5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Sensor_detects/inv2_5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTALLHYPreserved_spacf."/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card({floor⦂ℤ·floor∈1 ‥ 3∧(Sensor_state{sensor ↦ Detecting})(floor)=Detecting ∣ floor})≤1" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.invariant#_smwSAIfsEeq8_v9CZEJDO;"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO9"/>
@@ -484,13 +484,13 @@
 <org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf." org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf.*" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="∀x⦂ℤ·x∈1 ‥ 3∧x≠lift_level⇒Sensor_state(x)≠Detecting" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO9|org.eventb.core.guard#0"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="Sensor_stops_detecting/grd3_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Sensor_stops_detecting/grd3_5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf\/'"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="sensor∈dom(Sensor_state)∧Sensor_state∈ℤ ⇸ SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO:|org.eventb.core.guard#+"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO:|org.eventb.core.guard#+"/>
 <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTHYPreserved_spacf\/'"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="Sensor_stops_detecting/inv1_5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Sensor_stops_detecting/inv1_5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTALLHYPreserved_spacf\/"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="Sensor_state{sensor ↦ Not_Detecting}∈floors → SENS_STATES" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.invariant#_smwSAIfsEeq8_v9CZEJDO7"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO:"/>
@@ -498,7 +498,7 @@
 <org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poSequent#Sensor_stops_detecting\/inv1_5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#HYPsecondRef_cu0|org.eventb.core.poPredicate#PRD0"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="Sensor_stops_detecting/inv2_5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="1">
+<org.eventb.core.poSequent name="Sensor_stops_detecting/inv2_5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/fifthRef.bpo|org.eventb.core.poFile#fifthRef|org.eventb.core.poPredicateSet#EVTALLHYPreserved_spacf\/"/>
 <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card({floor⦂ℤ·floor∈1 ‥ 3∧(Sensor_state{sensor ↦ Not_Detecting})(floor)=Detecting ∣ floor})≤1" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.invariant#_smwSAIfsEeq8_v9CZEJDO;"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/fifthRef.bum|org.eventb.core.machineFile#fifthRef|org.eventb.core.event#_smwSAIfsEeq8_v9CZEJDO:"/>
