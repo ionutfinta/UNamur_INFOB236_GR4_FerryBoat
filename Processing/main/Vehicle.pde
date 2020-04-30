@@ -1,7 +1,7 @@
 class Vehicle extends U3DObject{
   ArrayList<Wheel> wheels;
-
-  Vehicle() { 
+  
+  Vehicle() {
     wheels = new ArrayList<Wheel>();
   }
 
@@ -12,7 +12,6 @@ class Vehicle extends U3DObject{
     }
   }
   
-  // Function.  
   void move() {
   }
 }

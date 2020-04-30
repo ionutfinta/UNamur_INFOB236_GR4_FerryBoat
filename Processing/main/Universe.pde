@@ -3,15 +3,10 @@ class Universe {
   
   Universe(){
     objs = new ArrayList<U3DObject>();
+    objs.add( new Earth() );
   }
   
   void display(){
-    
-    noStroke();
-    //translate(60, 0, 0);
-    fill(0);
-    sphere(30);
-    
     for(U3DObject o: objs){
       o.animate();
       o.display();
