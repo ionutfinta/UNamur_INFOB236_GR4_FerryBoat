@@ -2,6 +2,6 @@
 <org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase">
 <org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="queues=2" org.eventb.core.source="/FerryBoat/thirdRef_ctx.buc|org.eventb.core.contextFile#thirdRef_ctx|org.eventb.core.axiom#)" org.eventb.core.theorem="false"/>
 <org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="lift_depth=3" org.eventb.core.source="/FerryBoat/thirdRef_ctx.buc|org.eventb.core.contextFile#thirdRef_ctx|org.eventb.core.axiom#*" org.eventb.core.theorem="false"/>
-<org.eventb.core.scConstant name="lift_depth" org.eventb.core.source="/FerryBoat/thirdRef_ctx.buc|org.eventb.core.contextFile#thirdRef_ctx|org.eventb.core.constant#(" org.eventb.core.type="ℤ"/>
-<org.eventb.core.scConstant name="queues" org.eventb.core.source="/FerryBoat/thirdRef_ctx.buc|org.eventb.core.contextFile#thirdRef_ctx|org.eventb.core.constant#'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.scConstant de.prob.symbolic.symbolicAttribute="false" name="lift_depth" org.eventb.core.source="/FerryBoat/thirdRef_ctx.buc|org.eventb.core.contextFile#thirdRef_ctx|org.eventb.core.constant#(" org.eventb.core.type="ℤ"/>
+<org.eventb.core.scConstant de.prob.symbolic.symbolicAttribute="false" name="queues" org.eventb.core.source="/FerryBoat/thirdRef_ctx.buc|org.eventb.core.contextFile#thirdRef_ctx|org.eventb.core.constant#'" org.eventb.core.type="ℤ"/>
 </org.eventb.core.scContextFile>

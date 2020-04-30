@@ -58,9 +58,13 @@
 </org.eventb.core.event>
 <org.eventb.core.event name="'-" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="BoardLift">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="BoardLift"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="lift_access = TRUE"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="lift_in = TRUE"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="'." org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="LeaveLift">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="LeaveLift"/>
+<org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="lift_access = TRUE"/>
+<org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="lift_in = TRUE"/>
 </org.eventb.core.event>
 <org.eventb.core.event name="'/" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="Reserve">
 <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Reserve"/>
