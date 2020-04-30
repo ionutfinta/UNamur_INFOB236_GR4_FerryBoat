@@ -11,19 +11,19 @@
 <org.eventb.core.scConstant name="camion_1" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.constant#(" org.eventb.core.type="VEHICLE_TYPES"/>
 <org.eventb.core.scConstant name="camion_2" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.constant#*" org.eventb.core.type="VEHICLE_TYPES"/>
 <org.eventb.core.scConstant name="camion_3" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.constant#+" org.eventb.core.type="VEHICLE_TYPES"/>
-<org.eventb.core.scConstant name="vehicle_slot" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.constant#-" org.eventb.core.type="ℙ(VEHICLE_TYPES×ℤ)"/>
+<org.eventb.core.scConstant de.prob.symbolic.symbolicAttribute="false" name="vehicle_slot" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.constant#-" org.eventb.core.type="ℙ(VEHICLE_TYPES×ℤ)"/>
 <org.eventb.core.scConstant name="voiture" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.constant#'" org.eventb.core.type="VEHICLE_TYPES"/>
 </org.eventb.core.scInternalContext>
 <org.eventb.core.scInternalContext name="integral_ctx">
 <org.eventb.core.scAxiom name="'" org.eventb.core.label="f_integral" org.eventb.core.predicate="integral=(λx⦂ℙ(ℤ×ℤ)·x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ⇸ ℤ∧finite(x)∧card(x)&gt;0∧finite(dom(x)) ∣ integral(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))" org.eventb.core.source="/FerryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.axiom#(" org.eventb.core.theorem="false"/>
-<org.eventb.core.scConstant name="integral" org.eventb.core.source="/FerryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.constant#'" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
+<org.eventb.core.scConstant de.prob.symbolic.symbolicAttribute="false" name="integral" org.eventb.core.source="/FerryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.constant#'" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
 </org.eventb.core.scInternalContext>
 <org.eventb.core.scInternalContext name="firstRef_ctx">
 <org.eventb.core.scExtendsContext name="'" org.eventb.core.scTarget="/FerryBoat/integral_ctx.bcc|org.eventb.core.scContextFile#integral_ctx" org.eventb.core.source="/FerryBoat/firstRef_ctx.buc|org.eventb.core.contextFile#firstRef_ctx|org.eventb.core.extendsContext#,"/>
 <org.eventb.core.scAxiom name="integral_cty" org.eventb.core.label="axm1_1" org.eventb.core.predicate="max_bs_m=6" org.eventb.core.source="/FerryBoat/firstRef_ctx.buc|org.eventb.core.contextFile#firstRef_ctx|org.eventb.core.axiom#(" org.eventb.core.theorem="false"/>
 <org.eventb.core.scAxiom name="integral_ctz" org.eventb.core.label="axm2_1" org.eventb.core.predicate="floors=1 ‥ 3" org.eventb.core.source="/FerryBoat/firstRef_ctx.buc|org.eventb.core.contextFile#firstRef_ctx|org.eventb.core.axiom#*" org.eventb.core.theorem="false"/>
 <org.eventb.core.scConstant name="floors" org.eventb.core.source="/FerryBoat/firstRef_ctx.buc|org.eventb.core.contextFile#firstRef_ctx|org.eventb.core.constant#+" org.eventb.core.type="ℙ(ℤ)"/>
-<org.eventb.core.scConstant name="max_bs_m" org.eventb.core.source="/FerryBoat/firstRef_ctx.buc|org.eventb.core.contextFile#firstRef_ctx|org.eventb.core.constant#'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.scConstant de.prob.symbolic.symbolicAttribute="false" name="max_bs_m" org.eventb.core.source="/FerryBoat/firstRef_ctx.buc|org.eventb.core.contextFile#firstRef_ctx|org.eventb.core.constant#'" org.eventb.core.type="ℤ"/>
 </org.eventb.core.scInternalContext>
 <org.eventb.core.scInvariant name="'" org.eventb.core.label="inv1" org.eventb.core.predicate="max_busy_slots∈ℕ" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.invariant#)" org.eventb.core.theorem="false"/>
 <org.eventb.core.scInvariant name="(" org.eventb.core.label="inv2" org.eventb.core.predicate="busy_slots∈ℕ" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.invariant#," org.eventb.core.theorem="false"/>
