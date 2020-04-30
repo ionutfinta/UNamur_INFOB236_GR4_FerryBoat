@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="1">
-<org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poFile org.eventb.core.poStamp="2">
+<org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="VEHICLE_TYPES" org.eventb.core.type="ℙ(VEHICLE_TYPES)"/>
 <org.eventb.core.poIdentifier name="camion_1" org.eventb.core.type="VEHICLE_TYPES"/>
 <org.eventb.core.poIdentifier name="camion_2" org.eventb.core.type="VEHICLE_TYPES"/>
@@ -11,7 +11,7 @@
 <org.eventb.core.poPredicate name="VEHICLE_TYPEU" org.eventb.core.predicate="vehicle_slot={voiture ↦ 1,camion_1 ↦ 1,camion_2 ↦ 2,camion_3 ↦ 3}" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.axiom#."/>
 <org.eventb.core.poPredicate name="VEHICLE_TYPEV" org.eventb.core.predicate="ran(vehicle_slot)={1,2,3}" org.eventb.core.source="/FerryBoat/secondRef_ctx.buc|org.eventb.core.contextFile#secondRef_ctx|org.eventb.core.axiom#\/"/>
 <org.eventb.core.poIdentifier name="integral" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
-<org.eventb.core.poPredicate name="VEHICLE_TYPEW" org.eventb.core.predicate="integral∈(ℤ → ℤ) → ℤ∧integral=(λx⦂ℙ(ℤ×ℤ)·x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ⇸ ℤ∧finite(x)∧card(x)&gt;0∧finite(dom(x)) ∣ integral(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))" org.eventb.core.source="/FerryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.axiom#("/>
+<org.eventb.core.poPredicate name="VEHICLE_TYPEW" org.eventb.core.predicate="integral=(λx⦂ℙ(ℤ×ℤ)·x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ⇸ ℤ∧finite(x)∧card(x)&gt;0∧finite(dom(x)) ∣ integral(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))" org.eventb.core.source="/FerryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.axiom#("/>
 <org.eventb.core.poIdentifier name="floors" org.eventb.core.type="ℙ(ℤ)"/>
 <org.eventb.core.poIdentifier name="max_bs_m" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poPredicate name="VEHICLE_TYPEX" org.eventb.core.predicate="max_bs_m=6" org.eventb.core.source="/FerryBoat/firstRef_ctx.buc|org.eventb.core.contextFile#firstRef_ctx|org.eventb.core.axiom#("/>
@@ -21,7 +21,7 @@
 <org.eventb.core.poPredicate name="VEHICLE_TYPEZ" org.eventb.core.predicate="queues=2" org.eventb.core.source="/FerryBoat/thirdRef_ctx.buc|org.eventb.core.contextFile#thirdRef_ctx|org.eventb.core.axiom#)"/>
 <org.eventb.core.poPredicate name="VEHICLE_TYPE[" org.eventb.core.predicate="lift_depth=3" org.eventb.core.source="/FerryBoat/thirdRef_ctx.buc|org.eventb.core.contextFile#thirdRef_ctx|org.eventb.core.axiom#*"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="auth_on_ids" org.eventb.core.type="ℙ(ℤ)"/>
 <org.eventb.core.poIdentifier name="boarded_ids" org.eventb.core.type="ℙ(ℤ)"/>
 <org.eventb.core.poIdentifier name="bs_m" org.eventb.core.type="ℤ"/>
@@ -63,7 +63,7 @@
 <org.eventb.core.poPredicate name="reserved_spacf-" org.eventb.core.predicate="lift_vehicles∈1 ‥ queues × 1 ‥ lift_depth ⇸ ℕ" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.invariant#x"/>
 <org.eventb.core.poPredicate name="reserved_spacf." org.eventb.core.predicate="id_is_left∈ℕ ⇸ BOOL" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.invariant#\|"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacet" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacet" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="in_lift_ids'" org.eventb.core.type="ℙ(ℤ)"/>
 <org.eventb.core.poIdentifier name="queue1'" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="max_busy_slots'" org.eventb.core.type="ℤ"/>
@@ -86,20 +86,20 @@
 <org.eventb.core.poIdentifier name="lvl_3_access'" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="busy_slots'" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacet" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacet" org.eventb.core.poStamp="1"/>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spaceu" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacet" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacet" org.eventb.core.poStamp="2"/>
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spaceu" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="max_busy_slots'" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="max_bs_p'" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
 <org.eventb.core.poIdentifier name="capacities" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spaceu" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spaceu" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spaceu" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spaceu" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="capacities∈floors → ℕ" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.guard#+"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="ran(capacities)≠{0}" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.guard#internal4"/>
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="∀x⦂ℤ·x∈floors⇒max_bs_p(x)=0" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.guard#,"/>
 <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="∀x⦂ℤ·x∈floors⇒bs_p(x)=0" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#-|org.eventb.core.guard#-"/>
 <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="reserved_spaces={f⦂ℤ·f∈floors ∣ f ↦ 0}" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#M|org.eventb.core.guard#("/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacev" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacev" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="max_busy_slots'" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="lift_vehicles'" org.eventb.core.type="ℙ(ℤ×ℤ×ℤ)"/>
 <org.eventb.core.poIdentifier name="reserved_spaces'" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
@@ -110,11 +110,11 @@
 <org.eventb.core.poIdentifier name="boarded_ids'" org.eventb.core.type="ℙ(ℤ)"/>
 <org.eventb.core.poIdentifier name="busy_slots'" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacev" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacev" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacev" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacev" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="0&lt;max_busy_slots" org.eventb.core.source="/FerryBoat/initialModel.bum|org.eventb.core.machineFile#initialModel|org.eventb.core.event#0|org.eventb.core.guard#)"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="auth_on_ids=(∅ ⦂ ℙ(ℤ))" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#N|org.eventb.core.guard#+"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacew" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacew" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="in_lift_ids'" org.eventb.core.type="ℙ(ℤ)"/>
 <org.eventb.core.poIdentifier name="lift_vehicles'" org.eventb.core.type="ℙ(ℤ×ℤ×ℤ)"/>
 <org.eventb.core.poIdentifier name="bs_m'" org.eventb.core.type="ℤ"/>
@@ -123,7 +123,7 @@
 <org.eventb.core.poIdentifier name="vehicle_type" org.eventb.core.type="VEHICLE_TYPES"/>
 <org.eventb.core.poIdentifier name="busy_slots'" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacew" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacew" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacew" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacew" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="vehicle_type∈VEHICLE_TYPES" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#O|org.eventb.core.guard#0"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="busy_slots+vehicle_slot(vehicle_type)≤max_busy_slots" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#O|org.eventb.core.guard#2"/>
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="vehicle_slot(vehicle_type)≤bs_m" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#O|org.eventb.core.guard#-"/>
@@ -136,7 +136,7 @@
 <org.eventb.core.poPredicate name="PRD9" org.eventb.core.predicate="lift_level=2⇒lvl_2_access=TRUE" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'*|org.eventb.core.guard#*"/>
 <org.eventb.core.poPredicate name="PRD10" org.eventb.core.predicate="lift_level=3⇒lvl_3_access=TRUE" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'*|org.eventb.core.guard#+"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacex" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacex" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="in_lift_ids'" org.eventb.core.type="ℙ(ℤ)"/>
 <org.eventb.core.poIdentifier name="lift_vehicles'" org.eventb.core.type="ℙ(ℤ×ℤ×ℤ)"/>
 <org.eventb.core.poIdentifier name="position_s" org.eventb.core.type="ℤ"/>
@@ -148,7 +148,7 @@
 <org.eventb.core.poIdentifier name="boarded_ids'" org.eventb.core.type="ℙ(ℤ)"/>
 <org.eventb.core.poIdentifier name="busy_slots'" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacex" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacex" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacex" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacex" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="vehicle_type∈VEHICLE_TYPES" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#P|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="vehicle_slot(vehicle_type)≤busy_slots" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#P|org.eventb.core.guard#internal4"/>
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="bs_m+vehicle_slot(vehicle_type)≤max_bs_m" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#P|org.eventb.core.guard#internal1"/>
@@ -166,11 +166,11 @@
 <org.eventb.core.poPredicate name="PRD14" org.eventb.core.predicate="lift_level=2⇒lvl_2_access=TRUE" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'+|org.eventb.core.guard#*"/>
 <org.eventb.core.poPredicate name="PRD15" org.eventb.core.predicate="lift_level=3⇒lvl_3_access=TRUE" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'+|org.eventb.core.guard#+"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacey" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacey" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="selected_level" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="lift_level'" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacey" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacey" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacey" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacey" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="selected_level∈floors" org.eventb.core.source="/FerryBoat/firstRef.bum|org.eventb.core.machineFile#firstRef|org.eventb.core.event#G|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="lift_access=FALSE" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#',|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="lift_in=FALSE" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#',|org.eventb.core.guard#)"/>
@@ -179,7 +179,7 @@
 <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="lvl_2_access=FALSE" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#',|org.eventb.core.guard#-"/>
 <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="lvl_3_access=FALSE" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#',|org.eventb.core.guard#."/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacez" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacez" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="in_lift_ids'" org.eventb.core.type="ℙ(ℤ)"/>
 <org.eventb.core.poIdentifier name="lift_vehicles'" org.eventb.core.type="ℙ(ℤ×ℤ×ℤ)"/>
 <org.eventb.core.poIdentifier name="position_s" org.eventb.core.type="ℤ"/>
@@ -190,7 +190,7 @@
 <org.eventb.core.poIdentifier name="vehicle_type" org.eventb.core.type="VEHICLE_TYPES"/>
 <org.eventb.core.poIdentifier name="boarded_ids'" org.eventb.core.type="ℙ(ℤ)"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacez" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacez" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacez" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacez" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="vehicle_slot(vehicle_type)+bs_m≤max_bs_m" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#R|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="lift_level=1" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#R|org.eventb.core.guard#*"/>
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="vehicle_id∈auth_on_ids" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#R|org.eventb.core.guard#\/"/>
@@ -201,7 +201,7 @@
 <org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="position_s∈1 ‥ lift_depth" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#k|org.eventb.core.guard#7"/>
 <org.eventb.core.poPredicate name="PRD8" org.eventb.core.predicate="position_s=min({lift_depth+1}∪{x⦂ℤ·x∈1 ‥ 4 − vehicle_slot(vehicle_type)∧x&gt;max({0}∪{y⦂ℤ·y∈1 ‥ lift_depth∧position_q ↦ y∈dom(lift_vehicles) ∣ y}) ∣ x})" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#k|org.eventb.core.guard#5"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_space{" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_space{" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="in_lift_ids'" org.eventb.core.type="ℙ(ℤ)"/>
 <org.eventb.core.poIdentifier name="lift_vehicles'" org.eventb.core.type="ℙ(ℤ×ℤ×ℤ)"/>
 <org.eventb.core.poIdentifier name="bs_m'" org.eventb.core.type="ℤ"/>
@@ -209,27 +209,27 @@
 <org.eventb.core.poIdentifier name="vehicle_type" org.eventb.core.type="VEHICLE_TYPES"/>
 <org.eventb.core.poIdentifier name="boarded_ids'" org.eventb.core.type="ℙ(ℤ)"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_space{" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_space{" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_space{" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_space{" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="lift_level=1" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#S|org.eventb.core.guard#+"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="vehicle_type∈VEHICLE_TYPES" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#S|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="bs_m&gt;0∧vehicle_slot(vehicle_type)≤bs_m" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#S|org.eventb.core.guard#)"/>
 <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="vehicle_id∈dom(reservations)" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#S|org.eventb.core.guard#-"/>
 <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="reservations(vehicle_id)∈{f⦂ℤ,v⦂VEHICLE_TYPES·f∈floors∧v=vehicle_type ∣ f ↦ v}" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#S|org.eventb.core.guard#\/"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_space|" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_space|" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="reserved_spaces'" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
 <org.eventb.core.poIdentifier name="floor" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="reservations'" org.eventb.core.type="ℙ(ℤ×(ℤ×VEHICLE_TYPES))"/>
 <org.eventb.core.poIdentifier name="vehicle_type" org.eventb.core.type="VEHICLE_TYPES"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_space|" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_space\|" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_space|" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_space\|" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="vehicle_type∈VEHICLE_TYPES" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#[|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="vehicle_type=voiture⇒(∀f⦂ℤ·f∈floors∧f&gt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)&gt;max_bs_p(f))" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#[|org.eventb.core.guard#*"/>
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="floor∈floors" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#[|org.eventb.core.guard#+"/>
 <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="vehicle_type≠voiture⇒(∀f⦂ℤ·f∈floors∧f&lt;floor⇒reserved_spaces(f)+vehicle_slot(vehicle_type)&gt;max_bs_p(f))" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#[|org.eventb.core.guard#,"/>
 <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="reserved_spaces(floor)+vehicle_slot(vehicle_type)≤max_bs_p(floor)" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#[|org.eventb.core.guard#\/"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_space}" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_space}" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="queue1'" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="is_left" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="vehicle_id" org.eventb.core.type="ℤ"/>
@@ -238,7 +238,7 @@
 <org.eventb.core.poIdentifier name="vehicle_type" org.eventb.core.type="VEHICLE_TYPES"/>
 <org.eventb.core.poIdentifier name="queue2'" org.eventb.core.type="BOOL"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_space}" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_space}" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_space}" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_space}" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="vehicle_type∈VEHICLE_TYPES" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#c|org.eventb.core.guard#'"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="vehicle_id∈dom(reservations)" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#c|org.eventb.core.guard#*"/>
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="reservations(vehicle_id)∈{f⦂ℤ,v⦂VEHICLE_TYPES·f∈floors∧v=vehicle_type ∣ f ↦ v}" org.eventb.core.source="/FerryBoat/secondRef.bum|org.eventb.core.machineFile#secondRef|org.eventb.core.event#c|org.eventb.core.guard#+"/>
@@ -249,13 +249,13 @@
 <org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="is_left=FALSE⇒queue2=TRUE" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#n|org.eventb.core.guard#,"/>
 <org.eventb.core.poPredicate name="PRD8" org.eventb.core.predicate="vehicle_id∉boarded_ids" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#n|org.eventb.core.guard#-"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_space~" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_space~" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="queue1'" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="queue_2" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="queue_1" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="queue2'" org.eventb.core.type="BOOL"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_space~" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_space~" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_space~" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_space~" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="queue_1∈BOOL" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#u|org.eventb.core.guard#)"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="queue_2∈BOOL" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#u|org.eventb.core.guard#*"/>
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="TRUE∈{queue_1,queue_2}" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#u|org.eventb.core.guard#\/"/>
@@ -263,13 +263,13 @@
 <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="queue_2≠queue2⇒queue_2=TRUE" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#u|org.eventb.core.guard#,"/>
 <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="{queue_1,queue_2}≠{queue1,queue2}" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#u|org.eventb.core.guard#0"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacf'" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacf'" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="queue1'" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="queue_2" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="queue_1" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="queue2'" org.eventb.core.type="BOOL"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf'" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacf'" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf'" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacf'" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="queue_1∈BOOL" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#v|org.eventb.core.guard#)"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="queue_2∈BOOL" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#v|org.eventb.core.guard#*"/>
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="FALSE∈{queue_1,queue_2}" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#v|org.eventb.core.guard#\/"/>
@@ -278,54 +278,54 @@
 <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="TRUE∈{queue1,queue2}" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#v|org.eventb.core.guard#0"/>
 <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="{queue1,queue2}≠{queue_1,queue_2}" org.eventb.core.source="/FerryBoat/thirdRef.bum|org.eventb.core.machineFile#thirdRef|org.eventb.core.event#v|org.eventb.core.guard#1"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacf(" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacf(" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="lift_out'" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="boolean" org.eventb.core.type="BOOL"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf(" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacf(" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf(" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacf(" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="boolean≠lift_out∧boolean∈BOOL" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'7|org.eventb.core.guard#("/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacf)" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacf)" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="lift_in'" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="boolean" org.eventb.core.type="BOOL"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf)" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacf)" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf)" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacf)" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="lift_level=1" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'8|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="boolean≠lift_in∧boolean∈BOOL" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'8|org.eventb.core.guard#,"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacf*" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacf*" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="lvl_1_access'" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="boolean" org.eventb.core.type="BOOL"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf*" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacf*" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf*" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacf*" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="boolean∈BOOL∧boolean≠lvl_1_access" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'@|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="lift_level=1" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'@|org.eventb.core.guard#+"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacf+" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacf+" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="lvl_2_access'" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="boolean" org.eventb.core.type="BOOL"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf+" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacf+" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf+" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacf+" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="boolean∈BOOL∧boolean≠lvl_2_access" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'A|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="lift_level=2" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'A|org.eventb.core.guard#+"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacf," org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacf," org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="boolean" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="lvl_3_access'" org.eventb.core.type="BOOL"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf," org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacf," org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf," org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacf," org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="boolean∈BOOL∧boolean≠lvl_3_access" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'B|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="lift_level=3" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'B|org.eventb.core.guard#+"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacf-" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTIDENTreserved_spacf-" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poIdentifier name="lift_access'" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="boolean" org.eventb.core.type="BOOL"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf-" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacf-" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="EVTALLHYPreserved_spacf-" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#EVTIDENTreserved_spacf-" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="lift_level=1" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'E|org.eventb.core.guard#("/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="boolean∈BOOL∧boolean≠lift_access" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.event#'E|org.eventb.core.guard#+"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/FerryBoat/fourtRef.bpo|org.eventb.core.poFile#fourtRef|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="2">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="lift_in∈BOOL" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.invariant#'5"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="lift_out∈BOOL" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.invariant#'6"/>
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="lvl_1_access∈BOOL" org.eventb.core.source="/FerryBoat/fourtRef.bum|org.eventb.core.machineFile#fourtRef|org.eventb.core.invariant#'="/>
