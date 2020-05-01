@@ -7,7 +7,6 @@ class Car extends Vehicle {
   
   private boolean switcherLights;
   
-  private float y_speed;
   
   Car(){
     s = loadShape("./assets/car_chassis.obj");
@@ -33,25 +32,15 @@ class Car extends Vehicle {
     whiteLights.add(new PVector(-frontPos, wh_height, 3.52));
   }
   
-  void animate(int gravity){
-    if(pos_y < limitBelow - 0.44){
-      y_speed += gravity*0.005;
-      pos_y += y_speed;
-    }else{
-      pos_y = limitBelow - 0.44;
-      y_speed = 0;
-    }
-  }
-  
   void display() {
     pushMatrix();
     scale(uniScale);
     translate(pos_x, pos_y);
     rotateY(radians(angle_y));
     if(switcherLights){
-      for(PVector l:whiteLights){
-        pointLight(255, 255, 255, l.x, l.y, l.z);
-      }
+      //for(PVector l:whiteLights){
+        //pointLight(255, 255, 255, l.x, l.y, l.z);
+      //}
     }
     if(keyPressed == true && key == 'l' && switcherLights == false)
       switcherLights = !switcherLights;

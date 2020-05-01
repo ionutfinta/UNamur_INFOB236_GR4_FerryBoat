@@ -4,6 +4,7 @@ Universe myUniverse;
 
 Me me;
 Car myFirstCar;
+PImage img;;
 
 void setup(){
   size(1024,768,P3D);
@@ -15,9 +16,11 @@ void setup(){
                                      "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers");
 
   myFirstCar = myUniverse.spawnCar();
+    img = loadImage("./assets/skybox_test.jpg");
 }
 
 void draw(){ 
-  background(255);
+  //background(255);
+  background(img);
   myUniverse.display();
 }

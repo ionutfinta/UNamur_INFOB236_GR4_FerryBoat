@@ -2,7 +2,6 @@ class Me extends U3DObject{
   private String mode;
   private String absPosition;
   
-  private PVector cameraPos;
   private PVector cameraDir;
   
   private float cameraSpeed;
@@ -15,10 +14,12 @@ class Me extends U3DObject{
      ap = "port";
    absPosition = ap;
    
-   cameraPos = new PVector(265.82104, 149.98611, 109.87196);
-   cameraDir = new PVector(265.20486, 150.7245, 109.59787);
-   elevationAngle = -0.87537646;
-   rotationAngle = -1.2931504;
+   pos_x = -176.26915;
+   pos_y = 5.81;
+   pos_z =  -256.0513;
+   cameraDir = new PVector(-176.40393, 5.9550138, -255.46675);
+   elevationAngle = 0.5788777;
+   rotationAngle = 2.616964;
    cameraSpeed = uniScale*.5f;
  }
  
@@ -27,36 +28,34 @@ class Me extends U3DObject{
    if(keyPressed == true){
      if(key == CODED){
        if(keyCode == UP){
-         cameraPos.x += cameraSpeed * cos(elevationAngle) * sin(rotationAngle);
-         cameraPos.y += cameraSpeed * sin(elevationAngle) * sin(rotationAngle);
-         cameraPos.z -= cameraSpeed * cos(rotationAngle);
+         pos_x += cameraSpeed * cos(elevationAngle) * sin(rotationAngle);
+         pos_y += cameraSpeed * sin(elevationAngle) * sin(rotationAngle);
+         pos_z -= cameraSpeed * cos(rotationAngle);
          
          
          updateCameraDir();
        }
        if(keyCode == DOWN){
-         cameraPos.x -= cameraSpeed * cos(elevationAngle) * sin(rotationAngle);
-         cameraPos.y -= cameraSpeed * sin(elevationAngle) * sin(rotationAngle);
-         cameraPos.z += cameraSpeed * cos(rotationAngle);
+         pos_x -= cameraSpeed * cos(elevationAngle) * sin(rotationAngle);
+         pos_y -= cameraSpeed * sin(elevationAngle) * sin(rotationAngle);
+         pos_z += cameraSpeed * cos(rotationAngle);
          
          updateCameraDir();
        }
        if(keyCode == LEFT){
-         cameraPos.x += cameraSpeed * cos(elevationAngle) * sin(rotationAngle-HALF_PI);
-         cameraPos.y += cameraSpeed * sin(elevationAngle) * sin(rotationAngle-HALF_PI);
-         cameraPos.z -= cameraSpeed * cos(rotationAngle-HALF_PI);
+         pos_x += cameraSpeed * cos(elevationAngle) * sin(rotationAngle-HALF_PI);
+         pos_z -= cameraSpeed * cos(rotationAngle-HALF_PI);
          
          updateCameraDir();
        }
        if(keyCode == RIGHT){
-         cameraPos.x += cameraSpeed * cos(elevationAngle) * sin(rotationAngle+HALF_PI);
-         cameraPos.y += cameraSpeed * sin(elevationAngle) * sin(rotationAngle+HALF_PI);
-         cameraPos.z -= cameraSpeed * cos(rotationAngle+HALF_PI);
+         pos_x += cameraSpeed * cos(elevationAngle) * sin(rotationAngle+HALF_PI);
+         pos_z -= cameraSpeed * cos(rotationAngle+HALF_PI);
          
          updateCameraDir();
        }
        if(keyCode == SHIFT){
-         println("Camera position: " + cameraPos);
+         println("Camera position: " + new PVector(pos_x,pos_y,pos_z));
          println("Camera Direction: " + cameraDir);
          println("Elevation: " + elevationAngle);
          println("Rotation: " + rotationAngle);
@@ -74,24 +73,31 @@ class Me extends U3DObject{
      if(elevationAngle < -TWO_PI) elevationAngle += TWO_PI;
      if(rotationAngle > TWO_PI) rotationAngle -= TWO_PI;
      if(rotationAngle < -TWO_PI) rotationAngle += TWO_PI;
+     if(pos_y < limitBelow - 0.44){
+        y_speed += gravity*0.005;
+        pos_y += y_speed;
+      }else{
+        pos_y = limitBelow - 0.44;
+        y_speed = 0;
+      }
      updateCameraDir();
    }
    return;
    }
-   // Code for human mode: Gravity, etc...
+   apply_gravity(gravity);
  }
  
  void updateCameraDir(){
-     cameraDir.x = cameraPos.x + cos(elevationAngle) * sin(rotationAngle);
-     cameraDir.y = cameraPos.y + sin(elevationAngle) * sin(rotationAngle);
-     cameraDir.z = cameraPos.z - cos(rotationAngle);
+     cameraDir.x = pos_x + cos(elevationAngle) * sin(rotationAngle);
+     cameraDir.y = pos_y + sin(elevationAngle) * sin(rotationAngle);
+     cameraDir.z = pos_z - cos(rotationAngle);
  }
  
  void display(){
    if(absPosition.equals("port")){
-     camera(cameraPos.x, cameraPos.y, cameraPos.z, cameraDir.x, cameraDir.y, cameraDir.z, 0, 1, 0);
-     directionalLight(51, 102, 126, 0, 1, 0);
-      ambientLight(51, 102, 126);
+     camera(pos_x, pos_y, pos_z, cameraDir.x, cameraDir.y, cameraDir.z, 0, 1, 0);
+     pointLight(51, 102, 126, 0, 0, 0);
+     ambientLight(51, 102, 126);
   }
  }
 }
