@@ -9,9 +9,12 @@ class U3DObject {
   
   U3DObject(){
     uniScale = 18;
+    
+     //TODO: Améliorer via un système de collisions
     limitBelow = uniScale*0.250;
   }
   void apply_gravity(int gravity){
+   //TODO: Améliorer via un système de collisions
     if(pos_y < limitBelow){
       y_speed += gravity*0.005;
       pos_y += y_speed;

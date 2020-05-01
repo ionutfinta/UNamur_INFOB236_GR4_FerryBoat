@@ -14,12 +14,12 @@ class Me extends U3DObject{
      ap = "port";
    absPosition = ap;
    
-   pos_x = -176.26915;
-   pos_y = 5.81;
-   pos_z =  -256.0513;
-   cameraDir = new PVector(-176.40393, 5.9550138, -255.46675);
-   elevationAngle = 0.5788777;
-   rotationAngle = 2.616964;
+   pos_x = 249.03185;
+   pos_y = 3.81;
+   pos_z =  2127.459;
+   cameraDir = new PVector(0, 0, 0);
+   elevationAngle = 0;
+   rotationAngle = 0;
    cameraSpeed = uniScale*.5f;
  }
  
@@ -28,29 +28,32 @@ class Me extends U3DObject{
    if(keyPressed == true){
      if(key == CODED){
        if(keyCode == UP){
-         pos_x += cameraSpeed * cos(elevationAngle) * sin(rotationAngle);
-         pos_y += cameraSpeed * sin(elevationAngle) * sin(rotationAngle);
-         pos_z -= cameraSpeed * cos(rotationAngle);
-         
+         PVector new_pos = new PVector(pos_x, pos_y, pos_z).sub(cameraDir.mult(-cameraSpeed));
+         pos_x = new_pos.x;
+         pos_y = new_pos.y;
+         pos_z = new_pos.z;
          
          updateCameraDir();
        }
        if(keyCode == DOWN){
-         pos_x -= cameraSpeed * cos(elevationAngle) * sin(rotationAngle);
-         pos_y -= cameraSpeed * sin(elevationAngle) * sin(rotationAngle);
-         pos_z += cameraSpeed * cos(rotationAngle);
+         PVector new_pos = new PVector(pos_x, pos_y, pos_z).sub(cameraDir.mult(cameraSpeed));
+         pos_x = new_pos.x;
+         pos_y = new_pos.y;
+         pos_z = new_pos.z;
          
          updateCameraDir();
        }
        if(keyCode == LEFT){
-         pos_x += cameraSpeed * cos(elevationAngle) * sin(rotationAngle-HALF_PI);
-         pos_z -= cameraSpeed * cos(rotationAngle-HALF_PI);
+         PVector new_pos = new PVector(pos_x, pos_z).sub(new PVector(cameraDir.x, cameraDir.z).rotate(HALF_PI).mult(cameraSpeed));
+         pos_x = new_pos.x;
+         pos_z = new_pos.y;
          
          updateCameraDir();
        }
        if(keyCode == RIGHT){
-         pos_x += cameraSpeed * cos(elevationAngle) * sin(rotationAngle+HALF_PI);
-         pos_z -= cameraSpeed * cos(rotationAngle+HALF_PI);
+         PVector new_pos = new PVector(pos_x, pos_z).sub(new PVector(cameraDir.x, cameraDir.z).rotate(-HALF_PI).mult(cameraSpeed));
+         pos_x = new_pos.x;
+         pos_z = new_pos.y;
          
          updateCameraDir();
        }
@@ -61,42 +64,59 @@ class Me extends U3DObject{
          println("Rotation: " + rotationAngle);
        }
      }
+     if(key == '4'){
+         rotationAngle += radians(cameraSpeed);
+         updateCameraDir();
+     }
+     if(key == '6'){
+         rotationAngle -= radians(cameraSpeed);
+         updateCameraDir();
+     }
+     if(key == '8'){
+         elevationAngle += radians(cameraSpeed);
+         updateCameraDir();
+     }
+     if(key == '2'){
+         elevationAngle -= radians(cameraSpeed);
+         updateCameraDir();
+     }
    }
    if(mousePressed && (pmouseX != mouseX || pmouseY != mouseY)){
-     float differenceMouse = map(pmouseY-mouseY, -height, height, -cameraSpeed/2, cameraSpeed/2);
-     elevationAngle += map(elevationAngle + differenceMouse, elevationAngle - cameraSpeed, elevationAngle + cameraSpeed, -PI, PI);
+     int differenceMouse = pmouseY-mouseY;
+     elevationAngle += map(elevationAngle + differenceMouse, elevationAngle - height, elevationAngle + height, -PI, PI);
      
-     differenceMouse = map(pmouseX-mouseX, -width, width, -cameraSpeed/2, cameraSpeed/2);
-     rotationAngle += map(rotationAngle + differenceMouse, rotationAngle - cameraSpeed, rotationAngle + cameraSpeed, -PI, PI);
+     differenceMouse = pmouseX-mouseX;
+     rotationAngle -= map(rotationAngle + differenceMouse, rotationAngle - width, rotationAngle + width, -PI, PI);
      
-     if(elevationAngle > TWO_PI) elevationAngle -= TWO_PI;
-     if(elevationAngle < -TWO_PI) elevationAngle += TWO_PI;
-     if(rotationAngle > TWO_PI) rotationAngle -= TWO_PI;
-     if(rotationAngle < -TWO_PI) rotationAngle += TWO_PI;
-     if(pos_y < limitBelow - 0.44){
-        y_speed += gravity*0.005;
-        pos_y += y_speed;
-      }else{
-        pos_y = limitBelow - 0.44;
-        y_speed = 0;
-      }
      updateCameraDir();
    }
+
+   //TODO: Améliorer via un système de collisions
+   if(pos_y > 0)
+     pos_y = 0;
+
    return;
    }
    apply_gravity(gravity);
  }
  
+ void truncateAngles(){
+     if(elevationAngle >= PI) elevationAngle -= TWO_PI;
+     if(elevationAngle <= -PI) elevationAngle += TWO_PI;
+     if(rotationAngle >= PI) rotationAngle -= TWO_PI;
+     if(rotationAngle <= -PI) rotationAngle += TWO_PI;
+ }
+ 
  void updateCameraDir(){
-     cameraDir.x = pos_x + cos(elevationAngle) * sin(rotationAngle);
-     cameraDir.y = pos_y + sin(elevationAngle) * sin(rotationAngle);
-     cameraDir.z = pos_z - cos(rotationAngle);
+     cameraDir.x = sin(rotationAngle);
+     cameraDir.y = sin(elevationAngle);
+     cameraDir.z = cos(rotationAngle);
  }
  
  void display(){
    if(absPosition.equals("port")){
-     camera(pos_x, pos_y, pos_z, cameraDir.x, cameraDir.y, cameraDir.z, 0, 1, 0);
-     pointLight(51, 102, 126, 0, 0, 0);
+     camera(pos_x, pos_y, pos_z, pos_x+cameraDir.x, pos_y+cameraDir.y, pos_z+cameraDir.z, 0, 1, 0);
+     pointLight(51, 102, 126, 0, -50, 0);
      ambientLight(51, 102, 126);
   }
  }
