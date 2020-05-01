@@ -8,7 +8,7 @@ class U3DObject {
   protected float y_speed;
   
   U3DObject(){
-    uniScale = 25;
+    uniScale = 12;
     limitBelow = uniScale*0.250;
   }
   void apply_gravity(int gravity){

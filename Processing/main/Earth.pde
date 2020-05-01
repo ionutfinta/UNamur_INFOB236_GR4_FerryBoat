@@ -48,6 +48,13 @@ class Earth extends U3DObject{
           shape(chaine);
         popMatrix();
       }
+      pushMatrix();
+        /* Water */
+        translate(0, 1*uniScale, 0);
+        rotateX(HALF_PI);
+        fill(#004A7F);
+        rect(-uniScale*20,-uniScale*20, uniScale*200, uniScale*200);
+    popMatrix();
     popMatrix();
   }
   
