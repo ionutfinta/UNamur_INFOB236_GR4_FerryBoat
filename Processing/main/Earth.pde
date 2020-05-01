@@ -17,10 +17,10 @@ class Earth extends U3DObject{
     // Puisque le y sera toujours 0, on l'utilise pour l'angle de rotation !
     poteauxPos.add(new PVector(18.835058, 0, 123.41));
     for(int i = 102; i > 0; i-=2){
-      poteauxPos.add(new PVector(18.835065+i, 0, 123.41));
+      poteauxPos.add(new PVector(18.935065+i, 0, 123.41));
     }
     for(int i = 138; i > 0; i-=2){
-      poteauxPos.add(new PVector(14.835065-i, i==138?HALF_PI:PI, 123.41));
+      poteauxPos.add(new PVector(14.135065-i, i==138?HALF_PI:PI, 123.41));
     }
     for(int i = 248; i > 0; i-=2){
       poteauxPos.add(new PVector(122.935065, i==248?-HALF_PI:HALF_PI, 125.41-i));
