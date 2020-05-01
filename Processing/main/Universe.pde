@@ -1,4 +1,4 @@
-class Universe {
+class Universe{
   ArrayList<U3DObject> objs;
   
   Universe(){
@@ -7,8 +7,12 @@ class Universe {
   }
   
   void display(){
+    int tmpGravity = 0;
     for(U3DObject o: objs){
-      o.animate();
+      if(o instanceof Earth)
+        tmpGravity = ((Earth)o).getGravity();
+        
+      o.animate(tmpGravity);
       o.display();
     }
   }

@@ -21,7 +21,7 @@ class Wheel {
     r_pos_z = rpz;
     r_angle_y = ray;
     directional = dir;
-    rotation_speed = random(1,3);
+    rotation_speed = 0;
     angle = 0;
     dir_angle = 0;
   }
@@ -39,7 +39,7 @@ class Wheel {
   
   // Function.  
   void move() {
-    angle -= rotation_speed;
+    angle += rotation_speed;
     angle = angle%360;
   }
   

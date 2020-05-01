@@ -15,14 +15,14 @@ class Me extends U3DObject{
      ap = "port";
    absPosition = ap;
    
-   cameraPos = new PVector(724, -479, 542);
-   cameraDir = new PVector(723.37714, -478.57983, 541.3401);
-   elevationAngle = -0.59345734f;
-   rotationAngle = -0.8500999f;
-   cameraSpeed = 5.0f;
+   cameraPos = new PVector(265.82104, 149.98611, 109.87196);
+   cameraDir = new PVector(265.20486, 150.7245, 109.59787);
+   elevationAngle = -0.87537646;
+   rotationAngle = -1.2931504;
+   cameraSpeed = uniScale*.5f;
  }
  
- void animate(){
+ void animate(int gravity){
    if(mode.equals("God")){
    if(keyPressed == true){
      if(key == CODED){
@@ -90,9 +90,8 @@ class Me extends U3DObject{
  void display(){
    if(absPosition.equals("port")){
      camera(cameraPos.x, cameraPos.y, cameraPos.z, cameraDir.x, cameraDir.y, cameraDir.z, 0, 1, 0);
-     if(absPosition.equals("port"))
-     directionalLight(126, 126, 126, 0, 0, -1);
-     ambientLight(188, 11, 95);
-   }
+     directionalLight(51, 102, 126, 0, 1, 0);
+      ambientLight(51, 102, 126);
+  }
  }
 }

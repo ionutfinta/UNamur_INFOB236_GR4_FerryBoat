@@ -1,18 +1,21 @@
 class Earth extends U3DObject{
+  private PShape sol;
+  private int gravity;
   
   Earth(){
+    sol = loadShape("./assets/berge.obj");
+    gravity = 10;
   }
   
-  void animate(){
-    
-    // Ground
-    //rectMode(CENTER);
-    fill(0);
-    stroke(255);
+  void animate(int gravity){
     pushMatrix();
-    translate(0, 2500, 0);
-    rotateX(PI/2);
-    rect(0, 0, 20000, 20000);
+    translate(0, limitBelow*uniScale);
+    scale(uniScale);
+    shape(sol, 0, 0);
     popMatrix();
+  }
+  
+  int getGravity(){
+    return gravity;
   }
 }

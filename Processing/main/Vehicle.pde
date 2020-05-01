@@ -1,17 +1,9 @@
 class Vehicle extends U3DObject{
   ArrayList<Wheel> wheels;
+  ArrayList<PVector> whiteLights;
   
   Vehicle() {
     wheels = new ArrayList<Wheel>();
-  }
-
-  void display() {
-    for(Wheel w: wheels){
-      w.move();
-      w.display();
-    }
-  }
-  
-  void move() {
+    whiteLights = new ArrayList<PVector>();
   }
 }
