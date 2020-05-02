@@ -11,6 +11,8 @@ class Earth extends U3DObject{
   private PShape carBarrier;
   private PShape concreteWall;
   
+  private Wave mWave;
+  
   Earth(){
     sol = loadShape("./assets/berge.obj");
     poteau = loadShape("./assets/poteau.obj");
@@ -32,6 +34,8 @@ class Earth extends U3DObject{
     }
     
     gravity = 10;
+    
+    mWave = new Wave();
   }
   
   void animate(int gravity){
@@ -74,11 +78,12 @@ class Earth extends U3DObject{
     
     pushMatrix();
       /* Water */
-      translate(0, 1*uniScale, 0);
-      noStroke();
-      rotateX(HALF_PI);
-      fill(#004A7F);
-      rect(-uniScale*20,-uniScale*20, uniScale*200, uniScale*200);
+      translate(-15*uniScale, 2*uniScale, -5*uniScale);
+      mWave.renderWave();
+      
+      //fill(#004A7F);
+      
+      //rect(-uniScale*20,-uniScale*20, uniScale*200, uniScale*200);
     popMatrix();
   }
   

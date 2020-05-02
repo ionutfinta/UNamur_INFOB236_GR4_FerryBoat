@@ -8,17 +8,26 @@ class Me extends U3DObject{
   float rotationAngle;
   float elevationAngle;
   
+  PImage mSkyBox;
+  PImage mSkyBoxWater;
+  
+  PGraphics mBackground;
+  
  Me(String m, String ap){
    mode = m;
    if(ap.equals("Laniakea>Virgo Supercluster>Local Sheet>Local Group>Milky Way subgroup>Milky Way Galaxy>Orbit of the Solar System>Orion Arm>Gould Belt>Local Bubble>Local Interstellar Cloud>Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject"))
      ap = "port";
    absPosition = ap;
    
-   mPosition = new PVector(195.11346, 0.0, 1837.3884);
-   cameraDir = new PVector(3.1874764, -2.682924, 8.41665);
-   elevationAngle = 0.2290752;
-   rotationAngle = 3.4299822;
+   mPosition = new PVector(-703.41016, 0.0, 712.5138);
+   cameraDir = new PVector(-1.6473945, 1.3935885, -8.847943);
+   elevationAngle = 0.1554687;
+   rotationAngle = -2.957511;
    cameraSpeed = uniScale*.5f;
+   
+   mSkyBox = loadImage("./assets/skybox_test.jpg");
+   mSkyBoxWater = loadImage("./assets/skybox_water.jpg");
+   mBackground = createGraphics(width, height);
  }
  
  void animate(int gravity){
@@ -100,8 +109,8 @@ class Me extends U3DObject{
  }
  
  void truncateAngles(){
-     if(elevationAngle >= PI) elevationAngle -= TWO_PI;
-     if(elevationAngle <= -PI) elevationAngle += TWO_PI;
+     if(elevationAngle >= TWO_PI) elevationAngle -= TWO_PI;
+     if(elevationAngle < 0) elevationAngle += TWO_PI;
      if(rotationAngle >= PI) rotationAngle -= TWO_PI;
      if(rotationAngle <= -PI) rotationAngle += TWO_PI;
  }
@@ -110,6 +119,18 @@ class Me extends U3DObject{
      cameraDir.x = cameraSpeed*sin(rotationAngle);
      cameraDir.y = cameraSpeed*sin(elevationAngle);
      cameraDir.z = cameraSpeed*cos(rotationAngle);
+ }
+ 
+ void setBackground(){
+   int factor = (int) (tan(-elevationAngle/2.15) * height);
+     
+   mBackground.beginDraw();
+   mBackground.image(mSkyBox, 0,0, width, height);
+   mBackground.image(mSkyBoxWater, 0, height/2+factor, width, height);
+   if(height/2+factor < 0)
+     mBackground.image(mSkyBoxWater, 0, 0, width, height);
+   mBackground.endDraw();
+   background(mBackground);
  }
  
  void display(){
