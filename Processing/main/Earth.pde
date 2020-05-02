@@ -42,7 +42,6 @@ class Earth extends U3DObject{
   }
   
   void animate(int gravity){
-    pushMatrix();
       translate(0, limitBelow*uniScale);
       scale(uniScale);
       shape(sol, 0, 0);
@@ -67,7 +66,6 @@ class Earth extends U3DObject{
         rotateX(HALF_PI);
         fill(#004A7F);
         rect(-uniScale*20,-uniScale*20, uniScale*200, uniScale*200);
-    popMatrix();
     popMatrix();
   }
   
