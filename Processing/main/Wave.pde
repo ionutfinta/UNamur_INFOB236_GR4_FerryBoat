@@ -7,14 +7,20 @@
 */
 
 class Wave{
-  PVector stepSize = new PVector(20, 30);
-  PVector rectSize = new PVector(20, 30);
-  float maxZ = 50;
+  PVector stepSize;
+  PVector rectSize;
+  float maxZ;
   PVector noiseOffset;
-  float noiseScale = 0.003;
-  float timeScale = 0.003;
+  float noiseScale;
+  float timeScale;
 
-  Wave(){
+  Wave(int ampli){
+    stepSize = new PVector(20, 30);
+    rectSize = new PVector(20, 30);
+    maxZ = ampli;
+    noiseScale = 0.001;
+    timeScale = 0.003;
+
     noStroke();
     rectMode(CENTER);
     noiseOffset = new PVector(random(10000), random(10000), random(10000));
@@ -38,7 +44,7 @@ class Wave{
         float nyz = map(noise(w * noiseScale + noiseOffset.x + t, (h + stepSize.y) * noiseScale + noiseOffset.y + t, t + noiseOffset.z), 0, 1, -maxZ, maxZ);       
         float radianX = (atan2(z - pyz, stepSize.y) + atan2(nyz - z, stepSize.y)) / 2.0; 
         rotateX(radianX);
-        fill(color(0,map(radianX, -QUARTER_PI/6, QUARTER_PI/6, 30, 100),map(radianX, -QUARTER_PI/6, QUARTER_PI/6, 186, 215)));
+        fill(color(0,map(radianX, -QUARTER_PI/6, QUARTER_PI/6, 30, 100),map(radianX, -QUARTER_PI/6, QUARTER_PI/6, 186, 215), 131));
         rect(0, 0, rectSize.x, rectSize.y);
         
         fill(#005FDF);

@@ -4,23 +4,23 @@ class Earth extends U3DObject{
   private int gravity;
   
   private PShape poteau;
-  private PShape chaine;
   private ArrayList<PVector> poteauxPos;
   
   private PShape mainBarrier;
   private PShape carBarrier;
   private PShape concreteWall;
+  private PShape concreteWall2;
   
   private Wave mWave;
   
   Earth(){
     sol = loadShape("./assets/berge.obj");
     poteau = loadShape("./assets/poteau.obj");
-    chaine = loadShape("./assets/chaine.obj");
     
     mainBarrier = loadShape("./assets/mainBarrier.obj");
     carBarrier = loadShape("./assets/barrier.obj");
     concreteWall = loadShape("./assets/concreteWall.obj");
+    concreteWall2 = loadShape("./assets/concreteWall2.obj");
     
     poteauxPos = new ArrayList<PVector>();
     
@@ -35,7 +35,7 @@ class Earth extends U3DObject{
     
     gravity = 10;
     
-    mWave = new Wave();
+    mWave = new Wave(uniScale);
   }
   
   void animate(int gravity){
@@ -47,9 +47,9 @@ class Earth extends U3DObject{
         translate(p.x, 0, p.z);
         rotateY(p.y);
         shape(poteau);
-        shape(chaine);
       popMatrix();
     }
+    
     //barriers test
     pushMatrix();
       translate(241/18, 0, 2219/18);
@@ -75,15 +75,17 @@ class Earth extends U3DObject{
       rotateY(radians(90));
       shape(concreteWall);
     popMatrix();
+    pushMatrix();
+      translate(0, uniScale*0.65 + limitBelow, 123.41);
+      shape(concreteWall2);
+      translate(0, uniScale*0.65, 0);
+      shape(concreteWall2);
+    popMatrix();
     
     pushMatrix();
       /* Water */
-      translate(-15*uniScale, 2*uniScale, -5*uniScale);
+      translate(-25*uniScale, limitBelow + uniScale*0.45, -5*uniScale);
       mWave.renderWave();
-      
-      //fill(#004A7F);
-      
-      //rect(-uniScale*20,-uniScale*20, uniScale*200, uniScale*200);
     popMatrix();
   }
   

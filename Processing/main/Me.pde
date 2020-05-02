@@ -130,7 +130,10 @@ class Me extends U3DObject{
    if(height/2+factor < 0)
      mBackground.image(mSkyBoxWater, 0, 0, width, height);
    mBackground.endDraw();
-   background(mBackground);
+   if(mBackground.height == height && mBackground.width == width)
+     background(mBackground);
+   else
+     background(0);
  }
  
  void display(){
