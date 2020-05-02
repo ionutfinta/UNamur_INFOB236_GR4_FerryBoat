@@ -35,49 +35,50 @@ class Earth extends U3DObject{
   }
   
   void animate(int gravity){
-      translate(0, limitBelow*uniScale);
-      scale(uniScale);
-      shape(sol, 0, 0);
-      for(PVector p: poteauxPos){
-        pushMatrix();
-          translate(p.x, 0, p.z);
-          rotateY(p.y);
-          shape(poteau);
-          shape(chaine);
-        popMatrix();
-      }
-      //barriers test
+    translate(0, limitBelow*uniScale);
+    scale(uniScale);
+    shape(sol, 0, 0);
+    for(PVector p: poteauxPos){
       pushMatrix();
-        translate(241/18, 0, 2219/18);
-        scale(0.2, 0.2, 0.2);
-        shape(mainBarrier);
-        translate(0, -5, 1);
-        rotate(-180);
-        shape(carBarrier);
+        translate(p.x, 0, p.z);
+        rotateY(p.y);
+        shape(poteau);
+        shape(chaine);
       popMatrix();
-      
-      //concrete walls
-      pushMatrix();
-        translate(122.935065, 0, 0);
-        rotateY(radians(90));
-        shape(concreteWall);
-      popMatrix();
-      pushMatrix();
-        translate(0, 0, -122.9);
-        shape(concreteWall);
-      popMatrix();
-      pushMatrix();
-        translate(-123, 0, 0);
-        rotateY(radians(90));
-        shape(concreteWall);
-      popMatrix();
-      
-      pushMatrix();
-        /* Water */
-        translate(0, 1*uniScale, 0);
-        rotateX(HALF_PI);
-        fill(#004A7F);
-        rect(-uniScale*20,-uniScale*20, uniScale*200, uniScale*200);
+    }
+    //barriers test
+    pushMatrix();
+      translate(241/18, 0, 2219/18);
+      scale(0.2, 0.2, 0.2);
+      shape(mainBarrier);
+      translate(0, -5, 1);
+      rotate(-180);
+      shape(carBarrier);
+    popMatrix();
+    
+    //concrete walls
+    pushMatrix();
+      translate(122.935065, 0, 0);
+      rotateY(radians(90));
+      shape(concreteWall);
+    popMatrix();
+    pushMatrix();
+      translate(0, 0, -122.9);
+      shape(concreteWall);
+    popMatrix();
+    pushMatrix();
+      translate(-123, 0, 0);
+      rotateY(radians(90));
+      shape(concreteWall);
+    popMatrix();
+    
+    pushMatrix();
+      /* Water */
+      translate(0, 1*uniScale, 0);
+      noStroke();
+      rotateX(HALF_PI);
+      fill(#004A7F);
+      rect(-uniScale*20,-uniScale*20, uniScale*200, uniScale*200);
     popMatrix();
   }
   
