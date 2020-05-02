@@ -2,9 +2,7 @@ class U3DObject {
   protected int uniScale;
   protected float limitBelow;
   
-  protected float pos_x;
-  protected float pos_y;
-  protected float pos_z;
+  protected PVector mPosition;
   protected float y_speed;
   
   U3DObject(){
@@ -13,13 +11,15 @@ class U3DObject {
      //TODO: Améliorer via un système de collisions
     limitBelow = uniScale*0.250;
   }
+  
+  // --- Must be overwritten
   void apply_gravity(int gravity){
    //TODO: Améliorer via un système de collisions
-    if(pos_y < limitBelow){
+    if(mPosition.y < limitBelow){
       y_speed += gravity*0.005;
-      pos_y += y_speed;
+      mPosition.y += y_speed;
     }else{
-      pos_y = limitBelow;
+      mPosition.y = limitBelow;
       y_speed = 0;
     }
   }
@@ -29,4 +29,7 @@ class U3DObject {
   }
   void display(){
   }
+  
+  // --- 3D Moving
+  
 }

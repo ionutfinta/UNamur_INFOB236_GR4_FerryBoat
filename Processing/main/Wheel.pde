@@ -2,12 +2,12 @@ import processing.opengl.*;
 
 class Wheel {
   Vehicle attachedOwner;
-  private float r_pos_x;
-  private float r_pos_y;
-  private float r_pos_z;
-  private int r_angle_y;
+  private PVector mRelPos;
+  
   private float rotation_speed;
   private boolean directional;
+  
+  private int r_angle_y;
   private float dir_angle;
   
   private int angle;
@@ -16,9 +16,7 @@ class Wheel {
   Wheel(Vehicle veh, float rpx, float rpy, float rpz, int ray, boolean dir) { 
     s = loadShape("./assets/car_wheel.obj");
     attachedOwner = veh;
-    r_pos_x = rpx;
-    r_pos_y = rpy;
-    r_pos_z = rpz;
+    mRelPos = new PVector(rpx, rpy, rpz);
     r_angle_y = ray;
     directional = dir;
     rotation_speed = 0;
@@ -28,7 +26,7 @@ class Wheel {
 
   void display() {
     pushMatrix();
-      translate(r_pos_x, r_pos_y, r_pos_z);
+      translate(mRelPos.x, mRelPos.y, mRelPos.z);
       rotateY(radians(r_angle_y + dir_angle));
       pushMatrix();
         rotateX(radians(angle));
@@ -37,7 +35,6 @@ class Wheel {
     popMatrix();
   }
   
-  // Function.  
   void move() {
     angle += rotation_speed;
     angle = angle%360;
