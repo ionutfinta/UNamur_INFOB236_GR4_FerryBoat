@@ -15,8 +15,8 @@ class Earth extends U3DObject{
     poteau = loadShape("./assets/poteau.obj");
     chaine = loadShape("./assets/chaine.obj");
     
-    mainBarrier = loadShape("./assets/car barrier main.obj");
-    carBarrier = loadShape("./assets/barrier.obj");
+    mainBarrier = loadShape("./assets/mainBarrier.obj");
+    //carBarrier = loadShape("./assets/barrier.obj");
     
     poteauxPos = new ArrayList<PVector>();
     
@@ -56,8 +56,9 @@ class Earth extends U3DObject{
       }
       //barriers
       pushMatrix();
-        translate(241/18, 0, 2219/18);
+        translate(241/18, -PI, 2219/18);
         shape(mainBarrier);
+        //shape(carBarrier);
       popMatrix();
       
       pushMatrix();

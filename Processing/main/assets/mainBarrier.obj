@@ -1,6 +1,6 @@
-# Blender v2.82 (sub 7) OBJ File: 'car barrier main.blend'
+# Blender v2.82 (sub 7) OBJ File: 'mainBarrier.blend'
 # www.blender.org
-mtllib car barrier main.mtl
+mtllib mainBarrier.mtl
 o Main_Cube
 v 1.200000 5.000000 -1.200000
 v 1.200000 0.000000 -1.200000
