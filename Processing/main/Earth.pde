@@ -56,7 +56,7 @@ class Earth extends U3DObject{
       //barriers
       pushMatrix();
         translate(241/18, -PI, 2219/18);
-        shape(mainBarrier);
+        //shape(mainBarrier);
         //shape(carBarrier);
       popMatrix();
       
