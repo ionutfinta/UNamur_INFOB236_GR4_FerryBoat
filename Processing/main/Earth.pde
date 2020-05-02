@@ -9,6 +9,7 @@ class Earth extends U3DObject{
   
   private PShape mainBarrier;
   private PShape carBarrier;
+  private PShape concreteWall;
   
   Earth(){
     sol = loadShape("./assets/berge.obj");
@@ -16,7 +17,8 @@ class Earth extends U3DObject{
     chaine = loadShape("./assets/chaine.obj");
     
     mainBarrier = loadShape("./assets/mainBarrier.obj");
-    //carBarrier = loadShape("./assets/barrier.obj");
+    carBarrier = loadShape("./assets/barrier.obj");
+    concreteWall = loadShape("./assets/concreteWall.obj");
     
     poteauxPos = new ArrayList<PVector>();
     
@@ -27,15 +29,6 @@ class Earth extends U3DObject{
     }
     for(int i = 138; i > 0; i-=2){
       poteauxPos.add(new PVector(14.135065-i, i==138?HALF_PI:PI, 123.41));
-    }
-    for(int i = 248; i > 0; i-=2){
-      poteauxPos.add(new PVector(122.935065, i==248?-HALF_PI:HALF_PI, 125.41-i));
-    }
-    for(int i = 246; i > 0; i-=2){
-      poteauxPos.add(new PVector(122.935065-i, 0, -122.59));
-    }
-    for(int i = 246; i > 0; i-=2){
-      poteauxPos.add(new PVector(-123.064935, i==248?-HALF_PI:HALF_PI, 125.41-i));
     }
     
     gravity = 10;
@@ -53,11 +46,30 @@ class Earth extends U3DObject{
           shape(chaine);
         popMatrix();
       }
-      //barriers
+      //barriers test
       pushMatrix();
-        translate(241/18, -PI, 2219/18);
-        //shape(mainBarrier);
-        //shape(carBarrier);
+        translate(241/18, 0, 2219/18);
+        scale(0.2, 0.2, 0.2);
+        shape(mainBarrier);
+        translate(0, -5, 1);
+        rotate(-180);
+        shape(carBarrier);
+      popMatrix();
+      
+      //concrete walls
+      pushMatrix();
+        translate(122.935065, 0, 0);
+        rotateY(radians(90));
+        shape(concreteWall);
+      popMatrix();
+      pushMatrix();
+        translate(0, 0, -122.9);
+        shape(concreteWall);
+      popMatrix();
+      pushMatrix();
+        translate(-123, 0, 0);
+        rotateY(radians(90));
+        shape(concreteWall);
       popMatrix();
       
       pushMatrix();

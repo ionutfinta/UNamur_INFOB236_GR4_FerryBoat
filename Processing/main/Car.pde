@@ -2,7 +2,7 @@ class Car extends Vehicle {
   
   Car(){
     chassis = loadShape("./assets/car_chassis.obj");
-    mPosition = new PVector(14.515, -5.0, 122.696);
+    mPosition = new PVector(14.515, -5.0, 100);
     
     float frontPos = 0.86,
            wh_height = -0.44,
