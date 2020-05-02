@@ -5,7 +5,6 @@ Universe myUniverse;
 Me me;
 Car myFirstCar;
 PImage skyBox;
-int slowFPS = (int) frameRate;
 
 void setup(){
   size(1024,768,P3D);
@@ -24,11 +23,4 @@ void draw(){
   //background(255);
   background(skyBox);
   myUniverse.display();
-  
-  if(second()%2 == 0 && millis() % 1000 <= 300){
-    slowFPS = (int)frameRate;
-  }
-  
-  textSize(32);
-  text("FPS: " + slowFPS, 10, 30);
 }

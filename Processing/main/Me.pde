@@ -14,8 +14,8 @@ class Me extends U3DObject{
      ap = "port";
    absPosition = ap;
    
-   mPosition = new PVector(141.91565, 3.81, 399.17892);
-   cameraDir = new PVector(-0.10412201, 0.35225204, -0.99456453);
+   mPosition = new PVector(195.11346, 0.0, 1837.3884);
+   cameraDir = new PVector(3.1874764, -2.682924, 8.41665);
    elevationAngle = 0.2290752;
    rotationAngle = 3.4299822;
    cameraSpeed = uniScale*.5f;
@@ -26,27 +26,32 @@ class Me extends U3DObject{
    if(keyPressed == true){
      if(key == CODED){
        if(keyCode == UP){
-         mPosition = mPosition.add(cameraDir);
-         
+         mInertia = cameraDir;
+         super.applyInertia();
          updateCameraDir();
        }
        if(keyCode == DOWN){
-         mPosition = mPosition.sub(cameraDir);
+         mInertia = cameraDir.mult(-1);
+         super.applyInertia();
          
          updateCameraDir();
        }
        if(keyCode == LEFT){
-         PVector new_pos = new PVector(mPosition.x, mPosition.z).sub(new PVector(cameraDir.x, cameraDir.z).rotate(HALF_PI));
-         mPosition.x = new_pos.x;
-         mPosition.z = new_pos.y;
+         PVector goLeft = new PVector(-cameraDir.x, -cameraDir.z).rotate(HALF_PI);
+         mInertia.x = goLeft.x;
+         mInertia.y = 0;
+         mInertia.z = goLeft.y;
          
+         super.applyInertia();
          updateCameraDir();
        }
        if(keyCode == RIGHT){
-         PVector new_pos = new PVector(mPosition.x, mPosition.z).sub(new PVector(cameraDir.x, cameraDir.z).rotate(-HALF_PI));
-         mPosition.x = new_pos.x;
-         mPosition.z = new_pos.y;
+         PVector goLeft = new PVector(-cameraDir.x, -cameraDir.z).rotate(-HALF_PI);
+         mInertia.x = goLeft.x;
+         mInertia.y = 0;
+         mInertia.z = goLeft.y;
          
+         super.applyInertia();
          updateCameraDir();
        }
        if(keyCode == SHIFT){
@@ -84,7 +89,7 @@ class Me extends U3DObject{
      
      updateCameraDir();
    }
-
+   
    //TODO: Améliorer via un système de collisions
    if(mPosition.y > 0)
      mPosition.y = 0;
@@ -110,6 +115,13 @@ class Me extends U3DObject{
  void display(){
    if(absPosition.equals("port")){
      camera(mPosition.x, mPosition.y, mPosition.z, mPosition.x+cameraDir.x, mPosition.y+cameraDir.y, mPosition.z+cameraDir.z, 0, 1, 0);
+     pushMatrix();
+       fill(#FFFFFF);
+       textSize(9);
+       translate(mPosition.x+cameraDir.x-7*uniScale, mPosition.y+cameraDir.y-2*uniScale, mPosition.z+cameraDir.z-7*uniScale);
+       text("CamSpeed " + cameraSpeed, 0,0);
+       text("FPS: " + (int)frameRate, 10, 30);
+     popMatrix();
      pointLight(51, 102, 126, 0, -50, 0);
      ambientLight(51, 102, 126);
   }
