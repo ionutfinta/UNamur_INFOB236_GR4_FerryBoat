@@ -19,18 +19,21 @@ class Me extends U3DObject{
      ap = "port";
    absPosition = ap;
    
-   mPosition = new PVector(-703.41016, 0.0, 712.5138);
-   cameraDir = new PVector(-1.6473945, 1.3935885, -8.847943);
-   elevationAngle = 0.1554687;
-   rotationAngle = -2.957511;
+   mPosition = new PVector(-353.90564, -582.3443, -376.73193);
+   cameraDir = new PVector(1.9988941, 6.518429, 8.775216);
+   elevationAngle = 0.8099749;
+   rotationAngle = 0.22396708
+;
    cameraSpeed = uniScale*.5f;
+   
+   mSize = new PVector(1, 2.7, 1);
    
    mSkyBox = loadImage("./assets/skybox_test.jpg");
    mSkyBoxWater = loadImage("./assets/skybox_water.jpg");
    mBackground = createGraphics(width, height);
  }
  
- void animate(int gravity){
+ void animate(){
    if(mode.equals("God")){
    if(keyPressed == true){
      if(key == CODED){
@@ -98,14 +101,10 @@ class Me extends U3DObject{
      
      updateCameraDir();
    }
-   
-   //TODO: Améliorer via un système de collisions
-   if(mPosition.y > 0)
-     mPosition.y = 0;
 
    return;
    }
-   apply_gravity(gravity);
+   super.animate();
  }
  
  void truncateAngles(){
@@ -116,6 +115,9 @@ class Me extends U3DObject{
  }
  
  void updateCameraDir(){
+     if(mPlanet != null && collision(mPlanet)){
+       mPosition.y -= mSize.y*uniScale;
+     }
      cameraDir.x = cameraSpeed*sin(rotationAngle);
      cameraDir.y = cameraSpeed*sin(elevationAngle);
      cameraDir.z = cameraSpeed*cos(rotationAngle);
@@ -146,8 +148,8 @@ class Me extends U3DObject{
        text("CamSpeed " + cameraSpeed, 0,0);
        text("FPS: " + (int)frameRate, 10, 30);
      popMatrix();
-     pointLight(51, 102, 126, 0, -50, 0);
-     ambientLight(51, 102, 126);
+     pointLight(200, 231, 255, 0, -50, 0);
+     ambientLight(202, 231, 255);
   }
  }
 }

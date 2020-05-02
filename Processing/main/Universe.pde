@@ -2,23 +2,21 @@ class Universe{
   ArrayList<U3DObject> objs;
   
   Universe(){
+    shapeMode(CORNER);
     objs = new ArrayList<U3DObject>();
     objs.add( new Earth() );
   }
   
   void display(){
-    int tmpGravity = 0;
     for(U3DObject o: objs){
-      if(o instanceof Earth)
-        tmpGravity = ((Earth)o).getGravity();
-        
-      o.animate(tmpGravity);
+      o.animate();
       o.display();
     }
   }
   
-  Car spawnCar(){
-    Car c = new Car();
+  Car spawnCar(PVector pos){
+    Car c = new Car(pos);
+    c.setPlanet(getEarth());
     objs.add(c);
     return c;
   }
@@ -26,7 +24,19 @@ class Universe{
   
   Me spawnMyself(String mode, String position){
     Me m = new Me(mode, position);
+    m.setPlanet(getEarth());
     objs.add(m);
     return m;
+  }
+  
+  Barriere spawnBarriere(PVector pos){
+    Barriere b = new Barriere(pos);
+    b.setPlanet(getEarth());
+    objs.add(b);
+    return b;
+  }
+  
+  Earth getEarth(){
+    return (Earth) objs.get(0);
   }
 }

@@ -1,8 +1,9 @@
 class Car extends Vehicle {
   
-  Car(){
+  Car(PVector pos){
     chassis = loadShape("./assets/car_chassis.obj");
-    mPosition = new PVector(14.515, 0.0, 100);
+    mPosition = pos;
+    mSize = new PVector(2,0.7,4);
     
     float frontPos = 0.86,
            wh_height = -0.44,
@@ -12,12 +13,12 @@ class Car extends Vehicle {
     wheels.add(new Wheel(this, frontPos, wh_height,-backPos, 180, false));
     wheels.add(new Wheel(this, -frontPos,wh_height, backPos, 000, true));
     wheels.add(new Wheel(this, -frontPos,wh_height,-backPos, 000, false));
-    
-    mInertia = new PVector(8,0,0);
   }
   
-  void animate(int gravity){
-    super.animate(gravity);
+  void animate(){
+    super.animate();
+    
+    //TODO: Séparer les commandes des objets... un objet doit pouvoir être contrôlé que s'il est séléctionné
     if(keyPressed == true){
       if(key == 'z'){
         mInertia.z += .05f;
