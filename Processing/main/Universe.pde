@@ -37,6 +37,14 @@ class Universe{
     return b;
   }
   
+  
+  Ferry spawnFerry(){
+    Ferry f = new Ferry();
+    f.setPlanet(getEarth());
+    objs.add(f);
+    return f;
+  }
+  
   Earth getEarth(){
     return (Earth) objs.get(0);
   }

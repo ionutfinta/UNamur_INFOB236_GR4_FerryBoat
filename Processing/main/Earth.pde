@@ -75,7 +75,7 @@ class Earth extends U3DObject{
     
     pushMatrix();
       /* Water */
-      translate(-15*uniScale, limitBelow + uniScale*0.95, 4*uniScale);
+      translate(-15*uniScale, limitBelow + uniScale*0.45, 4*uniScale);
       mWave.renderWave();
     popMatrix();
   }
