@@ -55,10 +55,7 @@ class Car extends Vehicle {
   
   @Override
   void setSelectionState(boolean state){
-    isSelected = state;
-    if(state==true){
-      print("hey");
-    }
+    isSelected = state;    
   }
   
 }

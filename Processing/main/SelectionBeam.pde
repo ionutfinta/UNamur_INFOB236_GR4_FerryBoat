@@ -24,17 +24,24 @@ class SelectionBeam extends U3DObject{
     boolean collided = false;
     int i = 0;
     
+    //loop until collision and if collision with selectable, clear all and select that one
     while(!collided && i<len_limit){
       
       for(U3DObject o : objects){
         
         if(this.collision(o)){
-          clearSelected(objects);
-          if(o.isSelectable())
+          
+          
+          
+          if(o.isSelectable()){
+            clearSelected(objects);  
             o.setSelectionState(true);
+          }
+          
           collided = true;
         }
         
+        //break from for loop once found
         if(collided)
           break;
       }
