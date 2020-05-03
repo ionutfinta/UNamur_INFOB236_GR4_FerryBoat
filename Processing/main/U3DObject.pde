@@ -76,6 +76,10 @@ class U3DObject {
     return mSize;
   }
   
+  boolean isSelectable(){
+    return false;
+  }
+  
   // --- Mutators
   void setPlanet(Earth p){
     mPlanet = p;

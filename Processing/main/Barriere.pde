@@ -1,12 +1,16 @@
 class Barriere extends U3DObject {
   PShape base, tige;
   
+  private boolean isSelected;
+  
   Barriere(PVector pos){
     mPosition = pos;
     mSize = new PVector(2,3,1);
     
     base = loadShape("./assets/mainBarrier.obj");
     tige = loadShape("./assets/barrier.obj");
+    
+    setSelectionState(false);
   }
   
   void display(){
@@ -21,4 +25,12 @@ class Barriere extends U3DObject {
     popMatrix();
   }
   
+  @Override
+  boolean isSelectable(){
+    return true;
+  }
+  
+  void setSelectionState(boolean state){
+    isSelected = state;
+  }
 }

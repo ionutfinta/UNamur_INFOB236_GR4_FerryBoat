@@ -92,7 +92,7 @@ class Me extends U3DObject{
          updateCameraDir();
      }
    }
-   if(mousePressed && (pmouseX != mouseX || pmouseY != mouseY)){
+   if(mousePressed && mouseButton == RIGHT && (pmouseX != mouseX || pmouseY != mouseY)){
      int differenceMouse = pmouseY-mouseY;
      elevationAngle += map(elevationAngle + differenceMouse, elevationAngle - height, elevationAngle + height, -PI, PI);
      

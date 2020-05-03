@@ -1,5 +1,7 @@
 class Car extends Vehicle {
   
+  private boolean isSelected;
+  
   Car(PVector pos){
     chassis = loadShape("./assets/car_chassis.obj");
     mPosition = pos;
@@ -13,6 +15,8 @@ class Car extends Vehicle {
     wheels.add(new Wheel(this, frontPos, wh_height,-backPos, 180, false));
     wheels.add(new Wheel(this, -frontPos,wh_height, backPos, 000, true));
     wheels.add(new Wheel(this, -frontPos,wh_height,-backPos, 000, false));
+    
+    setSelectionState(false);
   }
   
   void animate(){
@@ -42,6 +46,15 @@ class Car extends Vehicle {
       if(key == 's')
         mInertia.z -= .03f;
     }
+  }
+  
+  @Override
+  boolean isSelectable(){
+    return true;
+  }
+  
+  void setSelectionState(boolean state){
+    isSelected = state;
   }
   
 }
