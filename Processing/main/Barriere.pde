@@ -30,6 +30,7 @@ class Barriere extends U3DObject {
     return true;
   }
   
+  @Override
   void setSelectionState(boolean state){
     isSelected = state;
   }

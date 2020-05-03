@@ -25,6 +25,7 @@ class Van extends Vehicle {
     return true;
   }
   
+  @Override
   void setSelectionState(boolean state){
     isSelected = state;
   }

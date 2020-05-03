@@ -23,7 +23,7 @@ class Universe{
   
   
   Me spawnMyself(String mode, String position){
-    Me m = new Me(mode, position);
+    Me m = new Me(mode, position, objs);
     m.setPlanet(getEarth());
     objs.add(m);
     return m;

@@ -8,13 +8,15 @@ class Me extends U3DObject{
   private float rotationAngle;
   private float elevationAngle;
   
+  private ArrayList<U3DObject> universe_elements;
+  
   PImage mSkyBox;
   PImage mSkyBoxWater;
   PImage mSun;
   
   PGraphics mBackground;
   
- Me(String m, String ap){
+ Me(String m, String ap, ArrayList<U3DObject> everything){
    mode = m;
    if(ap.equals("Laniakea>Virgo Supercluster>Local Sheet>Local Group>Milky Way subgroup>Milky Way Galaxy>Orbit of the Solar System>Orion Arm>Gould Belt>Local Bubble>Local Interstellar Cloud>Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject"))
      ap = "port";
@@ -33,6 +35,10 @@ class Me extends U3DObject{
    mSkyBoxWater = loadImage("./assets/skybox_water.jpg");
    mSun = loadImage("./assets/sun.png");
    mBackground = createGraphics(width, height);
+   
+   
+   //reference to all objects
+   universe_elements = everything;
  }
  
  void animate(){
@@ -90,6 +96,9 @@ class Me extends U3DObject{
      if(key == '2'){
          elevationAngle -= radians(cameraSpeed);
          updateCameraDir();
+     }
+     if(key == 'h'){
+       new SelectionBeam(universe_elements, mPosition, cameraDir, 10, 20).selectFirst();
      }
    }
    if(mousePressed && mouseButton == RIGHT && (pmouseX != mouseX || pmouseY != mouseY)){
