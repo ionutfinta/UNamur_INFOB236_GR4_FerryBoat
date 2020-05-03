@@ -6,8 +6,7 @@ class Earth extends U3DObject{
   private PShape poteau;
   private ArrayList<PVector> poteauxPos;
   
-  private PShape mainBarrier;
-  private PShape carBarrier;
+  //TODO: Créer des objets U3DObject pour les murs et barrières, le système de collision devra pouvoir empêcher un fou de sauter à l'eau 
   private PShape concreteWall;
   private PShape concreteWall2;
   
@@ -15,10 +14,10 @@ class Earth extends U3DObject{
   
   Earth(){
     sol = loadShape("./assets/berge.obj");
+    mSize = new PVector(125,.1,125);
+    mPosition = new PVector(0, limitBelow, 0);
     poteau = loadShape("./assets/poteau.obj");
     
-    mainBarrier = loadShape("./assets/mainBarrier.obj");
-    carBarrier = loadShape("./assets/barrier.obj");
     concreteWall = loadShape("./assets/concreteWall.obj");
     concreteWall2 = loadShape("./assets/concreteWall2.obj");
     
@@ -29,8 +28,8 @@ class Earth extends U3DObject{
     for(int i = 102; i > 0; i-=2){
       poteauxPos.add(new PVector(18.935065+i, 0, 123.41));
     }
-    for(int i = 138; i > 0; i-=2){
-      poteauxPos.add(new PVector(14.135065-i, i==138?HALF_PI:PI, 123.41));
+    for(int i = 136; i > 0; i-=2){
+      poteauxPos.add(new PVector(12.135065-i, i==138?HALF_PI:PI, 123.41));
     }
     
     gravity = 10;
@@ -38,45 +37,37 @@ class Earth extends U3DObject{
     mWave = new Wave(uniScale);
   }
   
-  void animate(int gravity){
-    translate(0, limitBelow*uniScale);
+  void animate(){
     scale(uniScale);
-    shape(sol, 0, 0);
-    for(PVector p: poteauxPos){
-      pushMatrix();
-        translate(p.x, 0, p.z);
-        rotateY(p.y);
-        shape(poteau);
-      popMatrix();
-    }
-    
-    //barriers test
     pushMatrix();
-      translate(241/18, 0, 2219/18);
-      scale(0.2, 0.2, 0.2);
-      shape(mainBarrier);
-      translate(0, -5, 1);
-      rotate(-180);
-      shape(carBarrier);
+      translate(mPosition.x, mPosition.y, mPosition.z);
+      shape(sol, 0, 0);
+      for(PVector p: poteauxPos){
+        pushMatrix();
+          translate(p.x, 0, p.z);
+          rotateY(p.y);
+          shape(poteau);
+        popMatrix();
+      }
     popMatrix();
     
     //concrete walls
     pushMatrix();
-      translate(122.935065, 0, 0);
+      translate(122.935065, limitBelow, 0);
       rotateY(radians(90));
       shape(concreteWall);
     popMatrix();
     pushMatrix();
-      translate(0, 0, -122.9);
+      translate(0, limitBelow, -122.9);
       shape(concreteWall);
     popMatrix();
     pushMatrix();
-      translate(-123, 0, 0);
+      translate(-123, limitBelow, 0);
       rotateY(radians(90));
       shape(concreteWall);
     popMatrix();
     pushMatrix();
-      translate(0, uniScale*0.65 + limitBelow, 123.41);
+      translate(0, uniScale*.89 + limitBelow, 123.41);
       shape(concreteWall2);
       translate(0, uniScale*0.65, 0);
       shape(concreteWall2);
@@ -84,7 +75,7 @@ class Earth extends U3DObject{
     
     pushMatrix();
       /* Water */
-      translate(-25*uniScale, limitBelow + uniScale*0.45, -5*uniScale);
+      translate(-15*uniScale, limitBelow + uniScale*0.95, 4*uniScale);
       mWave.renderWave();
     popMatrix();
   }

@@ -27,4 +27,6 @@ class Vehicle extends U3DObject{
     
     popMatrix();
   }
+  
+  
 }
