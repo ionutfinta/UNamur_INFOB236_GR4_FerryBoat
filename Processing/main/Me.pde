@@ -23,19 +23,16 @@ class Me extends U3DObject{
    
    mPosition = new PVector(-353.90564, -582.3443, -376.73193);
    cameraDir = new PVector(1.9988941, 6.518429, 8.775216);
-   elevationAngle = 0.8099749;
-   rotationAngle = 0.22396708
-;
+   elevationAngle = 0;
+   rotationAngle = 0;
    cameraSpeed = uniScale*.5f;
    
    mSize = new PVector(1, 2.7, 1);
    
-   mSkyBox = loadImage("./assets/skybox_test.jpg");
-   mSkyBoxWater = loadImage("./assets/skybox_water.jpg");
+   mSkyBox = loadImage("./assets/skybox.gif");
+   mSkyBoxWater = loadImage("./assets/skybox_water.gif");
    mSun = loadImage("./assets/sun.png");
    mBackground = createGraphics(width, height);
-   
-   
  }
  
  //void select(ArrayList<U3DObject> everything){
@@ -131,24 +128,33 @@ class Me extends U3DObject{
      cameraDir.y = cameraSpeed*sin(elevationAngle);
      cameraDir.z = cameraSpeed*cos(rotationAngle);
  }
- 
+
  void setBackground(){
      //TODO: Vérifier la trigonométrie
-     float factor = tan(-elevationAngle) * height;
+     int factory = (int) (tan(-elevationAngle) * height);
        
      mBackground.beginDraw();
-     mBackground.image(mSkyBox, 0,0, width, height);
-     mBackground.image(mSkyBoxWater, 0, factor + height/2 + 160);
-     if(height/2+factor < 0)
-       mBackground.image(mSkyBoxWater, 0, 0, width, height);
-     mBackground.image(mSun, tan(rotationAngle/2) * width, factor * .5);
+     mBackground.background(#8EC6FE);
      
+     mBackground.image(mSkyBox, 0, 0);
+     
+     if(height/2+factory+160 < 0)
+       mBackground.image(mSkyBoxWater, 0, 0, width, height);
+     else if(height/2+factory > 768){}
+     else
+       mBackground.image(mSkyBoxWater, 0, factory + height/2 + 160);
+       
+     if(rotationAngle > -0.3589487 && rotationAngle < 1.5646665){
+       mBackground.image(mSun, (int) (tan(rotationAngle/2) * width), factory * .5);
+     }
+     
+     PVector forLenses = new PVector(cos(rotationAngle) * width*.5,cos(elevationAngle) * height*.5);
      mBackground.fill(color(#FFFFFF, 80));
      mBackground.noStroke();
-     mBackground.translate(cos(rotationAngle) * width*.5,cos(elevationAngle) * height*.5);
-     mBackground.rotate(rotationAngle/2);
+     mBackground.translate(forLenses.x, forLenses.y);
+     mBackground.rotate(rotationAngle/1.8);
      mBackground.circle(0, 0, 45);
-     mBackground.circle(cos(2*rotationAngle)*160,cos(4*elevationAngle)*80, 25);
+     mBackground.circle(pow(forLenses.limit(6).x, 3), pow(forLenses.y, 3), 25);
      mBackground.endDraw();
    
    if(mBackground.height == height && mBackground.width == width)

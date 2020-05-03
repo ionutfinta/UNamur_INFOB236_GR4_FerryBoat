@@ -27,6 +27,4 @@ void setup(){
 void draw(){
   me.setBackground();
   myUniverse.display();
-  if(keyPressed && key == 'c')
-    println("Collision Earth, Car: " + myFirstCar.collision(myUniverse.getEarth()));
 }
