@@ -2,6 +2,9 @@ class Vehicle extends U3DObject{
   ArrayList<Wheel> wheels;
   PShape chassis;
   
+  private boolean isSelected;
+  private boolean entityColliding;
+  
   Vehicle() {
     wheels = new ArrayList<Wheel>();
   }
@@ -26,6 +29,32 @@ class Vehicle extends U3DObject{
     }
     
     popMatrix();
+  }
+  
+  @Override
+  boolean doCollisions(){
+    return true;
+  }
+  
+  @Override
+  void setEntityColliding(boolean state){
+    entityColliding = state;
+  }
+  
+  @Override 
+  boolean entityColliding(){
+    return entityColliding;
+  }
+  
+  @Override
+  boolean isSelectable(){
+    return true;
+  }
+  
+  @Override
+  void setSelectionState(boolean state){
+    isSelected = state;
+    print(state);
   }
   
   

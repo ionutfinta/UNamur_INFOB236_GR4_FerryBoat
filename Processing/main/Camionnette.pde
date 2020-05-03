@@ -1,6 +1,5 @@
 class Camionette extends Vehicle {
   
-  private boolean isSelected;
   //TODO: Ceci n'est pas une camionnette !
   
   Camionette(PVector pos){
@@ -21,15 +20,6 @@ class Camionette extends Vehicle {
     setSelectionState(false);
     
   }
-  
-  @Override
-  boolean isSelectable(){
-    return true;
-  }
-  
-  @Override
-  void setSelectionState(boolean state){
-    isSelected = state;
-  }
+
   
 }

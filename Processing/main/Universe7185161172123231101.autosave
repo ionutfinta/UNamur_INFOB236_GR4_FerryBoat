@@ -12,7 +12,6 @@ class Universe{
       o.animate();
       o.display();
     }
-    handleCollisions();
   }
   
   Car spawnCar(PVector pos){
@@ -41,18 +40,23 @@ class Universe{
     return (Earth) objs.get(0);
   }
   
-  void handleCollisions(){
-    for(U3DObject o1: objs){
-      if(o1.doCollisions()){
-        for(U3DObject o2: objs){
-          if(!o1.equals(o2) && o2.doCollisions() && o1.collision(o2)){
-            o1.setEntityColliding(true);
-            o2.setEntityColliding(true);
-            print(o1);
-            print(o2);
-          }
-        }
+  
+  void checkCollisions(){
+    for(U3DObject o: objs){
+      if(o.doCollisions()){
+        checkCollisionWith(o);
       }
+    }
+  }
+  
+  private checkCollisionWith(U3DObject target){
+    
+    for(U3DObject o: objs){
+     if(o.doCollisions() && !o.equals(target)){
+       if(target.collision(o)){
+         
+       }
+     }     
     }
   }
 }

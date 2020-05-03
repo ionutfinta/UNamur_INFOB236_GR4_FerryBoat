@@ -8,7 +8,6 @@ class Me extends U3DObject{
   private float rotationAngle;
   private float elevationAngle;
   
-  private ArrayList<U3DObject> universe_elements;
   
   PImage mSkyBox;
   PImage mSkyBoxWater;
@@ -37,8 +36,6 @@ class Me extends U3DObject{
    mBackground = createGraphics(width, height);
    
    
-   //reference to all objects
-   universe_elements = everything;
  }
  
  void animate(){
@@ -96,9 +93,6 @@ class Me extends U3DObject{
      if(key == '2'){
          elevationAngle -= radians(cameraSpeed);
          updateCameraDir();
-     }
-     if(key == 'h'){
-       new SelectionBeam(universe_elements, mPosition, cameraDir, 10, 20).selectFirst();
      }
    }
    if(mousePressed && mouseButton == RIGHT && (pmouseX != mouseX || pmouseY != mouseY)){

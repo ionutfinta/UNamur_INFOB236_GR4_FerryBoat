@@ -1,10 +1,12 @@
-class SelectionBeam extends U3DObject{
+class Selector extends U3DObject{
+  
+  private boolean entityColliding;
   
   private PVector beamDir;
   private ArrayList<U3DObject> objects;
   private float len_limit;
   
-  SelectionBeam(ArrayList<U3DObject> obj ,PVector pos, PVector dir, float proj_size, float l){
+  Selector(ArrayList<U3DObject> obj ,PVector pos, PVector dir, float proj_size, float l){
     //create a "projectile" of size proj_size
     mSize = new PVector(proj_size, proj_size, proj_size);
     //move it center
@@ -51,6 +53,10 @@ class SelectionBeam extends U3DObject{
     }
   }
   
+  void display(){
+   pushMatrix();
+   popMatrix();
+  }
   
   
   public void clearSelected(ArrayList<U3DObject> obj){
@@ -61,6 +67,19 @@ class SelectionBeam extends U3DObject{
     }
   }
   
+  @Override
+  boolean doCollisions(){
+    return true;
+  }
   
+  @Override
+  void setEntityColliding(boolean state){
+    entityColliding = state;
+  }
+  
+  @Override 
+  boolean entityColliding(){
+    return entityColliding;
+  }
   
 }

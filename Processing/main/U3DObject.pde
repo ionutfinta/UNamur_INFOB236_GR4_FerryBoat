@@ -33,8 +33,20 @@ class U3DObject {
     }
   }
   
+  void handle_entity_collision(){
+    if(entityColliding()){
+      mInertia.x = mInertia.x*-2;
+      mInertia.z = mInertia.z*-2;
+      applyInertia();
+      mInertia.x = 0;
+      mInertia.z = 0;
+      setEntityColliding(false);
+    }
+  }
+  
   void animate(){
     apply_gravity();
+    handle_entity_collision();
     applyInertia();
   }
   void display(){}
@@ -79,13 +91,26 @@ class U3DObject {
   boolean isSelectable(){
     return false;
   }
-  void setSelectionState(boolean state){
-    
+  
+  boolean entityColliding(){
+    return false;
   }
   
+  boolean doCollisions(){
+    return false;
+  }
   
   // --- Mutators
   void setPlanet(Earth p){
     mPlanet = p;
   }
+  
+  void setSelectionState(boolean state){
+    
+  }
+  
+  void setEntityColliding(boolean state){
+    
+  }
+  
 }

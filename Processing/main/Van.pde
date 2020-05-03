@@ -1,6 +1,6 @@
 class Van extends Vehicle {
   
-  private boolean isSelected;
+  
   //TODO: Ceci n'est oas un van, mais presque !
   
   Van(PVector pos){
@@ -20,13 +20,5 @@ class Van extends Vehicle {
     setSelectionState(false);
   }
   
-  @Override
-  boolean isSelectable(){
-    return true;
-  }
   
-  @Override
-  void setSelectionState(boolean state){
-    isSelected = state;
-  }
 }

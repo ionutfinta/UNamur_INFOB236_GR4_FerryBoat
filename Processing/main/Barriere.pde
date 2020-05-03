@@ -2,6 +2,7 @@ class Barriere extends U3DObject {
   PShape base, tige;
   
   private boolean isSelected;
+  private boolean entityColliding;
   
   Barriere(PVector pos){
     mPosition = pos;
@@ -33,5 +34,20 @@ class Barriere extends U3DObject {
   @Override
   void setSelectionState(boolean state){
     isSelected = state;
+  }
+  
+  
+  @Override
+  boolean doCollisions(){
+    return true;
+  }
+  @Override
+  void setEntityColliding(boolean state){
+    entityColliding = state;
+  }
+  
+  @Override 
+  boolean entityColliding(){
+    return entityColliding;
   }
 }

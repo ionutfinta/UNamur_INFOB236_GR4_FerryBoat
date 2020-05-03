@@ -1,6 +1,5 @@
 class Car extends Vehicle {
   
-  private boolean isSelected;
   
   Car(PVector pos){
     chassis = loadShape("./assets/car_chassis.obj");
@@ -48,14 +47,6 @@ class Car extends Vehicle {
     }
   }
   
-  @Override
-  boolean isSelectable(){
-    return true;
-  }
-  
-  @Override
-  void setSelectionState(boolean state){
-    isSelected = state;    
-  }
+
   
 }
