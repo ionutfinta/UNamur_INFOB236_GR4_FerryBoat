@@ -12,10 +12,10 @@ class Wave{
   int mWidth, mHeight;
 
   Wave(int ampli){
-    stepSize = new PVector(20, 20);
-    rectSize = new PVector(25, 25);
+    stepSize = new PVector(40, 30);
+    rectSize = new PVector(40, 30);
     maxZ = ampli;
-    noiseScale = 0.007;
+    noiseScale = 0.001;
     timeScale = 0.003;
     mWidth = 568;
     mHeight = 568;
@@ -44,7 +44,7 @@ class Wave{
         float nyz = map(noise(w * noiseScale + noiseOffset.x + t, (h + stepSize.y) * noiseScale + noiseOffset.y + t, t + noiseOffset.z), 0, 1, -maxZ, maxZ);       
         float radianX = (atan2(z - pyz, stepSize.y) + atan2(nyz - z, stepSize.y)) / 2.0; 
         rotateX(radianX);
-        fill(color(0,map(radianX, -QUARTER_PI/6, QUARTER_PI/6, 30, 100),map(radianX, -QUARTER_PI/6, QUARTER_PI/6, 186, 215), 151));
+        fill(color(0,map(radianX, -QUARTER_PI/6, QUARTER_PI/6, 30, 100),map(radianX, -QUARTER_PI/6, QUARTER_PI/6, 186, 215), 75));
         rect(0, 0, rectSize.x, rectSize.y);
         
         fill(#005FDF);
