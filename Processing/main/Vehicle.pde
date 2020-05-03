@@ -3,7 +3,7 @@ class Vehicle extends U3DObject{
   PShape chassis;
   
   private boolean isSelected;
-  private boolean entityColliding;
+  private ArrayList<U3DObject> collidingEntities;
   
   Vehicle() {
     wheels = new ArrayList<Wheel>();
@@ -37,13 +37,19 @@ class Vehicle extends U3DObject{
   }
   
   @Override
-  void setEntityColliding(boolean state){
-    entityColliding = state;
+  void addCollidingEntity(U3DObject o){
+    if(collidingEntities == null){
+      collidingEntities = new ArrayList<U3DObject>();
+    }
+    collidingEntities.add(o);
   }
-  
+  @Override
+  void removeCollidingEntities(){
+    collidingEntities = new ArrayList<U3DObject>();
+  }
   @Override 
-  boolean entityColliding(){
-    return entityColliding;
+  ArrayList<U3DObject> collidingEntities(){
+    return collidingEntities;
   }
   
   @Override

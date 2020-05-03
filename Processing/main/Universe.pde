@@ -24,7 +24,7 @@ class Universe{
   
   
   Me spawnMyself(String mode, String position){
-    Me m = new Me(mode, position, objs);
+    Me m = new Me(mode, position);
     m.setPlanet(getEarth());
     objs.add(m);
     return m;
@@ -54,10 +54,8 @@ class Universe{
       if(o1.doCollisions()){
         for(U3DObject o2: objs){
           if(!o1.equals(o2) && o2.doCollisions() && o1.collision(o2)){
-            o1.setEntityColliding(true);
-            o2.setEntityColliding(true);
-            print(o1);
-            print(o2);
+            o1.addCollidingEntity(o2);
+            o2.addCollidingEntity(o1);
           }
         }
       }

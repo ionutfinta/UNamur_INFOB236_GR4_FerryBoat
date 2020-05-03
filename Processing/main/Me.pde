@@ -15,7 +15,7 @@ class Me extends U3DObject{
   
   PGraphics mBackground;
   
- Me(String m, String ap, ArrayList<U3DObject> everything){
+ Me(String m, String ap){
    mode = m;
    if(ap.equals("Laniakea>Virgo Supercluster>Local Sheet>Local Group>Milky Way subgroup>Milky Way Galaxy>Orbit of the Solar System>Orion Arm>Gould Belt>Local Bubble>Local Interstellar Cloud>Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject"))
      ap = "port";
@@ -37,6 +37,10 @@ class Me extends U3DObject{
    
    
  }
+ 
+ //void select(ArrayList<U3DObject> everything){
+  // new Selector(everything, );
+ //}
  
  void animate(){
    if(mode.equals("God")){
