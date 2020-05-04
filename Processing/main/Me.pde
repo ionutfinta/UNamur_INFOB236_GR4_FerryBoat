@@ -138,8 +138,8 @@ class Me extends U3DObject{
      
      mBackground.image(mSkyBox, 0, 0);
      
-     if(height/2+factory+160 < 0)
-       mBackground.image(mSkyBoxWater, 0, 0, width, height);
+     if(height/2+factory+160 < -40)
+       mBackground.image(mSkyBoxWater, 0, -40);
      else if(height/2+factory > 768){}
      else
        mBackground.image(mSkyBoxWater, 0, factory + height/2 + 160);
@@ -148,13 +148,13 @@ class Me extends U3DObject{
        mBackground.image(mSun, (int) (tan(rotationAngle/2) * width), factory * .5);
      }
      
-     PVector forLenses = new PVector(cos(rotationAngle) * width*.5,cos(elevationAngle) * height*.5);
+     PVector forLenses = new PVector(cos(rotationAngle) ,cos(elevationAngle) );
      mBackground.fill(color(#FFFFFF, 80));
      mBackground.noStroke();
-     mBackground.translate(forLenses.x, forLenses.y);
-     mBackground.rotate(rotationAngle/1.8);
+     mBackground.translate(forLenses.x* width*.5, forLenses.y* height*.5);
+     mBackground.rotate(-rotationAngle/2);
      mBackground.circle(0, 0, 45);
-     mBackground.circle(pow(forLenses.limit(6).x, 3), pow(forLenses.y, 3), 25);
+     mBackground.circle(exp(abs(forLenses.x)+5)-350, exp(forLenses.y+5)-350, 25);
      mBackground.endDraw();
    
    if(mBackground.height == height && mBackground.width == width)
