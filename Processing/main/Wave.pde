@@ -29,7 +29,7 @@ class Wave{
   void renderWave(){
     
     rotateX(HALF_PI);
-    fill(#005FDF);
+    fill(#004D7B, 210);
     float t = frameCount * timeScale;
     for(float w = 2 * stepSize.x; w <= mWidth - 2 * stepSize.x; w += stepSize.x){
       for(float h = 2 * stepSize.y; h <= mHeight - 2 * stepSize.y; h += stepSize.y){
@@ -44,12 +44,13 @@ class Wave{
         float nyz = map(noise(w * noiseScale + noiseOffset.x + t, (h + stepSize.y) * noiseScale + noiseOffset.y + t, t + noiseOffset.z), 0, 1, -maxY, maxY);       
         float radianX = (atan2(z - pyz, stepSize.y) + atan2(nyz - z, stepSize.y)) / 2.0; 
         rotateX(radianX-.05);
-        fill(color(0,map(radianX, -QUARTER_PI/16, QUARTER_PI/16, 30, 100),map(radianX, -QUARTER_PI/16, QUARTER_PI/16, 186, 215), 75));
         rect(0, 0, rectSize.x, rectSize.y);
-        
-        fill(#005FDF);
         popMatrix();
       } 
-    } 
+    }
+    
+    fill(#004D7B);
+    translate(0,0,5);
+    rect(400,400,2100,2100);
   }
 }

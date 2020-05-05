@@ -5,6 +5,7 @@ Universe myUniverse;
 Me me;
 Car myFirstCar, mCar2;
 Barriere mBarriere1;
+Barriere mBarriere2;
 Ferry mFerry;
 
 void setup(){
@@ -18,8 +19,9 @@ void setup(){
   myFirstCar = myUniverse.spawnCar(new PVector(0, 2, 1));
   mCar2 = myUniverse.spawnCar(new PVector(0, 5, 12));
   
-  //TODO: C'est trop bizzare, soit je suis mort fatiggué soit la barrière bouge en fonction d'où on la regarde !
-  mBarriere1 = myUniverse.spawnBarriere(new PVector(0, 2, 20));
+  mBarriere1 = myUniverse.spawnBarriere(new PVector(-11.5, 2.629905, 123.5), new PVector());
+  mBarriere2 = myUniverse.spawnBarriere(new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI, 0));
+  mBarriere2.setOuvert();
   
   mFerry = myUniverse.spawnFerry();
   

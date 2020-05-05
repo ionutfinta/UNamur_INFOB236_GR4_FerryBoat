@@ -30,8 +30,8 @@ class Universe{
     return m;
   }
   
-  Barriere spawnBarriere(PVector pos){
-    Barriere b = new Barriere(pos);
+  Barriere spawnBarriere(PVector pos, PVector angle){
+    Barriere b = new Barriere(pos, angle);
     b.setPlanet(getEarth());
     objs.add(b);
     B = b;

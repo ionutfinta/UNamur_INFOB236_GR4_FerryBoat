@@ -9,7 +9,7 @@ class Me extends U3DObject{
   private float elevationAngle;
   
   
-  PImage mSkyBox;
+  PImage mClouds0;
   PImage mSkyBoxWater;
   PImage mSun;
   
@@ -21,7 +21,7 @@ class Me extends U3DObject{
      ap = "port";
    absPosition = ap;
    
-   mPosition = new PVector(-140.15007, 67.93994, -49.487938);
+   mPosition = new PVector(0, 3, 0);
    cameraDir = new PVector();
    elevationAngle = 0;
    rotationAngle = 0;
@@ -29,7 +29,7 @@ class Me extends U3DObject{
    
    mSize = new PVector(1, 2.7, 1);
    
-   mSkyBox = loadImage("./assets/skybox.gif");
+   mClouds0 = loadImage("./assets/clouds0.gif");
    mSkyBoxWater = loadImage("./assets/skybox_water.gif");
    mSun = loadImage("./assets/sun.png");
    mBackground = createGraphics(width, height);
@@ -131,21 +131,19 @@ class Me extends U3DObject{
 
   void setBackground(){
      //TODO: Vérifier la trigonométrie
-     int factory = (int) (tan(elevationAngle) * height);
+     int factorx = (int) (tan(-rotationAngle/2) * width),
+       factory = (int) (sin(elevationAngle) * height * 0.5);
        
      mBackground.beginDraw();
      mBackground.background(#8EC6FE);
      
-     mBackground.image(mSkyBox, 0, 0);
-     
-     if(height/2+factory+160 < -40)
-       mBackground.image(mSkyBoxWater, 0, -40);
-     else if(height/2+factory > 768){}
-     else
-       mBackground.image(mSkyBoxWater, 0, factory + height/2 + 160);
+     mBackground.image(mClouds0, factorx, factory - 200);
+     mBackground.image(mClouds0, (int) (tan(-rotationAngle/2 + QUARTER_PI) * width), factory - 250);
+     mBackground.image(mClouds0, (int) (tan(-rotationAngle/2 + 3*QUARTER_PI) * width), factory - 150);
+     mBackground.image(mClouds0, (int) (tan(-rotationAngle/2 + HALF_PI) * width), factory - 225);
        
      if(rotationAngle > -1.576932 && rotationAngle < 0.34054446){
-       mBackground.image(mSun, (int) (tan(-rotationAngle/2) * width), factory * .5);
+       mBackground.image(mSun, factorx, factory);
      }
      
      PVector forLenses = new PVector(cos(-rotationAngle) ,cos(-elevationAngle) );
@@ -166,7 +164,7 @@ class Me extends U3DObject{
  void display(){
    if(absPosition.equals("port")){
      perspective(PI/3, float(width)/float(height), 
-            ((height/2.0) / tan(PI*60.0/360.0))/500, ((height/2.0) / tan(PI*60.0/360.0))*500);
+            ((height/2.0) / tan(PI/6))/200, ((height/2.0) / tan(THIRD_PI))*5);
      camera(mPosition.x, mPosition.y, mPosition.z, mPosition.x+cameraDir.x, mPosition.y+cameraDir.y, mPosition.z+cameraDir.z, 0, -1, 0);
      /*pushMatrix();
        fill(#FFFFFF);

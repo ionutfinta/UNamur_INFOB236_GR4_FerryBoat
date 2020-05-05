@@ -24,9 +24,9 @@ class Earth extends U3DObject{
     poteauxPos = new ArrayList<PVector>();
     
     // Puisque le y sera toujours 0, on l'utilise pour l'angle de rotation !
-    poteauxPos.add(new PVector(-19, 0, 123.41));
+    poteauxPos.add(new PVector(-20.5, 0, 123.41));
     for(int i = 102; i > 0; i-=2){
-      poteauxPos.add(new PVector(-19-i, 0, 123.41));
+      poteauxPos.add(new PVector(-20.5-i, 0, 123.41));
     }
     for(int i = 136; i > 0; i-=2){
       poteauxPos.add(new PVector(-12.135065+i, i==138?HALF_PI:PI, 123.41));

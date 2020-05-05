@@ -5,6 +5,7 @@ class U3DObject {
   // This size represents the half of the size of the object.
   protected PVector mSize;
   protected PVector mInertia;
+  protected PVector mAngles;
   
   protected float mAirResistFactor;
   

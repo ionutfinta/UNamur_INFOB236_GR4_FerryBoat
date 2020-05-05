@@ -14,8 +14,9 @@ Ferry(){
   
 void display(){
     pushMatrix();
-      translate(mPosition.x, mPosition.y, mPosition.z);
+      translate(mPosition.x, mPosition.y+6, mPosition.z);
       rotateY(PI);
+      rotateZ(PI/6);
       shape(proue);
     popMatrix();
   }
