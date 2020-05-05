@@ -21,11 +21,11 @@ class Me extends U3DObject{
      ap = "port";
    absPosition = ap;
    
-   mPosition = new PVector(-353.90564, -582.3443, -376.73193);
-   cameraDir = new PVector(1.9988941, 6.518429, 8.775216);
+   mPosition = new PVector(-140.15007, 67.93994, -49.487938);
+   cameraDir = new PVector();
    elevationAngle = 0;
    rotationAngle = 0;
-   cameraSpeed = uniScale*.5f;
+   cameraSpeed = 1;
    
    mSize = new PVector(1, 2.7, 1);
    
@@ -55,7 +55,7 @@ class Me extends U3DObject{
          updateCameraDir();
        }
        if(keyCode == LEFT){
-         PVector goLeft = new PVector(-cameraDir.x, -cameraDir.z).rotate(HALF_PI);
+         PVector goLeft = new PVector(-cameraDir.x, -cameraDir.z).rotate(-HALF_PI);
          mInertia.x = goLeft.x;
          mInertia.y = 0;
          mInertia.z = goLeft.y;
@@ -64,7 +64,7 @@ class Me extends U3DObject{
          updateCameraDir();
        }
        if(keyCode == RIGHT){
-         PVector goLeft = new PVector(-cameraDir.x, -cameraDir.z).rotate(-HALF_PI);
+         PVector goLeft = new PVector(-cameraDir.x, -cameraDir.z).rotate(HALF_PI);
          mInertia.x = goLeft.x;
          mInertia.y = 0;
          mInertia.z = goLeft.y;
@@ -80,11 +80,11 @@ class Me extends U3DObject{
        }
      }
      if(key == '4'){
-         rotationAngle += radians(cameraSpeed);
+         rotationAngle -= radians(cameraSpeed);
          updateCameraDir();
      }
      if(key == '6'){
-         rotationAngle -= radians(cameraSpeed);
+         rotationAngle += radians(cameraSpeed);
          updateCameraDir();
      }
      if(key == '8'){
@@ -98,10 +98,10 @@ class Me extends U3DObject{
    }
    if(mousePressed && mouseButton == RIGHT && (pmouseX != mouseX || pmouseY != mouseY)){
      int differenceMouse = pmouseY-mouseY;
-     elevationAngle += map(elevationAngle + differenceMouse, elevationAngle - height, elevationAngle + height, -PI, PI);
+     elevationAngle -= map(elevationAngle + differenceMouse, elevationAngle - height, elevationAngle + height, -PI, PI);
      
      differenceMouse = pmouseX-mouseX;
-     rotationAngle -= map(rotationAngle + differenceMouse, rotationAngle - width, rotationAngle + width, -PI, PI);
+     rotationAngle += map(rotationAngle + differenceMouse, rotationAngle - width, rotationAngle + width, -PI, PI);
      
      truncateAngles();
      
@@ -122,16 +122,16 @@ class Me extends U3DObject{
  
  void updateCameraDir(){
      if(mPlanet != null && collision(mPlanet)){
-       mPosition.y -= mSize.y*uniScale;
+       mPosition.y += mSize.y;
      }
      cameraDir.x = cameraSpeed*sin(rotationAngle);
      cameraDir.y = cameraSpeed*sin(elevationAngle);
      cameraDir.z = cameraSpeed*cos(rotationAngle);
  }
 
- void setBackground(){
+  void setBackground(){
      //TODO: Vérifier la trigonométrie
-     int factory = (int) (tan(-elevationAngle) * height);
+     int factory = (int) (tan(elevationAngle) * height);
        
      mBackground.beginDraw();
      mBackground.background(#8EC6FE);
@@ -144,15 +144,15 @@ class Me extends U3DObject{
      else
        mBackground.image(mSkyBoxWater, 0, factory + height/2 + 160);
        
-     if(rotationAngle > -0.3589487 && rotationAngle < 1.5646665){
-       mBackground.image(mSun, (int) (tan(rotationAngle/2) * width), factory * .5);
+     if(rotationAngle > -1.576932 && rotationAngle < 0.34054446){
+       mBackground.image(mSun, (int) (tan(-rotationAngle/2) * width), factory * .5);
      }
      
-     PVector forLenses = new PVector(cos(rotationAngle) ,cos(elevationAngle) );
+     PVector forLenses = new PVector(cos(-rotationAngle) ,cos(-elevationAngle) );
      mBackground.fill(color(#FFFFFF, 80));
      mBackground.noStroke();
      mBackground.translate(forLenses.x* width*.5, forLenses.y* height*.5);
-     mBackground.rotate(-rotationAngle/2);
+     mBackground.rotate(rotationAngle/2);
      mBackground.circle(0, 0, 45);
      mBackground.circle(exp(abs(forLenses.x)+5)-350, exp(forLenses.y+5)-350, 25);
      mBackground.endDraw();
@@ -165,14 +165,16 @@ class Me extends U3DObject{
  
  void display(){
    if(absPosition.equals("port")){
-     camera(mPosition.x, mPosition.y, mPosition.z, mPosition.x+cameraDir.x, mPosition.y+cameraDir.y, mPosition.z+cameraDir.z, 0, 1, 0);
-     pushMatrix();
+     perspective(PI/3, float(width)/float(height), 
+            ((height/2.0) / tan(PI*60.0/360.0))/500, ((height/2.0) / tan(PI*60.0/360.0))*500);
+     camera(mPosition.x, mPosition.y, mPosition.z, mPosition.x+cameraDir.x, mPosition.y+cameraDir.y, mPosition.z+cameraDir.z, 0, -1, 0);
+     /*pushMatrix();
        fill(#FFFFFF);
        textSize(9);
-       translate(mPosition.x+cameraDir.x-7*uniScale, mPosition.y+cameraDir.y-2*uniScale, mPosition.z+cameraDir.z-7*uniScale);
+       translate(mPosition.x+cameraDir.x-7, mPosition.y+cameraDir.y-2, mPosition.z+cameraDir.z-7);
        text("CamSpeed " + cameraSpeed, 0,0);
        text("FPS: " + (int)frameRate, 10, 30);
-     popMatrix();
+     popMatrix();*/
      pointLight(200, 231, 255, 0, -50, 0);
      ambientLight(202, 231, 255);
   }

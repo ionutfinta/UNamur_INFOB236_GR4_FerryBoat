@@ -15,11 +15,11 @@ void setup(){
                                      "Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>" +
                                      "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject");
 
-  myFirstCar = myUniverse.spawnCar(new PVector(14.515, -50.0, 100));
-  mCar2 = myUniverse.spawnCar(new PVector(10, -50.0, 100));
+  myFirstCar = myUniverse.spawnCar(new PVector(0, 2, 0));
+  mCar2 = myUniverse.spawnCar(new PVector(0, 2, 0));
   
   //TODO: C'est trop bizzare, soit je suis mort fatiggué soit la barrière bouge en fonction d'où on la regarde !
-  mBarriere1 = myUniverse.spawnBarriere(new PVector(12.6698, -3, 121.83273));
+  mBarriere1 = myUniverse.spawnBarriere(new PVector(12.6698, 3, 121.83273));
   
   mFerry = myUniverse.spawnFerry();
   
@@ -35,6 +35,7 @@ void mousePressed(){
   if(mouseButton == LEFT){
     SelectEntity(me, myUniverse, 10);
   }
+  println(mCar2.getPosition());
 }
 
 void SelectEntity(Me observer, Universe u, float distance){

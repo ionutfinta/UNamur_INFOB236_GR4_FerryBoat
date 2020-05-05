@@ -11,7 +11,6 @@ class Vehicle extends U3DObject{
   
   void display(){
     pushMatrix();
-    scale(uniScale);
     translate(mPosition.x, mPosition.y, mPosition.z);
     
     shape(chassis, 0, 0);

@@ -14,8 +14,8 @@ class Earth extends U3DObject{
   
   Earth(){
     sol = loadShape("./assets/berge.obj");
-    mSize = new PVector(125,.1,125);
-    mPosition = new PVector(0, limitBelow, 0);
+    mSize = new PVector(125,1,125);
+    mPosition = new PVector(-125, 2, -125);
     poteau = loadShape("./assets/poteau.obj");
     
     concreteWall = loadShape("./assets/concreteWall.obj");
@@ -24,21 +24,21 @@ class Earth extends U3DObject{
     poteauxPos = new ArrayList<PVector>();
     
     // Puisque le y sera toujours 0, on l'utilise pour l'angle de rotation !
-    poteauxPos.add(new PVector(18.835058, 0, 123.41));
+    poteauxPos.add(new PVector(-19, 0, 123.41));
     for(int i = 102; i > 0; i-=2){
-      poteauxPos.add(new PVector(18.935065+i, 0, 123.41));
+      poteauxPos.add(new PVector(-19-i, 0, 123.41));
     }
     for(int i = 136; i > 0; i-=2){
-      poteauxPos.add(new PVector(12.135065-i, i==138?HALF_PI:PI, 123.41));
+      poteauxPos.add(new PVector(-12.135065+i, i==138?HALF_PI:PI, 123.41));
     }
     
     gravity = 10;
     
-    mWave = new Wave(uniScale);
+    mWave = new Wave();
   }
   
   void animate(){
-    scale(uniScale);
+    translate(-mPosition.x, 0, -mPosition.z);
     pushMatrix();
       translate(mPosition.x, mPosition.y, mPosition.z);
       shape(sol, 0, 0);
@@ -49,33 +49,29 @@ class Earth extends U3DObject{
           shape(poteau);
         popMatrix();
       }
-    popMatrix();
     
     //concrete walls
-    pushMatrix();
-      translate(122.935065, limitBelow, 0);
+      translate(123.5, 0, 0);
       rotateY(radians(90));
       shape(concreteWall);
-    popMatrix();
-    pushMatrix();
-      translate(0, limitBelow, -122.9);
+      
+      rotateY(PI);
+      translate(0, 0, 123.5*2);
       shape(concreteWall);
-    popMatrix();
-    pushMatrix();
-      translate(-123, limitBelow, 0);
-      rotateY(radians(90));
+      
+      rotateY(HALF_PI);
+      translate(123.5, 0, -123.5);
       shape(concreteWall);
-    popMatrix();
-    pushMatrix();
-      translate(0, uniScale*.89 + limitBelow, 123.41);
+      
+      translate(0, -.009, 123.5*2-2.5);
       shape(concreteWall2);
-      translate(0, uniScale*0.65, 0);
+      translate(0, -15, 0);
       shape(concreteWall2);
     popMatrix();
     
     pushMatrix();
       /* Water */
-      translate(-15*uniScale, limitBelow + uniScale*0.45, 4*uniScale);
+      translate(-250-125, 0, -50);
       mWave.renderWave();
     popMatrix();
   }

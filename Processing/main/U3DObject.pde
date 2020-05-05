@@ -1,7 +1,5 @@
 class U3DObject {
   protected Earth mPlanet;
-  protected int uniScale;
-  protected float limitBelow;
   
   protected PVector mPosition;
   // This size represents the half of the size of the object.
@@ -11,10 +9,6 @@ class U3DObject {
   protected float mAirResistFactor;
   
   U3DObject(){
-    uniScale = 18;
-    
-    limitBelow = 0;
-    
     mPosition = mSize = 
     mInertia = new PVector(0,0,0);
     
@@ -27,7 +21,7 @@ class U3DObject {
       return;
    
     if(! collision(mPlanet)){
-      mInertia.y += (float)mPlanet.getGravity() /uniScale;
+      mInertia.y += (float)mPlanet.getGravity();
     }else{
       mInertia.y = 0;
     }
@@ -57,17 +51,13 @@ class U3DObject {
   
   // --- Collisions
   boolean collision(U3DObject o){
-    if(mPosition.y >= limitBelow)
+    if(mPosition.y <= 0)
       return true;
     
     PVector oPos = o.getPosition(),
             oSize = o.getSize(),
             mPos = mPosition;
             
-    if(keyPressed && this instanceof Me){
-      mPos = mPosition.copy();
-      mPos.div(uniScale);
-    }
     return (mPos.x-mSize.x <= oPos.x+oSize.x && mPos.x + mSize.x >= oPos.x-oSize.x) &&
            (mPos.y-mSize.y <= oPos.y+oSize.y && mPos.y + mSize.y >= oPos.y-oSize.y) &&
            (mPos.z-mSize.z <= oPos.z+oSize.z && mPos.z + mSize.z >= oPos.z-oSize.z);
