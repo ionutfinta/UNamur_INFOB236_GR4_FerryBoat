@@ -15,7 +15,7 @@ class Earth extends U3DObject{
   Earth(){
     sol = loadShape("./assets/berge.obj");
     mSize = new PVector(125,1,125);
-    mPosition = new PVector(-125, 2, -125);
+    mPosition = new PVector(0, 2, 0);
     poteau = loadShape("./assets/poteau.obj");
     
     concreteWall = loadShape("./assets/concreteWall.obj");
@@ -38,7 +38,6 @@ class Earth extends U3DObject{
   }
   
   void animate(){
-    translate(-mPosition.x, 0, -mPosition.z);
     pushMatrix();
       translate(mPosition.x, mPosition.y, mPosition.z);
       shape(sol, 0, 0);

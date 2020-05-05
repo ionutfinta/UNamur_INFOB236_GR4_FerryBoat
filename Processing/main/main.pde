@@ -16,10 +16,10 @@ void setup(){
                                      "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject");
 
   myFirstCar = myUniverse.spawnCar(new PVector(0, 3, 1));
-  mCar2 = myUniverse.spawnCar(new PVector(0, 3, 6));
+  mCar2 = myUniverse.spawnCar(new PVector(0, 5, 12));
   
   //TODO: C'est trop bizzare, soit je suis mort fatiggué soit la barrière bouge en fonction d'où on la regarde !
-  mBarriere1 = myUniverse.spawnBarriere(new PVector(-12.6698, 2, 125));
+  //mBarriere1 = myUniverse.spawnBarriere(new PVector(0, 2, 0));
   
   mFerry = myUniverse.spawnFerry();
   

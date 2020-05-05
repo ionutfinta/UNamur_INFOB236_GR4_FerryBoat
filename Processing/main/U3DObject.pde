@@ -21,7 +21,7 @@ class U3DObject {
       return;
    
     if(! collision(mPlanet)){
-      mInertia.y += (float)mPlanet.getGravity();
+      mInertia.y -= (float)mPlanet.getGravity()/18.0f;
     }else{
       mInertia.y = 0;
     }
@@ -94,13 +94,13 @@ class U3DObject {
   }
   
   void setPos(PVector p){
-    mPosition = p;
+    //mPosition = p;
   }
   void setSize(PVector s){
-    mSize = s;
+    //mSize = s;
   }
   void setInertia(PVector i){
-    mInertia = i;
+    //mInertia = i;
   }
   
   void setSelectionState(boolean state){
