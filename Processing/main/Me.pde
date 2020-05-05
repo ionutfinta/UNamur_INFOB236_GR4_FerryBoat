@@ -177,4 +177,8 @@ class Me extends U3DObject{
      ambientLight(202, 231, 255);
   }
  }
+ 
+ public PVector getCamDir(){
+   return cameraDir;
+ }
 }

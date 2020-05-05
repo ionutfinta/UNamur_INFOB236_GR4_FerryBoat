@@ -6,6 +6,7 @@ Me me;
 Car myFirstCar, mCar2;
 Barriere mBarriere1;
 Ferry mFerry;
+EntitySelector selector;
 
 void setup(){
   size(1024,768,P3D);
@@ -22,6 +23,9 @@ void setup(){
   mBarriere1 = myUniverse.spawnBarriere(new PVector(12.6698, -3, 121.83273));
   
   mFerry = myUniverse.spawnFerry();
+  
+  myUniverse.handleCollisions();
+  myUniverse.handleSelection();
 }
 
 void draw(){

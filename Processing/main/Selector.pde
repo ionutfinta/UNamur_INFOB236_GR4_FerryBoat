@@ -3,11 +3,13 @@ class EntitySelector extends U3DObject{
   private ArrayList<U3DObject> collidingEntities;
   
   private PVector beamDir;
-  private float len_limit;
+  public float len_limit;
+  private float size;
   
   EntitySelector(PVector pos, PVector dir, float proj_size, float l){
     //create a "projectile" of size proj_size
     mSize = new PVector(proj_size, proj_size, proj_size);
+    size = proj_size;
     //move it center
     mPosition = pos.copy().add(mSize.div(-2.0));
     //normalize direction and move according to size
@@ -16,15 +18,19 @@ class EntitySelector extends U3DObject{
     
     len_limit = l;
     
-    
-    
   }
- 
+  
+  void setPos(PVector pos){
+    mPosition = pos.copy();
+  }
+  
+  void setDir(PVector dir){
+    beamDir = dir.copy().normalize().mult(size);
+    mInertia = beamDir;
+  }
   
   @Override
   void handle_entity_collision(){
-    boolean selected = false;
-    ArrayList<U3DObject> list;
     if(!collidingEntities().isEmpty()){
       closestObject(collidingEntities(), this).setSelectionState(true);
       removeCollidingEntities();
