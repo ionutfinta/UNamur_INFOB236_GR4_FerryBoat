@@ -7,7 +7,7 @@ class Car extends Vehicle {
     mSize = new PVector(2,1,4);
     
     float frontPos = 0.86,
-           wh_height = -0.44,
+           wh_height = 0.44,
            backPos = 1.27;
     
     wheels.add(new Wheel(this, frontPos, wh_height, backPos, 180, true));

@@ -17,8 +17,8 @@ class Barriere extends U3DObject {
   void display(){
     pushMatrix();
     //barriers test
-      scale(.2);
-      translate(mPosition.x*5, mPosition.y, mPosition.z*5);
+      translate(mPosition.x, mPosition.y, mPosition.z);
+      //scale(.2);
       shape(base);
       translate(0, -5, 1);
       rotate(HALF_PI);
