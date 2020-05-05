@@ -6,7 +6,6 @@ Me me;
 Car myFirstCar, mCar2;
 Barriere mBarriere1;
 Ferry mFerry;
-EntitySelector selector;
 
 void setup(){
   size(1024,768,P3D);
@@ -25,7 +24,6 @@ void setup(){
   mFerry = myUniverse.spawnFerry();
   
   myUniverse.handleCollisions();
-  myUniverse.handleSelection();
 }
 
 void draw(){
@@ -34,7 +32,9 @@ void draw(){
 }
 
 void mousePressed(){
-  
+  if(mouseButton == LEFT){
+    SelectEntity(me, myUniverse, 10);
+  }
 }
 
 void SelectEntity(Me observer, Universe u, float distance){
@@ -44,14 +44,15 @@ void SelectEntity(Me observer, Universe u, float distance){
   U3DObject detector = new SelectionDetectorObject();
   
   detector.setSize(new PVector(10,10,10));
-  detector.setPos(me.getPosition());
-  detector.setInertia(me.getCamDir());
+  detector.setPos(observer.getPosition().copy());
+  detector.setInertia(observer.getCamDir().copy());
   
   for(float i = 0; i<distance && !found; i+=1){
-    found_object = myUniverse.reportCollisionsWith(detector);
+    found_object = u.reportCollisionsWith(detector);
     if(found_object != null && found_object.isSelectable()){
       found = true;
       found_object.setSelectionState(true);
     }
+    detector.applyInertia();
   }
 }

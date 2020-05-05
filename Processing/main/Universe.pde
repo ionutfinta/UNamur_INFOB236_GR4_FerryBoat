@@ -65,6 +65,8 @@ class Universe{
   
   //@returns closest object or null if none were detected
   public U3DObject reportCollisionsWith(U3DObject o1){
+    
+        
         U3DObject closest = null;
         
         float closeness = Float.MAX_VALUE;
