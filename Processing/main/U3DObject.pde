@@ -22,19 +22,43 @@ class U3DObject {
    
     if(! collision(mPlanet)){
       mInertia.y -= (float)mPlanet.getGravity()/18.0f;
-    }else{
-      mInertia.y = 0;
     }
+    
   }
   
   void handle_entity_collision(){
+    if(collidingEntities()==null || collidingEntities().isEmpty()){return;}
+    
+     PVector oPos,
+            oSize,
+            mPos,
+            oInert;
+            
+      float max_y_offset = Float.MAX_VALUE;
+      
+     for(U3DObject o : collidingEntities()){
+       oPos = o.getPosition();
+       oSize = o.getSize();
+       mPos = mPosition;
+       oInert = o.getInertia();
+       
+       //if object INSIDE another one, teleport up
+      if(((mPos.x)-mSize.x < (oPos.x)+oSize.x && (mPos.x) + mSize.x > (oPos.x)-oSize.x) && 
+        ((mPos.y)-mSize.y < (oPos.y)+oSize.y && (mPos.y) + mSize.y > (oPos.y)-oSize.y) && 
+        ((mPos.z)-mSize.z < (oPos.z)+oSize.z && (mPos.z) + mSize.z > (oPos.z)-oSize.z)){
+          if(oPos.y+oSize.y > max_y_offset)
+            max_y_offset = oPos.copy().y+oSize.copy().y+mSize.y;
+          mPos.y = max_y_offset;
+      }
+     
+    
     if(collidingEntities()!=null && !collidingEntities().isEmpty()){
-      mInertia.mult(-2);
-      applyInertia();
       mInertia.mult(0);
       removeCollidingEntities();
     }
-  }
+    }
+ }
+  
   
   void animate(){
     apply_gravity();
@@ -56,11 +80,12 @@ class U3DObject {
     
     PVector oPos = o.getPosition(),
             oSize = o.getSize(),
-            mPos = mPosition;
-            
-    return (mPos.x-mSize.x <= oPos.x+oSize.x && mPos.x + mSize.x >= oPos.x-oSize.x) &&
-           (mPos.y-mSize.y <= oPos.y+oSize.y && mPos.y + mSize.y >= oPos.y-oSize.y) &&
-           (mPos.z-mSize.z <= oPos.z+oSize.z && mPos.z + mSize.z >= oPos.z-oSize.z);
+            mPos = mPosition,
+            oInert = o.getInertia();
+    
+    return ((mPos.x+mInertia.x)-mSize.x <= (oPos.x+oInert.x)+oSize.x && (mPos.x+mInertia.x) + mSize.x >= (oPos.x+oInert.x)-oSize.x) &&
+           ((mPos.y+mInertia.y)-mSize.y <= (oPos.y+oInert.y)+oSize.y && (mPos.y+mInertia.y) + mSize.y >= (oPos.y+oInert.y)-oSize.y) &&
+           ((mPos.z+mInertia.z)-mSize.z <= (oPos.z+oInert.z)+oSize.z && (mPos.x+mInertia.z) + mSize.z >= (oPos.z+oInert.z)-oSize.z);
   }
   
   float dist(U3DObject o){
@@ -68,6 +93,10 @@ class U3DObject {
   }
   
   // --- Observers
+  PVector getInertia(){
+    return mInertia;
+  }
+  
   PVector getPosition(){
     return mPosition;
   }

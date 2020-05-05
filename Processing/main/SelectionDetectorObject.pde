@@ -2,7 +2,6 @@ class SelectionDetectorObject extends U3DObject{
   ArrayList<Wheel> wheels;
   PShape chassis;
   
-  private boolean isSelected;
   private ArrayList<U3DObject> collidingEntities;
   
   SelectionDetectorObject() {

@@ -20,7 +20,6 @@ class Car extends Vehicle {
   
   void animate(){
     super.animate();
-    
     //TODO: Séparer les commandes des objets... un objet doit pouvoir être contrôlé que s'il est séléctionné
     if(keyPressed == true){
       if(key == 'z'){
@@ -45,8 +44,8 @@ class Car extends Vehicle {
       if(key == 's')
         mInertia.z -= .03f;
     }
-  }
   
+  } 
 
   
 }

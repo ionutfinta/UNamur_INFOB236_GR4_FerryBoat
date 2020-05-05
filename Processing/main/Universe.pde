@@ -1,5 +1,6 @@
 class Universe{
   ArrayList<U3DObject> objs;
+  U3DObject B;
   
   Universe(){
     shapeMode(CORNER);
@@ -33,6 +34,7 @@ class Universe{
     Barriere b = new Barriere(pos);
     b.setPlanet(getEarth());
     objs.add(b);
+    B = b;
     return b;
   }
   
@@ -54,7 +56,10 @@ class Universe{
         
         while(true){
           for(U3DObject o1: objs){
-              reportCollisionsWith(o1);
+            
+              U3DObject ret = reportCollisionsWith(o1);
+              if(o1==B && ret !=null)
+                print(ret);
           }
         }
     }
@@ -74,8 +79,10 @@ class Universe{
         if(o1.doCollisions()){
           for(U3DObject o2: objs){
             if(!o1.equals(o2) && o2.doCollisions() && o1.collision(o2)){
-              o1.addCollidingEntity(o2);
-              o2.addCollidingEntity(o1);
+              if(!collisionInArray(o1.collidingEntities(),o2))
+                o1.addCollidingEntity(o2);
+              if(!collisionInArray(o2.collidingEntities(),o1))
+                o2.addCollidingEntity(o1);
               
               if(closest == null){
                 closest = o2;
