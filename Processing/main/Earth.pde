@@ -10,6 +10,8 @@ class Earth extends U3DObject{
   private PShape concreteWall;
   private PShape concreteWall2;
   
+  private PShape signalBerge;
+  
   private Wave mWave;
   
   Earth(){
@@ -20,6 +22,7 @@ class Earth extends U3DObject{
     
     concreteWall = loadShape("./assets/concreteWall.obj");
     concreteWall2 = loadShape("./assets/concreteWall2.obj");
+    signalBerge = loadShape("./assets/signalisation_berge.obj");
     
     poteauxPos = new ArrayList<PVector>();
     
@@ -48,6 +51,12 @@ class Earth extends U3DObject{
           shape(poteau);
         popMatrix();
       }
+      
+      // Signalisation Berge
+      pushMatrix();
+        translate(-21.5, 1.5, 123.51);
+        shape(signalBerge);
+     popMatrix();
     
     //concrete walls
       translate(123.5, 0, 0);

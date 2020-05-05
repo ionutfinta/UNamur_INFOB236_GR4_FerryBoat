@@ -1,0 +1,23 @@
+# Blender MTL File: 'signalisation_berge.blend'
+# Material Count: 2
+
+newmtl Material
+Ns 473.062492
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd berge_signe.png
+
+newmtl Poteau
+Ns 540.562488
+Ka 0.708333 0.708333 0.708333
+Kd 0.246195 0.246195 0.246195
+Ks 0.625000 0.625000 0.625000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
