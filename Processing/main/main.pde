@@ -32,3 +32,26 @@ void draw(){
   me.setBackground();
   myUniverse.display();
 }
+
+void mousePressed(){
+  
+}
+
+void SelectEntity(Me observer, Universe u, float distance){
+  boolean found = false;
+  U3DObject found_object;
+  
+  U3DObject detector = new SelectionDetectorObject();
+  
+  detector.setSize(new PVector(10,10,10));
+  detector.setPos(me.getPosition());
+  detector.setInertia(me.getCamDir());
+  
+  for(float i = 0; i<distance && !found; i+=1){
+    found_object = myUniverse.reportCollisionsWith(detector);
+    if(found_object != null && found_object.isSelectable()){
+      found = true;
+      found_object.setSelectionState(true);
+    }
+  }
+}

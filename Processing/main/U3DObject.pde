@@ -103,6 +103,16 @@ class U3DObject {
     mPlanet = p;
   }
   
+  void setPos(PVector p){
+    mPosition = p;
+  }
+  void setSize(PVector s){
+    mSize = s;
+  }
+  void setInertia(PVector i){
+    mInertia = i;
+  }
+  
   void setSelectionState(boolean state){
     
   }

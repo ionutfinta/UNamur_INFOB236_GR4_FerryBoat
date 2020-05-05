@@ -1,6 +1,5 @@
 class Universe{
   ArrayList<U3DObject> objs;
-  Me observer;
   
   Universe(){
     shapeMode(CORNER);
@@ -27,7 +26,6 @@ class Universe{
     Me m = new Me(mode, position);
     m.setPlanet(getEarth());
     objs.add(m);
-    observer = m;
     return m;
   }
   
@@ -65,50 +63,31 @@ class Universe{
      
   }
   
-  private boolean reportCollisionsWith(U3DObject o1){
-        boolean found = false;
+  //@returns closest object or null if none were detected
+  public U3DObject reportCollisionsWith(U3DObject o1){
+        U3DObject closest = null;
+        
+        float closeness = Float.MAX_VALUE;
+        
         if(o1.doCollisions()){
           for(U3DObject o2: objs){
             if(!o1.equals(o2) && o2.doCollisions() && o1.collision(o2)){
               o1.addCollidingEntity(o2);
               o2.addCollidingEntity(o1);
-            }
-          }
-        }
-      return found;
-  }
-  
-  
-  
-  void handleSelection(){
-    
-    
-    Thread selection_thread = new Thread(){
-      public void run(){
-        EntitySelector selector = new EntitySelector(observer.getPosition(), observer.getCamDir(), 10, 10);
-        while(true){
-          
-          if(true){
-            
-            boolean found = false;
-            
-            selector.setPos(observer.getPosition());
-            selector.setDir(observer.getCamDir());
-            
-            for(int i = 0; i<selector.len_limit && !found;i++){
-              selector.applyInertia();
-              if(reportCollisionsWith(selector)){
-                found = true;
+              
+              if(closest == null){
+                closest = o2;
+              }
+              else{
+                if(o2.getPosition().dist(o1.getPosition())<closeness){
+                  closeness = o2.getPosition().dist(o1.getPosition());
+                  closest = o2;
+                }
               }
             }
-            
-            
           }
         }
-    }
-   };
-  selection_thread.start();
-    
+      return closest;
   }
 
 
