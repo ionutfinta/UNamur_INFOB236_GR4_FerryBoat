@@ -31,7 +31,7 @@ class U3DObject {
     if(mPlanet == null)
       return;
    
-    if(! mPlanet.collision(this)){
+    if(! mPlanet.collision(this) && mPosition.y > 0){
       mInertia.y -= (float)mPlanet.getGravity()/18.0f;
     }
     
@@ -161,6 +161,14 @@ class U3DObject {
   
   void setAngles(PVector angle){
     mAngles = angle;
+  }
+  
+  void setShapeName(String str){
+    mShape.setName(str);
+  }
+  
+  void setAngleZ(float a){
+    mAngles.z = a;
   }
   
   /** Sets the source of the main shape of the object. Don't call this at each frame, it is verry slow ! */

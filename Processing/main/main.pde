@@ -22,8 +22,8 @@ void setup(){
   myFirstCar = myUniverse.spawnCar(new PVector(0, 2, 110));
   mCar2 = myUniverse.spawnCar(new PVector(-10, 2, 110));
   
-  mBarriere1 = myUniverse.spawnBarriere(new PVector(-11.5, 2.629905, 123.5), new PVector());
-  mBarriere2 = myUniverse.spawnBarriere(new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI, 0));
+  mBarriere1 = myUniverse.spawnBarriere(new PVector(-11.5, 2.629905, 123.5));
+  mBarriere2 = myUniverse.spawnBarriere(new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
   mBarriere2.setOuvert();
   
   mFerry = myUniverse.spawnFerry();
@@ -39,6 +39,7 @@ void draw(){
 void mousePressed(){
   if(mouseButton == LEFT){
     SelectEntity(me, myUniverse, 10);
+    println("Boat position: " + mFerry.getPosition());
   }
 }
 
@@ -47,6 +48,7 @@ void SelectEntity(Me observer, Universe u, float distance){
   U3DObject found_object;
   
   U3DObject detector = new SelectionDetectorObject();
+  
   // TODO, trouve un autre moyen que setSize();
   detector.setPos(observer.getPosition().copy());
   detector.setInertia(observer.getCamDir().copy());

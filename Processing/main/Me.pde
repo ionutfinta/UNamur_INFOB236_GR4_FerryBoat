@@ -22,8 +22,8 @@ class Me extends U3DObject{
      ap = "port";
    absPosition = ap;
    
-   mPosition = new PVector(0, 3, 0);
-   cameraDir = new PVector();
+   mPosition = new PVector(-21.910053, 10.18392, 118.87543 );
+   cameraDir = new PVector(0.8122503, -0.5255216, -0.58330905);
    elevationAngle = 0;
    rotationAngle = 0;
    cameraSpeed = 1;
@@ -167,15 +167,6 @@ class Me extends U3DObject{
      perspective(PI/3, float(width)/float(height), 
             ((height/2.0) / tan(PI/6))/200, ((height/2.0) / tan(THIRD_PI))*5);
      camera(mPosition.x, mPosition.y, mPosition.z, mPosition.x+cameraDir.x, mPosition.y+cameraDir.y, mPosition.z+cameraDir.z, 0, -1, 0);
-     /*pushMatrix();
-       fill(#FFFFFF);
-       textSize(9);
-       translate(mPosition.x+cameraDir.x-7, mPosition.y+cameraDir.y-2, mPosition.z+cameraDir.z-7);
-       text("CamSpeed " + cameraSpeed, 0,0);
-       text("FPS: " + (int)frameRate, 10, 30);
-     popMatrix();*/
-     pointLight(200, 231, 255, 0, -50, 0);
-     ambientLight(202, 231, 255);
   }
  }
  

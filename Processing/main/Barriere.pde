@@ -1,45 +1,32 @@
 class Barriere extends U3DObject {
-  PShape tige;
-  private float mAngleBarriere;
-  
   private boolean isSelected;
   private ArrayList<U3DObject> collidingEntities;
   
-  Barriere(PVector pos, PVector angles){
+  private U3DObject myTige;
+  
+  Barriere(PVector pos, PVector angles, Universe uni){
     mPosition = pos;
-    mAngles = angles;
     
     mShape = loadShape("./assets/mainBarrier.obj");
-    tige = loadShape("./assets/barrier.obj");
-    mAngleBarriere = 0;
-    
+    myTige = new U3DObject();
+    myTige.setShapeSRC("./assets/barrier.obj");
+    myTige.setPlanet(mPlanet);
+    myTige.setPos(new PVector(0, .55, 0.260741).add(mPosition));
+    myTige.setAngles(angles);
+    uni.addObject(myTige);
     setSelectionState(false);
-  }
-  
-  void display(){
-    pushMatrix();
-    //barriers test
-      translate(mPosition.x, mPosition.y, mPosition.z);
-      shape(mShape);
-      translate(0, +.55, 0.260741);
-      rotateX(mAngles.x);
-      rotateY(mAngles.y);
-      rotateZ(mAngles.z);
-      //rotate(mAngleBarriere);
-      shape(tige);
-    popMatrix();
   }
   
   void setFerme(){
     //TODO: A lier avec les guardes Event-B !
     //TODO: Animer le passage d'un état à un autre
-    mAngles.z = 0;
+    myTige.setAngleZ(0);
   }
   
   void setOuvert(){
     //TODO: A lier avec les guardes Event-B !
     //TODO: Animer le passage d'un état à un autre
-    mAngles.z = -HALF_PI;
+    myTige.setAngleZ(-HALF_PI);
   }
     
   

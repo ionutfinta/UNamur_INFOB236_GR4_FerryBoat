@@ -43,6 +43,5 @@ class Car extends Vehicle {
       if(key == 's')
         mInertia.z -= .03f;
     }
-  
   }
 }

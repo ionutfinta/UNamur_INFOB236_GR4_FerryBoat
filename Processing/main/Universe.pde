@@ -39,13 +39,21 @@ class Universe{
   }
   
   Barriere spawnBarriere(PVector pos, PVector angle){
-    Barriere b = new Barriere(pos, angle);
+    Barriere b = new Barriere(pos, angle, this);
     b.setPlanet(getEarth());
     objs.add(b);
     B = b;
     return b;
   }
   
+  // Exemple d'overloading : Permet de spawner la barrière sans donner son angle
+  Barriere spawnBarriere(PVector pos){
+    Barriere b = new Barriere(pos, new PVector(0,0,0), this);
+    b.setPlanet(getEarth());
+    objs.add(b);
+    B = b;
+    return b;
+  }
   
   Ferry spawnFerry(){
     Ferry f = new Ferry();
