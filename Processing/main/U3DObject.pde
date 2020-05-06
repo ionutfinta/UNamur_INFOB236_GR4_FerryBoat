@@ -2,18 +2,28 @@ class U3DObject {
   protected Earth mPlanet;
   
   protected PVector mPosition;
-  // This size represents the half of the size of the object.
-  protected PVector mSize;
   protected PVector mInertia;
   protected PVector mAngles;
+  
+  protected PShape mShape;
   
   protected float mAirResistFactor;
   
   U3DObject(){
-    mPosition = mSize = 
+    mPosition = mAngles =
     mInertia = new PVector(0,0,0);
     
+    mShape = loadShape("./assets/interrogationPoint.obj");
+    
     mAirResistFactor = 0.58f;
+  }
+  
+  // Constructeur par copie
+  U3DObject(U3DObject original){
+    mPosition = original.getPosition().copy();
+    mInertia = original.getInertia().copy();
+    mAngles = original.getAngles().copy();
+    mShape = original.getShape();
   }
   
   // --- Must be overwritten
@@ -21,7 +31,7 @@ class U3DObject {
     if(mPlanet == null)
       return;
    
-    if(! collision(mPlanet)){
+    if(! mPlanet.collision(this)){
       mInertia.y -= (float)mPlanet.getGravity()/18.0f;
     }
     
@@ -33,8 +43,9 @@ class U3DObject {
      PVector oPos,
             oSize,
             mPos,
-            oInert;
-            
+            oInert,
+            mSize;
+      mSize = getSize();
       float max_y_offset = Float.MAX_VALUE;
       
      for(U3DObject o : collidingEntities()){
@@ -66,7 +77,15 @@ class U3DObject {
     handle_entity_collision();
     applyInertia();
   }
-  void display(){}
+  void display(){
+    pushMatrix();
+      translate(mPosition.x, mPosition.y, mPosition.z);
+      rotateX(mAngles.x);
+      rotateY(mAngles.y);
+      rotateZ(mAngles.z);
+      shape(mShape, 0, 0);
+    popMatrix();
+  }
   
   // --- 3D Moving
   void applyInertia(){
@@ -84,9 +103,9 @@ class U3DObject {
             mPos = mPosition,
             oInert = o.getInertia();
     
-    return ((mPos.x+mInertia.x)-mSize.x <= (oPos.x+oInert.x)+oSize.x && (mPos.x+mInertia.x) + mSize.x >= (oPos.x+oInert.x)-oSize.x) &&
-           ((mPos.y+mInertia.y)-mSize.y <= (oPos.y+oInert.y)+oSize.y && (mPos.y+mInertia.y) + mSize.y >= (oPos.y+oInert.y)-oSize.y) &&
-           ((mPos.z+mInertia.z)-mSize.z <= (oPos.z+oInert.z)+oSize.z && (mPos.x+mInertia.z) + mSize.z >= (oPos.z+oInert.z)-oSize.z);
+    return ((mPos.x+mInertia.x)-getSize().x <= (oPos.x+oInert.x)+oSize.x && (mPos.x+mInertia.x) + getSize().x >= (oPos.x+oInert.x)-oSize.x) &&
+           ((mPos.y+mInertia.y)-getSize().y <= (oPos.y+oInert.y)+oSize.y && (mPos.y+mInertia.y) + getSize().y >= (oPos.y+oInert.y)-oSize.y) &&
+           ((mPos.z+mInertia.z)-getSize().z <= (oPos.z+oInert.z)+oSize.z && (mPos.x+mInertia.z) + getSize().z >= (oPos.z+oInert.z)-oSize.z);
   }
   
   float dist(U3DObject o){
@@ -103,7 +122,16 @@ class U3DObject {
   }
   
   PVector getSize(){
-    return mSize;
+    //TODO: Make this vary in function of mAngles !
+    return new PVector(mShape.getWidth(), mShape.getHeight(), mShape.getDepth()).div(2);
+  }
+  
+  PVector getAngles(){
+    return mAngles;
+  }
+  
+  PShape getShape(){
+    return mShape;
   }
   
   boolean isSelectable(){
@@ -124,13 +152,20 @@ class U3DObject {
   }
   
   void setPos(PVector p){
-    //mPosition = p;
+    mPosition = p;
   }
-  void setSize(PVector s){
-    //mSize = s;
-  }
+  
   void setInertia(PVector i){
-    //mInertia = i;
+    mInertia = i;
+  }
+  
+  void setAngles(PVector angle){
+    mAngles = angle;
+  }
+  
+  /** Sets the source of the main shape of the object. Don't call this at each frame, it is verry slow ! */
+  void setShapeSRC(String src){
+    mShape = loadShape(src);
   }
   
   void setSelectionState(boolean state){

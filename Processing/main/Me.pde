@@ -4,6 +4,7 @@ class Me extends U3DObject{
   
   private PVector cameraDir;
   
+  private PVector mSize; // I'm not a shape
   private float cameraSpeed;
   private float rotationAngle;
   private float elevationAngle;
@@ -176,6 +177,10 @@ class Me extends U3DObject{
      pointLight(200, 231, 255, 0, -50, 0);
      ambientLight(202, 231, 255);
   }
+ }
+ 
+ public PVector getSize(){
+   return mSize;
  }
  
  public PVector getCamDir(){

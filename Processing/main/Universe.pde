@@ -3,9 +3,13 @@ class Universe{
   U3DObject B;
   
   Universe(){
-    shapeMode(CORNER);
     objs = new ArrayList<U3DObject>();
+    shapeMode(CORNER);
     objs.add( new Earth() );
+  }
+  
+  void init(){
+    getEarth().load(this);
   }
   
   void display(){
@@ -13,6 +17,10 @@ class Universe{
       o.animate();
       o.display();
     }
+  }
+  
+  void addObject(U3DObject o){
+    objs.add(o);
   }
     
   Car spawnCar(PVector pos){

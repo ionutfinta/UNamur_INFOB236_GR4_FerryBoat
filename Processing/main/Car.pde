@@ -2,9 +2,8 @@ class Car extends Vehicle {
   
   
   Car(PVector pos){
-    chassis = loadShape("./assets/car_chassis.obj");
+    mShape = loadShape("./assets/car_chassis.obj");
     mPosition = pos;
-    mSize = new PVector(2,1,4);
     
     float frontPos = 0.86,
            wh_height = 0.44,
@@ -45,7 +44,5 @@ class Car extends Vehicle {
         mInertia.z -= .03f;
     }
   
-  } 
-
-  
+  }
 }

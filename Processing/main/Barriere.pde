@@ -1,5 +1,5 @@
 class Barriere extends U3DObject {
-  PShape base, tige;
+  PShape tige;
   private float mAngleBarriere;
   
   private boolean isSelected;
@@ -7,17 +7,9 @@ class Barriere extends U3DObject {
   
   Barriere(PVector pos, PVector angles){
     mPosition = pos;
-    mSize = new PVector(0.238262, 0.629905, 0.260741);
     mAngles = angles;
     
-    // Ouverte 
-    // Hauteur 0,629905‬ m * 2
-    // Profondeur 0,260741‬ m * 2
-    // Largeur 0,238262 m * 2
-    // Fermée
-    // Largeur += 1,817255‬ *2
-    
-    base = loadShape("./assets/mainBarrier.obj");
+    mShape = loadShape("./assets/mainBarrier.obj");
     tige = loadShape("./assets/barrier.obj");
     mAngleBarriere = 0;
     
@@ -28,7 +20,7 @@ class Barriere extends U3DObject {
     pushMatrix();
     //barriers test
       translate(mPosition.x, mPosition.y, mPosition.z);
-      shape(base);
+      shape(mShape);
       translate(0, +.55, 0.260741);
       rotateX(mAngles.x);
       rotateY(mAngles.y);
@@ -41,14 +33,12 @@ class Barriere extends U3DObject {
   void setFerme(){
     //TODO: A lier avec les guardes Event-B !
     //TODO: Animer le passage d'un état à un autre
-    mSize.x = 2.055517;
     mAngles.z = 0;
   }
   
   void setOuvert(){
     //TODO: A lier avec les guardes Event-B !
     //TODO: Animer le passage d'un état à un autre
-    mSize.x = 0.238262;
     mAngles.z = -HALF_PI;
   }
     

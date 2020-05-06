@@ -1,82 +1,71 @@
 class Earth extends U3DObject{
-
-  private PShape sol;
   private int gravity;
-  
-  private PShape poteau;
-  private ArrayList<PVector> poteauxPos;
-  
-  //TODO: Créer des objets U3DObject pour les murs et barrières, le système de collision devra pouvoir empêcher un fou de sauter à l'eau 
-  private PShape concreteWall;
-  private PShape concreteWall2;
-  
-  private PShape signalBerge;
-  
   private Wave mWave;
   
   Earth(){
-    sol = loadShape("./assets/berge.obj");
-    mSize = new PVector(125,1,125);
+    mShape = loadShape("./assets/berge.obj");
     mPosition = new PVector(0, 2, 0);
-    poteau = loadShape("./assets/poteau.obj");
     
-    concreteWall = loadShape("./assets/concreteWall.obj");
-    concreteWall2 = loadShape("./assets/concreteWall2.obj");
-    signalBerge = loadShape("./assets/signalisation_berge.obj");
-    
-    poteauxPos = new ArrayList<PVector>();
-    
-    // Puisque le y sera toujours 0, on l'utilise pour l'angle de rotation !
-    poteauxPos.add(new PVector(-20.5, 0, 123.41));
-    for(int i = 102; i > 0; i-=2){
-      poteauxPos.add(new PVector(-20.5-i, 0, 123.41));
-    }
-    for(int i = 136; i > 0; i-=2){
-      poteauxPos.add(new PVector(-12.135065+i, i==138?HALF_PI:PI, 123.41));
-    }
     
     gravity = 10;
     
     mWave = new Wave();
   }
   
-  void animate(){
-    pushMatrix();
-      translate(mPosition.x, mPosition.y, mPosition.z);
-      shape(sol, 0, 0);
-      for(PVector p: poteauxPos){
-        pushMatrix();
-          translate(p.x, 0, p.z);
-          rotateY(p.y);
-          shape(poteau);
-        popMatrix();
-      }
-      
-      // Signalisation Berge
-      pushMatrix();
-        translate(-21.5, 1.5, 123.51);
-        shape(signalBerge);
-     popMatrix();
+  void load(Universe uni){
+    // Spawn des Gardes-fous et insertion dans l'univers des objets
+    U3DObject tmpObj = new U3DObject();
+    tmpObj.setShapeSRC("./assets/poteau.obj");
+    tmpObj.setPlanet(this);
     
-    //concrete walls
-      translate(123.5, 0, 0);
-      rotateY(radians(90));
-      shape(concreteWall);
-      
-      rotateY(PI);
-      translate(0, 0, 123.5*2);
-      shape(concreteWall);
-      
-      rotateY(HALF_PI);
-      translate(123.5, 0, -123.5);
-      shape(concreteWall);
-      
-      translate(0, -.009, 123.5*2-2.5);
-      shape(concreteWall2);
-      translate(0, -15, 0);
-      shape(concreteWall2);
-    popMatrix();
+    for(int i = 102; i >= 0; i-=2){
+      tmpObj = new U3DObject(tmpObj);
+      tmpObj.setPos(new PVector(-20.5-i, 0, 123.41).add(mPosition));
+      uni.addObject(tmpObj);
+    }
+    for(int i = 136; i > 0; i-=2){
+      tmpObj = new U3DObject(tmpObj);
+      tmpObj.setPos(new PVector(-12.135065+i, 0, 123.41).add(mPosition));
+      tmpObj.setAngles(new PVector(0,i==138?HALF_PI:PI,0));
+      uni.addObject(tmpObj);
+    }
     
+    // Spawn du panneau de signalisation berge
+    tmpObj = new U3DObject(tmpObj);
+    tmpObj.setShapeSRC("./assets/signalisation_berge.obj");
+    tmpObj.setPos(new PVector(-21.5, 1.5, 123.51).add(mPosition));
+    tmpObj.setAngles(new PVector(0,0,0));
+    uni.addObject(tmpObj);
+    
+    // Spawn des Murs de soutènement gardes-fous
+    tmpObj = new U3DObject(tmpObj);
+    tmpObj.setShapeSRC("./assets/concreteWall.obj");
+    tmpObj.setPos(new PVector(123.5, 0, 0).add(mPosition));
+    tmpObj.setAngles(new PVector(0,HALF_PI, 0));
+    uni.addObject(tmpObj);
+    
+    tmpObj = new U3DObject(tmpObj);
+    tmpObj.setPos(new PVector(-123.5, 0, 0).add(mPosition));
+    tmpObj.setAngles(new PVector(0,3*HALF_PI, 0));
+    uni.addObject(tmpObj);
+    
+    tmpObj = new U3DObject(tmpObj);
+    tmpObj.setPos(new PVector(0, 0, -123.5).add(mPosition));
+    tmpObj.setAngles(new PVector(0,0,0));
+    uni.addObject(tmpObj);
+    
+    tmpObj = new U3DObject(tmpObj);
+    tmpObj.setPos(new PVector(0, -0.009, 121).add(mPosition));
+    tmpObj.setShapeSRC("./assets/concreteWall2.obj");
+    uni.addObject(tmpObj);
+    
+    tmpObj = new U3DObject(tmpObj);
+    tmpObj.setPos(new PVector(0, -15.009, 121).add(mPosition));
+    uni.addObject(tmpObj);
+  }
+  
+  void display(){
+    super.display();
     pushMatrix();
       /* Water */
       translate(-250-125, 0, -50);
