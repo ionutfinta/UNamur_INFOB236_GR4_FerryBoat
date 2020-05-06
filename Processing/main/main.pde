@@ -8,6 +8,10 @@ Barriere mBarriere1;
 Barriere mBarriere2;
 Ferry mFerry;
 
+U3DObject selected;
+SelectionArrow arrow;
+
+
 void setup(){
   size(1024,768,P3D);
   shapeMode(CORNER);
@@ -28,17 +32,20 @@ void setup(){
   
   mFerry = myUniverse.spawnFerry();
   
+  arrow = new SelectionArrow();
+  
   myUniverse.handleCollisions();
 }
 
 void draw(){
   me.setBackground();
   myUniverse.display();
+  arrow.display();
 }
 
 void mousePressed(){
   if(mouseButton == LEFT){
-    SelectEntity(me, myUniverse, 10);
+    SelectEntity(me, myUniverse, 30);
     println("Boat position: " + mFerry.getPosition());
   }
 }
@@ -46,18 +53,22 @@ void mousePressed(){
 void SelectEntity(Me observer, Universe u, float distance){
   boolean found = false;
   U3DObject found_object;
+  if(selected!=null)
+    selected.setSelectionState(false);
   
   U3DObject detector = new SelectionDetectorObject();
   
   // TODO, trouve un autre moyen que setSize();
   detector.setPos(observer.getPosition().copy());
-  detector.setInertia(observer.getCamDir().copy());
+  detector.setInertia(observer.getCamDir().copy().mult(10));
   
   for(float i = 0; i<distance && !found; i+=1){
     found_object = u.reportCollisionsWith(detector);
     if(found_object != null && found_object.isSelectable()){
       found = true;
       found_object.setSelectionState(true);
+      selected = found_object;
+      arrow.updateSelected(found_object);
     }
     detector.applyInertia();
   }

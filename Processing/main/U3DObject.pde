@@ -55,7 +55,7 @@ class U3DObject {
        oInert = o.getInertia();
        
        //if object INSIDE another one, teleport up
-      if(((mPos.x)-mSize.x < (oPos.x)+oSize.x && (mPos.x) + mSize.x > (oPos.x)-oSize.x) && 
+      if(((mPos.x)-getSize().x < (oPos.x)+oSize.x && (mPos.x) + mSize.x > (oPos.x)-oSize.x) && 
         ((mPos.y)-mSize.y < (oPos.y)+oSize.y && (mPos.y) + mSize.y > (oPos.y)-oSize.y) && 
         ((mPos.z)-mSize.z < (oPos.z)+oSize.z && (mPos.z) + mSize.z > (oPos.z)-oSize.z)){
           if(oPos.y+oSize.y > max_y_offset)
@@ -135,6 +135,10 @@ class U3DObject {
   }
   
   boolean isSelectable(){
+    return false;
+  }
+  
+  boolean isSelected(){
     return false;
   }
   

@@ -16,6 +16,11 @@ class SelectionDetectorObject extends U3DObject{
   }
   
   @Override
+  PVector getSize(){
+    return new PVector(1,1,1);
+  }
+  
+  @Override
   void addCollidingEntity(U3DObject o){
     if(collidingEntities == null){
       collidingEntities = new ArrayList<U3DObject>();
