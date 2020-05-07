@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 class U3DObject {
   protected Earth mPlanet;
   
@@ -10,6 +12,7 @@ class U3DObject {
   protected float mAirResistFactor;
   
   protected boolean touchingEarth;
+  protected ArrayList<Animation> mAnimations;
   
   U3DObject(){
     mPosition = mAngles =
@@ -19,6 +22,8 @@ class U3DObject {
     
     mAirResistFactor = 0.58f;
     touchingEarth = false;
+    
+    mAnimations = new ArrayList<Animation>();
   }
   
   // Constructeur par copie
@@ -27,6 +32,7 @@ class U3DObject {
     mInertia = original.getInertia().copy();
     mAngles = original.getAngles().copy();
     mShape = original.getShape();
+    mAnimations = original.getAnimations();
   }
   
   // --- Must be overwritten
@@ -72,6 +78,21 @@ class U3DObject {
     applyInertia();
     if(mInertia.y<0)
       touchingEarth = false; 
+    
+    Iterator<Animation> ait = mAnimations.iterator();
+    while(ait.hasNext()){
+      Animation a = ait.next();
+      if(a.affectsAngles()){
+        mAngles = a.getNewValue();
+      }
+      else{
+        mPosition = a.getNewValue();
+      }
+      
+      if(a.isElapsed()){
+        ait.remove();
+      }
+    }
   }
   void display(){
     pushMatrix();
@@ -93,6 +114,17 @@ class U3DObject {
     //x
     
     return false;
+  }
+  
+  // --- Animations
+  /** Rotate around the Z axis in durations milliseconds */
+  void addAnimation(String type, float a, int duration){
+    if(type.equals("rotateZ"))
+      mAnimations.add(new Animation(mAngles, new PVector(mAngles.x, mAngles.y, a), duration, true));
+      
+    // rev stands for reversed
+    if(type.equals("rotateZrev"))
+      mAnimations.add(new Animation(mAngles, new PVector(mAngles.x, mAngles.y, a), duration, true, true));
   }
   
   // --- Collisions
@@ -122,6 +154,10 @@ class U3DObject {
   
   PShape getShape(){
     return mShape;
+  }
+  
+  ArrayList<Animation> getAnimations(){
+    return mAnimations;
   }
   
   boolean isSelectable(){

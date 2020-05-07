@@ -36,7 +36,6 @@ void setup(){
   myFirstCar.setSelectionState(true);
   mBarriere1 = myUniverse.spawnBarriere(new PVector(-11.5, 2.629905, 123.5));
   mBarriere2 = myUniverse.spawnBarriere(new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
-  mBarriere2.setOuvert();
   
   mFerry = myUniverse.spawnFerry();
   
@@ -52,6 +51,12 @@ void draw(){
   if(! is2DEnv){
     myUniverse.display();
     arrow.display();
+    
+    //--- Controls in 3D environement... maybe we should move that later...
+    if(keyPressed && key=='0'){
+       mBarriere1.switchState();
+       mBarriere2.switchState();
+    }
   }
   else{
     mainUI.draw();
@@ -61,8 +66,7 @@ void draw(){
 
 void mousePressed(){
   if(mouseButton == LEFT){
-    (me, myUniverse, 30);
-    println("Boat position: " + mFerry.getPosition());
+    SelectEntity(me, myUniverse, 30);
   }
   
   // Tu peux relayer toutes les fonctions de main à ta classe ainsi:
