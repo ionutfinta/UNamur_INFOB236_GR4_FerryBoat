@@ -1,11 +1,11 @@
-public static boolean collisionInArray(ArrayList<U3DObject> l, U3DObject o){
-  if(l == null || l.isEmpty()){
-    return false;
-  }
-  for (U3DObject e : l) {
-      if (e == o) {
-          return true;
-      }
+public static boolean inArray(ArrayList<U3DObject> array, U3DObject o){
+  for(U3DObject o1 : array){
+    if(o1==o)
+      return true;
   }
   return false;
+}
+
+public static boolean inBetween(float L, float x, float U){
+  return(x>=L && x<=U);
 }

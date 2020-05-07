@@ -9,6 +9,8 @@ class U3DObject {
   
   protected float mAirResistFactor;
   
+  protected boolean touchingEarth;
+  
   U3DObject(){
     mPosition = mAngles =
     mInertia = new PVector(0,0,0);
@@ -16,6 +18,7 @@ class U3DObject {
     mShape = loadShape("./assets/interrogationPoint.obj");
     
     mAirResistFactor = 0.58f;
+    touchingEarth = false;
   }
   
   // Constructeur par copie
@@ -31,51 +34,44 @@ class U3DObject {
     if(mPlanet == null)
       return;
    
-    if(! mPlanet.collision(this) && mPosition.y > 0){
+    if(!touchingEarth && mPosition.y>2){
       mInertia.y -= (float)mPlanet.getGravity()/18.0f;
     }
     
   }
   
-  void handle_entity_collision(){
-    if(collidingEntities()==null || collidingEntities().isEmpty()){return;}
+  void handle_collision(U3DObject collided){
     
-     PVector oPos,
+    PVector oPos,
             oSize,
             mPos,
-            oInert,
             mSize;
-      mSize = getSize();
-      float max_y_offset = Float.MAX_VALUE;
-      
-     for(U3DObject o : collidingEntities()){
-       oPos = o.getPosition();
-       oSize = o.getSize();
-       mPos = mPosition;
-       oInert = o.getInertia();
-       
-       //if object INSIDE another one, teleport up
-      if(((mPos.x)-getSize().x < (oPos.x)+oSize.x && (mPos.x) + mSize.x > (oPos.x)-oSize.x) && 
-        ((mPos.y)-mSize.y < (oPos.y)+oSize.y && (mPos.y) + mSize.y > (oPos.y)-oSize.y) && 
-        ((mPos.z)-mSize.z < (oPos.z)+oSize.z && (mPos.z) + mSize.z > (oPos.z)-oSize.z)){
-          if(oPos.y+oSize.y > max_y_offset)
-            max_y_offset = oPos.copy().y+oSize.copy().y+mSize.y;
-          mPos.y = max_y_offset;
-      }
-     
-    
-    if(collidingEntities()!=null && !collidingEntities().isEmpty()){
+           
+           oPos = collided.getPosition();
+              oSize = collided.getSize();
+             mPos = this.getPosition();
+             mSize = this.getSize();
+             
+        if(((inBetween(oPos.x, mPos.x+mSize.x, oPos.x+oSize.x) ||inBetween(oPos.x, mPos.x, oPos.x+oSize.x))&& 
+            (inBetween(oPos.y, mPos.y+mSize.y, oPos.y+oSize.y) || inBetween(oPos.y, mPos.y, oPos.y+oSize.y))  && 
+            (inBetween(oPos.z, mPos.z+mSize.z, oPos.z+oSize.z) || inBetween(oPos.z, mPos.z, oPos.z+oSize.z)))){
+             
+                mPos.y += oSize.copy().y+mSize.y;
+           }
+           
+        if(collided instanceof Earth){
+          touchingEarth = true;
+        }
       mInertia.mult(0);
-      removeCollidingEntities();
-    }
-    }
- }
-  
-  
+    
+          
+  }
+    
   void animate(){
     apply_gravity();
-    handle_entity_collision();
     applyInertia();
+    if(mInertia.y<0)
+      touchingEarth = false; 
   }
   void display(){
     pushMatrix();
@@ -89,27 +85,21 @@ class U3DObject {
   
   // --- 3D Moving
   void applyInertia(){
-    mPosition.add(mInertia);
-    mInertia.mult(mAirResistFactor);
+      mPosition.add(mInertia);
+      mInertia.mult(mAirResistFactor);
+  }
+  
+  boolean checkInteria(PVector mInert){
+    //x
+    
+    return false;
   }
   
   // --- Collisions
   boolean collision(U3DObject o){
     if(mPosition.y <= 0)
       return true;
-    
-    PVector oPos = o.getPosition(),
-            oSize = o.getSize(),
-            mPos = mPosition,
-            oInert = o.getInertia();
-    
-    return ((mPos.x+mInertia.x)-getSize().x <= (oPos.x+oInert.x)+oSize.x && (mPos.x+mInertia.x) + getSize().x >= (oPos.x+oInert.x)-oSize.x) &&
-           ((mPos.y+mInertia.y)-getSize().y <= (oPos.y+oInert.y)+oSize.y && (mPos.y+mInertia.y) + getSize().y >= (oPos.y+oInert.y)-oSize.y) &&
-           ((mPos.z+mInertia.z)-getSize().z <= (oPos.z+oInert.z)+oSize.z && (mPos.x+mInertia.z) + getSize().z >= (oPos.z+oInert.z)-oSize.z);
-  }
-  
-  float dist(U3DObject o){
-    return mPosition.dist(o.getPosition());
+    return false;
   }
   
   // --- Observers
@@ -123,7 +113,7 @@ class U3DObject {
   
   PVector getSize(){
     //TODO: Make this vary in function of mAngles !
-    return new PVector(mShape.getWidth(), mShape.getHeight(), mShape.getDepth()).div(2);
+    return new PVector(mShape.getWidth(), mShape.getHeight(), mShape.getDepth());
   }
   
   PVector getAngles(){
@@ -149,6 +139,7 @@ class U3DObject {
   boolean doCollisions(){
     return false;
   }
+  
   
   // --- Mutators
   void setPlanet(Earth p){
@@ -184,15 +175,7 @@ class U3DObject {
     
   }
   
-  void addCollidingEntity(U3DObject o){
-    
-  }
   
-  void removeCollidingEntities(){
-    
-  }
-  
-
 
 public ArrayList<U3DObject> sortByDistance(ArrayList<U3DObject> list, U3DObject o){
   ArrayList<U3DObject> temp_list = new ArrayList<U3DObject>();

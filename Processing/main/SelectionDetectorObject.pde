@@ -2,13 +2,66 @@ class SelectionDetectorObject extends U3DObject{
   ArrayList<Wheel> wheels;
   PShape chassis;
   
-  private ArrayList<U3DObject> collidingEntities;
+  final int IT_LIMIT = 20;
   
-  SelectionDetectorObject() {
-    
+  boolean detected;
+  int it_since_launch;
+  U3DObject selected;
+  
+  private ArrayList<U3DObject> collidingEntities;
+  public SelectionArrow arrow;
+  
+  SelectionDetectorObject(SelectionArrow arr) {
+    arrow = arr;
+    sendAway();
+    detected = false;
   }
   
 
+  @Override
+  void handle_collision(U3DObject o){ 
+    
+    if(o.isSelectable()){
+      detected = true;
+      selected.setSelectionState(false);
+      o.setSelectionState(true);
+      arrow.updateSelected(o);
+      sendAway();
+    }
+    
+  
+  }
+  
+  void sendAway(){
+    mPosition = new PVector(1000,1000,1000);
+  }
+ 
+  void setDirection(PVector direc){
+    mInertia = direc.copy();
+  }
+  
+  void setPosition(PVector pos){
+    mPosition = pos.copy();
+  }
+  
+  void send(PVector pos, PVector dir){
+    detected = false;
+    it_since_launch = 0;
+    setDirection(dir);
+    setPosition(pos);
+  }
+  
+  @Override
+  void applyInertia(){
+    mPosition.add(mInertia);
+  }
+  
+  @Override
+  void animate(){
+    if(!detected && it_since_launch>IT_LIMIT){
+      applyInertia();
+    }
+  }
   
   @Override
   boolean doCollisions(){
@@ -20,18 +73,6 @@ class SelectionDetectorObject extends U3DObject{
     return new PVector(1,1,1);
   }
   
-  @Override
-  void addCollidingEntity(U3DObject o){
-    if(collidingEntities == null){
-      collidingEntities = new ArrayList<U3DObject>();
-    }
-    collidingEntities.add(o);
-  }
-  
-  @Override
-  void removeCollidingEntities(){
-    collidingEntities = new ArrayList<U3DObject>();
-  }
   
   @Override 
   ArrayList<U3DObject> collidingEntities(){

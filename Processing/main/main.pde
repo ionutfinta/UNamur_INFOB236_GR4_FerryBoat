@@ -8,11 +8,11 @@ Barriere mBarriere1;
 Barriere mBarriere2;
 Ferry mFerry;
 
-U3DObject selected;
+
 SelectionArrow arrow;
 
 
-// A remplacer par une fonction de Me:
+//U3DObject selected; A remplacer par une fonction de Me:
 boolean is2DEnv;
 
 // Instance principale de l'ui:
@@ -32,17 +32,16 @@ void setup(){
                                      "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject");
 
   myFirstCar = myUniverse.spawnCar(new PVector(0, 2, 110));
-  mCar2 = myUniverse.spawnCar(new PVector(-10, 2, 110));
-  
+  mCar2 = myUniverse.spawnCar(new PVector(-10, 5, 110));
+  myFirstCar.setSelectionState(true);
   mBarriere1 = myUniverse.spawnBarriere(new PVector(-11.5, 2.629905, 123.5));
   mBarriere2 = myUniverse.spawnBarriere(new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
   mBarriere2.setOuvert();
   
   mFerry = myUniverse.spawnFerry();
   
-  arrow = new SelectionArrow();
+  detector = myUniverse.initSelection();
   
-  myUniverse.handleCollisions();
   
   // Instantiation de l'ui:
   mainUI = new UI();
@@ -62,7 +61,7 @@ void draw(){
 
 void mousePressed(){
   if(mouseButton == LEFT){
-    SelectEntity(me, myUniverse, 30);
+    (me, myUniverse, 30);
     println("Boat position: " + mFerry.getPosition());
   }
   
@@ -72,24 +71,18 @@ void mousePressed(){
 
 void SelectEntity(Me observer, Universe u, float distance){
   boolean found = false;
-  U3DObject found_object;
-  if(selected!=null)
-    selected.setSelectionState(false);
   
-  U3DObject detector = new SelectionDetectorObject();
+  
+  U3DObject detector = new SelectionDetectorObject(arrow);
   
   // TODO, trouve un autre moyen que setSize();
   detector.setPos(observer.getPosition().copy());
   detector.setInertia(observer.getCamDir().copy().mult(10));
   
-  for(float i = 0; i<distance && !found; i+=1){
-    found_object = u.reportCollisionsWith(detector);
-    if(found_object != null && found_object.isSelectable()){
-      found = true;
-      found_object.setSelectionState(true);
-      selected = found_object;
-      arrow.updateSelected(found_object);
-    }
+  for(float i = 0; i<distance; i+=1){
+    
+    u.col_hand.handle_entity_collision();
+    
     detector.applyInertia();
   }
 }
