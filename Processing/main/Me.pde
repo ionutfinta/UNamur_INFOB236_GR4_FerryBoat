@@ -22,8 +22,8 @@ class Me extends U3DObject{
      ap = "port";
    absPosition = ap;
    
-   mPosition = new PVector(-21.910053, 10.18392, 118.87543 );
-   cameraDir = new PVector(0.8122503, -0.5255216, -0.58330905);
+   mPosition = new PVector(-17.180944, 5.1451683, 102.502914 );
+   cameraDir = new PVector(-0.033744603, -0.15778065, 0.9994305);
    elevationAngle = 0;
    rotationAngle = 0;
    cameraSpeed = 1;
