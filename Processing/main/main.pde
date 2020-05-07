@@ -49,14 +49,14 @@ void setup(){
 }
 
 void draw(){
+  me.setBackground();
   if(! is2DEnv){
-    me.setBackground();
     myUniverse.display();
     arrow.display();
   }
   else{
     mainUI.draw();
-    
+    is2DEnv = !mainUI.canIReturn3D();
   }
 }
 

@@ -10,15 +10,13 @@ class UI{
   //Fonctions
   void draw(){
     background(#FFFFFF);
-    
+    fill(0);
     rect(0,0,200,200);
-    
-    // Par exemple, à la 150ème frame, on repasse en 3D... Tu modifieras ça pour que ça soit enclanché par un bouton...
-    if(frameCount == 150)
-      return3D = true;
   }
   
   void mousePressed(){
+    // Par exemple:
+    return3D = true;
   }
   
   void mouseReleased(){
