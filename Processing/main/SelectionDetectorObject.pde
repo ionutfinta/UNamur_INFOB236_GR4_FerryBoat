@@ -74,10 +74,5 @@ class SelectionDetectorObject extends U3DObject{
   }
   
   
-  @Override 
-  ArrayList<U3DObject> collidingEntities(){
-    return collidingEntities;
-  }
-  
   
 }

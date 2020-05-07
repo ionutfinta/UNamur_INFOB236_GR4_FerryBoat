@@ -1,4 +1,4 @@
-public static boolean inArray(ArrayList<U3DObject> array, U3DObject o){
+public static boolean inArray(U3DObjects array, U3DObject o){
   for(U3DObject o1 : array){
     if(o1==o)
       return true;

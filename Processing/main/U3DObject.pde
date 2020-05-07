@@ -168,10 +168,6 @@ class U3DObject {
     return false;
   }
   
-  ArrayList<U3DObject> collidingEntities(){
-    return new ArrayList<U3DObject>();
-  }
-  
   boolean doCollisions(){
     return false;
   }
@@ -212,10 +208,10 @@ class U3DObject {
   }
   
   
-
-public ArrayList<U3DObject> sortByDistance(ArrayList<U3DObject> list, U3DObject o){
-  ArrayList<U3DObject> temp_list = new ArrayList<U3DObject>();
-  ArrayList<U3DObject> remaining_list = new ArrayList<U3DObject>(list);
+/*
+public U3DObjects sortByDistance(U3DObjects list, U3DObject o){
+  U3DObjects temp_list = new U3DObjects();
+  U3DObjects remaining_list = new U3DObjects(list);
   
   for(U3DObject e: list){
     temp_list.add(closestObject(remaining_list, o));
@@ -224,7 +220,7 @@ public ArrayList<U3DObject> sortByDistance(ArrayList<U3DObject> list, U3DObject 
   return temp_list;
 }
 
-public  U3DObject closestObject(ArrayList<U3DObject> list, U3DObject o){
+public  U3DObject closestObject(U3DObjects list, U3DObject o){
   float min = Float.MAX_VALUE;
   U3DObject ans = null;
   for(U3DObject e: list){
@@ -235,5 +231,5 @@ public  U3DObject closestObject(ArrayList<U3DObject> list, U3DObject o){
   }
   return ans;
 }
-
+*/
 }

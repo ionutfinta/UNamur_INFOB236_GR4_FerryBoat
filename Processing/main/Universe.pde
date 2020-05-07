@@ -1,11 +1,11 @@
 class Universe{
-  ArrayList<U3DObject> objs;
+  U3DObjects objs;
   
   CollisionHandler col_hand;
   
   
   Universe(){
-    objs = new ArrayList<U3DObject>();
+    objs = new U3DObjects();
     shapeMode(CORNER);
     objs.add( new Earth() );
   }

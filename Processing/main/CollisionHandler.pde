@@ -2,20 +2,20 @@ import java.util.Iterator;
 
 class CollisionHandler{
   
-  ArrayList<U3DObject> checked;
-  ArrayList<U3DObject> unchecked;
-  ArrayList<U3DObject> all;
+  U3DObjects checked;
+  U3DObjects unchecked;
+  U3DObjects all;
   
-  CollisionHandler(ArrayList<U3DObject> objs){
-    checked = new ArrayList<U3DObject>();
-    all = new ArrayList<U3DObject>(objs);
-    unchecked = new ArrayList<U3DObject>(all);
+  CollisionHandler(U3DObjects objs){
+    checked = new U3DObjects();
+    all = new U3DObjects(objs);
+    unchecked = new U3DObjects(all);
   }
   
   
   void handle_entity_collision(){
-    checked = new ArrayList<U3DObject>();
-    unchecked = new ArrayList<U3DObject>(all);
+    checked = new U3DObjects();
+    unchecked = new U3DObjects(all);
     PVector oPos,
             oSize,
             mPos,
