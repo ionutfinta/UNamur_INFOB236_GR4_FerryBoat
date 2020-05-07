@@ -14,11 +14,11 @@ class Universe{
     getEarth().load(this);
     
     col_hand = new CollisionHandler(myUniverse.objs);
-    startCollision();
+    //startCollision();
   }
   
   void display(){
-    
+    col_hand.handle_entity_collision();
     for(U3DObject o: objs){
       o.animate();
       o.display();

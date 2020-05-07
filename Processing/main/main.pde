@@ -32,7 +32,7 @@ void setup(){
                                      "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject");
 
   myFirstCar = myUniverse.spawnCar(new PVector(0, 2, 110));
-  mCar2 = myUniverse.spawnCar(new PVector(-10, 5, 110));
+  mCar2 = myUniverse.spawnCar(new PVector(-10, 2, 110));
   myFirstCar.setSelectionState(true);
   mBarriere1 = myUniverse.spawnBarriere(new PVector(-11.5, 2.629905, 123.5));
   mBarriere2 = myUniverse.spawnBarriere(new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));

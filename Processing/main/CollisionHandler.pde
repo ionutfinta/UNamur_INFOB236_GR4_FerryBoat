@@ -2,24 +2,18 @@ import java.util.Iterator;
 
 class CollisionHandler{
   
-  U3DObjects checked;
-  U3DObjects unchecked;
+
   U3DObjects all;
   
   CollisionHandler(U3DObjects objs){
-    checked = new U3DObjects();
     all = new U3DObjects(objs);
-    unchecked = new U3DObjects(all);
   }
   
   
   void handle_entity_collision(){
-    checked = new U3DObjects();
-    unchecked = new U3DObjects(all);
     PVector oPos,
             oSize,
             mPos,
-            oInert,
             mInert,
             mSize;
             
@@ -29,25 +23,31 @@ class CollisionHandler{
     U3DObject o2;
     
     while(iter1.hasNext()){
+      
       o1 = iter1.next();
-      if(!o1.doCollisions()){
-        checked.add(o1);
-        unchecked.remove(o1);
-      }
+      if(!o1.doCollisions());
       
       else{
-         iter2 = all.iterator();
+        
+        try{
+         iter2 = all.n_closest(5, o1);
+        }catch(IllegalArgumentException i){
+          System.err.println(i);
+          print(i);
+          iter2 = all.iterator();
+        }catch(NullPointerException n){
+          System.err.println(n);
+          print(n);
+          iter2 = all.iterator();
+        }
          
         while(iter2.hasNext()){
           o2 = iter2.next();
-          /*if(!o2.doCollisions()){
-            checked.add(o2);
-          }*/
+          
           if(o1==o2);
           else{
              oPos = o2.getPosition();
              oSize = o2.getSize();
-             oInert = o2.getInertia();
              mPos = o1.getPosition();
              mInert = o1.getInertia();
              mSize = o1.getSize();
@@ -67,7 +67,7 @@ class CollisionHandler{
           }
         }
       }
-      unchecked.removeAll(checked);
+      
     }
       
     }

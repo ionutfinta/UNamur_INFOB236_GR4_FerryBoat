@@ -19,7 +19,9 @@ class U3DObjects implements Iterable<U3DObject>{
   void removeAll(U3DObjects o){
     objects.removeAll(o.objects);
   }
-  
+  U3DObject get(int i){
+    return objects.get(i);
+  }
   
   
   
@@ -47,11 +49,12 @@ class U3DObjects implements Iterable<U3DObject>{
       }
       if(o==null){
         throw new NullPointerException("U3DObjects n_closes_generator, U3DObject is null");
-      
-    }
+      }
+    
       N = n;
       current = 0;
-      lastDistance = Float.MAX_VALUE;
+      lastDistance = 0;
+      comparee = o;
     }
     
     boolean hasNext(){
@@ -68,14 +71,16 @@ class U3DObjects implements Iterable<U3DObject>{
       
       for(U3DObject o: objects){
           dist = comparee.getPosition().dist(o.getPosition());
-        
-          if(dist<min_encountered && dist>=lastDistance){
+          
+          if(dist<min_encountered && o!=comparee && dist>=lastDistance){
              min_encountered = dist;
              min_object = o;
           }
         
         }
+        
         lastDistance = min_encountered;
+        current++;
         return min_object;
       }
     }

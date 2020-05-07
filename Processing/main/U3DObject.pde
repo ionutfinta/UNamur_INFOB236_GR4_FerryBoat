@@ -47,7 +47,7 @@ class U3DObject {
   }
   
   void handle_collision(U3DObject collided){
-    
+    if(doCollisions()){    
     PVector oPos,
             oSize,
             mPos,
@@ -69,7 +69,7 @@ class U3DObject {
           touchingEarth = true;
         }
       mInertia.mult(0);
-    
+    }
           
   }
     
