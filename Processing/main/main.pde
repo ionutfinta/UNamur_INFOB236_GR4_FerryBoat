@@ -12,9 +12,17 @@ U3DObject selected;
 SelectionArrow arrow;
 
 
+// A remplacer par une fonction de Me:
+boolean is2DEnv;
+
+// Instance principale de l'ui:
+UI mainUI;
+
 void setup(){
   size(1024,768,P3D);
   shapeMode(CORNER);
+  is2DEnv = true;
+  
   myUniverse = new Universe();
   
   myUniverse.init();
@@ -35,12 +43,21 @@ void setup(){
   arrow = new SelectionArrow();
   
   myUniverse.handleCollisions();
+  
+  // Instantiation de l'ui:
+  mainUI = new UI();
 }
 
 void draw(){
-  me.setBackground();
-  myUniverse.display();
-  arrow.display();
+  if(! is2DEnv){
+    me.setBackground();
+    myUniverse.display();
+    arrow.display();
+  }
+  else{
+    mainUI.draw();
+    
+  }
 }
 
 void mousePressed(){
@@ -48,6 +65,9 @@ void mousePressed(){
     SelectEntity(me, myUniverse, 30);
     println("Boat position: " + mFerry.getPosition());
   }
+  
+  // Tu peux relayer toutes les fonctions de main à ta classe ainsi:
+  mainUI.mousePressed();
 }
 
 void SelectEntity(Me observer, Universe u, float distance){
