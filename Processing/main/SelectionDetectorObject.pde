@@ -37,7 +37,7 @@ class SelectionDetectorObject extends U3DObject{
   }
  
   void setDirection(PVector direc){
-    mInertia = direc.copy();
+    mInertia = direc.copy().mult(10);
   }
   
   void setPosition(PVector pos){

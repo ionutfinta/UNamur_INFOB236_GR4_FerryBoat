@@ -14,10 +14,11 @@ class Universe{
     getEarth().load(this);
     
     col_hand = new CollisionHandler(myUniverse.objs);
+    startCollision();
   }
   
   void display(){
-    col_hand.handle_entity_collision();
+    
     for(U3DObject o: objs){
       o.animate();
       o.display();
@@ -36,6 +37,17 @@ class Universe{
     addObject(arr);
     addObject(selec);
     return selec;
+  }
+  
+  void startCollision(){
+    new Thread()
+{
+    public void run() {
+        while(true)
+          col_hand.handle_entity_collision();
+    }
+}.start();
+  
   }
     
   Car spawnCar(PVector pos){

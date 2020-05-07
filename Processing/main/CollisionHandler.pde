@@ -36,14 +36,14 @@ class CollisionHandler{
       }
       
       else{
-         iter2 = unchecked.iterator();
+         iter2 = all.iterator();
          
         while(iter2.hasNext()){
           o2 = iter2.next();
-          if(!o2.doCollisions()){
+          /*if(!o2.doCollisions()){
             checked.add(o2);
-          }
-          else if(o1==o2);
+          }*/
+          if(o1==o2);
           else{
              oPos = o2.getPosition();
              oSize = o2.getSize();
