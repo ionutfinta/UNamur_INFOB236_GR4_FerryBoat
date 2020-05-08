@@ -55,6 +55,7 @@ class Earth extends U3DObject{
     tmpObj.setAngles(new PVector(0,0,0));
     uni.addObject(tmpObj);
     
+    // Ecluse
     tmpObj = new U3DObject(tmpObj);
     tmpObj.setPos(new PVector(0, -8.009, 121).add(mPosition));
     tmpObj.setShapeSRC("./assets/concreteWall2.obj");
@@ -63,13 +64,26 @@ class Earth extends U3DObject{
     tmpObj = new U3DObject(tmpObj);
     tmpObj.setPos(new PVector(0, -23.009, 121).add(mPosition));
     uni.addObject(tmpObj);
+    
+    tmpObj = new U3DObject(tmpObj);
+    tmpObj.setShapeSRC("./assets/concreteWall2.obj");
+    tmpObj.setPos(new PVector(-2.8, -8, 250).add(mPosition));
+    tmpObj.setAngles(new PVector(0,HALF_PI, 0));
+    uni.addObject(tmpObj);
+    
+    tmpObj = new U3DObject(tmpObj);
+    tmpObj.setShapeSRC("./assets/concreteWall2.obj");
+    tmpObj.setPos(new PVector(-26.5, -8, 250).add(mPosition));
+    tmpObj.setAngles(new PVector(0,3*HALF_PI, 0));
+    uni.addObject(tmpObj);
   }
   
   void display(){
     super.display();
     pushMatrix();
       /* Water */
-      translate(-250-125, 0, -50);
+      rotateX(HALF_PI);
+      translate(-350-125, -1.2, 50);
       mWave.renderWave();
     popMatrix();
   }
