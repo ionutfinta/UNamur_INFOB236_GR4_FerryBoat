@@ -1,0 +1,16 @@
+# Blender v2.82 (sub 7) OBJ File: 'plancher.blend'
+# www.blender.org
+mtllib ferry_plancher.mtl
+o Plancher1_Cylinder.006
+v 8.814544 0.000000 -8.042768
+v 8.814544 -0.000000 8.087859
+v -8.814544 0.000000 -8.087859
+v -8.814544 -0.000000 8.042768
+vt 0.781250 0.500000
+vt 0.781250 0.500000
+vt 0.781250 0.500000
+vt 0.781250 0.500000
+vn -0.0000 -1.0000 -0.0000
+usemtl Pont
+s off
+f 1/1/1 2/2/1 4/3/1 3/4/1

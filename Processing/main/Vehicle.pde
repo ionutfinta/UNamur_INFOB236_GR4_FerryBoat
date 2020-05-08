@@ -2,7 +2,6 @@ class Vehicle extends U3DObject{
   ArrayList<Wheel> wheels;
   
   private boolean isSelected;
-  private ArrayList<U3DObject> collidingEntities;
   
   Vehicle() {
     wheels = new ArrayList<Wheel>();
@@ -33,21 +32,7 @@ class Vehicle extends U3DObject{
     return true;
   }
   
-  @Override
-  void addCollidingEntity(U3DObject o){
-    if(collidingEntities == null){
-      collidingEntities = new ArrayList<U3DObject>();
-    }
-    collidingEntities.add(o);
-  }
-  @Override
-  void removeCollidingEntities(){
-    collidingEntities = new ArrayList<U3DObject>();
-  }
-  @Override 
-  ArrayList<U3DObject> collidingEntities(){
-    return collidingEntities;
-  }
+
   
   @Override
   boolean isSelectable(){

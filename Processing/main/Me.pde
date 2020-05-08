@@ -36,9 +36,7 @@ class Me extends U3DObject{
    mBackground = createGraphics(width, height);
  }
  
- //void select(ArrayList<U3DObject> everything){
-  // new Selector(everything, );
- //}
+
  
  void animate(){
    if(mode.equals("God")){

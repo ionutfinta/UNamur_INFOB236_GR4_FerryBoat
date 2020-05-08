@@ -1,18 +1,23 @@
 class Universe{
-  ArrayList<U3DObject> objs;
-  U3DObject B;
+  U3DObjects objs;
+  
+  CollisionHandler col_hand;
+  
   
   Universe(){
-    objs = new ArrayList<U3DObject>();
-    shapeMode(CORNER);
+    objs = new U3DObjects();
     objs.add( new Earth() );
   }
   
   void init(){
     getEarth().load(this);
+    
+    col_hand = new CollisionHandler(myUniverse.objs);
+    //startCollision();
   }
   
   void display(){
+    col_hand.handle_entity_collision();
     for(U3DObject o: objs){
       o.animate();
       o.display();
@@ -21,12 +26,34 @@ class Universe{
   
   void addObject(U3DObject o){
     objs.add(o);
+    col_hand = new CollisionHandler(myUniverse.objs);
+  }
+  
+  SelectionDetectorObject initSelector(){
+    SelectionArrow arr = new SelectionArrow();
+    objs.add(arr);
+    SelectionDetectorObject selec = new SelectionDetectorObject(arr);
+    addObject(arr);
+    addObject(selec);
+    return selec;
+  }
+  
+  void startCollision(){
+    new Thread()
+{
+    public void run() {
+        while(true)
+          col_hand.handle_entity_collision();
+    }
+}.start();
+  
   }
     
   Car spawnCar(PVector pos){
     Car c = new Car(pos);
     c.setPlanet(getEarth());
     objs.add(c);
+    col_hand = new CollisionHandler(myUniverse.objs);
     return c;
   }
   
@@ -35,6 +62,7 @@ class Universe{
     Me m = new Me(mode, position);
     m.setPlanet(getEarth());
     objs.add(m);
+    col_hand = new CollisionHandler(myUniverse.objs);
     return m;
   }
   
@@ -42,7 +70,7 @@ class Universe{
     Barriere b = new Barriere(pos, angle, this);
     b.setPlanet(getEarth());
     objs.add(b);
-    B = b;
+    col_hand = new CollisionHandler(myUniverse.objs);
     return b;
   }
   
@@ -51,14 +79,15 @@ class Universe{
     Barriere b = new Barriere(pos, new PVector(0,0,0), this);
     b.setPlanet(getEarth());
     objs.add(b);
-    B = b;
+    col_hand = new CollisionHandler(myUniverse.objs);
     return b;
   }
   
-  Ferry spawnFerry(){
-    Ferry f = new Ferry();
+  Ferry spawnFerry(int lg){
+    Ferry f = new Ferry(lg, this);
     f.setPlanet(getEarth());
     objs.add(f);
+    col_hand = new CollisionHandler(myUniverse.objs);
     return f;
   }
   
@@ -66,54 +95,6 @@ class Universe{
     return (Earth) objs.get(0);
   }
   
-  void handleCollisions(){
-    Thread collision_thread = new Thread(){
-      public void run(){
-        
-        while(true){
-          for(U3DObject o1: objs){
-            
-              U3DObject ret = reportCollisionsWith(o1);
-              if(o1==B && ret !=null)
-                print(ret);
-          }
-        }
-    }
-   };
-  collision_thread.start();
-     
-  }
   
-  //@returns closest object or null if none were detected
-  public U3DObject reportCollisionsWith(U3DObject o1){
-    
-        
-        U3DObject closest = null;
-        
-        float closeness = Float.MAX_VALUE;
-        
-        if(o1.doCollisions()){
-          for(U3DObject o2: objs){
-            if(!o1.equals(o2) && o2.doCollisions() && o1.collision(o2)){
-              if(!collisionInArray(o1.collidingEntities(),o2))
-                o1.addCollidingEntity(o2);
-              if(!collisionInArray(o2.collidingEntities(),o1))
-                o2.addCollidingEntity(o1);
-              
-              if(closest == null){
-                closest = o2;
-              }
-              else{
-                if(o2.getPosition().dist(o1.getPosition())<closeness){
-                  closeness = o2.getPosition().dist(o1.getPosition());
-                  closest = o2;
-                }
-              }
-            }
-          }
-        }
-      return closest;
-  }
-
 
 }

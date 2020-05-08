@@ -4,7 +4,9 @@ class SelectionArrow extends U3DObject {
   private U3DObject selected_o = null;
   PVector selected_pos;
   PVector selected_angle;
+  
   SelectionArrow(){
+    mPosition = new PVector(1000, 1000, 1020);
     mShape = loadShape("./assets/arrow.obj");
   }
   
