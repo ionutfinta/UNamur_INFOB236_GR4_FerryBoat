@@ -6,7 +6,6 @@ class Universe{
   
   Universe(){
     objs = new U3DObjects();
-    shapeMode(CORNER);
     objs.add( new Earth() );
   }
   
@@ -84,8 +83,8 @@ class Universe{
     return b;
   }
   
-  Ferry spawnFerry(){
-    Ferry f = new Ferry();
+  Ferry spawnFerry(int lg){
+    Ferry f = new Ferry(lg, this);
     f.setPlanet(getEarth());
     objs.add(f);
     col_hand = new CollisionHandler(myUniverse.objs);
