@@ -1,6 +1,6 @@
 class Earth extends U3DObject{
   private int gravity;
-  private Wave mWave;
+  private Wave mWave, mEauEcluse;
   
   Earth(){
     mShape = loadShape("./assets/berge.obj");
@@ -10,6 +10,7 @@ class Earth extends U3DObject{
     gravity = 10;
     
     mWave = new Wave();
+    mEauEcluse = new Wave(4, 25, 0.3, 32, 400);
   }
   
   void load(Universe uni){
@@ -82,22 +83,32 @@ class Earth extends U3DObject{
     super.display();
     pushMatrix();
       /* Water */
-      translate(-2.5, -12.5, -90);
+      translate(-14.35, -12, -90);
       rotateX(HALF_PI);
-      mWave.updateNoise();
-      
-      mWave.renderWave();
-      
-      translate(-26.5-957, 0, 0);
-      
-      mWave.renderWave();
       
       pushMatrix();
         fill(#00407B);
         translate(0,0,40);
-        rect(400,400,2100,2100);
+        rect(400,0,2100,2100);
       popMatrix();
+      
+      mWave.updateNoise();
+      
+      mWave.renderWave();
+      
+      translate(-957, 0, 0);
+      
+      mWave.renderWave();
+      
     popMatrix();
+    pushMatrix();
+      translate(-25.5,1.80,125);
+      scale(1,1,1.33);
+      rotateX(HALF_PI);
+      mEauEcluse.updateNoise();
+      mEauEcluse.renderWave();
+    popMatrix();
+      
   }
   
   int getGravity(){

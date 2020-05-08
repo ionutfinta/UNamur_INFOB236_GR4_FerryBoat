@@ -15,7 +15,7 @@ class Ferry extends U3DObject{
   // --- Constructeur
   Ferry(int lg, Universe uni){
       mLongueur = lg;
-      mPosition = new PVector(-14.88295,0,125 + 17 + lg*18.1416);
+      mPosition = new PVector(-14.88295,1.5,125 + 17 + lg*18.1416);
       mShape = loadShape("./assets/ferry_proue.obj");
       
       coques = new U3DObjects();
