@@ -24,9 +24,11 @@ class SelectionDetectorObject extends U3DObject{
   @Override
   void handle_collision(U3DObject o){ 
     
-    if(o.isSelectable()){
+    if(o!=null && selected!=o && o.isSelectable()){
       detected = true;
-      selected.setSelectionState(false);
+      if(selected != null)
+        selected.setSelectionState(false);
+      selected = o;
       o.setSelectionState(true);
       arrow.updateSelected(o);
       sendAway();
@@ -40,7 +42,7 @@ class SelectionDetectorObject extends U3DObject{
   }
  
   void setDirection(PVector direc){
-    mInertia = direc.copy().mult(10);
+    mInertia = direc.copy().mult(3);
   }
   
   void setPosition(PVector pos){
@@ -61,7 +63,7 @@ class SelectionDetectorObject extends U3DObject{
   
   @Override
   void animate(){
-    if(!detected && it_since_launch>IT_LIMIT){
+    if(!detected && it_since_launch<IT_LIMIT){
       applyInertia();
     }
   }

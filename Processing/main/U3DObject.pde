@@ -45,7 +45,7 @@ class U3DObject {
   void apply_gravity(){
     if(mPlanet == null)
       return;
-     //temp false while collisions are weird
+      
     if(!touchingEarth && mPosition.y>2){
       mInertia.y -= (float)mPlanet.getGravity()/18.0f;
     }
@@ -66,7 +66,8 @@ class U3DObject {
              
         if(((inBetween(oPos.x, mPos.x+mSize.x, oPos.x+oSize.x) ||inBetween(oPos.x, mPos.x, oPos.x+oSize.x))&& 
             (inBetween(oPos.z, mPos.z+mSize.z, oPos.z+oSize.z) || inBetween(oPos.z, mPos.z, oPos.z+oSize.z))&&
-            (inBetween(oPos.y, mPos.y+mSize.y, oPos.y+oSize.y) || inBetween(oPos.y, mPos.y, oPos.y+oSize.y)))){
+            (inBetween(oPos.y, mPos.y+mSize.y, oPos.y+oSize.y) || inBetween(oPos.y, mPos.y, oPos.y+oSize.y)))&&
+            !((collided instanceof SelectionDetectorObject)||(collided instanceof SelectionDetectorObject||(collided instanceof Me))) ){
              
                 mPos.y += oSize.copy().y+mSize.y;
            }

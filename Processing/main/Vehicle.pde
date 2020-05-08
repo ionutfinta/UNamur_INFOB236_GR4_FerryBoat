@@ -12,7 +12,7 @@ class Vehicle extends U3DObject{
     pushMatrix();
     translate(mPosition.x, mPosition.y, mPosition.z);
     for(Wheel w: wheels){
-        //TODO: Separate controls from animation 
+       if(isSelected){
        if(keyPressed == true && key == 'q'){
          w.setDir(45);
        } else if(keyPressed == true && key == 'd'){
@@ -20,12 +20,14 @@ class Vehicle extends U3DObject{
        } else {
          w.setDir(0);
        }
+       }
       w.move();
       w.display();
     }
     
     popMatrix();
   }
+  
   
   @Override
   boolean doCollisions(){
@@ -47,7 +49,6 @@ class Vehicle extends U3DObject{
   @Override
   void setSelectionState(boolean state){
     isSelected = state;
-    print(state);
   }
   
   
