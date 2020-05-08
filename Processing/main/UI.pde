@@ -5,7 +5,6 @@ class UI{
   //setup
   UI()
   {
-    smooth(8);
     return3D = false;
     background(255);
     fill(255);
@@ -19,13 +18,13 @@ class UI{
   {
     background(255);
     
-    readyBoat(1, 0.5);
-    return3D = leaveUI(9,  9.5);
-    leaveBoat(3, 0.5);
-    addCar(2, 5);
-    addTruck1(4, 5);
-    addTruck2(6, 5);
-    addTruck3(8, 5);
+    readyBoat(1.2, 0.7);
+    return3D = leaveUI(8.5,  9);
+    leaveBoat(1.2, 1.8);
+    addCar(3.95, 4.4);
+    addTruck1(6.05, 4.4);
+    addTruck2(3.95, 5.6);
+    addTruck3(6.05, 5.6);
   }
   
   void mousePressed()
