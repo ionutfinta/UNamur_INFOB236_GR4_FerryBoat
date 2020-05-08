@@ -1,7 +1,7 @@
 class Car extends Vehicle {
   
   
-  Car(PVector pos){
+  Car(PVector pos, Universe u){
     mShape = loadShape("./assets/car_chassis.obj");
     mPosition = pos;
     
@@ -14,12 +14,15 @@ class Car extends Vehicle {
     wheels.add(new Wheel(this, -frontPos,wh_height, backPos, 000, true));
     wheels.add(new Wheel(this, -frontPos,wh_height,-backPos, 000, false));
     
+   
+    everything = u.objs;
+  
     setSelectionState(false);
   }
   
   void animate(){
     super.animate();
-    //TODO: Séparer les commandes des objets... un objet doit pouvoir être contrôlé que s'il est séléctionné
+    
     if(keyPressed == true && isSelected()){
       if(key == 'z'){
         mInertia.z += .05f;

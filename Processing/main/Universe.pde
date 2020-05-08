@@ -1,7 +1,6 @@
 class Universe{
   U3DObjects objs;
   
-  CollisionHandler col_hand;
   
   
   Universe(){
@@ -11,12 +10,9 @@ class Universe{
   
   void init(){
     getEarth().load(this);
-    
-    col_hand = new CollisionHandler(myUniverse.objs);
   }
   
   void display(){
-    col_hand.handle_entity_collision();
     for(U3DObject o: objs){
       o.animate();
       o.display();
@@ -25,7 +21,6 @@ class Universe{
   
   void addObject(U3DObject o){
     objs.add(o);
-    col_hand = new CollisionHandler(myUniverse.objs);
   }
   
   SelectionDetectorObject initSelector(){
@@ -37,22 +32,11 @@ class Universe{
     return selec;
   }
   
-  void startCollision(){
-    new Thread()
-{
-    public void run() {
-        while(true)
-          col_hand.handle_entity_collision();
-    }
-}.start();
-  
-  }
     
   Car spawnCar(PVector pos){
-    Car c = new Car(pos);
+    Car c = new Car(pos, this);
     c.setPlanet(getEarth());
     objs.add(c);
-    col_hand = new CollisionHandler(myUniverse.objs);
     return c;
   }
   
@@ -61,7 +45,6 @@ class Universe{
     Me m = new Me(mode, position);
     m.setPlanet(getEarth());
     objs.add(m);
-    col_hand = new CollisionHandler(myUniverse.objs);
     return m;
   }
   
@@ -69,7 +52,6 @@ class Universe{
     Barriere b = new Barriere(pos, angle, this);
     b.setPlanet(getEarth());
     objs.add(b);
-    col_hand = new CollisionHandler(myUniverse.objs);
     return b;
   }
   
@@ -78,7 +60,6 @@ class Universe{
     Barriere b = new Barriere(pos, new PVector(0,0,0), this);
     b.setPlanet(getEarth());
     objs.add(b);
-    col_hand = new CollisionHandler(myUniverse.objs);
     return b;
   }
   
@@ -86,7 +67,6 @@ class Universe{
     Ferry f = new Ferry(lg, this);
     f.setPlanet(getEarth());
     objs.add(f);
-    col_hand = new CollisionHandler(myUniverse.objs);
     return f;
   }
   
