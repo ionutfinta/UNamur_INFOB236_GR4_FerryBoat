@@ -1,3 +1,6 @@
+/*This U3DObject will keep going forward in the direction same direction at each 'animate' tick
+it will then update its selected U3DObject and update its associated SelectionArrow*/
+
 class SelectionDetectorObject extends U3DObject{
   ArrayList<Wheel> wheels;
   PShape chassis;

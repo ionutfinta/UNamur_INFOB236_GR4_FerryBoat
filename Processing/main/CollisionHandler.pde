@@ -1,5 +1,8 @@
 import java.util.Iterator; 
 
+
+/*The collision handler will check collisions for every U3DObject that is doCollisions()
+it will check for collisions against the closest(5) U3DObjects*/
 class CollisionHandler{
   
 

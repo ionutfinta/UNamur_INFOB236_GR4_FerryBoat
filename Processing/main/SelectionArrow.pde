@@ -1,3 +1,7 @@
+/* A selection arrow is used to designate selectable U3DObject
+the arrow will remain above the last selected U3DObject
+it will only be displayed if the U3DObject is selected*/
+
 class SelectionArrow extends U3DObject {
   
   final float V_OFFSET = 2;

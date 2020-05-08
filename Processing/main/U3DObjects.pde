@@ -1,3 +1,7 @@
+/*U3DObjects behave like ArrayLists of type U3Object
+with an added iterator that returns the n closest U3Object to another in
+the U3Objects being iterated*/
+
 class U3DObjects implements Iterable<U3DObject>{
   
   ArrayList<U3DObject> objects;
