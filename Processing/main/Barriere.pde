@@ -19,7 +19,7 @@ class Barriere extends U3DObject {
     myTige.setShapeSRC("./assets/barrier.obj");
     myTige.setPlanet(mPlanet);
     myTige.setPos(new PVector(angles.y==PI?1.6403:-1.6403, .2, 0.260741).add(mPosition));
-    myTige.setRotationZCenter(new PVector(angles.y==PI?-2.51325:2.51325, 0).add(mPosition));
+    myTige.setRotationZCenter(new PVector(angles.y==PI?-0.51325:0.51325, 0).add(mPosition));
     myTige.setAngles(angles);
     uni.addObject(myTige);
     setSelectionState(false);

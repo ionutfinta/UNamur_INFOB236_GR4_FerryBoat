@@ -7,6 +7,7 @@ class U3DObject {
   protected PVector mInertia;
   protected PVector mAngles;
   
+  // An object car rotate round a defined center (if not set, it turns round its own center)
   protected PVector mRotationZCenter;
   protected float mRotationZr;
   
@@ -14,7 +15,7 @@ class U3DObject {
   
   protected float mAirResistFactor;
   
-  protected boolean touchingEarth;
+  protected boolean touchingEarth, mCollide;
   protected ArrayList<Animation> mAnimations;
   
   U3DObject(){
@@ -25,6 +26,7 @@ class U3DObject {
     
     mAirResistFactor = 0.58f;
     touchingEarth = false;
+    mCollide = false;
     
     mAnimations = new ArrayList<Animation>();
   }
@@ -190,7 +192,7 @@ class U3DObject {
   }
   
   boolean doCollisions(){
-    return false;
+    return mCollide;
   }
   
   
@@ -213,8 +215,8 @@ class U3DObject {
     mShape.rotate(alpha.y, 0,1,0);
     mShape.rotate(alpha.z, 0,0,1);
     if(alpha.z != 0 && mRotationZCenter != null){
-      setPos(new PVector( mRotationZCenter.x + cos(alpha.z)*mRotationZr,
-                          mRotationZCenter.y + sin(alpha.z)*mRotationZr,
+      setPos(new PVector( mRotationZCenter.x - cos(mAngles.z)*mRotationZr,
+                          mRotationZCenter.y - sin(mAngles.z)*mRotationZr,
                           mPosition.z));
     }
     mAngles = angle;
@@ -234,6 +236,10 @@ class U3DObject {
   void setRotationZCenter(PVector center){
     mRotationZCenter = center;
     mRotationZr = mRotationZCenter.x-mPosition.x;
+  }
+  
+  void disableCollisions(){
+    mCollide = false;
   }
   
   /** Sets the source of the main shape of the object. Don't call this at each frame, it is verry slow ! */

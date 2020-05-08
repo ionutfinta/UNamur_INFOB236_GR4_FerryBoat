@@ -17,7 +17,3 @@ public static float getYLine(PVector pointA, PVector pointB, float x){
   return pointA.y + ((pointB.y-pointA.y)/(pointB.x-pointA.x))*(x-pointA.x);
   
 }
-
-/** In a cartesian graph, returns the positive Y of a point of a circle */
-//public static float getYCircle(PVector center, float radius, float x){
-  //if(PVector.

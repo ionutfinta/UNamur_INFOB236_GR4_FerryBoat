@@ -43,8 +43,6 @@ void setup(){
   
   selector = myUniverse.initSelector();  
   
-  //myUniverse.handleCollisions();
-  
   // Instantiation de l'ui:
   mainUI = new UI();
 }
@@ -72,4 +70,6 @@ void mousePressed(){
     selector.send(me.getPosition(), me.getCamDir());
   }
 
+  // Tu peux relayer toutes les fonctions de main à ta classe ainsi:
+  mainUI.mousePressed();
 }

@@ -30,6 +30,7 @@ class Ferry extends U3DObject{
       facadeArriere = new U3DObject();
       facadeArriere.setShapeSRC("./assets/ferry_coqueArriere.obj");
       facadeArriere.setPos(new PVector(-0.11, -1.6294, -24.9-(lg-1)*16.1113).add(mPosition));
+      facadeArriere.disableCollisions();
       uni.addObject(facadeArriere);
       
       // Porte RDC
