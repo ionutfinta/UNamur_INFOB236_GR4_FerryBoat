@@ -43,8 +43,6 @@ void setup(){
   
   arrow = new SelectionArrow();
   
-  //myUniverse.handleCollisions();
-  
   // Instantiation de l'ui:
   mainUI = new UI();
 }
@@ -68,34 +66,6 @@ void draw(){
 }
 
 void mousePressed(){
-  if(mouseButton == LEFT){
-    //SelectEntity(me, myUniverse, 30);
-  }
-  
   // Tu peux relayer toutes les fonctions de main à ta classe ainsi:
   mainUI.mousePressed();
 }
-/*
-void SelectEntity(Me observer, Universe u, float distance){
-  boolean found = false;
-  U3DObject found_object;
-  if(selected!=null)
-    selected.setSelectionState(false);
-  
-  U3DObject detector = new SelectionDetectorObject(arrow);
-  
-  // TODO, trouve un autre moyen que setSize();
-  detector.setPos(observer.getPosition().copy());
-  detector.setInertia(observer.getCamDir().copy().mult(10));
-  
-  for(float i = 0; i<distance && !found; i+=1){
-    found_object = u.reportCollisionsWith(detector);
-    if(found_object != null && found_object.isSelectable()){
-      found = true;
-      found_object.setSelectionState(true);
-      selected = found_object;
-      arrow.updateSelected(found_object);
-    }
-    detector.applyInertia();
-  }
-}*/

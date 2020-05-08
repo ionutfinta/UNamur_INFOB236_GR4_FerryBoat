@@ -7,6 +7,7 @@ class U3DObject {
   protected PVector mInertia;
   protected PVector mAngles;
   
+  // An object car rotate round a defined center (if not set, it turns round its own center)
   protected PVector mRotationZCenter;
   protected float mRotationZr;
   
@@ -212,8 +213,8 @@ class U3DObject {
     mShape.rotate(alpha.y, 0,1,0);
     mShape.rotate(alpha.z, 0,0,1);
     if(alpha.z != 0 && mRotationZCenter != null){
-      setPos(new PVector( mRotationZCenter.x + cos(alpha.z)*mRotationZr,
-                          mRotationZCenter.y + sin(alpha.z)*mRotationZr,
+      setPos(new PVector( mRotationZCenter.x - cos(mAngles.z)*mRotationZr,
+                          mRotationZCenter.y - sin(mAngles.z)*mRotationZr,
                           mPosition.z));
     }
     mAngles = angle;

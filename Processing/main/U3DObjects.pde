@@ -30,9 +30,6 @@ class U3DObjects implements Iterable<U3DObject>{
     return objects.get(i);
   }
   
-  
-  
-  
   Iterator<U3DObject> n_closest(int n, U3DObject o){
     return new n_closest_generator(n,o);
   }
