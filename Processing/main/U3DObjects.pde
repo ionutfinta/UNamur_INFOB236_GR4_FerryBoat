@@ -17,6 +17,9 @@ class U3DObjects implements Iterable<U3DObject>{
   void add(U3DObject o){
     objects.add(o);
   }
+  int size(){
+    return objects.size();
+  }
   void remove(U3DObject o){
     objects.remove(o);
   }

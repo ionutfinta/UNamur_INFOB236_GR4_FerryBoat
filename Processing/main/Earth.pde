@@ -14,7 +14,7 @@ class Earth extends U3DObject{
   
   void load(Universe uni){
     // Spawn des Gardes-fous et insertion dans l'univers des objets
-    U3DObject tmpObj = new U3DObject();
+    /*U3DObject tmpObj = new U3DObject();
     tmpObj.setShapeSRC("./assets/poteau.obj");
     tmpObj.setPlanet(this);
     
@@ -61,7 +61,7 @@ class Earth extends U3DObject{
     
     tmpObj = new U3DObject(tmpObj);
     tmpObj.setPos(new PVector(0, -15.009, 121).add(mPosition));
-    uni.addObject(tmpObj);
+    uni.addObject(tmpObj);*/
   }
   
   void display(){
@@ -69,7 +69,7 @@ class Earth extends U3DObject{
     pushMatrix();
       /* Water */
       translate(-250-125, 0, -50);
-      mWave.renderWave();
+      //mWave.renderWave();
     popMatrix();
   }
   

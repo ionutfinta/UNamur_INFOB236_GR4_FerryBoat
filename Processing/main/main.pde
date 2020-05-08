@@ -20,8 +20,7 @@ UI mainUI;
 
 void setup(){
   size(1024,768,P3D);
-  shapeMode(CORNER);
-  is2DEnv = true;
+  is2DEnv = false;
   
   myUniverse = new Universe();
   
@@ -37,7 +36,8 @@ void setup(){
   mBarriere1 = myUniverse.spawnBarriere(new PVector(-11.5, 2.629905, 123.5));
   mBarriere2 = myUniverse.spawnBarriere(new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
   
-  mFerry = myUniverse.spawnFerry();
+  // Ferry de 3 'compartiments' = 18 places
+  mFerry = myUniverse.spawnFerry(3);
   
   detector = myUniverse.initSelector();
   
