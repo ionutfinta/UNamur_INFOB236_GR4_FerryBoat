@@ -40,7 +40,7 @@ class U3DObject {
     if(mPlanet == null)
       return;
      //temp false while collisions are weird
-    if(false &&!touchingEarth && mPosition.y>2){
+    if(!touchingEarth && mPosition.y>2){
       mInertia.y -= (float)mPlanet.getGravity()/18.0f;
     }
     
