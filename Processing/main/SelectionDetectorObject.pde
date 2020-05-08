@@ -14,16 +14,18 @@ class SelectionDetectorObject extends U3DObject{
   private ArrayList<U3DObject> collidingEntities;
   public SelectionArrow arrow;
   
-  SelectionDetectorObject(SelectionArrow arr) {
+  SelectionDetectorObject(SelectionArrow arr, Universe u) {
     arrow = arr;
     sendAway();
     detected = false;
+    everything = u.objs;
+    mAirResistFactor = 1;
   }
   
 
   @Override
   void handle_collision(U3DObject o){ 
-    
+    print(o);
     if(o!=null && selected!=o && o.isSelectable()){
       detected = true;
       if(selected != null)
@@ -42,7 +44,7 @@ class SelectionDetectorObject extends U3DObject{
   }
  
   void setDirection(PVector direc){
-    mInertia = direc.copy().mult(3);
+    mInertia = direc.copy().mult(2);
   }
   
   void setPosition(PVector pos){
@@ -56,11 +58,7 @@ class SelectionDetectorObject extends U3DObject{
     setPosition(pos);
   }
   
-  @Override
-  void applyInertia(){
-    mPosition.add(mInertia);
-  }
-  
+
   @Override
   void animate(){
     if(!detected && it_since_launch<IT_LIMIT){

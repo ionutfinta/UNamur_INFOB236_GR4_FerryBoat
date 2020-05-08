@@ -26,7 +26,7 @@ class Universe{
   SelectionDetectorObject initSelector(){
     SelectionArrow arr = new SelectionArrow();
     objs.add(arr);
-    SelectionDetectorObject selec = new SelectionDetectorObject(arr);
+    SelectionDetectorObject selec = new SelectionDetectorObject(arr, this);
     addObject(arr);
     addObject(selec);
     return selec;

@@ -43,6 +43,7 @@ class Vehicle extends U3DObject{
   @Override
   void setSelectionState(boolean state){
     isSelected = state;
+    print(state);
   }
   
   

@@ -25,27 +25,26 @@ class Car extends Vehicle {
     
     if(keyPressed == true && isSelected()){
       if(key == 'z'){
-        mInertia.z += .05f;
+        mInertia.z += .5f;
       }
       if(key == 'a'){
-        mInertia.z += .05f;
-        mInertia.x += .01f;
+        mInertia.z += .5f;
+        mInertia.x += .1f;
       }
       if(key == 'e'){
-        mInertia.z += .05f;
-        mInertia.x -= .01f;
+        mInertia.z += .5f;
+        mInertia.x -= .1f;
       }
       if(key == 'q'){
-        mInertia.x += .01f;
-        mInertia.z -= .03f;
-        setAngleZ(-QUARTER_PI);
+        mInertia.x += .1f;
+        mInertia.z -= .3f;
       }
       if(key == 'd'){
-        mInertia.x -= .01f;
-        mInertia.z -= .03f;
+        mInertia.x -= .1f;
+        mInertia.z -= .3f;
       }
       if(key == 's')
-        mInertia.z -= .03f;
+        mInertia.z -= .3f;
     }
   }
 }

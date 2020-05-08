@@ -59,7 +59,7 @@ class U3DObject {
       return;
       
       if(!onGround){
-      mInertia.y -= (float)mPlanet.getGravity()/200.0f;
+      mInertia.y -= (float)mPlanet.getGravity()/2000.0f;
       }
     
   }
@@ -177,7 +177,6 @@ class U3DObject {
         return false; //shouldn't get here
       
       else{
-        
         try{
          iter2 = everything.n_closest(5, o1);
         }catch(IllegalArgumentException i){
@@ -205,8 +204,9 @@ class U3DObject {
             if(((inBetween(oPos.x, mPos.x+mSize.x+mInert.x, oPos.x+oSize.x) ||inBetween(oPos.x, mPos.x+mInert.x, oPos.x+oSize.x))&&
             (inBetween(oPos.z, mPos.z+mSize.z+mInert.z, oPos.z+oSize.z) || inBetween(oPos.z, mPos.z+mInert.z, oPos.z+oSize.z))&&
             (inBetween(oPos.y, mPos.y+mSize.y+mInert.y, oPos.y+oSize.y) || inBetween(oPos.y, mPos.y+mInert.y, oPos.y+oSize.y)))){
-                  collided_once = true;
                   print(o1, '\n');
+                  collided_once = true;
+                  
                   o1.handle_collision(o2);
                   o2.handle_collision(o1);
           }
