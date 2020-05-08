@@ -15,7 +15,7 @@ class U3DObject {
   
   protected float mAirResistFactor;
   
-  protected boolean touchingEarth;
+  protected boolean touchingEarth, mCollide;
   protected ArrayList<Animation> mAnimations;
   
   U3DObject(){
@@ -26,6 +26,7 @@ class U3DObject {
     
     mAirResistFactor = 0.58f;
     touchingEarth = false;
+    mCollide = false;
     
     mAnimations = new ArrayList<Animation>();
   }
@@ -190,7 +191,7 @@ class U3DObject {
   }
   
   boolean doCollisions(){
-    return false;
+    return mCollide;
   }
   
   
@@ -234,6 +235,10 @@ class U3DObject {
   void setRotationZCenter(PVector center){
     mRotationZCenter = center;
     mRotationZr = mRotationZCenter.x-mPosition.x;
+  }
+  
+  void disableCollisions(){
+    mCollide = false;
   }
   
   /** Sets the source of the main shape of the object. Don't call this at each frame, it is verry slow ! */

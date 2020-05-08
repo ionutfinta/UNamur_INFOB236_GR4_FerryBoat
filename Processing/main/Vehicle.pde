@@ -5,6 +5,7 @@ class Vehicle extends U3DObject{
   
   Vehicle() {
     wheels = new ArrayList<Wheel>();
+    mCollide = true;
   }
   
   void display(){
@@ -26,13 +27,6 @@ class Vehicle extends U3DObject{
     
     popMatrix();
   }
-  
-  @Override
-  boolean doCollisions(){
-    return true;
-  }
-  
-
   
   @Override
   boolean isSelectable(){
