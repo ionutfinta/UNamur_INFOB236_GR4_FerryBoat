@@ -7,6 +7,9 @@ class U3DObject {
   protected PVector mInertia;
   protected PVector mAngles;
   
+  protected PVector mRotationZCenter;
+  protected float mRotationZr;
+  
   protected PShape mShape;
   
   protected float mAirResistFactor;
@@ -27,15 +30,18 @@ class U3DObject {
   }
   
   // Constructeur par copie
+  // Attention, la Shape est une shallow copy, si vous voulez un clone ayant sa propre matrice de transformations, utilisez setShapeSRC.
   U3DObject(U3DObject original){
     mPosition = original.getPosition().copy();
     mInertia = original.getInertia().copy();
-    mAngles = original.getAngles().copy();
+    
     mShape = original.getShape();
+    mAngles = original.getAngles();
+    mAngles = new PVector(0,0,0);
+    
     mAnimations = original.getAnimations();
   }
   
-  // --- Must be overwritten
   void apply_gravity(){
     if(mPlanet == null)
       return;
@@ -59,8 +65,8 @@ class U3DObject {
              mSize = this.getSize();
              
         if(((inBetween(oPos.x, mPos.x+mSize.x, oPos.x+oSize.x) ||inBetween(oPos.x, mPos.x, oPos.x+oSize.x))&& 
-            (inBetween(oPos.y, mPos.y+mSize.y, oPos.y+oSize.y) || inBetween(oPos.y, mPos.y, oPos.y+oSize.y))  && 
-            (inBetween(oPos.z, mPos.z+mSize.z, oPos.z+oSize.z) || inBetween(oPos.z, mPos.z, oPos.z+oSize.z)))){
+            (inBetween(oPos.z, mPos.z+mSize.z, oPos.z+oSize.z) || inBetween(oPos.z, mPos.z, oPos.z+oSize.z))&&
+            (inBetween(oPos.y, mPos.y+mSize.y, oPos.y+oSize.y) || inBetween(oPos.y, mPos.y, oPos.y+oSize.y)))){
              
                 mPos.y += oSize.copy().y+mSize.y;
            }
@@ -83,7 +89,7 @@ class U3DObject {
     while(ait.hasNext()){
       Animation a = ait.next();
       if(a.affectsAngles()){
-        mAngles = a.getNewValue();
+        setAngles(a.getNewValue());
       }
       else{
         mPosition = a.getNewValue();
@@ -97,11 +103,26 @@ class U3DObject {
   void display(){
     pushMatrix();
       translate(mPosition.x, mPosition.y, mPosition.z);
-      rotateX(mAngles.x);
-      rotateY(mAngles.y);
-      rotateZ(mAngles.z);
       shape(mShape, 0, 0);
+      
+      // DEBUG:
+      if(mShape.getName() == null || !mShape.getName().equals("noStroke")){
+        noFill();
+        stroke(192);
+        strokeWeight(1);
+        PVector dim = getSize().mult(2);
+        box(dim.x, dim.y, dim.z);
+      }
     popMatrix();
+    
+      if(mRotationZCenter != null){
+        pushMatrix();
+        translate(mRotationZCenter.x, mRotationZCenter.y, mPosition.z);
+        noStroke();
+        fill(#FF0000);
+        sphere(.1);
+        popMatrix();
+      }
   }
   
   // --- 3D Moving
@@ -117,14 +138,14 @@ class U3DObject {
   }
   
   // --- Animations
-  /** Rotate around the Z axis in durations milliseconds */
-  void addAnimation(String type, float a, int duration){
+  /** durations milliseconds */
+  void addAnimation(String type, float a, int duration, boolean reversed){
     if(type.equals("rotateZ"))
-      mAnimations.add(new Animation(mAngles, new PVector(mAngles.x, mAngles.y, a), duration, true));
-      
-    // rev stands for reversed
-    if(type.equals("rotateZrev"))
-      mAnimations.add(new Animation(mAngles, new PVector(mAngles.x, mAngles.y, a), duration, true, true));
+      mAnimations.add(new Animation(mAngles, new PVector(mAngles.x, mAngles.y, a), duration, true, reversed));
+  }
+  
+  void addAnimation(String type, float a, int duration){
+    addAnimation(type,a,duration,false);
   }
   
   // --- Collisions
@@ -144,8 +165,7 @@ class U3DObject {
   }
   
   PVector getSize(){
-    //TODO: Make this vary in function of mAngles !
-    return new PVector(mShape.getWidth(), mShape.getHeight(), mShape.getDepth());
+    return new PVector(mShape.getWidth(), mShape.getHeight(), mShape.getDepth()).div(2);
   }
   
   PVector getAngles(){
@@ -187,6 +207,15 @@ class U3DObject {
   }
   
   void setAngles(PVector angle){
+    PVector alpha = angle.copy().sub(mAngles);
+    mShape.rotate(alpha.x, 1,0,0);
+    mShape.rotate(alpha.y, 0,1,0);
+    mShape.rotate(alpha.z, 0,0,1);
+    if(alpha.z != 0 && mRotationZCenter != null){
+      setPos(new PVector( mRotationZCenter.x + cos(alpha.z)*mRotationZr,
+                          mRotationZCenter.y + sin(alpha.z)*mRotationZr,
+                          mPosition.z));
+    }
     mAngles = angle;
   }
   
@@ -194,8 +223,16 @@ class U3DObject {
     mShape.setName(str);
   }
   
+  void setAngleY(float a){
+    setAngles(new PVector(mAngles.x, a, mAngles.z));
+  }
   void setAngleZ(float a){
-    mAngles.z = a;
+    setAngles(new PVector(mAngles.x, mAngles.y, a));
+  }
+  
+  void setRotationZCenter(PVector center){
+    mRotationZCenter = center;
+    mRotationZr = mRotationZCenter.x-mPosition.x;
   }
   
   /** Sets the source of the main shape of the object. Don't call this at each frame, it is verry slow ! */
@@ -206,30 +243,4 @@ class U3DObject {
   void setSelectionState(boolean state){
     
   }
-  
-  
-/*
-public U3DObjects sortByDistance(U3DObjects list, U3DObject o){
-  U3DObjects temp_list = new U3DObjects();
-  U3DObjects remaining_list = new U3DObjects(list);
-  
-  for(U3DObject e: list){
-    temp_list.add(closestObject(remaining_list, o));
-    remaining_list.remove(closestObject(remaining_list, o));
-  }
-  return temp_list;
-}
-
-public  U3DObject closestObject(U3DObjects list, U3DObject o){
-  float min = Float.MAX_VALUE;
-  U3DObject ans = null;
-  for(U3DObject e: list){
-    if(e.getPosition().dist(o.getPosition())<min){
-      min = e.getPosition().dist(o.getPosition());
-      ans = e;
-    }
-  }
-  return ans;
-}
-*/
 }

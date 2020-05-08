@@ -35,6 +35,7 @@ class Car extends Vehicle {
       if(key == 'q'){
         mInertia.x += .01f;
         mInertia.z -= .03f;
+        setAngleZ(-QUARTER_PI);
       }
       if(key == 'd'){
         mInertia.x -= .01f;

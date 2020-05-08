@@ -18,7 +18,8 @@ class Barriere extends U3DObject {
     myTige = new U3DObject();
     myTige.setShapeSRC("./assets/barrier.obj");
     myTige.setPlanet(mPlanet);
-    myTige.setPos(new PVector(0, .55, 0.260741).add(mPosition));
+    myTige.setPos(new PVector(angles.y==PI?1.6403:-1.6403, .2, 0.260741).add(mPosition));
+    myTige.setRotationZCenter(new PVector(angles.y==PI?-2.51325:2.51325, 0).add(mPosition));
     myTige.setAngles(angles);
     uni.addObject(myTige);
     setSelectionState(false);
@@ -29,13 +30,14 @@ class Barriere extends U3DObject {
   // -- Mutateurs privés
   private void setFerme(){
     //TODO: A lier avec les guardes Event-B !
-    myTige.addAnimation("rotateZrev", 0, 1000);
+    
+    myTige.addAnimation("rotateZ", 0, 1000);
     nOuvert = false;
   }
   
   private void setOuvert(){
     //TODO: A lier avec les guardes Event-B !
-    myTige.addAnimation("rotateZrev", -HALF_PI, 1000);
+    myTige.addAnimation("rotateZ", (myTige.getAngles().y==PI?HALF_PI:-HALF_PI), 1000);
     nOuvert = true;
   }
   

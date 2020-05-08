@@ -13,7 +13,6 @@ class Universe{
     getEarth().load(this);
     
     col_hand = new CollisionHandler(myUniverse.objs);
-    //startCollision();
   }
   
   void display(){

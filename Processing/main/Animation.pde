@@ -15,32 +15,28 @@ class Animation{
   private int mEnd, mDuration;
   
   // Create a new animation (position) duration in milliseconds
-  Animation(PVector start, PVector end, int duration){
+  Animation(PVector act, PVector obj, int duration){
     mBoolAngles = false;
-    mVStart = start;
-    mVEnd = end;
+    mVStart = obj;
+    mVEnd = act;
     mDuration = duration;
   }
   
   // Create a new animation (angles if last parameter is true)
-  Animation(PVector start, PVector end, int duration, boolean affectsAngles){
+  Animation(PVector act, PVector obj, int duration, boolean affectsAngles){
     mBoolAngles = affectsAngles;
-    mVStart = start;
-    mVEnd = end;
+    mVStart = obj;
+    mVEnd = act;
     mDuration = duration;
     mEnd = millis() + duration;
+    mReversed = false;
   }
   
   // Create a new animation (angles if last parameter is true)
-  Animation(PVector start, PVector end, int duration, boolean affectsAngles, boolean rev){
+  Animation(PVector act, PVector obj, int duration, boolean affectsAngles, boolean rev){
     mBoolAngles = affectsAngles;
-    if(!rev){
-      mVStart = start;
-      mVEnd = end;
-    }else{
-      mVStart = end;
-      mVEnd = start;
-    }
+    mVStart = rev?act:obj;
+    mVEnd = rev?obj:act;
     mDuration = duration;
     mEnd = millis() + duration;
     mReversed = rev;
@@ -56,11 +52,12 @@ class Animation{
   }
   
   public PVector getNewValue(){
-    if(isElapsed())
+    if(isElapsed()){
       if(mReversed)
-        return mVStart;
-      else
         return mVEnd;
+        
+      return mVStart;
+    }
     
     int t = millis();
     

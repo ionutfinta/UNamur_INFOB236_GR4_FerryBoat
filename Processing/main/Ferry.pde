@@ -93,7 +93,7 @@ class Ferry extends U3DObject{
       }
   }
   
-  void animate(){
+  /*void animate(){
     super.animate();
     if(keyPressed){
       switch(key){
@@ -119,9 +119,9 @@ class Ferry extends U3DObject{
            println(x+ ", "+ y+ ", "+ z);
            break;
       }
-    }
+    }*/
     //if(facadeArriere.size() > 0)
       //portePont2.setPos(new PVector(x,y, z-(mLongueur-1)*16.1113).add(mPosition));
-  }
+  //}
            
 }

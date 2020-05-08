@@ -38,11 +38,12 @@ void setup(){
   mBarriere1 = myUniverse.spawnBarriere(new PVector(-11.5, 2.629905, 123.5));
   mBarriere2 = myUniverse.spawnBarriere(new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
   
-  mFerry = myUniverse.spawnFerry();
+  // Spawn Ferry avec 3 compartiments
+  mFerry = myUniverse.spawnFerry(3);
   
   arrow = new SelectionArrow();
   
-  myUniverse.handleCollisions();
+  //myUniverse.handleCollisions();
   
   // Instantiation de l'ui:
   mainUI = new UI();
@@ -68,20 +69,20 @@ void draw(){
 
 void mousePressed(){
   if(mouseButton == LEFT){
-    SelectEntity(me, myUniverse, 30);
+    //SelectEntity(me, myUniverse, 30);
   }
   
   // Tu peux relayer toutes les fonctions de main à ta classe ainsi:
   mainUI.mousePressed();
 }
-
+/*
 void SelectEntity(Me observer, Universe u, float distance){
   boolean found = false;
   U3DObject found_object;
   if(selected!=null)
     selected.setSelectionState(false);
   
-  U3DObject detector = new SelectionDetectorObject();
+  U3DObject detector = new SelectionDetectorObject(arrow);
   
   // TODO, trouve un autre moyen que setSize();
   detector.setPos(observer.getPosition().copy());
@@ -97,4 +98,4 @@ void SelectEntity(Me observer, Universe u, float distance){
     }
     detector.applyInertia();
   }
-}
+}*/

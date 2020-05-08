@@ -56,9 +56,9 @@ class CollisionHandler{
              mSize = o1.getSize();
              
              
-            if( (inBetween(oPos.x, mPos.x+mSize.x+mInert.x, oPos.x+oSize.x) ||inBetween(oPos.x, mPos.x+mInert.x, oPos.x+oSize.x))&& 
-            (inBetween(oPos.y, mPos.y+mSize.y+mInert.y, oPos.y+oSize.y) || inBetween(oPos.y, mPos.y+mInert.y, oPos.y+oSize.y))  && 
-            (inBetween(oPos.z, mPos.z+mSize.z+mInert.z, oPos.z+oSize.z) || inBetween(oPos.z, mPos.z+mInert.z, oPos.z+oSize.z))){
+            if( (inBetween(oPos.x, mPos.x+mSize.x+mInert.x, oPos.x+oSize.x) ||inBetween(oPos.x, mPos.x+mInert.x, oPos.x+oSize.x))&&
+            (inBetween(oPos.z, mPos.z+mSize.z+mInert.z, oPos.z+oSize.z) || inBetween(oPos.z, mPos.z+mInert.z, oPos.z+oSize.z))&&
+            (inBetween(oPos.y, mPos.y+mSize.y+mInert.y, oPos.y+oSize.y) || inBetween(oPos.y, mPos.y+mInert.y, oPos.y+oSize.y))){
               print(o1, "colliding with ", o2, '\n');
               
                   o1.handle_collision(o2);
