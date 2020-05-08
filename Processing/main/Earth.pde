@@ -82,9 +82,21 @@ class Earth extends U3DObject{
     super.display();
     pushMatrix();
       /* Water */
+      translate(-2.5, -12.5, -90);
       rotateX(HALF_PI);
-      translate(-350-125, -1.2, 50);
+      mWave.updateNoise();
+      
       mWave.renderWave();
+      
+      translate(-26.5-957, 0, 0);
+      
+      mWave.renderWave();
+      
+      pushMatrix();
+        fill(#00407B);
+        translate(0,0,40);
+        rect(400,400,2100,2100);
+      popMatrix();
     popMatrix();
   }
   
