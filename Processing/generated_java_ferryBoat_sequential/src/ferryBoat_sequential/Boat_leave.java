@@ -44,10 +44,14 @@ public class Boat_leave{
 
 			machine.set_busy_slots(0);
 			machine.set_max_busy_slots(0);
-			machine.set_bs_p(new no_type(new JMLObjectSet {Integer f | (\exists no_type e; (machine.floors.has(null)); e.equals(new Pair<Integer,ERROR>(null,0)))}));
-			machine.set_max_bs_p(new no_type(new JMLObjectSet {Integer f | (\exists no_type e; (machine.floors.has(null)); e.equals(new Pair<Integer,ERROR>(null,0)))}));
+			BRelation<Integer, Integer> eachfloor0 = new BRelation<Integer, Integer>();
+			for(int  i = 0; i <= machine.floors.max(); i++) {
+				eachfloor0.insert(i, 0);
+			}
+			machine.set_bs_p(eachfloor0);
+			machine.set_max_bs_p(eachfloor0);
 			machine.set_reservations(BRelation.EMPTY);
-			machine.set_reserved_spaces(new no_type(new JMLObjectSet {Integer f | (\exists no_type e; (machine.floors.has(null)); e.equals(new Pair<Integer,ERROR>(null,0)))}));
+			machine.set_reserved_spaces(eachfloor0);
 			machine.set_boarded_ids(BSet.EMPTY);
 			machine.set_lift_vehicles(BRelation.EMPTY);
 			machine.set_id_is_left(BRelation.EMPTY);
