@@ -76,7 +76,9 @@ class U3DObjects implements Iterable<U3DObject>{
       for(U3DObject o: objects){
           dist = comparee.getPosition().dist(o.getPosition());
           
-          if(dist<min_encountered && o!=comparee && dist>=lastDistance){
+          
+          //works on assumtion that there will be N items at varying distances
+          if(dist<min_encountered && o!=comparee && dist>lastDistance){
              min_encountered = dist;
              min_object = o;
           }

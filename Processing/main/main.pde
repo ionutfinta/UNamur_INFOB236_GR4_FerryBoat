@@ -31,8 +31,8 @@ void setup(){
                                      "Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>" +
                                      "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject");
 
-  myFirstCar = myUniverse.spawnCar(new PVector(0, 10, 110));
-  mCar2 = myUniverse.spawnCar(new PVector(-10, 10, 110));
+  myFirstCar = myUniverse.spawnCar(new PVector(-10, 11, 120));
+  mCar2 = myUniverse.spawnCar(new PVector(-1, 10, 110));
   
   mBarriere1 = myUniverse.spawnBarriere(new PVector(-11.5, 2.629905, 123.5));
   mBarriere2 = myUniverse.spawnBarriere(new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));

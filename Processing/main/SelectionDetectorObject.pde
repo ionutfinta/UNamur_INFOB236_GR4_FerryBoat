@@ -25,17 +25,20 @@ class SelectionDetectorObject extends U3DObject{
 
   @Override
   void handle_collision(U3DObject o){ 
-    print(o);
+    if(o instanceof Me)
+    return;
+    
     if(o!=null && selected!=o && o.isSelectable()){
-      detected = true;
+      
       if(selected != null)
         selected.setSelectionState(false);
       selected = o;
       o.setSelectionState(true);
       arrow.updateSelected(o);
-      sendAway();
+      
     }
-    
+    detected = true;
+    sendAway();
   
   }
   
