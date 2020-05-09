@@ -3,7 +3,8 @@ class Car extends Vehicle {
   final float SPEED_MULT = 1;
   
   
-  Car(PVector pos, Universe u){
+  Car(Universe u, PVector pos){
+    super(u);
     mShape = loadShape("./assets/car_chassis.obj");
     mPosition = pos;
     

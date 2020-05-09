@@ -32,44 +32,6 @@ class Universe{
     return selec;
   }
   
-    
-  Car spawnCar(PVector pos){
-    Car c = new Car(pos, this);
-    c.setPlanet(getEarth());
-    objs.add(c);
-    return c;
-  }
-  
-  
-  Me spawnMyself(String mode, String position){
-    Me m = new Me(mode, position);
-    m.setPlanet(getEarth());
-    objs.add(m);
-    return m;
-  }
-  
-  Barriere spawnBarriere(PVector pos, PVector angle){
-    Barriere b = new Barriere(pos, angle, this);
-    b.setPlanet(getEarth());
-    objs.add(b);
-    return b;
-  }
-  
-  // Exemple d'overloading : Permet de spawner la barrière sans donner son angle
-  Barriere spawnBarriere(PVector pos){
-    Barriere b = new Barriere(pos, new PVector(0,0,0), this);
-    b.setPlanet(getEarth());
-    objs.add(b);
-    return b;
-  }
-  
-  Ferry spawnFerry(int lg){
-    Ferry f = new Ferry(lg, this);
-    f.setPlanet(getEarth());
-    objs.add(f);
-    return f;
-  }
-  
   Earth getEarth(){
     return (Earth) objs.get(0);
   }

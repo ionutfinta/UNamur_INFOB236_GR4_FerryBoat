@@ -11,20 +11,25 @@ class Barriere extends U3DObject {
   
   // --- Constructeur(s)
   /** `angles` représente l'angle de la tige */
-  Barriere(PVector pos, PVector angles, Universe uni){
+  Barriere(Universe uni, PVector pos, PVector angles){
+    uni.addObject(this);
     mPosition = pos;
     
     mShape = loadShape("./assets/mainBarrier.obj");
     myTige = new U3DObject();
+    uni.addObject(myTige);
     myTige.setShapeSRC("./assets/barrier.obj");
     myTige.setPlanet(mPlanet);
     myTige.setPos(new PVector(angles.y==PI?1.6403:-1.6403, .2, 0.260741).add(mPosition));
     myTige.setRotationZCenter(new PVector(angles.y==PI?-0.51325:0.51325, 0).add(mPosition));
     myTige.setAngles(angles);
-    uni.addObject(myTige);
     setSelectionState(false);
     
     isOuvert = nOuvert = false;
+  }
+  
+  Barriere(Universe uni, PVector pos){
+    this(uni, pos, new PVector(0,0,0));
   }
   
   // -- Mutateurs privés
