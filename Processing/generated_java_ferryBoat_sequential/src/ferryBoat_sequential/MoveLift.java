@@ -19,7 +19,13 @@ public class MoveLift{
  		assignable \nothing;
 		ensures \result <==> (machine.floors.has(selected_level) && machine.get_lift_access().equals(false) && machine.get_lift_in().equals(false) && machine.get_lift_out().equals(false) && machine.get_lvl_1_access().equals(false) && machine.get_lvl_2_access().equals(false) && machine.get_lvl_3_access().equals(false)); */
 	public /*@ pure */ boolean guard_MoveLift( Integer selected_level) {
-		return (machine.floors.has(selected_level) && machine.get_lift_access().equals(false) && machine.get_lift_in().equals(false) && machine.get_lift_out().equals(false) && machine.get_lvl_1_access().equals(false) && machine.get_lvl_2_access().equals(false) && machine.get_lvl_3_access().equals(false));
+		return (machine.floors.has(selected_level) //grd1
+				&& machine.get_lift_access().equals(false) //all guard ok
+				&& machine.get_lift_in().equals(false) 
+				&& machine.get_lift_out().equals(false) 
+				&& machine.get_lvl_1_access().equals(false)
+				&& machine.get_lvl_2_access().equals(false) 
+				&& machine.get_lvl_3_access().equals(false));
 	}
 
 	/*@ public normal_behavior

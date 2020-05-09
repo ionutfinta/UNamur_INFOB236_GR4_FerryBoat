@@ -19,7 +19,17 @@ public class Boat_ready{
  		assignable \nothing;
 		ensures \result <==> ( capacities.domain().equals(machine.floors) && capacities.range().isSubset(NAT.instance) && capacities.isaFunction() && BRelation.cross(machine.floors,NAT.instance).has(capacities) && !capacities.range().equals(new BSet<Integer>(new Integer(0))) &&  (\forall Integer x;((machine.floors.has(x)) ==> (machine.get_max_bs_p().apply(x).equals(new Integer(0))))) &&  (\forall Integer x;((machine.floors.has(x)) ==> (machine.get_bs_p().apply(x).equals(new Integer(0))))) && machine.get_reserved_spaces().isSubset(new BRelation<Integer,Integer>(new JMLObjectSet {Integer f | (\exists BRelation<Integer,Integer> e; (machine.floors.has(f)); e.equals(new Pair<Integer,Integer>(f,new Integer(0))))}))); */
 	public /*@ pure */ boolean guard_Boat_ready( BRelation<Integer,Integer> capacities) {
-		return ( capacities.domain().equals(machine.floors) && capacities.range().isSubset(NAT.instance) && capacities.isaFunction() && BRelation.cross(machine.floors,NAT.instance).has(capacities) && !capacities.range().equals(new BSet<Integer>(new Integer(0))) && true && true && true);
+		return ( capacities.domain().equals(machine.floors) //grd1
+				&& capacities.range().isSubset(NAT.instance) //grd1
+				&& capacities.isaFunction() //grd1
+				&& BRelation.cross(machine.floors,NAT.instance).has(capacities) //grd1 
+				&& !capacities.range().equals(new BSet<Integer>(new Integer(0))) //grd2
+				//grd3 not implemented, checks max_bs_p = 0 for all floors, check that rank is 1 and contains 0
+				&& machine.get_max_bs_p().range().int_size() == 1 && machine.get_max_bs_p().range().has(0)
+				//grd4_1 not implemented, checks bs_p = 0 for all floors
+				&& machine.get_bs_p().range().int_size() == 1 && machine.get_bs_p().range().has(0)
+				//grd4_2 checks reserved_spaces = 0 for all floors
+				&& machine.get_reserved_spaces().range().int_size() == 1 && machine.get_reserved_spaces().range().has(0));
 	}
 
 	/*@ public normal_behavior
