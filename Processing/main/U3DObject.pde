@@ -140,7 +140,7 @@ class U3DObject {
     }
     //tp back if issue
       if(mPosition.y<0){
-        mPosition.y+=5;
+        return;
       }
       
       //if it's trying to move
@@ -209,7 +209,7 @@ class U3DObject {
           
           
         try{
-         iter2 = everything.n_closest(10, o1);
+         iter2 = everything.n_closest(5, o1);
         }catch(IllegalArgumentException i){
           System.err.println(i);
           print(i);
