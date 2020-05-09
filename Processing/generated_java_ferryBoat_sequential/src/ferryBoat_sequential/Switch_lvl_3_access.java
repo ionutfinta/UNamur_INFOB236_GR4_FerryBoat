@@ -19,7 +19,11 @@ public class Switch_lvl_3_access{
  		assignable \nothing;
 		ensures \result <==> (BOOL.instance.has(boolean) && !boolean.equals(machine.get_lvl_3_access()) && machine.get_lift_level().equals(new Integer(3)) && ((boolean.equals(true)) ==> (machine.get_Sensor_state().apply(new Integer(3)).equals(machine.Detecting)))); */
 	public /*@ pure */ boolean guard_Switch_lvl_3_access( Boolean b) {
-		return (BOOL.instance.has(b) && !b.equals(machine.get_lvl_3_access()) && machine.get_lift_level().equals(new Integer(3)) && BOOL.implication(b.equals(true),machine.get_Sensor_state().apply(new Integer(3)).equals(machine.Detecting)));
+		return (BOOL.instance.has(b) //type check grd1
+				&& !b.equals(machine.get_lvl_3_access()) //grd1, value is changing
+				
+				&& machine.get_lift_level().equals(new Integer(3)) //grd2, lift at 3
+				&& BOOL.implication(b.equals(true),machine.get_Sensor_state().apply(new Integer(3)).equals(machine.Detecting))); //grd4_5, detected
 	}
 
 	/*@ public normal_behavior

@@ -19,7 +19,10 @@ public class Switch_lift_in{
  		assignable \nothing;
 		ensures \result <==> (machine.get_lift_level().equals(new Integer(1)) && !boolean.equals(machine.get_lift_in()) && BOOL.instance.has(boolean) && ((boolean.equals(true)) ==> (machine.get_Sensor_state().apply(new Integer(1)).equals(machine.Detecting)))); */
 	public /*@ pure */ boolean guard_Switch_lift_in( Boolean b) {
-		return (machine.get_lift_level().equals(new Integer(1)) && !b.equals(machine.get_lift_in()) && BOOL.instance.has(b) && BOOL.implication(b.equals(true),machine.get_Sensor_state().apply(new Integer(1)).equals(machine.Detecting)));
+		return (machine.get_lift_level().equals(new Integer(1)) //grd1
+				&& !b.equals(machine.get_lift_in()) //grd2
+				
+				&& BOOL.instance.has(b) && BOOL.implication(b.equals(true),machine.get_Sensor_state().apply(new Integer(1)).equals(machine.Detecting))); //grd3_5
 	}
 
 	/*@ public normal_behavior

@@ -19,7 +19,9 @@ public class Switch_lift_out{
  		assignable \nothing;
 		ensures \result <==> (!boolean.equals(machine.get_lift_out()) && BOOL.instance.has(boolean) && ((boolean.equals(true)) ==> (machine.get_Sensor_state().apply(machine.get_lift_level()).equals(machine.Detecting)))); */
 	public /*@ pure */ boolean guard_Switch_lift_out( Boolean b) {
-		return (!b.equals(machine.get_lift_out()) && BOOL.instance.has(b) && BOOL.implication(b.equals(true),machine.get_Sensor_state().apply(machine.get_lift_level()).equals(machine.Detecting)));
+		return (!b.equals(machine.get_lift_out()) //grd1, check change
+				&& BOOL.instance.has(b)  //grd1, type
+				&& BOOL.implication(b.equals(true),machine.get_Sensor_state().apply(machine.get_lift_level()).equals(machine.Detecting))); //grd5_5, lift detected if switching to true
 	}
 
 	/*@ public normal_behavior

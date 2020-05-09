@@ -19,7 +19,13 @@ public class Sensor_stops_detecting{
  		assignable \nothing;
 		ensures \result <==> (new Enumerated(new Integer(1),new Integer(3)).has(sensor) && !machine.get_Sensor_state().apply(sensor).equals(machine.Not_Detecting) && machine.get_lift_in().equals(false) && machine.get_lift_out().equals(false) && ((sensor.equals(new Integer(1))) ==> (machine.get_lift_access().equals(false) && machine.get_lvl_1_access().equals(false))) && ((sensor.equals(new Integer(2))) ==> (machine.get_lvl_2_access().equals(false))) && ((sensor.equals(new Integer(3))) ==> (machine.get_lvl_3_access().equals(false)))); */
 	public /*@ pure */ boolean guard_Sensor_stops_detecting( Integer sensor) {
-		return (new Enumerated(new Integer(1),new Integer(3)).has(sensor) && !machine.get_Sensor_state().apply(sensor).equals(machine.Not_Detecting) && machine.get_lift_in().equals(false) && machine.get_lift_out().equals(false) && BOOL.implication(sensor.equals(new Integer(1)),machine.get_lift_access().equals(false) && machine.get_lvl_1_access().equals(false)) && BOOL.implication(sensor.equals(new Integer(2)),machine.get_lvl_2_access().equals(false)) && BOOL.implication(sensor.equals(new Integer(3)),machine.get_lvl_3_access().equals(false)));
+		return (new Enumerated(new Integer(1),new Integer(3)).has(sensor) //grd2_5 argument in 1..3
+				&& !machine.get_Sensor_state().apply(sensor).equals(machine.Not_Detecting) //grd3_5
+				&& machine.get_lift_in().equals(false) //grd4_5
+				&& machine.get_lift_out().equals(false) //grd5_5
+				&& BOOL.implication(sensor.equals(new Integer(1)),machine.get_lift_access().equals(false) && machine.get_lvl_1_access().equals(false)) //grd6
+				&& BOOL.implication(sensor.equals(new Integer(2)),machine.get_lvl_2_access().equals(false)) //grd7
+				&& BOOL.implication(sensor.equals(new Integer(3)),machine.get_lvl_3_access().equals(false)));//grd8
 	}
 
 	/*@ public normal_behavior

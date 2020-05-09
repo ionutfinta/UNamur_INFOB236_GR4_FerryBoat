@@ -19,7 +19,17 @@ public class Vehicle_out{
  		assignable \nothing;
 		ensures \result <==> (BOOL.instance.has(queue_1) && BOOL.instance.has(queue_2) && new BSet<Boolean>(queue_1,queue_2).has(false) && ((!queue_1.equals(machine.get_queue1())) ==> (queue_1.equals(false))) && ((!queue_2.equals(machine.get_queue2())) ==> (queue_2.equals(false))) && new BSet<Boolean>(machine.get_queue1(),machine.get_queue2()).has(true) && !new BSet<Boolean>(machine.get_queue1(),machine.get_queue2()).equals(new BSet<Boolean>(queue_1,queue_2))); */
 	public /*@ pure */ boolean guard_Vehicle_out( Boolean queue_1, Boolean queue_2) {
-		return (BOOL.instance.has(queue_1) && BOOL.instance.has(queue_2) && new BSet<Boolean>(queue_1,queue_2).has(false) && BOOL.implication(!queue_1.equals(machine.get_queue1()),queue_1.equals(false)) && BOOL.implication(!queue_2.equals(machine.get_queue2()),queue_2.equals(false)) && new BSet<Boolean>(machine.get_queue1(),machine.get_queue2()).has(true) && !new BSet<Boolean>(machine.get_queue1(),machine.get_queue2()).equals(new BSet<Boolean>(queue_1,queue_2)));
+		return (BOOL.instance.has(queue_1) //type check
+				&& BOOL.instance.has(queue_2) 
+				
+				&& new BSet<Boolean>(queue_1,queue_2).has(false) //one is false
+				
+				&& BOOL.implication(!queue_1.equals(machine.get_queue1()),queue_1.equals(false)) //if change, then change is false
+				&& BOOL.implication(!queue_2.equals(machine.get_queue2()),queue_2.equals(false)) 
+				
+				&& new BSet<Boolean>(machine.get_queue1(),machine.get_queue2()).has(true) //one of the previous ones is true
+				
+				&& !new BSet<Boolean>(machine.get_queue1(),machine.get_queue2()).equals(new BSet<Boolean>(queue_1,queue_2))); //something is changing
 	}
 
 	/*@ public normal_behavior

@@ -19,7 +19,12 @@ public class Sensor_detects{
  		assignable \nothing;
 		ensures \result <==> (new Enumerated(new Integer(1),new Integer(3)).has(sensor) && !machine.get_Sensor_state().apply(sensor).equals(machine.Detecting) && machine.get_Sensor_state().apply(machine.get_lift_level()).equals(machine.Not_Detecting) && sensor.equals(machine.get_lift_level()) &&  (\forall Integer x;((new Enumerated(new Integer(1),new Integer(3)).has(x) && !x.equals(machine.get_lift_level())) ==> (!machine.get_Sensor_state().apply(x).equals(machine.Detecting))))); */
 	public /*@ pure */ boolean guard_Sensor_detects( Integer sensor) {
-		return (new Enumerated(new Integer(1),new Integer(3)).has(sensor) && !machine.get_Sensor_state().apply(sensor).equals(machine.Detecting) && machine.get_Sensor_state().apply(machine.get_lift_level()).equals(machine.Not_Detecting) && sensor.equals(machine.get_lift_level()) && true);
+		return (new Enumerated(new Integer(1),new Integer(3)).has(sensor) //grd2
+				&& !machine.get_Sensor_state().apply(sensor).equals(machine.Detecting) //grd3
+				&& machine.get_Sensor_state().apply(machine.get_lift_level()).equals(machine.Not_Detecting) //grd1
+				&& sensor.equals(machine.get_lift_level()) //grd4
+				//grd5 was missing, checked for whether a sensor was "detecting"
+				&& machine.get_Sensor_state().range().has(machine.Detecting));
 	}
 
 	/*@ public normal_behavior

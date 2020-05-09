@@ -19,7 +19,15 @@ public class Vehicle_in{
  		assignable \nothing;
 		ensures \result <==> (BOOL.instance.has(queue_1) && BOOL.instance.has(queue_2) && new BSet<Boolean>(queue_1,queue_2).has(true) && ((!queue_1.equals(machine.get_queue1())) ==> (queue_1.equals(true))) && ((!queue_2.equals(machine.get_queue2())) ==> (queue_2.equals(true))) && !new BSet<Boolean>(queue_1,queue_2).equals(new BSet<Boolean>(machine.get_queue1(),machine.get_queue2()))); */
 	public /*@ pure */ boolean guard_Vehicle_in( Boolean queue_1, Boolean queue_2) {
-		return (BOOL.instance.has(queue_1) && BOOL.instance.has(queue_2) && new BSet<Boolean>(queue_1,queue_2).has(true) && BOOL.implication(!queue_1.equals(machine.get_queue1()),queue_1.equals(true)) && BOOL.implication(!queue_2.equals(machine.get_queue2()),queue_2.equals(true)) && !new BSet<Boolean>(queue_1,queue_2).equals(new BSet<Boolean>(machine.get_queue1(),machine.get_queue2())));
+		return (BOOL.instance.has(queue_1) //type check, header checks anyway..
+				&& BOOL.instance.has(queue_2) 
+				
+				&& new BSet<Boolean>(queue_1,queue_2).has(true) //at least 1 true
+				
+				&& BOOL.implication(!queue_1.equals(machine.get_queue1()),queue_1.equals(true))//if new value, then value is true
+				&& BOOL.implication(!queue_2.equals(machine.get_queue2()),queue_2.equals(true)) 
+				
+				&& !new BSet<Boolean>(queue_1,queue_2).equals(new BSet<Boolean>(machine.get_queue1(),machine.get_queue2()))); //values change
 	}
 
 	/*@ public normal_behavior
