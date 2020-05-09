@@ -19,8 +19,7 @@ class Earth extends U3DObject{
     tmpObj.setShapeSRC("./assets/poteau.obj");
     tmpObj.setShapeName("noStroke");
     tmpObj.setPlanet(this);
-    uni.addObject(tmpObj);
-      
+    
     for(int i = 100; i >= 0; i-=2){
       tmpObj = new U3DObject(tmpObj);
       tmpObj.setPos(new PVector(-21.3-i, 0.785087, 123.41).add(mPosition));

@@ -39,9 +39,6 @@ class U3DObject {
   U3DObject(Universe u){
     this();
     everything = u.objs;
-    u.addObject(this);
-    if(u.getEarth() != null)
-      mPlanet = u.getEarth();
   }
   
   // Constructeur par copie

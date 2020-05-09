@@ -24,21 +24,22 @@ void setup(){
   is2DEnv = true;
   
   myUniverse = new Universe();
-  myUniverse.init();
   
-  me = new Me(myUniverse, "God", "Laniakea>Virgo Supercluster>Local Sheet>Local Group>Milky Way subgroup>"+
+  myUniverse.init();
+  me = myUniverse.spawnMyself("God", "Laniakea>Virgo Supercluster>Local Sheet>Local Group>Milky Way subgroup>"+
                                      "Milky Way Galaxy>Orbit of the Solar System>Orion Arm>Gould Belt>Local Bubble>Local Interstellar Cloud>" +
                                      "Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>" +
                                      "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject");
 
-  myFirstCar = new Car(myUniverse, new PVector(-20, 11, 120));
-  mCar2 = new Car(myUniverse, new PVector(-20, 10, 100));
+  myFirstCar = myUniverse.spawnCar(new PVector(-20, 11, 120));
+  mCar2 = myUniverse.spawnCar(new PVector(-20, 10, 100));
   
-  mBarriere1 = new Barriere(myUniverse, new PVector(-11.5, 2.629905, 123.5));
-  mBarriere2 = new Barriere(myUniverse, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
+  mBarriere1 = myUniverse.spawnBarriere(new PVector(-11.5, 2.629905, 123.5));
+  mBarriere2 = myUniverse.spawnBarriere(new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
+  mBarriere1.setOuvert();
   
   // Spawn Ferry avec 3 compartiments
-  mFerry = new Ferry(myUniverse, 3);
+  mFerry = myUniverse.spawnFerry(3);
   
   selector = myUniverse.initSelector();  
   

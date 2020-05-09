@@ -1,6 +1,6 @@
 # Blender v2.82 (sub 7) OBJ File: 'concreteWall.blend'
 # www.blender.org
-mtllib concreteWall2.mtl
+mtllib concreteWall.mtl
 o Cube
 v 125.000000 8.000000 -1.000000
 v 125.000000 -8.000000 -1.000000

@@ -3,8 +3,7 @@ class Vehicle extends U3DObject{
   
   private boolean isSelected;
   
-  Vehicle(Universe uni) {
-    super(uni);
+  Vehicle() {
     wheels = new ArrayList<Wheel>();
     mCollide = true;
   }
