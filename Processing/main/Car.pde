@@ -1,5 +1,7 @@
 class Car extends Vehicle {
   
+  final float SPEED_MULT = 1;
+  
   
   Car(PVector pos, Universe u){
     mShape = loadShape("./assets/car_chassis.obj");
@@ -25,26 +27,29 @@ class Car extends Vehicle {
     
     if(keyPressed == true && isSelected()){
       if(key == 'z'){
-        mInertia.z += .5f;
+        mInertia.z += .05f;
       }
       if(key == 'a'){
-        mInertia.z += .5f;
-        mInertia.x += .1f;
+        mInertia.z += .05f;
+        mInertia.x += .01f;
       }
       if(key == 'e'){
-        mInertia.z += .5f;
-        mInertia.x -= .1f;
+        mInertia.z += .05f;
+        mInertia.x -= .01f;
       }
       if(key == 'q'){
-        mInertia.x += .1f;
-        mInertia.z -= .3f;
+        mInertia.x += .01f;
+        mInertia.z -= .03f;
       }
       if(key == 'd'){
-        mInertia.x -= .1f;
-        mInertia.z -= .3f;
+        mInertia.x -= .01f;
+        mInertia.z -= .03f;
       }
       if(key == 's')
-        mInertia.z -= .3f;
+        mInertia.z -= .03f;
+        
+      mInertia.z*=SPEED_MULT;
+      mInertia.x*=SPEED_MULT;
     }
   }
 }

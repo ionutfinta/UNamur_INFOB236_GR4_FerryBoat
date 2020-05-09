@@ -223,7 +223,7 @@ class U3DObject {
         while(iter2.hasNext()){
           o2 = iter2.next();
           
-          if(o1==o2 || o2 instanceof Me);
+          if(o1==o2 || o2 instanceof Me || o2 instanceof SelectionArrow);
           else{
              oPos = o2.getPosition().copy().add(o2.getInertia());
              oSize = o2.getSize().copy();

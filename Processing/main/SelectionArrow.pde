@@ -15,15 +15,13 @@ class SelectionArrow extends U3DObject {
   }
   
   void updateSelected(U3DObject selected){
-    selected_pos = selected.getPosition();
-    mPosition.z = selected_pos.z;
-    mPosition.x = selected_pos.x;
-    mPosition.y = selected_pos.y + selected.mShape.getHeight() + V_OFFSET;
+    selected_o = selected;
     
     
-    mInertia = selected.mInertia;
-    selected_angle = selected.mAngles;
-    mAngles = selected_angle;
+    
+    
+    
+   
   }
   
   @Override
@@ -31,6 +29,19 @@ class SelectionArrow extends U3DObject {
     if(selected_o!=null && selected_o.isSelected()){
       super.display();
     }
+  }
+  @Override
+  void animate(){
+    if(selected_o==null)
+    return;
+    
+    selected_pos = selected_o.getPosition();
+    mPosition.z = selected_pos.z;
+    mPosition.x = selected_pos.x;
+    mPosition.y = selected_pos.y + selected_o.mShape.getHeight() + V_OFFSET;
+    
+    
+    mAngles = selected_o.mAngles;
   }
   
   
