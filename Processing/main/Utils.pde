@@ -26,3 +26,20 @@ public static float getYLine(PVector pointA, PVector pointB, float x){
   return pointA.y + ((pointB.y-pointA.y)/(pointB.x-pointA.x))*(x-pointA.x);
   
 }
+
+//get a 2d vector from a 3d one, ijk can be 1 or 0
+//@requires i+j+k==2 && i,j,k>=0 && i,j,k<=1
+public static PVector planeFrom(PVector v, int i, int j, int k){
+  int[] ijk = {i,j,k};
+  boolean gotOne = false;
+  PVector ret = new PVector();
+  for(int x:ijk){
+    if(x>0){
+      if(gotOne)
+        ret.x=x;
+      else
+        ret.y=x;
+    }   
+  }
+  return ret;
+}

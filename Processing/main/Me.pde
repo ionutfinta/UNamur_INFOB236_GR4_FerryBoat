@@ -175,4 +175,10 @@ class Me extends U3DObject{
  public PVector getCamDir(){
    return cameraDir;
  }
+ public float getCamRotationAngle(){
+   return rotationAngle;
+ }
+ public float getCamElevationAngle(){
+   return elevationAngle;
+ }
 }

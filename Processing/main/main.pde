@@ -67,7 +67,7 @@ void draw(){
 void mousePressed(){
   if(mouseButton == LEFT){
     //SelectEntity(me, myUniverse, 30);
-    selector.send(me.getPosition(), me.getCamDir());
+    selector.send(me.getPosition(), me.getCamDir(), me.getCamRotationAngle(), me.getCamElevationAngle());
   }
 
   // Tu peux relayer toutes les fonctions de main à ta classe ainsi:

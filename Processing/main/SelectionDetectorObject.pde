@@ -11,6 +11,9 @@ class SelectionDetectorObject extends U3DObject{
   int it_since_launch;
   U3DObject selected;
   
+  private float rotationAngle;
+  private float elevationAngle;
+  
   private ArrayList<U3DObject> collidingEntities;
   public SelectionArrow arrow;
   
@@ -46,19 +49,66 @@ class SelectionDetectorObject extends U3DObject{
     mPosition = new PVector(1000,1000,1000);
   }
  
-  void setDirection(PVector direc){
-    mInertia = direc.copy().mult(2);
+  void setDirection(PVector direc, float ra, float ea){
+    mInertia = direc.copy();
+     rotationAngle = ra;
+     elevationAngle = ea;
   }
   
   void setPosition(PVector pos){
-    mPosition = pos.copy();
+    mPosition = pos.copy();    
   }
   
-  void send(PVector pos, PVector dir){
+  void correctDirection(){
+     //default FOV is perspective(PI/3.0, width/height, cameraZ/10.0, cameraZ*10.0), where cameraZ is((height/2.0) / tan(PI*60.0/360.0)), PI/3 vertical angle
+    //=> the angle between k_hat and the i_hat*width/2 is PI/3 rad, same for j_hat*height/2
+    
+    //percentage of distance from center
+    float mouse_x = (float) mouseX;
+    float mouse_y = (float) mouseY;
+    PVector centerRelative = new PVector((mouse_x-(width/2))/(width/2), -1*(mouse_y-(height/2))/(height/2));
+    
+    //basis
+    PVector i_hat = new PVector(1,0,0); //lateral
+    PVector j_hat = new PVector(0,1,0); //top/down
+    PVector k_hat = new PVector(0,0,1); //depth
+    
+    float dir_angle_H = rotationAngle/2; //horizontal
+    float dir_angle_V = -elevationAngle/2; //vertical
+    
+    //ik value
+      //angle is PI/3*centerRelative.x /2
+      float ik_angle = (PI/3)*centerRelative.x/2;
+    //jk value
+      //angle is PI/3*centerRelative.y /2
+      float jk_angle = (PI/3)*((float)width/height)*centerRelative.y/2;
+    
+    //assume inertia to have k component 1
+    float i_val, j_val, k_val;
+    k_val = 1;
+    i_val = tan(ik_angle);
+    j_val = tan(jk_angle);
+    PVector correction = new PVector(i_val,j_val,k_val);
+    /*Y rotation  [cos 0 sin][0 1 0][-sin 0 cos] 
+    x rotation [1 0 0][0 cos -sin][0 sin cos]
+    Z rotation [cos -sin 0][sin cos 0][0 0 1] unneeded(would be yawn)*/
+    //X rotation(up_down)
+    /*correction.y = cos(dir_angle_V)*correction.y-sin(dir_angle_V)*correction.z;
+    correction.z = sin(dir_angle_V)*correction.y+cos(dir_angle_V)*correction.z;
+    //Y rotation
+    correction.x = cos(dir_angle_H)*correction.x+sin(dir_angle_H)*correction.z;
+    correction.z = -sin(dir_angle_H)*correction.x+cos(dir_angle_H)*correction.z;
+    */
+    mInertia = correction;
+    
+  }
+  
+  void send(PVector pos, PVector dir, float ra, float ea){
     detected = false;
     it_since_launch = 0;
-    setDirection(dir);
+    setDirection(dir,ra,ea);
     setPosition(pos);
+    correctDirection();
   }
   
 
