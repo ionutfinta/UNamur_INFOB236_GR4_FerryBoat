@@ -1,7 +1,7 @@
 import processing.opengl.*;
 
+fifthRef myEventBMachine;
 Universe myUniverse;
-
 Me me;
 Car myFirstCar, mCar2;
 Barriere mBarriere1;
@@ -23,6 +23,9 @@ void setup(){
   smooth(4);
   is2DEnv = true;
   
+  // --- Initialisation
+  myEventBMachine = new fifthRef();
+  
   myUniverse = new Universe();
   myUniverse.init();
   
@@ -38,7 +41,7 @@ void setup(){
   mBarriere2 = new Barriere(myUniverse, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
   
   // Spawn Ferry avec 3 compartiments
-  mFerry = new Ferry(myUniverse, 3);
+  mFerry = new Ferry(myUniverse, 3, myEventBMachine);
   
   selector = myUniverse.initSelector();  
   

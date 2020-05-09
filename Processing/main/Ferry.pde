@@ -11,9 +11,26 @@ class Ferry extends U3DObject{
   private int mLongueur;
   
   private float x,y,z;
+  
+  // Event-B link
+  private fifthRef mEventB;
+  BRelation<Integer, Integer> mCapacities;
 
   // --- Constructeur
-  Ferry(Universe uni, int lg){
+  Ferry(Universe uni, int lg, fifthRef machine){
+    mCapacities = new BRelation<Integer, Integer>().insert(1, lg*6).insert(2,lg*6).insert(3,lg*6);
+    println(mCapacities.toString());
+    if(!machine.evt_Boat_ready.guard_Boat_ready(mCapacities)){
+      println("Fatal Error ! Guard for Boat Ready Unsatisfaied, Could not create a new Ferry !");
+      return;
+    }
+    try{
+      machine.evt_Boat_ready.run_Boat_ready(mCapacities);
+    }catch(Exception e){
+      e.printStackTrace();
+    }
+    mEventB = machine;
+    
       mLongueur = lg;
       mPosition = new PVector(-14.88295,1.5,125 + 17 + lg*18.1416);
       mShape = loadShape("./assets/ferry_proue.obj");

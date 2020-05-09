@@ -11,7 +11,6 @@ class Me extends U3DObject{
   
   
   PImage mClouds0;
-  PImage mSkyBoxWater;
   PImage mSun;
   
   PGraphics mBackground;
@@ -33,7 +32,6 @@ class Me extends U3DObject{
    mSize = new PVector(1, 2.7, 1);
    
    mClouds0 = loadImage("./assets/clouds0.gif");
-   mSkyBoxWater = loadImage("./assets/skybox_water.gif");
    mSun = loadImage("./assets/sun.png");
    mBackground = createGraphics(width, height);
  }
