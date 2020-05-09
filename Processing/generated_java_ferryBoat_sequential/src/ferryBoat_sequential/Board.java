@@ -42,7 +42,26 @@ public class Board{
 			machine.set_bs_p((bs_p_tmp.override(new BRelation<Integer,Integer>(new Pair<Integer,Integer>(machine.get_lift_level(),new Integer(bs_p_tmp.apply(machine.get_lift_level()) + machine.vehicle_slot.apply(vehicle_type)))))));
 			machine.set_bs_m(new Integer(bs_m_tmp - machine.vehicle_slot.apply(vehicle_type)));
 			machine.set_in_lift_ids(in_lift_ids_tmp.difference(new BSet<Integer>(vehicle_id)));
-			machine.set_lift_vehicles(lift_vehicles_tmp.difference(new no_type(new JMLObjectSet {Pair<Integer,Integer> x | (\exists no_type e; (BRelation.cross(new Enumerated(1,2),new Enumerated(1,3)).has(null) && lift_vehicles_tmp.apply(null).equals(vehicle_id)); e.equals(new Pair<Integer,ERROR>(null,vehicle_id)))})));
+			
+			// Rewritten:
+			lift_vehicles_tmp.remove(
+					lift_vehicles_tmp.inverseElementImage(vehicle_id).choose(),
+					vehicle_id);
+			
+			machine.set_lift_vehicles(lift_vehicles_tmp);
+					
+					/* Generated automatically but not working:
+					 * .difference(
+							new no_type(
+									new JMLObjectSet {
+										Pair<Integer,Integer> x | (
+												\exists no_type e; (
+														BRelation.cross(
+																new Enumerated(1,2),
+																new Enumerated(1,3)).has(null)
+														&&
+														lift_vehicles_tmp.apply(null).equals(vehicle_id));
+												e.equals(new Pair<Integer,ERROR>(null,vehicle_id)))})));*/
 
 			System.out.println("Board executed vehicle_id: " + vehicle_id + " vehicle_type: " + vehicle_type + " ");
 		}
