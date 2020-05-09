@@ -19,7 +19,18 @@ public class Board{
  		assignable \nothing;
 		ensures \result <==> (machine.VEHICLE_TYPES.has(vehicle_type) && (new Integer(machine.get_busy_slots() + machine.vehicle_slot.apply(vehicle_type))).compareTo(machine.get_max_busy_slots()) <= 0 && (machine.vehicle_slot.apply(vehicle_type)).compareTo(machine.get_bs_m()) <= 0 && (new Integer(machine.vehicle_slot.apply(vehicle_type) + machine.get_bs_p().apply(machine.get_lift_level()))).compareTo(machine.get_max_bs_p().apply(machine.get_lift_level())) <= 0 && machine.get_reservations().domain().has(vehicle_id) && machine.get_reservations().apply(vehicle_id).equals(new Pair<Integer,Integer>(machine.get_lift_level(),vehicle_type)) && machine.get_lift_vehicles().range().has(vehicle_id) && machine.get_lift_out().equals(true) && ((machine.get_lift_level().equals(new Integer(1))) ==> (machine.get_lvl_1_access().equals(true))) && ((machine.get_lift_level().equals(new Integer(2))) ==> (machine.get_lvl_2_access().equals(true))) && ((machine.get_lift_level().equals(new Integer(3))) ==> (machine.get_lvl_3_access().equals(true))) && machine.get_Sensor_state().apply(machine.get_lift_level()).equals(machine.Detecting)); */
 	public /*@ pure */ boolean guard_Board( Integer vehicle_id, Integer vehicle_type) {
-		return (machine.VEHICLE_TYPES.has(vehicle_type) && (new Integer(machine.get_busy_slots() + machine.vehicle_slot.apply(vehicle_type))).compareTo(machine.get_max_busy_slots()) <= 0 && (machine.vehicle_slot.apply(vehicle_type)).compareTo(machine.get_bs_m()) <= 0 && (new Integer(machine.vehicle_slot.apply(vehicle_type) + machine.get_bs_p().apply(machine.get_lift_level()))).compareTo(machine.get_max_bs_p().apply(machine.get_lift_level())) <= 0 && machine.get_reservations().domain().has(vehicle_id) && machine.get_reservations().apply(vehicle_id).equals(new Pair<Integer,Integer>(machine.get_lift_level(),vehicle_type)) && machine.get_lift_vehicles().range().has(vehicle_id) && machine.get_lift_out().equals(true) && BOOL.implication(machine.get_lift_level().equals(new Integer(1)),machine.get_lvl_1_access().equals(true)) && BOOL.implication(machine.get_lift_level().equals(new Integer(2)),machine.get_lvl_2_access().equals(true)) && BOOL.implication(machine.get_lift_level().equals(new Integer(3)),machine.get_lvl_3_access().equals(true)) && machine.get_Sensor_state().apply(machine.get_lift_level()).equals(machine.Detecting));
+		return (machine.VEHICLE_TYPES.has(vehicle_type) //grd2_2
+				&& (new Integer(machine.get_busy_slots() + machine.vehicle_slot.apply(vehicle_type))).compareTo(machine.get_max_busy_slots()) <= 0 //grd3_2
+				&& (machine.vehicle_slot.apply(vehicle_type)).compareTo(machine.get_bs_m()) <= 0 
+				&& (new Integer(machine.vehicle_slot.apply(vehicle_type) + machine.get_bs_p().apply(machine.get_lift_level()))).compareTo(machine.get_max_bs_p().apply(machine.get_lift_level())) <= 0 
+				&& machine.get_reservations().domain().has(vehicle_id) 
+				&& machine.get_reservations().apply(vehicle_id).equals(new Pair<Integer,Integer>(machine.get_lift_level(),vehicle_type)) 
+				&& machine.get_lift_vehicles().range().has(vehicle_id) 
+				&& machine.get_lift_out().equals(true) 
+				&& BOOL.implication(machine.get_lift_level().equals(new Integer(1)),machine.get_lvl_1_access().equals(true)) 
+				&& BOOL.implication(machine.get_lift_level().equals(new Integer(2)),machine.get_lvl_2_access().equals(true)) 
+				&& BOOL.implication(machine.get_lift_level().equals(new Integer(3)),machine.get_lvl_3_access().equals(true)) 
+				&& machine.get_Sensor_state().apply(machine.get_lift_level()).equals(machine.Detecting));
 	}
 
 	/*@ public normal_behavior

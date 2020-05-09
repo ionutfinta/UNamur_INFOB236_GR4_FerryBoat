@@ -19,7 +19,8 @@ public class Boat_leave{
  		assignable \nothing;
 		ensures \result <==> ((new Integer(0)).compareTo(machine.get_max_busy_slots()) < 0 && machine.get_auth_on_ids().equals(BSet.EMPTY)); */
 	public /*@ pure */ boolean guard_Boat_leave() {
-		return ((new Integer(0)).compareTo(machine.get_max_busy_slots()) < 0 && machine.get_auth_on_ids().equals(BSet.EMPTY));
+		return ((new Integer(0)).compareTo(machine.get_max_busy_slots()) < 0 
+				&& machine.get_auth_on_ids().equals(BSet.EMPTY));
 	}
 
 	/*@ public normal_behavior
@@ -42,19 +43,19 @@ public class Boat_leave{
 			BRelation<Pair<Integer,Integer>,Integer> lift_vehicles_tmp = machine.get_lift_vehicles();
 			BRelation<Integer,Boolean> id_is_left_tmp = machine.get_id_is_left();
 
-			machine.set_busy_slots(0);
-			machine.set_max_busy_slots(0);
+			machine.set_busy_slots(0); //act 1
+			machine.set_max_busy_slots(0); //act2
 			BRelation<Integer, Integer> eachfloor0 = new BRelation<Integer, Integer>();
 			for(int  i = 0; i <= machine.floors.max(); i++) {
 				eachfloor0.insert(i, 0);
 			}
-			machine.set_bs_p(eachfloor0);
-			machine.set_max_bs_p(eachfloor0);
-			machine.set_reservations(BRelation.EMPTY);
-			machine.set_reserved_spaces(eachfloor0);
-			machine.set_boarded_ids(BSet.EMPTY);
-			machine.set_lift_vehicles(BRelation.EMPTY);
-			machine.set_id_is_left(BRelation.EMPTY);
+			machine.set_bs_p(eachfloor0); //act3_1
+			machine.set_max_bs_p(eachfloor0); //arc4_1
+			machine.set_reservations(BRelation.EMPTY); //act5_2
+			machine.set_reserved_spaces(eachfloor0); //act7_2
+			machine.set_boarded_ids(BSet.EMPTY); //act3_3
+			machine.set_lift_vehicles(BRelation.EMPTY); //act4_3
+			machine.set_id_is_left(BRelation.EMPTY); //act5_3
 
 			System.out.println("Boat_leave executed ");
 		}
