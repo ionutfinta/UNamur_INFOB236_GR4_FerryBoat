@@ -33,48 +33,45 @@ public class fifthRef{
 
 	/******Set definitions******/
 	//@ public static constraint VEHICLE_TYPES.equals(\old(VEHICLE_TYPES)); 
-	public static final BSet<Integer> VEHICLE_TYPES = new Enumerated(min_integer,max_integer);
+	public static final BSet<Integer> VEHICLE_TYPES = new Enumerated(10,13);
 
 	//@ public static constraint SENS_STATES.equals(\old(SENS_STATES)); 
-	public static final BSet<Integer> SENS_STATES = new Enumerated(min_integer,max_integer);
+	public static final BSet<Integer> SENS_STATES = new Enumerated(0,1);
 
 
 	/******Constant definitions******/
 	//@ public static constraint camion_1.equals(\old(camion_1)); 
-	public static final Integer camion_1 = Test_fifthRef.random_camion_1;
+	public static final Integer camion_1 = 11;
 
 	//@ public static constraint camion_2.equals(\old(camion_2)); 
-	public static final Integer camion_2 = Test_fifthRef.random_camion_2;
+	public static final Integer camion_2 = 12;
 
 	//@ public static constraint camion_3.equals(\old(camion_3)); 
-	public static final Integer camion_3 = Test_fifthRef.random_camion_3;
+	public static final Integer camion_3 = 13;
 
 	//@ public static constraint vehicle_slot.equals(\old(vehicle_slot)); 
-	public static final BRelation<Integer,Integer> vehicle_slot = Test_fifthRef.random_vehicle_slot;
+	public static final BRelation<Integer,Integer> vehicle_slot = new BRelation<Integer,Integer>().insert(10,1).insert(11,1).insert(12,2).insert(13,3);
 
 	//@ public static constraint voiture.equals(\old(voiture)); 
-	public static final Integer voiture = Test_fifthRef.random_voiture;
-
-	//@ public static constraint integral.equals(\old(integral)); 
-	public static final BRelation<BRelation<Integer,Integer>,Integer> integral = Test_fifthRef.random_integral;
+	public static final Integer voiture = 10;
 
 	//@ public static constraint floors.equals(\old(floors)); 
-	public static final BSet<Integer> floors = Test_fifthRef.random_floors;
+	public static final BSet<Integer> floors = new BSet<Integer>(1,2,3);
 
 	//@ public static constraint max_bs_m.equals(\old(max_bs_m)); 
-	public static final Integer max_bs_m = Test_fifthRef.random_max_bs_m;
+	public static final Integer max_bs_m = 6;
 
 	//@ public static constraint lift_depth.equals(\old(lift_depth)); 
-	public static final Integer lift_depth = Test_fifthRef.random_lift_depth;
+	public static final Integer lift_depth = 3;
 
 	//@ public static constraint queues.equals(\old(queues)); 
-	public static final Integer queues = Test_fifthRef.random_queues;
+	public static final Integer queues = 2;
 
 	//@ public static constraint Detecting.equals(\old(Detecting)); 
-	public static final Integer Detecting = Test_fifthRef.random_Detecting;
+	public static final Integer Detecting = 0;
 
 	//@ public static constraint Not_Detecting.equals(\old(Not_Detecting)); 
-	public static final Integer Not_Detecting = Test_fifthRef.random_Not_Detecting;
+	public static final Integer Not_Detecting = 1;
 
 
 
@@ -522,7 +519,13 @@ public class fifthRef{
 		this.lvl_3_access = lvl_3_access;
 	}
 
-
+	public Integer integral(BRelation<Integer, Integer> in) {
+		int res = 0;
+		for(Integer x:in.domain()) {
+			res += in.apply(x);
+		}
+		return res;
+	}
 
 	/*@ public normal_behavior
 	    requires true;
@@ -553,12 +556,20 @@ public class fifthRef{
 	public fifthRef(){
 		max_busy_slots = 0;
 		busy_slots = 0;
-		max_bs_p = new no_type(new JMLObjectSet {Integer f | (\exists no_type e; (floors.has(null)); e.equals(new Pair<Integer,ERROR>(null,0)))});
-		bs_p = new no_type(new JMLObjectSet {Integer f | (\exists no_type e; (floors.has(null)); e.equals(new Pair<Integer,ERROR>(null,0)))});
+		
+		BRelation<Integer, Integer> eachfloor0 = new BRelation<Integer, Integer>();
+		for(int  i = 0; i <= floors.max(); i++) {
+			eachfloor0.insert(i, 0);
+		}
+		//max_bs_p = new no_type(new JMLObjectSet {Integer f | (\exists no_type e; (floors.has(null)); e.equals(new Pair<Integer,ERROR>(null,0)))});
+		max_bs_p = eachfloor0;
+		//bs_p = new no_type(new JMLObjectSet {Integer f | (\exists no_type e; (floors.has(null)); e.equals(new Pair<Integer,ERROR>(null,0)))});
+		bs_p  = eachfloor0;
 		lift_level = 1;
 		bs_m = 0;
 		reservations = new BRelation<Integer,Pair<Integer,Integer>>();
-		reserved_spaces = new no_type(new JMLObjectSet {Integer f | (\exists no_type e; (floors.has(null)); e.equals(new Pair<Integer,ERROR>(null,0)))});
+		//reserved_spaces = new no_type(new JMLObjectSet {Integer f | (\exists no_type e; (floors.has(null)); e.equals(new Pair<Integer,ERROR>(null,0)))});
+		reserved_spaces = eachfloor0;
 		auth_on_ids = new BSet<Integer>();
 		in_lift_ids = new BSet<Integer>();
 		boarded_ids = new BSet<Integer>();
@@ -572,7 +583,7 @@ public class fifthRef{
 		lvl_2_access = false;
 		lvl_3_access = false;
 		lift_access = false;
-		Sensor_state = (new BRelation<Integer,Integer>(new Pair<Integer,Integer>(1,Detecting),new Pair<Integer,Integer>(2,Not_Detecting),new Pair<Integer,Integer>(3,Not_Detecting)));
+		Sensor_state = new BRelation<Integer,Integer>(new Pair<Integer,Integer>(1,Detecting),new Pair<Integer,Integer>(2,Not_Detecting),new Pair<Integer,Integer>(3,Not_Detecting));
 
 	}
 }

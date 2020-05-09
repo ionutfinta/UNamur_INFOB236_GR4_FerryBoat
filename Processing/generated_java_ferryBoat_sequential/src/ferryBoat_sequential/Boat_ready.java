@@ -35,7 +35,7 @@ public class Boat_ready{
 			Integer max_busy_slots_tmp = machine.get_max_busy_slots();
 			BRelation<Integer,Integer> max_bs_p_tmp = machine.get_max_bs_p();
 
-			machine.set_max_busy_slots(machine.integral.apply(capacities));
+			machine.set_max_busy_slots(machine.integral(capacities));
 			machine.set_max_bs_p(capacities);
 
 			System.out.println("Boat_ready executed capacities: " + capacities + " ");

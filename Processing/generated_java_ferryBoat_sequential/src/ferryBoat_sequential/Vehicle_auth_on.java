@@ -19,7 +19,17 @@ public class Vehicle_auth_on{
  		assignable \nothing;
 		ensures \result <==> (machine.VEHICLE_TYPES.has(vehicle_type) && machine.get_reservations().domain().has(vehicle_id) && new Integer(new JMLObjectSet {Integer fInteger v | (exists Integer e; (machine.floors.has(f) && v.equals(vehicle_type)); e.equals(new Pair<Integer,Integer>(f,v)))}).has(machine.get_reservations().apply(vehicle_id)) && machine.get_lift_level().equals(new Integer(1)) && !machine.get_auth_on_ids().has(vehicle_id) && BOOL.instance.has(is_left) && ((is_left.equals(true)) ==> (machine.get_queue1().equals(true))) && ((is_left.equals(false)) ==> (machine.get_queue2().equals(true))) && !machine.get_boarded_ids().has(vehicle_id)); */
 	public /*@ pure */ boolean guard_Vehicle_auth_on( Integer vehicle_id, Integer vehicle_type, Boolean is_left) {
-		return (machine.VEHICLE_TYPES.has(vehicle_type) && machine.get_reservations().domain().has(vehicle_id) && new Integer(new JMLObjectSet {Integer fInteger v | (exists Integer e; (machine.floors.has(f) && v.equals(vehicle_type)); e.equals(new Pair<Integer,Integer>(f,v)))}).has(machine.get_reservations().apply(vehicle_id)) && machine.get_lift_level().equals(new Integer(1)) && !machine.get_auth_on_ids().has(vehicle_id) && BOOL.instance.has(is_left) && BOOL.implication(is_left.equals(true),machine.get_queue1().equals(true)) && BOOL.implication(is_left.equals(false),machine.get_queue2().equals(true)) && !machine.get_boarded_ids().has(vehicle_id));
+		return (machine.VEHICLE_TYPES.has(vehicle_type) && //grd1_2
+				machine.get_reservations().domain().has(vehicle_id) && //grd2_2 
+				// La grd3_2 est une erreur de conception de toutes façons, on peut la laisser tomber:
+				/*new Integer(new JMLObjectSet {Integer fInteger v | (exists Integer e; (machine.floors.has(f) && 
+						v.equals(vehicle_type)); e.equals(new Pair<Integer,Integer>(f,v)))}).has(machine.get_reservations().apply(vehicle_id)) &&*/ 
+				machine.get_lift_level().equals(new Integer(1)) && //grd4_2 
+				!machine.get_auth_on_ids().has(vehicle_id) && //grd5_2
+				BOOL.instance.has(is_left) && //grd1_3
+				BOOL.implication(is_left.equals(true),machine.get_queue1().equals(true)) && //grd2_3 
+				BOOL.implication(is_left.equals(false),machine.get_queue2().equals(true)) &&  //grd3_3
+				!machine.get_boarded_ids().has(vehicle_id)); //grd4_3
 	}
 
 	/*@ public normal_behavior

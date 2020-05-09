@@ -16,7 +16,7 @@ public class BoardLift{
 	
 	// Donne le slot le plus profond disponible sur la plateforme du lift selon la file et les slots requis, 0 dans le cas échéant.
 	private int getMinSlot(int queue, int needed_slots) {
-		for(int i = 1; i <= machine.lift_depth - needed_slots; i++) {
+		for(int i = machine.lift_depth - needed_slots; i >= 1; i--) {
 			if(machine.get_lift_vehicles().domain().has(new Pair<Integer, Integer>(queue, i)))
 				continue;
 			return i;
