@@ -44,9 +44,11 @@ public class Board{
 			machine.set_in_lift_ids(in_lift_ids_tmp.difference(new BSet<Integer>(vehicle_id)));
 			
 			// Rewritten:
-			lift_vehicles_tmp.remove(
-					lift_vehicles_tmp.inverseElementImage(vehicle_id).choose(),
-					vehicle_id);
+			for(Pair<Integer, Integer> p : lift_vehicles_tmp.inverseElementImage(vehicle_id)) {
+				lift_vehicles_tmp.remove(
+						p,
+						vehicle_id);
+			}
 			
 			machine.set_lift_vehicles(lift_vehicles_tmp);
 					
