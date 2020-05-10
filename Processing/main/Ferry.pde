@@ -56,7 +56,7 @@ class Ferry extends U3DObject{
     porteRDC = new U3DObject();
     porteRDC.setShapeSRC("./assets/ferry_porteRDC.obj");
     porteRDC.setPos(new PVector(0.0, -0.700064, -24.563-(lg-1)*16.1113).add(mPosition));
-    porteRDC.setRotationZCenter(porteRDC.getPosition());
+    porteRDC.setRotationXCenter(new PVector(porteRDC.getPosition().x-0.5, porteRDC.getPosition().y-0.5, porteRDC.getPosition().z));
     uni.addObject(porteRDC);
     lvl1Access = false;
 
@@ -67,7 +67,7 @@ class Ferry extends U3DObject{
     portePont2 = new U3DObject();
     portePont2.setShapeSRC("./assets/ferry_porte2.obj");
     portePont2.setPos(new PVector(-0.17, 4.1551237, -24.222954-(lg-1)*16.1113).add(mPosition));
-    portePont2.setRotationZCenter(portePont2.getPosition());
+    portePont2.setRotationXCenter(new PVector(portePont2.getPosition().x-0.5, portePont2.getPosition().y-0.5, portePont2.getPosition().z));
     uni.addObject(portePont2);
     lvl2Access = false;
     
@@ -78,7 +78,7 @@ class Ferry extends U3DObject{
     portePont3 = new U3DObject();
     portePont3.setShapeSRC("./assets/ferry_porte3.obj");
     portePont3.setPos(new PVector(-0.06, 7.7241237, -24.182954-(lg-1)*16.1113).add(mPosition));
-    portePont3.setRotationZCenter(new PVector(-0.06, 7, -23.182954-(lg-1)*16.1113).add(mPosition));
+    portePont3.setRotationXCenter(new PVector(portePont3.getPosition().x-0.5, portePont3.getPosition().y-0.5, portePont3.getPosition().z));
     uni.addObject(portePont3);
     lvl3Access = false;
     

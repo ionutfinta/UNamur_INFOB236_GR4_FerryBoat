@@ -9,9 +9,11 @@ class U3DObject {
   
   // An object car rotate round a defined center (if not set, it turns round its own center)
   protected PVector mRotationZCenter;
-  protected float mRotationZr;
   protected PVector mRotationXCenter;
   protected PVector mRotationYCenter;
+  protected float mRotationZr;
+  protected float mRotationXr;
+  protected float mRotationYr;
   
   protected PShape mShape;
   
@@ -333,6 +335,16 @@ class U3DObject {
                           mRotationZCenter.y - sin(mAngles.z)*mRotationZr,
                           mPosition.z));
     }
+    if(alpha.x != 0 && mRotationXCenter != null){
+      setPos(new PVector( mPosition.x,
+                          mRotationXCenter.y - sin(mAngles.x)*mRotationXr,
+                          mRotationXCenter.z - cos(mAngles.x)*mRotationXr));
+    }
+    if(alpha.y != 0 && mRotationYCenter != null){
+      setPos(new PVector( mRotationYCenter.x - cos(mAngles.y)*mRotationYr,
+                          mPosition.y,
+                          mRotationYCenter.z - sin(mAngles.y)*mRotationYr));
+    }
     mAngles = angle;
   }
   
@@ -350,6 +362,14 @@ class U3DObject {
   void setRotationZCenter(PVector center){
     mRotationZCenter = center;
     mRotationZr = mRotationZCenter.x-mPosition.x;
+  }
+  void setRotationXCenter(PVector center){
+    mRotationXCenter = center;
+    mRotationXr = mRotationXCenter.z-mPosition.z;
+  }
+  void setRotationYCenter(PVector center){
+    mRotationYCenter = center;
+    mRotationYr = mRotationYCenter.x-mPosition.x;
   }
   
   void disableCollisions(){
