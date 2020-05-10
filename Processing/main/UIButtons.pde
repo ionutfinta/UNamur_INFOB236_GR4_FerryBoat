@@ -39,7 +39,7 @@ boolean button(String name, float x, float y)
 
 boolean leaveUI(float x, float y)
 {
-  boolean isCalled = button("Leave", x ,y);
+  boolean isCalled = button("Return to game", x ,y);
   if(isCalled)
   {
     return true;
@@ -95,5 +95,14 @@ void addTruck3(float x, float y)
   if(isCalled)
   {
     //do something
+  }
+}
+
+void exitApp(float x, float y)
+{
+  boolean isCalled = button("Exit the application", x ,y);
+  if(isCalled)
+  {
+    exit();
   }
 }
