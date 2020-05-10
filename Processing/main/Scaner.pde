@@ -21,7 +21,7 @@ class Scaner extends U3DObject{
   
   @Override
   void handle_collision(U3DObject collided){
-    if(!collided instanceof SelectionDetectorObject)
+    if(!(collided instanceof SelectionDetectorObject))
       return;
     if(everything==null)
       return;

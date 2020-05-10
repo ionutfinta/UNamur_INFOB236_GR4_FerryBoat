@@ -5,7 +5,8 @@
 
 class Lift extends U3DObject {
   private fifthRef mEventB;
-  private U3DObject myLisse;
+  //GF = Garde-Fou
+  private U3DObject mPlateforme, mGF1, mGF2;
   
   private boolean nOuvert, isOuvert;
   
@@ -15,11 +16,12 @@ class Lift extends U3DObject {
     mEventB = mac;
     mCollide = false;
     mShape.setName("noStroke");
-    /*myLisse = new U3DObject(uni, new PVector(angle.y==PI?1.6403:-1.6403, .2, 0.260741).add(mPosition), "./assets/barrier.obj");
-    myLisse.setRotationZCenter(new PVector(angle.y==PI?-0.51325:0.51325, 0).add(mPosition));
-    myLisse.setAngles(angle);
-    
-    isOuvert = false;
+
+    mPlateforme = new U3DObject(uni, new PVector(0,11.7321,0).add(mPosition), "./assets/lift.obj");
+    mGF1 = new U3DObject(uni, new PVector(6.14,12.7321,0).add(mPosition), "./assets/lift_gardeFou.obj");
+    mGF2 = new U3DObject(uni, new PVector(-6.14,12.7321,0).add(mPosition), "./assets/lift_gardeFou.obj");
+    mGF2.setAngles(new PVector(0,PI,0));
+    /*isOuvert = false;
     nOuvert = true;*/
   }
   

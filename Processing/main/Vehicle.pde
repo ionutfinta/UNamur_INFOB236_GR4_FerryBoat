@@ -3,7 +3,7 @@ class Vehicle extends U3DObject{
   PVector[] mWheelsAngles;
   String mWheelShape;
   
-  final float speedMult;
+  float speedMult;
   
   private boolean isSelected;
   

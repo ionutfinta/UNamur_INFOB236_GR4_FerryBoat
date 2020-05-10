@@ -33,6 +33,7 @@ void setup(){
   myFirstCar = new Car(myUniverse, new PVector(-20, 4, 120));
   mCar2 = new Car(myUniverse, new PVector(-20, 4, 100));
   Truck mTruck = new Truck(myUniverse, new PVector(-20, 4, 84));
+  CyberTruck mCyberTruck = new CyberTruck(myUniverse, new PVector(-12, 4, 84));
   Limousine mLimousine = new Limousine(myUniverse, new PVector(-12, 4, 100));
   Scaner scan = new Scaner(myUniverse, true,myEventBMachine);
   Scaner scan2 = new Scaner(myUniverse, false,myEventBMachine);

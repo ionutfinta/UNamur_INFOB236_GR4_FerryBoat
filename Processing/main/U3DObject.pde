@@ -139,7 +139,6 @@ class U3DObject {
       }
     }
   }
-  }
   
   // --- 3D Moving
   void applyInertia(){
@@ -387,5 +386,6 @@ class U3DObject {
   void setSelectionState(boolean state){
     
   }
+
 
 }

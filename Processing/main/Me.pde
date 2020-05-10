@@ -25,7 +25,7 @@ class Me extends U3DObject{
    rotationAngle = 0;
    cameraSpeed = 1;
    
-   mSize = new PVector(1, 2.7, 1);
+   mSize = new PVector(1, 1.75, 1);
    
    mClouds0 = loadImage("./assets/clouds0.gif");
    mSun = loadImage("./assets/sun.png");
@@ -40,7 +40,7 @@ class Me extends U3DObject{
  }
  
  void animate(){
-   if(keyPressed == true){
+   if(DEBUG && keyPressed == true){
      if(key == CODED){
        if(keyCode == UP){
          mInertia = cameraDir;
@@ -89,6 +89,7 @@ class Me extends U3DObject{
          updateCameraDir();
      }
    }
+   
    if(mousePressed && mouseButton == RIGHT && (pmouseX != mouseX || pmouseY != mouseY)){
      int differenceMouse = pmouseY-mouseY;
      elevationAngle -= map(elevationAngle + differenceMouse, elevationAngle - height, elevationAngle + height, -PI, PI);
