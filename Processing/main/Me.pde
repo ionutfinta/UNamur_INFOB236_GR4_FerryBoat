@@ -1,7 +1,4 @@
 class Me extends U3DObject{
-  private String mode;
-  private String absPosition;
-  
   private PVector cameraDir;
   
   private PVector mSize; // I'm not a shape
@@ -15,14 +12,12 @@ class Me extends U3DObject{
   
   PGraphics mBackground;
   
- Me(Universe uni, String m, String ap){
+ Me(Universe uni, String ap){
    super(uni);
    setMovable(uni);
    
-   mode = m;
    if(ap.equals("Laniakea>Virgo Supercluster>Local Sheet>Local Group>Milky Way subgroup>Milky Way Galaxy>Orbit of the Solar System>Orion Arm>Gould Belt>Local Bubble>Local Interstellar Cloud>Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject"))
-     ap = "port";
-   absPosition = ap;
+     println("Welcome to FerryBoat Simulator !");
    
    mPosition = new PVector(-17.180944, 5.1451683, 102.502914 );
    cameraDir = new PVector(-0.033744603, -0.15778065, 0.9994305);
@@ -37,10 +32,8 @@ class Me extends U3DObject{
    mBackground = createGraphics(width, height);
  }
  
-
- 
  void animate(){
-   if(mode.equals("God")){
+   if(DEBUG){
    if(keyPressed == true){
      if(key == CODED){
        if(keyCode == UP){
@@ -127,7 +120,6 @@ class Me extends U3DObject{
  }
 
   void setBackground(){
-     //TODO: Vérifier la trigonométrie
      int factorx = (int) (tan(-rotationAngle/2) * width),
        factory = (int) (sin(elevationAngle) * height * 0.5);
        
@@ -159,11 +151,9 @@ class Me extends U3DObject{
  }
  
  void display(){
-   if(absPosition.equals("port")){
-     perspective(PI/3, float(width)/float(height), 
-            ((height/2.0) / tan(PI/6))/200, ((height/2.0) / tan(THIRD_PI))*5);
-     camera(mPosition.x, mPosition.y, mPosition.z, mPosition.x+cameraDir.x, mPosition.y+cameraDir.y, mPosition.z+cameraDir.z, 0, -1, 0);
-  }
+   perspective(PI/3, float(width)/float(height), 
+          ((height/2.0) / tan(PI/6))/200, ((height/2.0) / tan(THIRD_PI))*2);
+   camera(mPosition.x, mPosition.y, mPosition.z, mPosition.x+cameraDir.x, mPosition.y+cameraDir.y, mPosition.z+cameraDir.z, 0, -1, 0);
  }
  
  public PVector getSize(){
@@ -181,5 +171,5 @@ class Me extends U3DObject{
  }
  
  @Override
- boolean isMovable(){ return !mode.equals("God"); }
+ boolean isMovable(){ return !DEBUG; }
 }

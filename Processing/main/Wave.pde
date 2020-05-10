@@ -3,8 +3,6 @@
 * Inspired from: https://github.com/BenTommyE/3D_wave_sim
 */
 class Wave{
-  private PVector noiseOffset;
-  
   private int lastUpdate, mPCountx, mPCounty, mUpdateTime;
   private float zoom, mMaxHeight, waveOrNot, noiseScale, timeScale;
   private float[][] particle,
@@ -13,9 +11,7 @@ class Wave{
 
   Wave(){
     noiseScale = 0.007;
-    timeScale = 0.003;
-    
-    //funberOfPArticles = 30;
+    timeScale = 0.03;
     
     mPCountx = 30;
     mPCounty = 30;
@@ -24,7 +20,6 @@ class Wave{
     
     mMaxHeight = 12;
     
-    noiseOffset = new PVector(random(1000), random(1000), random(1000));
     
     particle = new float[30][30];
     particlesNew = new float[30][30];
@@ -35,7 +30,7 @@ class Wave{
   
   Wave(int w, int h, float a, int s, int ut){
     noiseScale = 0.007;
-    timeScale = 0.003;
+    timeScale = 0.03;
     mUpdateTime = ut;
     
     mPCountx = w;
@@ -44,8 +39,6 @@ class Wave{
     zoom = s / mPCountx;
     
     mMaxHeight = a;
-    
-    noiseOffset = new PVector(random(1000), random(1000), random(1000));
     
     particle = new float[mPCountx][mPCounty];
     particlesNew = new float[mPCountx][mPCounty];
@@ -75,11 +68,11 @@ class Wave{
   }
   
   int getGreen(float i){
-    return (int) map(i, -10,10, 0, 91);
+    return (int) map(i, -10,10, 40, 91);
   }
   
   int getBlue(float i){
-    return (int) map(i, -10,10, 0, 190);
+    return (int) map(i, -10,10, 70, 190);
   }
   
   float miniMax(float i){
@@ -125,8 +118,10 @@ class Wave{
     float t = frameCount * timeScale;
     
     if (waveOrNot != 0 && mPCounty > 3 && mPCounty > 3) {
-        int NoiseXIndex = miniMax(1,mPCountx-2, (int)((mPCountx-4) * noise(noiseScale + noiseOffset.x + t, noiseScale + noiseOffset.y + t, t + noiseOffset.z)));
-        int NoiseYIndex = miniMax(1,mPCounty-2, (int)((mPCounty-4) * noise(noiseScale + noiseOffset.x + t, noiseScale + noiseOffset.y + t, t + noiseOffset.z)));
+        int NoiseXIndex = miniMax(1, mPCountx-2, (int)((mPCountx-2) * noise(noiseScale + t)));
+        int NoiseYIndex = miniMax(mPCounty-6, mPCounty-2, (int)(4 * noise(noiseScale + t)));
+        if(NoiseYIndex < 1)
+          NoiseYIndex = 1;
         particlesSpeedNew[NoiseXIndex][NoiseYIndex] = waveOrNot;
         particlesSpeedNew[NoiseXIndex+1][NoiseYIndex+1] = waveOrNot;
         particlesSpeedNew[NoiseXIndex+1][NoiseYIndex] = waveOrNot;

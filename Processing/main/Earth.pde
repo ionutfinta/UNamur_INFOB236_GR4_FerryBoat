@@ -23,7 +23,6 @@ class Earth extends U3DObject{
     U3DObject tmpObj = new U3DObject();
     tmpObj.setShapeSRC("./assets/poteau.obj");
     tmpObj.setShapeName("noStroke");
-    uni.addObject(tmpObj);
       
     for(int i = 100; i >= 0; i-=2){
       tmpObj = new U3DObject(tmpObj);
@@ -37,51 +36,27 @@ class Earth extends U3DObject{
     }
     
     // Spawn du panneau de signalisation berge
-    tmpObj = new U3DObject();
-    tmpObj.setShapeSRC("./assets/signalisation_berge.obj");
-    tmpObj.setPos(new PVector(-21.5, 1.5, 123.51).add(mPosition));
-    uni.addObject(tmpObj);
+    tmpObj = new U3DObject(uni, new PVector(-21.5, 1.5, 123.51).add(mPosition), "./assets/signalisation_berge.obj");
     
     // Spawn des Murs de soutènement gardes-fous
-    tmpObj = new U3DObject(tmpObj);
-    tmpObj.setShapeSRC("./assets/concreteWall.obj");
-    tmpObj.setPos(new PVector(123.5, 8, 0).add(mPosition));
+    tmpObj = new U3DObject(uni, new PVector(123.5, 8, 0).add(mPosition), "./assets/concreteWall.obj");
     tmpObj.setAngles(new PVector(0,HALF_PI, 0));
-    uni.addObject(tmpObj);
     
-    tmpObj = new U3DObject(tmpObj);
-    tmpObj.setShapeSRC("./assets/concreteWall.obj");
-    tmpObj.setPos(new PVector(-123.5, 8, 0).add(mPosition));
+    tmpObj = new U3DObject(uni, new PVector(-123.5, 8, 0).add(mPosition), "./assets/concreteWall.obj");
     tmpObj.setAngles(new PVector(0,3*HALF_PI, 0));
-    uni.addObject(tmpObj);
     
-    tmpObj = new U3DObject(tmpObj);
-    tmpObj.setShapeSRC("./assets/concreteWall.obj");
-    tmpObj.setPos(new PVector(0, 8, -123.5).add(mPosition));
-    tmpObj.setAngles(new PVector(0,0,0));
-    uni.addObject(tmpObj);
+    tmpObj = new U3DObject(uni, new PVector(0, 8, -123.5).add(mPosition), "./assets/concreteWall.obj");
     
     // Ecluse
-    tmpObj = new U3DObject(tmpObj);
-    tmpObj.setPos(new PVector(0, -8.009, 121).add(mPosition));
-    tmpObj.setShapeSRC("./assets/concreteWall2.obj");
-    uni.addObject(tmpObj);
+    tmpObj = new U3DObject(uni, new PVector(0, -8.009, 121).add(mPosition), "./assets/concreteWall2.obj");
     
-    tmpObj = new U3DObject(tmpObj);
-    tmpObj.setPos(new PVector(0, -23.009, 121).add(mPosition));
-    uni.addObject(tmpObj);
+    tmpObj = new U3DObject(uni, new PVector(0, -23.009, 121).add(mPosition));
     
-    tmpObj = new U3DObject(tmpObj);
-    tmpObj.setShapeSRC("./assets/concreteWall2.obj");
-    tmpObj.setPos(new PVector(-2.8, -8, 250).add(mPosition));
+    tmpObj = new U3DObject(uni, new PVector(-2.8, -8, 250).add(mPosition), "./assets/concreteWall2.obj");
     tmpObj.setAngles(new PVector(0,HALF_PI, 0));
-    uni.addObject(tmpObj);
     
-    tmpObj = new U3DObject(tmpObj);
-    tmpObj.setShapeSRC("./assets/concreteWall2.obj");
-    tmpObj.setPos(new PVector(-26.5, -8, 250).add(mPosition));
+    tmpObj = new U3DObject(uni, new PVector(-26.5, -8, 250).add(mPosition), "./assets/concreteWall2.obj");
     tmpObj.setAngles(new PVector(0,3*HALF_PI, 0));
-    uni.addObject(tmpObj);
   }
   
   @Override
@@ -119,16 +94,13 @@ class Earth extends U3DObject{
       rotateX(HALF_PI);
       
       pushMatrix();
-        fill(#00407B);
-        translate(0,0,40);
+        fill(#002045);
+        translate(0,0,15);
         rect(400,0,2100,2100);
       popMatrix();
       
       mWave.updateNoise();
-      
-      mWave.renderWave();
-      
-      translate(-957, 0, 0);
+      translate(-475, 0, 0);
       
       mWave.renderWave();
       

@@ -1,5 +1,7 @@
 import processing.opengl.*;
 
+static final boolean DEBUG = true;
+
 fifthRef myEventBMachine;
 Universe myUniverse;
 Me me;
@@ -23,16 +25,16 @@ void setup(){
   myUniverse = new Universe();
   myUniverse.init();
   
-  me = new Me(myUniverse, "God", "Laniakea>Virgo Supercluster>Local Sheet>Local Group>Milky Way subgroup>"+
-                                     "Milky Way Galaxy>Orbit of the Solar System>Orion Arm>Gould Belt>Local Bubble>Local Interstellar Cloud>" +
-                                     "Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>" +
-                                     "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject");
+  me = new Me(myUniverse, "Laniakea>Virgo Supercluster>Local Sheet>Local Group>Milky Way subgroup>"+
+                           "Milky Way Galaxy>Orbit of the Solar System>Orion Arm>Gould Belt>Local Bubble>Local Interstellar Cloud>" +
+                           "Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>" +
+                           "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject");
 
   myFirstCar = new Car(myUniverse, new PVector(-20, 10, 120));
   mCar2 = new Car(myUniverse, new PVector(-20, 10, 100));
   
   mBarriere1 = new Barriere(myUniverse, myEventBMachine, new PVector(-11.5, 2.629905, 123.5));
-  mBarriere2 = new Barriere(myUniverse, myEventBMachine, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
+  mBarriere2 = new Barriere(myUniverse, null, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
   
   // Spawn Ferry avec 3 compartiments
   mFerry = new Ferry(myUniverse, 3, myEventBMachine);
@@ -56,8 +58,8 @@ void draw(){
 void keyReleased(){
   switch(key){
     case '0':
-       mBarriere1.switchState();
-       mBarriere2.switchState();
+       if(mBarriere1.switchState());
+         mBarriere2.switchState();
        break;
   }
 }

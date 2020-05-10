@@ -97,17 +97,18 @@ class U3DObject {
       translate(mPosition.x, mPosition.y, mPosition.z);
       shape(mShape,0,0);
       
-      // DEBUG:
-      if(mShape.getName() == null || !mShape.getName().equals("noStroke")){
-        noFill();
-        stroke(192);
-        strokeWeight(1);
-        PVector dim = getSize().mult(2);
-        box(dim.x, dim.y, dim.z);
+      if(DEBUG){
+        if(mShape.getName() == null || !mShape.getName().equals("noStroke")){
+          noFill();
+          stroke(192);
+          strokeWeight(1);
+          PVector dim = getSize().mult(2);
+          box(dim.x, dim.y, dim.z);
+        }
       }
     popMatrix();
 
-      // DEUG:
+    if(DEBUG){
       if(mRotationZCenter != null){
         pushMatrix();
         translate(mRotationZCenter.x, mRotationZCenter.y, mPosition.z);
@@ -116,6 +117,7 @@ class U3DObject {
         sphere(.1);
         popMatrix();
       }
+    }
   }
   
   // --- 3D Moving
