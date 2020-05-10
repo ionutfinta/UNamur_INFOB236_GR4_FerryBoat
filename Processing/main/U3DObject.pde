@@ -137,6 +137,7 @@ class U3DObject {
         sphere(.1);
         popMatrix();
       }
+    }
   }
   
   // --- 3D Moving
