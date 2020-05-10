@@ -16,7 +16,7 @@ class Universe{
     Earth earth = getEarth();
     
     for(U3DObject o: objs){
-      if(o.isMovable() && earth != null)
+      if(o.isMovable() && earth != null && ! (o instanceof SelectionDetectorObject))
         earth.applyGravity(o);
       o.animate();
       o.display();

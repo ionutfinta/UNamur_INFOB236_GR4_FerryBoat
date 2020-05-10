@@ -32,18 +32,24 @@ class Me extends U3DObject{
    mBackground = createGraphics(width, height);
  }
  
+ void applyInertia(){
+   if(!DEBUG){
+     mInertia.y = 0;
+   }
+   super.applyInertia();
+ }
+ 
  void animate(){
-   if(DEBUG){
    if(keyPressed == true){
      if(key == CODED){
        if(keyCode == UP){
          mInertia = cameraDir;
-         super.applyInertia();
+         applyInertia();
          updateCameraDir();
        }
        if(keyCode == DOWN){
          mInertia = cameraDir.mult(-1);
-         super.applyInertia();
+         applyInertia();
          
          updateCameraDir();
        }
@@ -53,7 +59,7 @@ class Me extends U3DObject{
          mInertia.y = 0;
          mInertia.z = goLeft.y;
          
-         super.applyInertia();
+         applyInertia();
          updateCameraDir();
        }
        if(keyCode == RIGHT){
@@ -62,14 +68,8 @@ class Me extends U3DObject{
          mInertia.y = 0;
          mInertia.z = goLeft.y;
          
-         super.applyInertia();
+         applyInertia();
          updateCameraDir();
-       }
-       if(keyCode == SHIFT){
-         println("Camera position: " + mPosition);
-         println("Camera Direction: " + cameraDir);
-         println("Elevation: " + elevationAngle);
-         println("Rotation: " + rotationAngle);
        }
      }
      if(key == '4'){
@@ -100,10 +100,9 @@ class Me extends U3DObject{
      
      updateCameraDir();
    }
-
-   return;
-   }
-   super.animate();
+   
+   if(!DEBUG)
+     super.animate();
  }
  
  void truncateAngles(){
@@ -151,8 +150,15 @@ class Me extends U3DObject{
  }
  
  void display(){
+   if(keyPressed && key == CODED && keyCode == SHIFT && DEBUG){
+     println("Camera position: " + mPosition);
+     println("Camera Direction: " + cameraDir);
+     println("Elevation: " + elevationAngle);
+     println("Rotation: " + rotationAngle);
+   }
+   
    perspective(PI/3, float(width)/float(height), 
-          ((height/2.0) / tan(PI/6))/200, ((height/2.0) / tan(THIRD_PI))*2);
+          ((height/2.0) / tan(PI/6))/2200, ((height/2.0) / tan(THIRD_PI))*2);
    camera(mPosition.x, mPosition.y, mPosition.z, mPosition.x+cameraDir.x, mPosition.y+cameraDir.y, mPosition.z+cameraDir.z, 0, -1, 0);
  }
  

@@ -2,7 +2,6 @@
 it will then update its selected U3DObject and update its associated SelectionArrow*/
 
 class SelectionDetectorObject extends U3DObject{
-  ArrayList<Wheel> wheels;
   PShape chassis;
   
   final int IT_LIMIT = 20;

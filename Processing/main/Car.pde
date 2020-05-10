@@ -1,53 +1,28 @@
 class Car extends Vehicle {
-  
-  final float SPEED_MULT = 1;
-  
-  
   Car(Universe u, PVector pos){
     super(u, pos, "./assets/car_chassis.obj");
-    float frontPos = 0.86,
-           wh_height = 0.44,
-           backPos = 1.27;
+    mWheelShape = "./assets/car_wheel.obj";
     
-    wheels.add(new Wheel(this, frontPos, wh_height, backPos, 180, true));
-    wheels.add(new Wheel(this, frontPos, wh_height,-backPos, 180, false));
-    wheels.add(new Wheel(this, -frontPos,wh_height, backPos, 000, true));
-    wheels.add(new Wheel(this, -frontPos,wh_height,-backPos, 000, false));
+    float frontPos = 0.80754,
+           wh_height = -0.43194,
+           backPos = 1.03253;
     
-   
+    mWheelsPos = new PVector[4];
+    mWheelsPos[0] = new PVector(frontPos, wh_height, backPos);
+    mWheelsPos[1] = new PVector(-frontPos+.1,wh_height, backPos);
+    mWheelsPos[2] = new PVector(frontPos, wh_height,-backPos-.1);
+    mWheelsPos[3] = new PVector(-frontPos+.1,wh_height,-backPos-.1);
+    
+    mWheelsAngles = new PVector[4];
+    mWheelsAngles[0] = new PVector(0, 0, 0);
+    mWheelsAngles[1] = new PVector(0, PI, 0);
+    mWheelsAngles[2] = new PVector(0, 0, 0);
+    mWheelsAngles[3] = new PVector(0, PI, 0);
+    
+    initWheels();
+    
     everything = u.objs;
   
     setSelectionState(false);
-  }
-  
-  void animate(){
-    super.animate();
-    
-    if(keyPressed == true && isSelected()){
-      if(key == 'z'){
-        mInertia.z += .05f;
-      }
-      if(key == 'a'){
-        mInertia.z += .05f;
-        mInertia.x += .01f;
-      }
-      if(key == 'e'){
-        mInertia.z += .05f;
-        mInertia.x -= .01f;
-      }
-      if(key == 'q'){
-        mInertia.x += .01f;
-        mInertia.z -= .03f;
-      }
-      if(key == 'd'){
-        mInertia.x -= .01f;
-        mInertia.z -= .03f;
-      }
-      if(key == 's')
-        mInertia.z -= .03f;
-        
-      mInertia.z*=SPEED_MULT;
-      mInertia.x*=SPEED_MULT;
-    }
   }
 }

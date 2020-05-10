@@ -30,8 +30,10 @@ void setup(){
                            "Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>" +
                            "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject");
 
-  myFirstCar = new Car(myUniverse, new PVector(-12, 10, 120));
-  mCar2 = new Car(myUniverse, new PVector(-20, 10, 100));
+  myFirstCar = new Car(myUniverse, new PVector(-20, 4, 120));
+  mCar2 = new Car(myUniverse, new PVector(-20, 4, 100));
+  Truck mTruck = new Truck(myUniverse, new PVector(-20, 4, 84));
+  Limousine mLimousine = new Limousine(myUniverse, new PVector(-12, 4, 100));
   
   mBarriere1 = new Barriere(myUniverse, myEventBMachine, new PVector(-11.5, 2.629905, 123.5));
   mBarriere2 = new Barriere(myUniverse, null, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));

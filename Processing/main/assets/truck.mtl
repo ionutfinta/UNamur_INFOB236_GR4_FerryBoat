@@ -1,0 +1,12 @@
+# Blender MTL File: 'truck.blend'
+# Material Count: 1
+
+newmtl Material
+Ns 156.249970
+Ka 0.641667 0.641667 0.641667
+Kd 0.134758 0.383112 0.800000
+Ks 0.700000 0.700000 0.700000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
