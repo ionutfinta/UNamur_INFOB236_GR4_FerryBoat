@@ -67,6 +67,9 @@ void keyReleased(){
 }
 
 void mousePressed(){
+  myEventBMachine.set_lvl_1_access(true);
+  myEventBMachine.set_lvl_2_access(true);
+  myEventBMachine.set_lvl_3_access(true);
   if(mouseButton == LEFT){
     //SelectEntity(me, myUniverse, 30);
     selector.send(me.getPosition(), me.getCamDir(), me.getCamRotationAngle(), me.getCamElevationAngle());
