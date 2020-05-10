@@ -18,7 +18,6 @@ class U3DObject {
   protected boolean mCollide;
   protected ArrayList<Animation> mAnimations;
   
-  boolean onGround = false;
   
   U3DObjects everything = null;
   
@@ -61,29 +60,13 @@ class U3DObject {
     if(mPlanet == null)
       return;
       
-      if(!onGround){
       mInertia.y -= (float)mPlanet.getGravity()/50.0f;
-      }
     
   }
   
   void handle_collision(U3DObject collided){
     if(doCollisions()){    
-      
-      
-    PVector oPos,
-            oSize,
-            mPos,
-            mSize;
-           
-           oPos = collided.getPosition();
-              oSize = collided.getSize();
-             mPos = this.getPosition();
-             mSize = this.getSize();
-             
-             if(collided instanceof Earth){
-                onGround = true;
-              } 
+      //only used by SelectionDetectorObject for now
          
     }
           
@@ -141,7 +124,7 @@ class U3DObject {
       mInertia.mult(mAirResistFactor);
       return;
     }
-    //tp back if issue
+    //no movement past -5
       if(mPosition.y<-5){
         return;
       }
@@ -149,18 +132,10 @@ class U3DObject {
       //if it's trying to move
       
       if(mInertia.x!=0||mInertia.z!=0||mInertia.y!=0){
-        if(onGround && mInertia.y!=0){
-          onGround = false;
-        }
-        //if it collides with something on that tick, don't move
-        boolean coll = handle_entity_collision();
-        if(!coll){
+         handle_entity_collision();
           mPosition.add(mInertia);
           mInertia.mult(mAirResistFactor);
-        }
-        else{
-          mInertia.mult(0);
-        }
+        
       }
   }
   
@@ -171,45 +146,23 @@ class U3DObject {
   }
   
   //returns true if a single collision is encountered
-  boolean handle_entity_collision(){
+  void handle_entity_collision(){
     
-    boolean collided_once = false;
     
-    PVector oPos,
-            oSize,
-            mPos,
-            mInert,
-            mSize;
        
             
        Iterator<U3DObject> iter2;
        U3DObject o1 = this;
        U3DObject o2;
        
-        mPos = o1.getPosition().copy().add(mInertia);
-        mInert = o1.getInertia().copy();
-        mSize = o1.getSize().copy();
+        
       
       if(!o1.doCollisions())
-        return false; //shouldn't get here
+        return; //shouldn't get here
       
       else{
-        
-         
-         //check earth first
-         U3DObject eart = everything.get(0);
-         oPos = eart.getPosition().copy().add(eart.getInertia());
-         oSize = eart.getSize().copy();
-        
-         if(((inBetween(mPos.x-mSize.x, oPos.x+oSize.x, mPos.x+oSize.x) || inBetween(mPos.x-mSize.x, oPos.x-oSize.x, mPos.x+mSize.x) || inBetween(oPos.x-oSize.x, mPos.x-mSize.x, oPos.x+oSize.x) || inBetween(oPos.x-oSize.x, mPos.x+mSize.x, oPos.x+oSize.x))&&
-            (inBetween(mPos.z-mSize.z, oPos.z+oSize.z, mPos.z+oSize.z) ||inBetween(mPos.z-mSize.z, oPos.z-oSize.z, mPos.z+mSize.z) || inBetween(oPos.z-oSize.z, mPos.z-mSize.z, oPos.z+oSize.z) || inBetween(oPos.z-oSize.z, mPos.z+mSize.z, oPos.z+oSize.z)))&&
-            (inBetween(mPos.y-mSize.y, oPos.y-oSize.y, mPos.y-oSize.y) ||inBetween(mPos.y-mSize.y, oPos.y-oSize.y, mPos.y+mSize.y) || inBetween(oPos.y-oSize.y, mPos.y-mSize.y, oPos.y+oSize.y) || inBetween(oPos.y-oSize.y, mPos.y+mSize.y, oPos.y+oSize.y))){
-                  collided_once = true;
-                  
-                  
-                  o1.handle_collision(eart);
-          }
-          
+          //check earth
+          handle_entity_collision(o1, everything.get(0));
           
         try{
          iter2 = everything.n_closest(5, o1);
@@ -228,26 +181,60 @@ class U3DObject {
           
           if(o1==o2 || o2 instanceof Me || o2 instanceof SelectionArrow);
           else{
-             oPos = o2.getPosition().copy().add(o2.getInertia());
-             oSize = o2.getSize().copy();
-             
-             
-            if(((inBetween(mPos.x-mSize.x, oPos.x+oSize.x, mPos.x+oSize.x) || inBetween(mPos.x-mSize.x, oPos.x, mPos.x+mSize.x) || inBetween(oPos.x, mPos.x-mSize.x, oPos.x+oSize.x) || inBetween(oPos.x, mPos.x+mSize.x, oPos.x+oSize.x))&&
-            (inBetween(mPos.z-mSize.z, oPos.z+oSize.z, mPos.z+oSize.z) ||inBetween(mPos.z-mSize.z, oPos.z-oSize.z, mPos.z+mSize.z) || inBetween(oPos.z-oSize.z, mPos.z-mSize.z, oPos.z+oSize.z) || inBetween(oPos.z-oSize.z, mPos.z+mSize.z, oPos.z+oSize.z)))&&
-            (inBetween(mPos.y-mSize.y, oPos.y-oSize.y, mPos.y-oSize.y) ||inBetween(mPos.y-mSize.y, oPos.y-oSize.y, mPos.y+mSize.y) || inBetween(oPos.y-oSize.y, mPos.y-mSize.y, oPos.y+oSize.y) || inBetween(oPos.y-oSize.y, mPos.y+mSize.y, oPos.y+oSize.y))){
-                  collided_once = true;
-                  
-                  
-                  o1.handle_collision(o2);
-                  o2.handle_collision(o1);
+            handle_entity_collision(o1,o2);
           }
         }
       }
-      
-    }
-      return collided_once;
-    }
+  }
   
+  void handle_entity_collision(U3DObject o1,U3DObject o2){
+          boolean collided_once = false;
+    
+            PVector oPos,
+            oSize,
+            mPos,
+            mPosNext,
+            mInert,
+            mSize;
+              
+            mPos = o1.getPosition().copy();
+            mPosNext =  o1.getPosition().copy().add(mInertia);
+            mInert = o1.getInertia().copy();
+            mSize = o1.getSize().copy();
+    
+             oPos = o2.getPosition().copy().add(o2.getInertia());
+             oSize = o2.getSize().copy();
+             
+            if(mInertia.x!=0 
+            && (inBetween(mPosNext.x-mSize.x, oPos.x+oSize.x, mPosNext.x+oSize.x) || inBetween(mPosNext.x-mSize.x, oPos.x, mPosNext.x+mSize.x) || inBetween(oPos.x, mPosNext.x-mSize.x, oPos.x+oSize.x) || inBetween(oPos.x, mPosNext.x+mSize.x, oPos.x+oSize.x))
+            &&(inBetween(mPos.z-mSize.z, oPos.z+oSize.z, mPos.z+oSize.z) ||inBetween(mPos.z-mSize.z, oPos.z-oSize.z, mPos.z+mSize.z) || inBetween(oPos.z-oSize.z, mPos.z-mSize.z, oPos.z+oSize.z) || inBetween(oPos.z-oSize.z, mPos.z+mSize.z, oPos.z+oSize.z))
+            &&(inBetween(mPos.y-mSize.y, oPos.y+oSize.y, mPos.y+oSize.y) ||inBetween(mPos.y-mSize.y, oPos.y-oSize.y, mPos.y+mSize.y) || inBetween(oPos.y-oSize.y, mPos.y-mSize.y, oPos.y+oSize.y) || inBetween(oPos.y-oSize.y, mPos.y+mSize.y, oPos.y+oSize.y))){
+              mInertia.x-=mInertia.x;
+              collided_once = true;
+            }
+            if(mInertia.z!=0
+            && (inBetween(mPos.x-mSize.x, oPos.x+oSize.x, mPos.x+oSize.x) || inBetween(mPos.x-mSize.x, oPos.x, mPos.x+mSize.x) || inBetween(oPos.x, mPos.x-mSize.x, oPos.x+oSize.x) || inBetween(oPos.x, mPos.x+mSize.x, oPos.x+oSize.x))
+            &&(inBetween(mPosNext.z-mSize.z, oPos.z+oSize.z, mPosNext.z+oSize.z) ||inBetween(mPosNext.z-mSize.z, oPos.z-oSize.z, mPosNext.z+mSize.z) || inBetween(oPos.z-oSize.z, mPosNext.z-mSize.z, oPos.z+oSize.z) || inBetween(oPos.z-oSize.z, mPosNext.z+mSize.z, oPos.z+oSize.z))
+            &&(inBetween(mPos.y-mSize.y, oPos.y+oSize.y, mPos.y+oSize.y) ||inBetween(mPos.y-mSize.y, oPos.y-oSize.y, mPos.y+mSize.y) || inBetween(oPos.y-oSize.y, mPos.y-mSize.y, oPos.y+oSize.y) || inBetween(oPos.y-oSize.y, mPos.y+mSize.y, oPos.y+oSize.y))){
+              mInertia.z-=mInertia.z;
+              collided_once = true;
+            }
+            
+            if(mInertia.y!=0 
+            && (inBetween(mPos.x-mSize.x, oPos.x+oSize.x, mPos.x+oSize.x) || inBetween(mPos.x-mSize.x, oPos.x, mPos.x+mSize.x) || inBetween(oPos.x, mPos.x-mSize.x, oPos.x+oSize.x) || inBetween(oPos.x, mPos.x+mSize.x, oPos.x+oSize.x))
+            &&(inBetween(mPos.z-mSize.z, oPos.z+oSize.z, mPos.z+oSize.z) ||inBetween(mPos.z-mSize.z, oPos.z-oSize.z, mPos.z+mSize.z) || inBetween(oPos.z-oSize.z, mPos.z-mSize.z, oPos.z+oSize.z) || inBetween(oPos.z-oSize.z, mPos.z+mSize.z, oPos.z+oSize.z))
+            &&(inBetween(mPosNext.y-mSize.y, oPos.y+oSize.y, mPosNext.y+oSize.y) ||inBetween(mPosNext.y-mSize.y, oPos.y-oSize.y, mPosNext.y+mSize.y) || inBetween(oPos.y-oSize.y, mPosNext.y-mSize.y, oPos.y+oSize.y) || inBetween(oPos.y-oSize.y, mPosNext.y+mSize.y, oPos.y+oSize.y))){
+              mInertia.y-=mInertia.y;
+            if(o2 instanceof Earth)
+              print("earth");
+              collided_once = true;
+            }      
+                  
+             if(collided_once){
+                  o1.handle_collision(o2);
+                  o2.handle_collision(o1);
+             }
+  }
   
   
   // --- Animations

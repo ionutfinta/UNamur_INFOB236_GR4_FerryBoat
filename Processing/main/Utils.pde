@@ -7,10 +7,11 @@ public static boolean inArray(U3DObjects array, U3DObject o){
 }
 
 public static boolean inBetween(float L, float x, float U){
+  /*
   x=shiftPositive(x);
   L=shiftPositive(L);
   U=shiftPositive(U);
-  
+  */
   return(x>=L && x<=U);
 }
 
