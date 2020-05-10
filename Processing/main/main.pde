@@ -36,6 +36,8 @@ void setup(){
   Limousine mLimousine = new Limousine(myUniverse, new PVector(-12, 4, 100));
   Scaner scan = new Scaner(myUniverse, true,myEventBMachine);
   Scaner scan2 = new Scaner(myUniverse, false,myEventBMachine);
+  Lift mLift = new Lift(myUniverse, myEventBMachine, new PVector(-14.5, -10, 131.65));
+  
   mBarriere1 = new Barriere(myUniverse, myEventBMachine, new PVector(-11.5, 2.629905, 123.5));
   mBarriere2 = new Barriere(myUniverse, null, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
   
