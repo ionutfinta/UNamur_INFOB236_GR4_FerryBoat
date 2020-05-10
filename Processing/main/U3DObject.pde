@@ -1,9 +1,9 @@
 import java.util.Iterator;
 
 class U3DObject {
-  protected Earth mPlanet;
-  
   protected PVector mPosition;
+
+  // Inertia represents the speed, in m/s in all the directions
   protected PVector mInertia;
   protected PVector mAngles;
   
@@ -19,11 +19,12 @@ class U3DObject {
   protected ArrayList<Animation> mAnimations;
   
   
-  U3DObjects everything = null;
+  U3DObjects everything;
   
   U3DObject(){
     mPosition = mAngles =
     mInertia = new PVector(0,0,0);
+    everything = null;
     
     mShape = loadShape("./assets/interrogationPoint.obj");
     
@@ -37,10 +38,17 @@ class U3DObject {
   
   U3DObject(Universe u){
     this();
-    everything = u.objs;
     u.addObject(this);
-    if(u.getEarth() != null)
-      mPlanet = u.getEarth();
+  }
+
+  U3DObject(Universe u, PVector pos){
+    this(u);
+    mPosition = pos;
+  }
+  
+  U3DObject(Universe u, PVector pos, String shape){
+    this(u, pos);
+    mShape = loadShape(shape);
   }
   
   // Constructeur par copie
@@ -56,14 +64,6 @@ class U3DObject {
     mAnimations = original.getAnimations();
   }
   
-  void apply_gravity(){
-    if(mPlanet == null)
-      return;
-      
-      mInertia.y -= (float)mPlanet.getGravity()/50.0f;
-    
-  }
-  
   void handle_collision(U3DObject collided){
     if(doCollisions()){    
       //only used by SelectionDetectorObject for now
@@ -73,7 +73,7 @@ class U3DObject {
   }
     
   void animate(){
-    apply_gravity();
+    if(isMovable())
     applyInertia();
     
     
@@ -106,7 +106,8 @@ class U3DObject {
         box(dim.x, dim.y, dim.z);
       }
     popMatrix();
-    
+
+      // DEUG:
       if(mRotationZCenter != null){
         pushMatrix();
         translate(mRotationZCenter.x, mRotationZCenter.y, mPosition.z);
@@ -248,13 +249,6 @@ class U3DObject {
     addAnimation(type,a,duration,false);
   }
   
-  // --- Collisions
-  boolean collision(U3DObject o){
-    if(mPosition.y <= 0)
-      return true;
-    return false;
-  }
-  
   // --- Observers
   PVector getInertia(){
     return mInertia;
@@ -292,14 +286,17 @@ class U3DObject {
     return mCollide;
   }
   
-  
-  // --- Mutators
-  void setPlanet(Earth p){
-    mPlanet = p;
+  boolean isMovable(){
+    return everything != null;
   }
   
+  // --- Mutators
   void setPos(PVector p){
     mPosition = p;
+  }
+  
+  void setMovable(Universe uni){
+    everything = uni.objs;
   }
   
   void setInertia(PVector i){

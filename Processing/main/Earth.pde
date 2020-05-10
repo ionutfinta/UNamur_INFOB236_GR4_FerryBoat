@@ -1,24 +1,28 @@
+import java.util.Iterator;
+
 class Earth extends U3DObject{
-  private int gravity;
+  private float gravity;
   private Wave mWave, mEauEcluse;
+  private int lastGravity;
   
+  // --- Constructor
   Earth(){
     mShape = loadShape("./assets/berge.obj");
     mPosition = new PVector(0, 2, 0);
     
-    
-    gravity = 10;
+    lastGravity = 0;
+    gravity = 9.81/7;
     
     mWave = new Wave();
     mEauEcluse = new Wave(4, 25, 0.3, 32, 400);
   }
   
+  // --- Loading
   void load(Universe uni){
     // Spawn des Gardes-fous et insertion dans l'univers des objets
     U3DObject tmpObj = new U3DObject();
     tmpObj.setShapeSRC("./assets/poteau.obj");
     tmpObj.setShapeName("noStroke");
-    tmpObj.setPlanet(this);
     uni.addObject(tmpObj);
       
     for(int i = 100; i >= 0; i-=2){
@@ -80,6 +84,33 @@ class Earth extends U3DObject{
     uni.addObject(tmpObj);
   }
   
+  @Override
+  void animate(){}
+  
+  void applyGravity(U3DObject o){
+    if(second()-lastGravity == 0)
+      return;
+      
+    PVector pos = o.getPosition();
+    if(inBetween(-125, pos.x, 125) && inBetween(-125, pos.y, 125)){
+      PVector a = o.getInertia();
+      if(pos.y > 2){
+        a.y -= getGravity();
+      }else if(pos.y < 2){
+        o.getPosition().y = 2;
+      }
+    }else if(pos.y > 0) {
+      PVector a = o.getInertia();
+      a.y -= getGravity();
+    }
+    
+  }
+  
+  void finishedFrame(){
+    lastGravity = second();
+  }
+  
+  // --- Display Planet
   void display(){
     super.display();
     pushMatrix();
@@ -111,8 +142,7 @@ class Earth extends U3DObject{
     popMatrix();
       
   }
-  
-  int getGravity(){
+  float getGravity(){
     return gravity;
   }
 }

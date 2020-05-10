@@ -10,10 +10,6 @@ Ferry mFerry;
 
 SelectionDetectorObject selector;
 
-
-// A remplacer par une fonction de Me:
-boolean is2DEnv;
-
 // Instance principale de l'ui:
 UI mainUI;
 
@@ -21,11 +17,9 @@ void setup(){
   size(1024,768,P3D);
   shapeMode(CORNER);
   smooth(4);
-  is2DEnv = true;
   
   // --- Initialisation
   myEventBMachine = new fifthRef();
-  
   myUniverse = new Universe();
   myUniverse.init();
   
@@ -37,8 +31,8 @@ void setup(){
   myFirstCar = new Car(myUniverse, new PVector(-20, 10, 120));
   mCar2 = new Car(myUniverse, new PVector(-20, 10, 100));
   
-  mBarriere1 = new Barriere(myUniverse, new PVector(-11.5, 2.629905, 123.5));
-  mBarriere2 = new Barriere(myUniverse, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
+  mBarriere1 = new Barriere(myUniverse, myEventBMachine, new PVector(-11.5, 2.629905, 123.5));
+  mBarriere2 = new Barriere(myUniverse, myEventBMachine, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
   
   // Spawn Ferry avec 3 compartiments
   mFerry = new Ferry(myUniverse, 3, myEventBMachine);
@@ -50,19 +44,21 @@ void setup(){
 }
 
 void draw(){
-  me.setBackground();
-  if(! is2DEnv){
+  background(255);
+  if(mainUI.canIReturn3D()){
+    me.setBackground();
     myUniverse.display();
-    
-    //--- Controls in 3D environement... maybe we should move that later...
-    if(keyPressed && key=='0'){
+  }else{
+    mainUI.draw();
+  }
+}
+
+void keyReleased(){
+  switch(key){
+    case '0':
        mBarriere1.switchState();
        mBarriere2.switchState();
-    }
-  }
-  else{
-    mainUI.draw();
-    is2DEnv = !mainUI.canIReturn3D();
+       break;
   }
 }
 
@@ -72,6 +68,5 @@ void mousePressed(){
     selector.send(me.getPosition(), me.getCamDir(), me.getCamRotationAngle(), me.getCamElevationAngle());
   }
 
-  // Tu peux relayer toutes les fonctions de main à ta classe ainsi:
   mainUI.mousePressed();
 }

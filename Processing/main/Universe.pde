@@ -13,10 +13,17 @@ class Universe{
   }
   
   void display(){
+    Earth earth = getEarth();
+    
     for(U3DObject o: objs){
+      if(o.isMovable() && earth != null)
+        earth.applyGravity(o);
       o.animate();
       o.display();
     }
+    
+    if(earth != null)
+      earth.finishedFrame();
   }
   
   void addObject(U3DObject o){
@@ -35,7 +42,4 @@ class Universe{
   Earth getEarth(){
     return (Earth) objs.get(0);
   }
-  
-  
-
 }

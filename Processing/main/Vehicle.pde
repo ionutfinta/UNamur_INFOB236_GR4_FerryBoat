@@ -3,8 +3,9 @@ class Vehicle extends U3DObject{
   
   private boolean isSelected;
   
-  Vehicle(Universe uni) {
-    super(uni);
+  Vehicle(Universe uni, PVector pos, String shape) {
+    super(uni, pos, shape);
+    setMovable(uni);
     wheels = new ArrayList<Wheel>();
     mCollide = true;
   }
@@ -46,6 +47,4 @@ class Vehicle extends U3DObject{
     isSelected = state;
     print(state);
   }
-  
-  
 }

@@ -4,10 +4,7 @@ class Car extends Vehicle {
   
   
   Car(Universe u, PVector pos){
-    super(u);
-    mShape = loadShape("./assets/car_chassis.obj");
-    mPosition = pos;
-    
+    super(u, pos, "./assets/car_chassis.obj");
     float frontPos = 0.86,
            wh_height = 0.44,
            backPos = 1.27;

@@ -11,38 +11,32 @@ class Animation{
   
   private boolean mBoolAngles, mReversed;
   
-  //private float mStart, mEnd;
   private int mEnd, mDuration;
   
+  // --- Constructors
   // Create a new animation (position) duration in milliseconds
   Animation(PVector act, PVector obj, int duration){
     mBoolAngles = false;
     mVStart = obj;
     mVEnd = act;
-    mDuration = duration;
-  }
-  
-  // Create a new animation (angles if last parameter is true)
-  Animation(PVector act, PVector obj, int duration, boolean affectsAngles){
-    mBoolAngles = affectsAngles;
-    mVStart = obj;
-    mVEnd = act;
-    mDuration = duration;
     mEnd = millis() + duration;
+    mDuration = duration;
     mReversed = false;
   }
   
   // Create a new animation (angles if last parameter is true)
-  Animation(PVector act, PVector obj, int duration, boolean affectsAngles, boolean rev){
+  Animation(PVector act, PVector obj, int duration, boolean affectsAngles){
+    this(act, obj, duration);
     mBoolAngles = affectsAngles;
-    mVStart = rev?act:obj;
-    mVEnd = rev?obj:act;
-    mDuration = duration;
-    mEnd = millis() + duration;
+  }
+  
+  // Create a new animation (angles if last parameter is true)
+  Animation(PVector act, PVector obj, int duration, boolean affectsAngles, boolean rev){
+    this(act, obj, duration, affectsAngles);
     mReversed = rev;
   }
   
-  // Getters
+  // --- Observers
   public boolean affectsAngles(){
      return mBoolAngles;
   }

@@ -17,6 +17,7 @@ class Me extends U3DObject{
   
  Me(Universe uni, String m, String ap){
    super(uni);
+   setMovable(uni);
    
    mode = m;
    if(ap.equals("Laniakea>Virgo Supercluster>Local Sheet>Local Group>Milky Way subgroup>Milky Way Galaxy>Orbit of the Solar System>Orion Arm>Gould Belt>Local Bubble>Local Interstellar Cloud>Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject"))
@@ -120,12 +121,9 @@ class Me extends U3DObject{
  }
  
  void updateCameraDir(){
-     if(mPlanet != null && collision(mPlanet)){
-       mPosition.y += mSize.y;
-     }
-     cameraDir.x = cameraSpeed*sin(rotationAngle);
-     cameraDir.y = cameraSpeed*sin(elevationAngle);
-     cameraDir.z = cameraSpeed*cos(rotationAngle);
+   cameraDir.x = cameraSpeed*sin(rotationAngle);
+   cameraDir.y = cameraSpeed*sin(elevationAngle);
+   cameraDir.z = cameraSpeed*cos(rotationAngle);
  }
 
   void setBackground(){
@@ -181,4 +179,7 @@ class Me extends U3DObject{
  public float getCamElevationAngle(){
    return elevationAngle;
  }
+ 
+ @Override
+ boolean isMovable(){ return !mode.equals("God"); }
 }
