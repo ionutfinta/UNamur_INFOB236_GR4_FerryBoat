@@ -28,7 +28,7 @@ void setup(){
                                      "Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>" +
                                      "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject");
 
-  myFirstCar = new Car(myUniverse, new PVector(-20, 10, 120));
+  myFirstCar = new Car(myUniverse, new PVector(-12, 10, 120));
   mCar2 = new Car(myUniverse, new PVector(-20, 10, 100));
   
   mBarriere1 = new Barriere(myUniverse, myEventBMachine, new PVector(-11.5, 2.629905, 123.5));
