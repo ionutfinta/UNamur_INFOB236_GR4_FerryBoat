@@ -10,6 +10,8 @@ class U3DObject {
   // An object car rotate round a defined center (if not set, it turns round its own center)
   protected PVector mRotationZCenter;
   protected float mRotationZr;
+  protected PVector mRotationXCenter;
+  protected PVector mRotationYCenter;
   
   protected PShape mShape;
   
@@ -111,6 +113,22 @@ class U3DObject {
       if(mRotationZCenter != null){
         pushMatrix();
         translate(mRotationZCenter.x, mRotationZCenter.y, mPosition.z);
+        noStroke();
+        fill(#FF0000);
+        sphere(.1);
+        popMatrix();
+      }
+      if(mRotationXCenter != null){
+        pushMatrix();
+        translate(mPosition.x, mRotationXCenter.y, mRotationXCenter.z);
+        noStroke();
+        fill(#FF0000);
+        sphere(.1);
+        popMatrix();
+      }
+      if(mRotationYCenter != null){
+        pushMatrix();
+        translate(mRotationYCenter.x, mPosition.y, mRotationXCenter.z);
         noStroke();
         fill(#FF0000);
         sphere(.1);
@@ -241,6 +259,10 @@ class U3DObject {
   void addAnimation(String type, float a, int duration, boolean reversed){
     if(type.equals("rotateZ"))
       mAnimations.add(new Animation(mAngles, new PVector(mAngles.x, mAngles.y, a), duration, true, reversed));
+    if(type.equals("rotateX"))
+      mAnimations.add(new Animation(mAngles, new PVector(a, mAngles.y, mAngles.z), duration, true, reversed));
+    if(type.equals("rotateY"))
+      mAnimations.add(new Animation(mAngles, new PVector(mAngles.x, a, mAngles.z), duration, true, reversed));
   }
   
   void addAnimation(String type, float a, int duration){
