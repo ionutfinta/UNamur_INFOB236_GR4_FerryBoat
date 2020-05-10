@@ -32,13 +32,25 @@ public static float getYLine(PVector pointA, PVector pointB, float x){
 public static PVector planeFrom(PVector v, int i, int j, int k){
   int[] ijk = {i,j,k};
   boolean gotOne = false;
-  PVector ret = new PVector();
-  for(int x:ijk){
-    if(x>0){
-      if(gotOne)
-        ret.x=x;
-      else
-        ret.y=x;
+  PVector ret = new PVector(0,0);
+  for(int n=0; n<3; n++){
+    if(ijk[n]>0){
+      if(gotOne){
+        switch(n){
+          case 0:ret.y=v.x; break;
+          case 1:ret.y=v.y; break;
+          case 2:ret.y=v.z; break;
+        }
+      }
+        
+      else{
+        switch(n){
+          case 0:ret.x=v.x; break;
+          case 1:ret.x=v.y; break;
+          case 2:ret.x=v.z; break;
+        }
+        gotOne = true;
+      }
     }   
   }
   return ret;
