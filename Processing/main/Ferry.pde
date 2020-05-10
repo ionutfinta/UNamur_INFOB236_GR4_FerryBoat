@@ -128,7 +128,6 @@ class Ferry extends U3DObject{
       if(mEventB.get_lvl_1_access() == true && lvl1Access==false){
         porteRDC.addAnimation("rotateX", -1.4, 10000);
         lvl1Access = true;
-        print("go");
       }
       else if(mEventB.get_lvl_1_access() == false && lvl1Access==true){
         porteRDC.addAnimation("rotateX", -1.4, 10000, true);

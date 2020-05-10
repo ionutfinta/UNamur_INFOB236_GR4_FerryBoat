@@ -138,6 +138,7 @@ class U3DObject {
         popMatrix();
       }
   }
+  }
   
   // --- 3D Moving
   void applyInertia(){

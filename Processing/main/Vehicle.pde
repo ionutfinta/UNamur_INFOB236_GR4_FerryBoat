@@ -7,6 +7,8 @@ class Vehicle extends U3DObject{
   
   private boolean isSelected;
   
+  public int apparent_id = 0;
+  
   Vehicle(Universe uni, PVector pos, String shape) {
     super(uni, pos, shape);
     setMovable(uni);
@@ -77,4 +79,9 @@ class Vehicle extends U3DObject{
     isSelected = state;
     print(state);
   }
+  
+  int getId(){
+    return apparent_id;
+  }
+  
 }
