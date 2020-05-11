@@ -1,11 +1,10 @@
 class Universe{
   U3DObjects objs;
   
-  
-  
   Universe(){
     objs = new U3DObjects();
     objs.add( new Earth() );
+    
   }
   
   void init(){

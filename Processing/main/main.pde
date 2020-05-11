@@ -1,8 +1,7 @@
 import processing.opengl.*;
 
 static final boolean DEBUG = true;
-
-fifthRef myEventBMachine;
+static final fifthRef myEventBMachine = new fifthRef();
 Universe myUniverse;
 Me me;
 Car myFirstCar, mCar2;
@@ -30,7 +29,6 @@ void setup(){
   smooth(4);
   
   // --- Initialisation
-  myEventBMachine = new fifthRef();
   myUniverse = new Universe();
   myUniverse.init();
   return3D = false;
@@ -48,11 +46,11 @@ void setup(){
   
   Scaner scan = new Scaner(myUniverse, true,myEventBMachine);
   Scaner scan2 = new Scaner(myUniverse, false,myEventBMachine);
-  Lift mLift = new Lift(myUniverse, myEventBMachine, new PVector(-14.5, -10, 131.65));
+  Lift mLift = new Lift(myUniverse, new PVector(-14.5, -10, 131.65));
   
   
   mBarriere1 = new Barriere(myUniverse, myEventBMachine, new PVector(-11.5, 2.629905, 123.5));
-  mBarriere2 = new Barriere(myUniverse, null, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
+  mBarriere2 = new Barriere(myUniverse, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0), false);
   
   // Spawn Ferry avec 3 compartiments
   mFerry = new Ferry(myUniverse, 3, myEventBMachine);

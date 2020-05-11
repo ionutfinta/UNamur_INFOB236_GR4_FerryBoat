@@ -4,16 +4,14 @@
 **/
 
 class Barriere extends U3DObject {
-  private fifthRef mEventB;
   private U3DObject myLisse;
   
-  private boolean nOuvert, isOuvert;
+  private boolean nOuvert, isOuvert, ignoreEventB;
   
   // --- Constructeurs
   // `angle` représente l'angle de la lisse (utile pour mettre 2 barrières en mirroir) */
   Barriere(Universe uni, fifthRef mac, PVector pos, PVector angle){
     super(uni, pos, "./assets/mainBarrier.obj");
-    mEventB = mac;
     
     myLisse = new U3DObject(uni, new PVector(angle.y==PI?1.6403:-1.6403, .2, 0.260741).add(mPosition), "./assets/barrier.obj");
     myLisse.setRotationZCenter(new PVector(angle.y==PI?-0.51325:0.51325, 0).add(mPosition));
@@ -21,10 +19,16 @@ class Barriere extends U3DObject {
     
     isOuvert = false;
     nOuvert = true;
+    ignoreEventB = false;
   }
   
   Barriere(Universe uni, fifthRef mac, PVector pos){
     this(uni, mac, pos, new PVector(0,0,0));
+  }
+  
+  Barriere(Universe uni, fifthRef mac, PVector pos, PVector angle, boolean ignoreB){
+    this(uni, mac, pos, angle);
+    ignoreEventB = ignoreB;
   }
   
   // -- Mutateurs privés
@@ -42,14 +46,14 @@ class Barriere extends U3DObject {
   public boolean switchState(){
     if(isBusy()){ return false; }
     
-    if(mEventB != null){
-      if(isOuvert() && mEventB.evt_Switch_lift_access.guard_Switch_lift_access(false)){
+    if(!ignoreEventB){
+      if(isOuvert() && myEventBMachine.evt_Switch_lift_access.guard_Switch_lift_access(false)){
         setFerme();
-        mEventB.evt_Switch_lift_access.run_Switch_lift_access(false);
+        myEventBMachine.evt_Switch_lift_access.run_Switch_lift_access(false);
         return true;
-      }else if(!isOuvert() && mEventB.evt_Switch_lift_access.guard_Switch_lift_access(true)){
+      }else if(!isOuvert() && myEventBMachine.evt_Switch_lift_access.guard_Switch_lift_access(true)){
         setOuvert();
-        mEventB.evt_Switch_lift_access.run_Switch_lift_access(true);
+        myEventBMachine.evt_Switch_lift_access.run_Switch_lift_access(true);
         return true;
       }else{
         println("Les gardes Event-B empêchent de switcher l'état des barrières");
@@ -74,9 +78,9 @@ class Barriere extends U3DObject {
   
   // --- Getters
   public boolean isOuvert(){
-    if(mEventB == null){return isOuvert;}
+    if(ignoreEventB){return isOuvert;}
     
-    return mEventB.get_lift_access();
+    return myEventBMachine.get_lift_access();
   }
   
   public boolean isBusy(){
