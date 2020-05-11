@@ -49,7 +49,7 @@ void setup(){
   Lift mLift = new Lift(myUniverse, new PVector(-14.5, -10, 131.65));
   
   
-  mBarriere1 = new Barriere(myUniverse, myEventBMachine, new PVector(-11.5, 2.629905, 123.5));
+  mBarriere1 = new Barriere(myUniverse, new PVector(-11.5, 2.629905, 123.5));
   mBarriere2 = new Barriere(myUniverse, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0), false);
   
   // Spawn Ferry avec 3 compartiments

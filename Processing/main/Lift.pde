@@ -4,7 +4,6 @@
 **/
 
 class Lift extends U3DObject {
-  private fifthRef mEventB;
   //GF = Garde-Fou
   private U3DObject mGF1, mGF2;
   
@@ -16,9 +15,8 @@ class Lift extends U3DObject {
   boolean[] sensors = {false,false,false};
   
   // --- Constructeurs
-  Lift(Universe uni, fifthRef mac, PVector pos){
+  Lift(Universe uni, PVector pos){
     super(uni, pos, "./assets/liftStructure.obj");
-    mEventB = mac;
     mCollide = false;
     mShape.setName("noStroke");
 
@@ -47,12 +45,12 @@ class Lift extends U3DObject {
       println("not a valid floor");
       return;
     }
-    if(!mEventB.evt_MoveLift.guard_MoveLift(floor)){
+    if(!myEventBMachine.evt_MoveLift.guard_MoveLift(floor)){
       println("Lift cannot be moved");
       return;
     }
     
-    mEventB.evt_MoveLift.run_MoveLift(floor);
+    myEventBMachine.evt_MoveLift.run_MoveLift(floor);
     
     switch(floor){
       case 1: elevation = 2; break;
@@ -86,33 +84,33 @@ class Lift extends U3DObject {
   }*/
    void check_detectors(){
      if(sensors[0]==true && !inBetween(11.5,mPosition.y,11.7)){
-       mEventB.evt_Sensor_stops_detecting.run_Sensor_stops_detecting(1);
+       myEventBMachine.evt_Sensor_stops_detecting.run_Sensor_stops_detecting(1);
        sensors[0] = false;
        println("stops detecting platform 1");
      }
      else if(inBetween(16.3,mPosition.y,16.4) && sensors[1] == false){
-       mEventB.evt_Sensor_stops_detecting.run_Sensor_stops_detecting(2);
+       myEventBMachine.evt_Sensor_stops_detecting.run_Sensor_stops_detecting(2);
        sensors[1] = false;
        println("stops detecting platform 2");
      }
      else if(inBetween(19.5,mPosition.y,19.7) && sensors[2] == false){
-       mEventB.evt_Sensor_stops_detecting.run_Sensor_stops_detecting(3);
+       myEventBMachine.evt_Sensor_stops_detecting.run_Sensor_stops_detecting(3);
        sensors[2] = false;
        println("stops detecting platform 3");
      }
      
      if(inBetween(11.5,mPosition.y,11.7) && sensors[0] == false){
-       mEventB.evt_Sensor_detects.run_Sensor_detects(1);
+       myEventBMachine.evt_Sensor_detects.run_Sensor_detects(1);
        sensors[0] = true;
        println("detecting platform 1");
      }
      else if(inBetween(16.3,mPosition.y,16.4) && sensors[1] == false){
-       mEventB.evt_Sensor_detects.run_Sensor_detects(2);
+       myEventBMachine.evt_Sensor_detects.run_Sensor_detects(2);
        sensors[1] = true;
        println("detecting platform 2");
      }
      else if(inBetween(19.5,mPosition.y,19.7) && sensors[2] == false){
-       mEventB.evt_Sensor_detects.run_Sensor_detects(3);
+       myEventBMachine.evt_Sensor_detects.run_Sensor_detects(3);
        sensors[2] = true;
        println("detecting platform 3");
      }

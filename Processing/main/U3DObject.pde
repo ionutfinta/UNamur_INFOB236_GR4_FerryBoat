@@ -95,6 +95,8 @@ class U3DObject {
         ait.remove();
       }
     }
+    
+    
   }
   void display(){
     pushMatrix();
