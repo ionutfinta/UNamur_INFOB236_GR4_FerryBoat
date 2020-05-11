@@ -63,19 +63,21 @@ class Earth extends U3DObject{
   void animate(){}
   
   void applyGravity(U3DObject o){
+    /* skips when it shouldn't
     if(second()-lastGravity == 0)
-      return;
+      return;*/
     PVector pos = o.getPosition();
     if(inBetween(-125, pos.x, 125) && inBetween(-125, pos.z, 125)){
       PVector a = o.getInertia();
-      if(pos.y > 2+o.getSize().y){
-        a.y -= getGravity();
-      }else if(pos.y < 2){
-        o.getPosition().y = 2+o.getSize().y;
+      if(pos.y > 2.1+o.getSize().y){
+        a.y = -getGravity();
+      }else if(pos.y < 2.1){
+        o.getPosition().y = 2.1+o.getSize().y;
+        a.y = 0;
       }
     }else if(pos.y > 0) {
       PVector a = o.getInertia();
-      a.y -= getGravity();
+      a.y = -getGravity();
     }
   }
   

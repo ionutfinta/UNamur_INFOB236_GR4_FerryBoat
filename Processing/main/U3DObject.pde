@@ -247,12 +247,13 @@ class U3DObject {
             }
             
             if(mInertia.y!=0 
-            && (inBetween(mPos.x-mSize.x, oPos.x+oSize.x, mPos.x+oSize.x) || inBetween(mPos.x-mSize.x, oPos.x-mSize.x, mPos.x+mSize.x) || inBetween(oPos.x-mSize.x, mPos.x-mSize.x, oPos.x+oSize.x) || inBetween(oPos.x-mSize.x, mPos.x+mSize.x, oPos.x+oSize.x))
+            && ((inBetween(mPos.x-mSize.x, oPos.x+oSize.x, mPos.x+oSize.x) || inBetween(mPos.x-mSize.x, oPos.x-mSize.x, mPos.x+mSize.x) || inBetween(oPos.x-mSize.x, mPos.x-mSize.x, oPos.x+oSize.x) || inBetween(oPos.x-mSize.x, mPos.x+mSize.x, oPos.x+oSize.x))
             &&(inBetween(mPos.z-mSize.z, oPos.z+oSize.z, mPos.z+oSize.z) ||inBetween(mPos.z-mSize.z, oPos.z-oSize.z, mPos.z+mSize.z) || inBetween(oPos.z-oSize.z, mPos.z-mSize.z, oPos.z+oSize.z) || inBetween(oPos.z-oSize.z, mPos.z+mSize.z, oPos.z+oSize.z))
-            &&(inBetween(mPosNext.y-mSize.y, oPos.y+oSize.y, mPosNext.y+oSize.y) ||inBetween(mPosNext.y-mSize.y, oPos.y-oSize.y, mPosNext.y+mSize.y) || inBetween(oPos.y-oSize.y, mPosNext.y-mSize.y, oPos.y+oSize.y) || inBetween(oPos.y-oSize.y, mPosNext.y+mSize.y, oPos.y+oSize.y))){
+            &&(inBetween(mPosNext.y-mSize.y, oPos.y+oSize.y, mPos.y+oSize.y) ||inBetween(mPosNext.y-mSize.y, oPos.y-oSize.y, mPos.y+mSize.y) || inBetween(oPos.y-oSize.y, mPosNext.y-mSize.y, oPos.y+oSize.y) || inBetween(oPos.y-oSize.y, mPosNext.y+mSize.y, oPos.y+oSize.y)))){
+              
               mInertia.y-=mInertia.y;
               collided_once = true;
-            }      
+            }
                   
              if(collided_once){
                   o1.handle_collision(o2);
