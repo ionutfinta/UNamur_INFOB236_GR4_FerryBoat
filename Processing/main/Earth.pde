@@ -66,7 +66,7 @@ class Earth extends U3DObject{
     if(second()-lastGravity == 0)
       return;
     PVector pos = o.getPosition();
-    if(inBetween(-125, pos.x, 125) && inBetween(-125, pos.y, 125)){
+    if(inBetween(-125, pos.x, 125) && inBetween(-125, pos.z, 125)){
       PVector a = o.getInertia();
       if(pos.y > 2+o.getSize().y){
         a.y -= getGravity();
