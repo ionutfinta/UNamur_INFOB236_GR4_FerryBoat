@@ -76,6 +76,27 @@ class Vehicle extends U3DObject{
    directionalVector.z = cos(rotationAngle);
    
  }
+ @Override
+ void handle_collision(U3DObject o){/*
+           PVector oPos,
+            oSize,
+            mPos,
+            mInert,
+            mSize;
+              
+            mPos = this.getPosition();
+            mInert = this.getInertia();
+            mSize = this.getSize();
+            oPos = o.getPosition();
+            oSize = o.getSize();
+   
+             if  ((inBetween(mPos.x-mSize.x, oPos.x+oSize.x, mPos.x+mSize.x) || inBetween(mPos.x-mSize.x, oPos.x-mSize.x, mPos.x+mSize.x) || inBetween(oPos.x-oSize.x, mPos.x-mSize.x, oPos.x+oSize.x) || inBetween(oPos.x-oSize.x, mPos.x+mSize.x, oPos.x+oSize.x))
+            &&(inBetween(mPos.z-mSize.z, oPos.z+oSize.z, mPos.z+mSize.z) ||inBetween(mPos.z-mSize.z, oPos.z-oSize.z, mPos.z+mSize.z) || inBetween(oPos.z-oSize.z, mPos.z-mSize.z, oPos.z+oSize.z) || inBetween(oPos.z-oSize.z, mPos.z+mSize.z, oPos.z+oSize.z))
+            &&(inBetween(mPos.y-mSize.y, oPos.y+oSize.y, mPos.y+mSize.y) ||inBetween(mPos.y-mSize.y, oPos.y-oSize.y, mPos.y+mSize.y) || inBetween(oPos.y-oSize.y, mPos.y-mSize.y, oPos.y+oSize.y) || inBetween(oPos.y-oSize.y, mPos.y+mSize.y, oPos.y+oSize.y))){
+              mPosition.y += mPos.y-(oPos.y+oSize.y);
+            }
+             was supposed to tp up when stuck */ 
+ }
   
   @Override
   boolean isSelectable(){

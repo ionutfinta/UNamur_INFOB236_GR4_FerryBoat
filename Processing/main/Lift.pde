@@ -6,7 +6,10 @@
 class Lift extends U3DObject {
   private fifthRef mEventB;
   //GF = Garde-Fou
-  private U3DObject mPlateforme, mGF1, mGF2;
+  private U3DObject mGF1, mGF2;
+  
+  private int currentFloor;
+  private LiftPlatform mPlatform;
   
   private boolean nOuvert, isOuvert;
   
@@ -19,14 +22,57 @@ class Lift extends U3DObject {
     mCollide = false;
     mShape.setName("noStroke");
 
-    mPlateforme = new U3DObject(uni, new PVector(0,11.5521,0).add(mPosition), "./assets/lift.obj");
+    mPlatform = new LiftPlatform(uni, this);
+    currentFloor = 1;
     
-    mGF1 = new U3DObject(uni, new PVector(6.14,12.7321,0).add(mPosition), "./assets/lift_gardeFou.obj");
-    mGF2 = new U3DObject(uni, new PVector(-6.14,12.7321,0).add(mPosition), "./assets/lift_gardeFou.obj");
+    PVector tmp_position = pos.copy();
+    tmp_position.x+= 6.14;
+    tmp_position.y=2.5;
+    mGF1 = new U3DObject(uni, tmp_position.copy(), "./assets/lift_gardeFou.obj");
+    tmp_position.x-= 6.14*2;
+    mGF2 = new U3DObject(uni, tmp_position.copy(), "./assets/lift_gardeFou.obj");
     mGF2.setAngles(new PVector(0,PI,0));
     /*isOuvert = false;
     nOuvert = true;*/
   }
+  
+  //@requires floor>0 && floor<=3
+  //moves lift 
+  void move_lift(int floor){
+    float elevation = 0;
+    
+    if(floor==currentFloor)
+      return;
+    if(floor<=0 || floor>3){
+      println("not a valid floor");
+      return;
+    }
+    if(!mEventB.evt_MoveLift.guard_MoveLift(floor)){
+      println("Lift cannot be moved");
+      return;
+    }
+    
+    mEventB.evt_MoveLift.run_MoveLift(floor);
+    
+    switch(floor){
+      case 1: elevation = 2; break;
+      case 2: elevation = 7.12; break;
+      case 3: elevation = 10.5; break;
+      default: println("floor ", floor, " doesn't exist..");
+    }
+    
+    PVector destination = mPlatform.getPosition().copy();
+    destination.y = elevation - mPlatform.getPosition().y;
+    PVector gf1_destination = mGF1.getPosition().copy();
+    gf1_destination.y = elevation+3 - mGF1.getPosition().y;
+    PVector gf2_destination = mGF2.getPosition().copy();
+    gf2_destination.y = elevation+3 - mGF2.getPosition().y;
+    
+    mPlatform.addAnimation(mPlatform.getPosition(), destination, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
+    mGF1.addAnimation(mGF1.getPosition(), gf1_destination, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
+    mGF2.addAnimation(mGF2.getPosition(), gf2_destination, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
+  }
+  
   
   // -- Mutateurs privés
   /*private void setFerme(){

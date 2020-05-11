@@ -277,6 +277,10 @@ class U3DObject {
     addAnimation(type,a,duration,false);
   }
   
+  void addAnimation(PVector start, PVector end, int duration){
+    mAnimations.add(new Animation(start, end ,duration));
+  }
+  
   // --- Observers
   PVector getInertia(){
     return mInertia;
