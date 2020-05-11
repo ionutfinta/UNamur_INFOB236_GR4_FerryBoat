@@ -65,7 +65,7 @@ class SelectionDetectorObject extends U3DObject{
     //percentage of distance from center
     float mouse_x = (float) mouseX;
     float mouse_y = (float) mouseY;
-    PVector centerRelative = new PVector((mouse_x-(width/2))/(width/2), -1*(mouse_y-(height/2))/(height/2));
+    PVector centerRelative = new PVector((mouse_x-((float)width/2))/((float)width/2), -1*(mouse_y-((float)height/2))/((float)height/2));
     
     //basis
     PVector i_hat = new PVector(1,0,0); //lateral
@@ -81,7 +81,7 @@ class SelectionDetectorObject extends U3DObject{
     //jk value
       //angle is PI/3*centerRelative.y /2
       float jk_angle = (PI/3)*centerRelative.y/2;
-      println(ik_angle/(PI/3), jk_angle/(PI/3));
+      //println(ik_angle/(PI/3), jk_angle/(PI/3));
       
     //assume inertia to have k component 1
     float i_val, j_val, k_val;

@@ -6,6 +6,9 @@ class Vehicle extends U3DObject{
   float speedMult;
   
   private boolean isSelected;
+  private float angularSpeed;
+  private float rotationAngle;
+  private PVector  directionalVector;
   
   public int apparent_id = 0;
   
@@ -13,7 +16,10 @@ class Vehicle extends U3DObject{
     super(uni, pos, shape);
     setMovable(uni);
     mCollide = true;
-    speedMult = 1;
+    speedMult = 0.2;
+    angularSpeed = 0.05;
+    rotationAngle = 0;
+    directionalVector = new PVector(0,0,1);
   }
   
   void initWheels(){
@@ -38,31 +44,38 @@ class Vehicle extends U3DObject{
     super.animate();
     if(keyPressed == true && isSelected()){
       if(key == 'z'){
-        mInertia.z += .05f;
-      }
-      if(key == 'a'){
-        mInertia.z += .05f;
-        mInertia.x += .01f;
-      }
-      if(key == 'e'){
-        mInertia.z += .05f;
-        mInertia.x -= .01f;
-      }
-      if(key == 'q'){
-        mInertia.x += .01f;
-        mInertia.z -= .03f;
-      }
-      if(key == 'd'){
-        mInertia.x -= .01f;
-        mInertia.z -= .03f;
+        mInertia.add(directionalVector);
       }
       if(key == 's')
-        mInertia.z -= .03f;
+        mInertia.sub(directionalVector);
+      
+      if(key == 'q'){
+         updateRotation(true);
+     }
+     if(key == 'd'){
+         updateRotation(false);
+     }
         
       mInertia.z*=speedMult;
       mInertia.x*=speedMult;
     }
   }
+  
+   
+ void updateRotation(boolean positive){
+   if(positive){
+     mShape.rotate(-angularSpeed,0,1,0);
+     rotationAngle-=angularSpeed;
+   
+   }
+   else{
+     mShape.rotate(angularSpeed,0,1,0);
+     rotationAngle+=angularSpeed;
+   }
+   directionalVector.x = sin(rotationAngle);
+   directionalVector.z = cos(rotationAngle);
+   
+ }
   
   @Override
   boolean isSelectable(){
