@@ -26,6 +26,11 @@ class Barriere extends U3DObject {
     this(uni, pos, new PVector(0,0,0));
   }
   
+  Barriere(Universe uni, PVector pos, boolean ignoreB){
+    this(uni, pos, new PVector(0,0,0));
+    ignoreEventB = ignoreB;
+  }
+  
   Barriere(Universe uni, PVector pos, PVector angle, boolean ignoreB){
     this(uni, pos, angle);
     ignoreEventB = ignoreB;

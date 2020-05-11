@@ -10,7 +10,8 @@ class Lift extends U3DObject {
   private int currentFloor;
   private LiftPlatform mPlatform;
   
-  private boolean nOuvert, isOuvert;
+  // Barrières
+  Barriere[] mBarriereIN, mBarriereOUT;
   
   boolean[] sensors = {false,false,false};
   
@@ -30,6 +31,14 @@ class Lift extends U3DObject {
     tmp_position.x-= 6.14*2;
     mGF2 = new U3DObject(uni, tmp_position.copy(), "./assets/lift_gardeFou.obj");
     mGF2.setAngles(new PVector(0,PI,0));
+    
+    mBarriereIN = new Barriere[2];
+    mBarriereIN[0] = new Barriere(myUniverse, new PVector(4.58, 1.15, -6.12).add(mPlatform.getPosition()), true);
+    mBarriereIN[1] = new Barriere(myUniverse, new PVector(-5, 1.15, -6.12).add(mPlatform.getPosition()), new PVector(0,PI,0), true);
+    
+    mBarriereOUT = new Barriere[2];
+    mBarriereOUT[0] = new Barriere(myUniverse, new PVector(4.58, 1.15, 6).add(mPlatform.getPosition()), true);
+    mBarriereOUT[1] = new Barriere(myUniverse, new PVector(-5, 1.15, 6).add(mPlatform.getPosition()), new PVector(0,PI,0), true);
     /*isOuvert = false;
     nOuvert = true;*/
   }
@@ -121,6 +130,27 @@ class Lift extends U3DObject {
     super.animate();
     check_detectors();
   }
+  
+  void switchLiftIn(){
+    if(!mBarriereIN[0].isBusy() && myEventBMachine.evt_Switch_lift_in.guard_Switch_lift_in(!myEventBMachine.get_lift_in())){
+      myEventBMachine.evt_Switch_lift_in.run_Switch_lift_in(!myEventBMachine.get_lift_in());
+      mBarriereIN[0].switchState();
+      mBarriereIN[1].switchState();
+    }else{
+      println("Action refused by guards or barriers actually in movement...");
+    }
+  }
+  
+  void switchLiftOut(){
+    if(!mBarriereOUT[0].isBusy() && myEventBMachine.evt_Switch_lift_out.guard_Switch_lift_out(!myEventBMachine.get_lift_out())){
+      myEventBMachine.evt_Switch_lift_out.run_Switch_lift_out(!myEventBMachine.get_lift_out());
+      mBarriereOUT[0].switchState();
+      mBarriereOUT[1].switchState();
+    }else{
+      println("Action refused by guards or barriers actually in movement...");
+    }
+  }
+  
   // --- Mutateurs publics
   
   // --- Actualisation du statut en fonction de l'animation

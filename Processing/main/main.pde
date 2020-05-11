@@ -8,6 +8,7 @@ Car myFirstCar, mCar2;
 Barriere mBarriere1;
 Barriere mBarriere2;
 Ferry mFerry;
+Lift mLift;
 
 boolean return3D;
 
@@ -46,7 +47,7 @@ void setup(){
   
   Scaner scan = new Scaner(myUniverse, true,myEventBMachine);
   Scaner scan2 = new Scaner(myUniverse, false,myEventBMachine);
-  Lift mLift = new Lift(myUniverse, new PVector(-14.5, -10, 131.65));
+  mLift = new Lift(myUniverse, new PVector(-14.5, -10, 131.65));
   
   
   mBarriere1 = new Barriere(myUniverse, new PVector(-11.5, 2.629905, 123.5));
@@ -77,6 +78,12 @@ void keyReleased(){
        if(mBarriere1.switchState());
          mBarriere2.switchState();
        break;
+    case '4':
+      mLift.switchLiftIn();
+      break;
+    case '5':
+      mLift.switchLiftOut();
+      break;
   }
 }
 
