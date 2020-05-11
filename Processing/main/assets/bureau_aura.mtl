@@ -1,0 +1,12 @@
+# Blender MTL File: 'bureau_aura.blend'
+# Material Count: 1
+
+newmtl Material
+Ns 702.249999
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.722869 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.104418 1.000000 0.861005
+Ni 4.850000
+d 0.650000
+illum 6
