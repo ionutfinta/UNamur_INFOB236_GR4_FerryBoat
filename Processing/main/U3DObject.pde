@@ -186,7 +186,7 @@ class U3DObject {
       else{
           
         try{
-         iter2 = everything.n_closest(5, o1);
+         iter2 = everything.n_closest(7, o1);
         }catch(IllegalArgumentException i){
           System.err.println(i);
           print(i);
@@ -231,6 +231,7 @@ class U3DObject {
             &&(inBetween(mPos.z-mSize.z, oPos.z+oSize.z, mPos.z+oSize.z) ||inBetween(mPos.z-mSize.z, oPos.z-oSize.z, mPos.z+mSize.z) || inBetween(oPos.z-oSize.z, mPos.z-mSize.z, oPos.z+oSize.z) || inBetween(oPos.z-oSize.z, mPos.z+mSize.z, oPos.z+oSize.z))
             &&(inBetween(mPos.y-mSize.y, oPos.y+oSize.y, mPos.y+oSize.y) ||inBetween(mPos.y-mSize.y, oPos.y-oSize.y, mPos.y+mSize.y) || inBetween(oPos.y-oSize.y, mPos.y-mSize.y, oPos.y+oSize.y) || inBetween(oPos.y-oSize.y, mPos.y+mSize.y, oPos.y+oSize.y))){
               mInertia.x-=mInertia.x;
+              
               collided_once = true;
             }
             if(mInertia.z!=0
@@ -238,6 +239,10 @@ class U3DObject {
             &&(inBetween(mPosNext.z-mSize.z, oPos.z+oSize.z, mPosNext.z+oSize.z) ||inBetween(mPosNext.z-mSize.z, oPos.z-oSize.z, mPosNext.z+mSize.z) || inBetween(oPos.z-oSize.z, mPosNext.z-mSize.z, oPos.z+oSize.z) || inBetween(oPos.z-oSize.z, mPosNext.z+mSize.z, oPos.z+oSize.z))
             &&(inBetween(mPos.y-mSize.y, oPos.y+oSize.y, mPos.y+oSize.y) ||inBetween(mPos.y-mSize.y, oPos.y-oSize.y, mPos.y+mSize.y) || inBetween(oPos.y-oSize.y, mPos.y-mSize.y, oPos.y+oSize.y) || inBetween(oPos.y-oSize.y, mPos.y+mSize.y, oPos.y+oSize.y))){
               mInertia.z-=mInertia.z;
+              if(o1 instanceof Limousine)
+                println(o2);
+                if(o2 instanceof Limousine)
+                println(o1);
               collided_once = true;
             }
             
@@ -246,8 +251,6 @@ class U3DObject {
             &&(inBetween(mPos.z-mSize.z, oPos.z+oSize.z, mPos.z+oSize.z) ||inBetween(mPos.z-mSize.z, oPos.z-oSize.z, mPos.z+mSize.z) || inBetween(oPos.z-oSize.z, mPos.z-mSize.z, oPos.z+oSize.z) || inBetween(oPos.z-oSize.z, mPos.z+mSize.z, oPos.z+oSize.z))
             &&(inBetween(mPosNext.y-mSize.y, oPos.y+oSize.y, mPosNext.y+oSize.y) ||inBetween(mPosNext.y-mSize.y, oPos.y-oSize.y, mPosNext.y+mSize.y) || inBetween(oPos.y-oSize.y, mPosNext.y-mSize.y, oPos.y+oSize.y) || inBetween(oPos.y-oSize.y, mPosNext.y+mSize.y, oPos.y+oSize.y))){
               mInertia.y-=mInertia.y;
-            if(o2 instanceof Earth)
-              print("earth");
               collided_once = true;
             }      
                   

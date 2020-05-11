@@ -22,8 +22,8 @@ class Ferry extends U3DObject{
   BRelation<Integer, Integer> mCapacities;
 
   // --- Constructeur
-  Ferry(Universe uni, int lg, fifthRef machine){
-    super(uni, new PVector(-14.88295,1.5,125 + 17 + lg*18.1416), "./assets/ferry_proue.obj");
+  Ferry(Universe uni, int lg, fifthRef machine){ //modifying Y of constructor doesn't move the bow
+    super(uni, new PVector(-14.88295,-1.6294+2.3,125 + 17 + lg*18.1416), "./assets/ferry_proue.obj");
     mCapacities = new BRelation<Integer, Integer>().insert(1, lg*6).insert(2,lg*6).insert(3,lg*6);
     setMovable(uni);
     
@@ -48,15 +48,15 @@ class Ferry extends U3DObject{
     // Facade arrière
     facadeArriere = new U3DObject();
     facadeArriere.setShapeSRC("./assets/ferry_coqueArriere.obj");
-    facadeArriere.setPos(new PVector(-0.11, -1.6294, -24.9-(lg-1)*16.1113).add(mPosition));
+    facadeArriere.setPos(new PVector(-0.11, -1.6294+2.3, -24.9-(lg-1)*16.1113).add(mPosition));
     facadeArriere.disableCollisions();
     uni.addObject(facadeArriere);
     
     //RDC
     porteRDC = new U3DObject();
     porteRDC.setShapeSRC("./assets/ferry_porteRDC.obj");
-    porteRDC.setPos(new PVector(0.0, -0.700064, -24.563-(lg-1)*16.1113).add(mPosition));
-    porteRDC.setRotationXCenter(new PVector(porteRDC.getPosition().x-0.5, porteRDC.getPosition().y-0.5, porteRDC.getPosition().z));
+    porteRDC.setPos(new PVector(0.0, -1.2+2.3, -24.563-(lg-1)*16.1113).add(mPosition));
+    porteRDC.setRotationXCenter(new PVector(porteRDC.getPosition().x-0.6, porteRDC.getPosition().y-0.6, porteRDC.getPosition().z));
     uni.addObject(porteRDC);
     lvl1Access = false;
 
@@ -66,7 +66,7 @@ class Ferry extends U3DObject{
     // Porte Pont2
     portePont2 = new U3DObject();
     portePont2.setShapeSRC("./assets/ferry_porte2.obj");
-    portePont2.setPos(new PVector(-0.17, 4.1551237, -24.222954-(lg-1)*16.1113).add(mPosition));
+    portePont2.setPos(new PVector(-0.17, 4.1551237+2.3, -24.222954-(lg-1)*16.1113).add(mPosition));
     portePont2.setRotationXCenter(new PVector(portePont2.getPosition().x-0.5, portePont2.getPosition().y-0.5, portePont2.getPosition().z));
     uni.addObject(portePont2);
     lvl2Access = false;
@@ -77,7 +77,7 @@ class Ferry extends U3DObject{
     // Porte Pont3
     portePont3 = new U3DObject();
     portePont3.setShapeSRC("./assets/ferry_porte3.obj");
-    portePont3.setPos(new PVector(-0.06, 7.7241237, -24.182954-(lg-1)*16.1113).add(mPosition));
+    portePont3.setPos(new PVector(-0.06, 7.53+2.3, -24.182954-(lg-1)*16.1113).add(mPosition));
     portePont3.setRotationXCenter(new PVector(portePont3.getPosition().x-0.5, portePont3.getPosition().y-0.5, portePont3.getPosition().z));
     uni.addObject(portePont3);
     lvl3Access = false;
@@ -86,21 +86,21 @@ class Ferry extends U3DObject{
       // Coque rez-de-chaussée
       U3DObject tmpObj = new U3DObject();
       tmpObj.setShapeSRC("./assets/ferry_coque.obj");
-      tmpObj.setPos(new PVector(-0.2, -2.8000002, lg*-16.1113).add(mPosition));
+      tmpObj.setPos(new PVector(-0.2, -2.8000002+2.3, lg*-16.1113).add(mPosition));
       coques.add(tmpObj);
       uni.addObject(tmpObj);
       
       // Coques latérales
       tmpObj = new U3DObject();
       tmpObj.setShapeSRC("./assets/ferry_coqueLaterale.obj");
-      tmpObj.setPos(new PVector(-8.559996, 5.199997, lg*-16.1416).add(mPosition));
+      tmpObj.setPos(new PVector(-8.559996, 5.199997+2.3, lg*-16.1416).add(mPosition));
       coqueBabord.add(tmpObj);
       uni.addObject(tmpObj);
       
       // Coques latérales
       tmpObj = new U3DObject();
       tmpObj.setShapeSRC("./assets/ferry_coqueLaterale.obj");
-      tmpObj.setPos(new PVector(8.2984, 5.199997, lg*-16.1416).add(mPosition));
+      tmpObj.setPos(new PVector(8.2984, 5.199997+2.3, lg*-16.1416).add(mPosition));
       tmpObj.setAngles(new PVector(0,PI,0));
       coqueTribord.add(tmpObj);
       uni.addObject(tmpObj);
@@ -108,14 +108,14 @@ class Ferry extends U3DObject{
       // Plancher niveau 1
       tmpObj = new U3DObject();
       tmpObj.setShapeSRC("./assets/ferry_plancher.obj");
-      tmpObj.setPos(new PVector(-0.2, 3.5999982, lg*-16.1113).add(mPosition));
+      tmpObj.setPos(new PVector(-0.2, 3.5999982+2.3, lg*-16.1113).add(mPosition));
       planchers1.add(tmpObj);
       uni.addObject(tmpObj);
       
       // Plancher niveau 2
       tmpObj = new U3DObject();
       tmpObj.setShapeSRC("./assets/ferry_plancher.obj");
-      tmpObj.setPos(new PVector(-0.2, 7.0019982, lg*-16.1113).add(mPosition));
+      tmpObj.setPos(new PVector(-0.2, 7.0019982+2.3, lg*-16.1113).add(mPosition));
       planchers2.add(tmpObj);
       uni.addObject(tmpObj);
       
@@ -126,11 +126,11 @@ class Ferry extends U3DObject{
    //check and animate
     void check_RDC(){
       if(mEventB.get_lvl_1_access() == true && lvl1Access==false){
-        porteRDC.addAnimation("rotateX", -1.4, 10000);
+        porteRDC.addAnimation("rotateX", -PI/2, 10000);
         lvl1Access = true;
       }
       else if(mEventB.get_lvl_1_access() == false && lvl1Access==true){
-        porteRDC.addAnimation("rotateX", -1.4, 10000, true);
+        porteRDC.addAnimation("rotateX", -PI/2, 10000, true);
         lvl1Access = false;
       }
     }
@@ -138,7 +138,6 @@ class Ferry extends U3DObject{
       if(mEventB.get_lvl_2_access() == true && lvl2Access==false){
         portePont2.addAnimation("rotateX", -PI/2, 10000);
         lvl2Access = true;
-        print("go");
       }
       else if(mEventB.get_lvl_2_access() == false && lvl2Access==true){
         portePont2.addAnimation("rotateX", -PI/2, 10000, true);
