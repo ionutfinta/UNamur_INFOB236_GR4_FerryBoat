@@ -37,6 +37,16 @@ boolean button(String name, float x, float y)
   return isCalled;
 }
 
+//preset for temporary messages
+void message(String name, float x, float y)
+{
+  float xCenter = x*width/10;
+  float yCenter = y*height/10;
+  
+  fill(0);
+  text(name, xCenter, yCenter);
+}
+
 boolean leaveUI(float x, float y)
 {
   boolean isCalled = button("Return to game", x ,y);
@@ -71,7 +81,15 @@ void addCar(float x, float y)
   boolean isCalled = button("Add car", x ,y);
   if(isCalled)
   {
-    Car mcar = new Car(myUniverse, new PVector(-20, 4, 100));
+    if(!inBetween(-22, cars.get(cars.size()-1).mPosition.x, -18))
+    {
+      cars.add(new Car(myUniverse, new PVector(-20, 4, 100)));
+      message("Car added", x - 2.5, y);
+    }
+    else
+    {
+      message("Parking lot occupied", x-2.5, y);
+    }
   }
 }
 void addTruck1(float x, float y)
@@ -79,7 +97,15 @@ void addTruck1(float x, float y)
   boolean isCalled = button("Add truck of size 1", x ,y);
   if(isCalled)
   {
-    CyberTruck mCyberTruck = new CyberTruck(myUniverse, new PVector(-12, 4, 84));
+    if(!inBetween(-14, CyberTrucks.get(CyberTrucks.size()-1).mPosition.x, -10))
+    {
+      CyberTrucks.add(new CyberTruck(myUniverse, new PVector(-12, 4, 84)));
+      message("CyberTruck added", x + 2.5, y);
+    }
+    else
+    {
+      message("Parking lot occupied", x + 2.5, y);
+    }
   }
 }
 void addTruck2(float x, float y)
@@ -87,7 +113,15 @@ void addTruck2(float x, float y)
   boolean isCalled = button("Add truck of size 2", x ,y);
   if(isCalled)
   {
-     Limousine mLimousine = new Limousine(myUniverse, new PVector(-12, 4, 100));
+    if(!inBetween(-14, Limousines.get(Limousines.size()-1).mPosition.x, -10))
+    {
+      Limousines.add(new Limousine(myUniverse, new PVector(-12, 4, 100)));
+      message("Limousine added", x - 2.5, y);
+    }
+    else
+    {
+      message("Parking lot occupied", x-2.5, y);
+    }
   }
 }
 void addTruck3(float x, float y)
@@ -95,7 +129,15 @@ void addTruck3(float x, float y)
   boolean isCalled = button("Add truck of size 3", x ,y);
   if(isCalled)
   {
-    Truck mTruck = new Truck(myUniverse, new PVector(-20, 4, 84));
+    if(!inBetween(-22, Trucks.get(Trucks.size()-1).mPosition.x, -18))
+    {
+      Trucks.add(new Truck(myUniverse, new PVector(-20, 4, 84)));
+      message("Truck added", x + 2.5, y);
+    }
+    else
+    {
+      message("Parking lot occupied", x + 2.5, y);
+    }
   }
 }
 

@@ -12,6 +12,11 @@ Ferry mFerry;
 
 boolean return3D;
 
+ArrayList<Car> cars = new ArrayList<Car>();
+ArrayList<CyberTruck> CyberTrucks = new ArrayList<CyberTruck>();
+ArrayList<Limousine> Limousines = new ArrayList<Limousine>();
+ArrayList<Truck> Trucks = new ArrayList<Truck>();
+
 SelectionDetectorObject selector;
 
 // Instance principale de l'ui:
@@ -33,11 +38,11 @@ void setup(){
                            "Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>" +
                            "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject");
 
-  myFirstCar = new Car(myUniverse, new PVector(-15, 4, 120));
-  mCar2 = new Car(myUniverse, new PVector(-15, 4, 110));
-  //Truck mTruck = new Truck(myUniverse, new PVector(-20, 4, 84));
-  //CyberTruck mCyberTruck = new CyberTruck(myUniverse, new PVector(-12, 4, 84));
-  //Limousine mLimousine = new Limousine(myUniverse, new PVector(-12, 4, 100));
+  myFirstCar = new Car(myUniverse, new PVector(-20, 4, 120));
+  mCar2 = new Car(myUniverse, new PVector(-20, 4, 100));
+  Truck mTruck = new Truck(myUniverse, new PVector(-20, 4, 84));
+  CyberTruck mCyberTruck = new CyberTruck(myUniverse, new PVector(-12, 4, 84));
+  Limousine mLimousine = new Limousine(myUniverse, new PVector(-12, 4, 100));
   Scaner scan = new Scaner(myUniverse, true,myEventBMachine);
   Scaner scan2 = new Scaner(myUniverse, false,myEventBMachine);
   Lift mLift = new Lift(myUniverse, myEventBMachine, new PVector(-14.5, -10, 131.65));
