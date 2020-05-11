@@ -10,6 +10,8 @@ Barriere mBarriere1;
 Barriere mBarriere2;
 Ferry mFerry;
 
+boolean return3D;
+
 SelectionDetectorObject selector;
 
 // Instance principale de l'ui:
@@ -24,6 +26,7 @@ void setup(){
   myEventBMachine = new fifthRef();
   myUniverse = new Universe();
   myUniverse.init();
+  return3D = false;
   
   me = new Me(myUniverse, "Laniakea>Virgo Supercluster>Local Sheet>Local Group>Milky Way subgroup>"+
                            "Milky Way Galaxy>Orbit of the Solar System>Orion Arm>Gould Belt>Local Bubble>Local Interstellar Cloud>" +
@@ -53,7 +56,7 @@ void setup(){
 
 void draw(){
   background(255);
-  if(mainUI.canIReturn3D()){
+  if(return3D){ //TODO change that
     me.setBackground();
     myUniverse.display();
   }else{
@@ -81,6 +84,4 @@ void mousePressed(){
     //SelectEntity(me, myUniverse, 30);
     selector.send(me.getPosition(), me.getCamDir(), me.getCamRotationAngle(), me.getCamElevationAngle());
   }
-
-  mainUI.mousePressed();
 }

@@ -1,11 +1,9 @@
 class UI{
   //Parameters
-  boolean return3D;
   
   //setup
   UI()
   {
-    return3D = false;
     background(255);
     fill(255);
     stroke(0);
@@ -26,20 +24,6 @@ class UI{
     addTruck2(3.95, 5.6);
     addTruck3(6.05, 5.6);
     exitApp(8.8, 0.7);
-  }
-  
-  void mousePressed()
-  {
-    // Par exemple:
-    return3D = true;
-  }
-  
-  void mouseReleased()
-  {
-    return3D = false;
-  }
-  boolean canIReturn3D(){
-    return return3D;
   }
  //etc...  
 }
