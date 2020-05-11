@@ -39,19 +39,13 @@ void setup(){
                            "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject");
 
   myFirstCar = new Car(myUniverse, new PVector(-20, 4, 120));
-  //mCar2 = new Car(myUniverse, new PVector(-20, 4, 100));
-  //Truck mTruck = new Truck(myUniverse, new PVector(-20, 4, 84));
-  //CyberTruck mCyberTruck = new CyberTruck(myUniverse, new PVector(-12, 4, 84));
-  //Limousine mLimousine = new Limousine(myUniverse, new PVector(-12, 4, 100));
+  mCar2 = new Car(myUniverse, new PVector(-20, 4, 100));
+  Truck mTruck = new Truck(myUniverse, new PVector(-20, 4, 84));
+  CyberTruck mCyberTruck = new CyberTruck(myUniverse, new PVector(-12, 4, 84));
+  Limousine mLimousine = new Limousine(myUniverse, new PVector(-12, 4, 100));
   Scaner scan = new Scaner(myUniverse, true,myEventBMachine);
   Scaner scan2 = new Scaner(myUniverse, false,myEventBMachine);
   Lift mLift = new Lift(myUniverse, myEventBMachine, new PVector(-14.5, -10, 131.65));
-  
-  //first vehicles
-  cars.add(new Car(myUniverse, new PVector(-20, 4, 100)));
-  CyberTrucks.add(new CyberTruck(myUniverse, new PVector(-12, 4, 84)));
-  Limousines.add(new Limousine(myUniverse, new PVector(-12, 4, 100)));
-  Trucks.add(new Truck(myUniverse, new PVector(-20, 4, 84)));
   
   mBarriere1 = new Barriere(myUniverse, myEventBMachine, new PVector(-11.5, 2.629905, 123.5));
   mBarriere2 = new Barriere(myUniverse, null, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
