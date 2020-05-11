@@ -37,6 +37,16 @@ boolean button(String name, float x, float y)
   return isCalled;
 }
 
+//preset for temporary messages
+void message(String name, float x, float y)
+{
+  float xCenter = x*width/10;
+  float yCenter = y*height/10;
+  
+  fill(0);
+  text(name, xCenter, yCenter);
+}
+
 boolean leaveUI(float x, float y)
 {
   boolean isCalled = button("Return to game", x ,y);
@@ -71,7 +81,15 @@ void addCar(float x, float y)
   boolean isCalled = button("Add car", x ,y);
   if(isCalled)
   {
-    Car mcar = new Car(myUniverse, new PVector(-20, 4, 100));
+    if(!inBetween(-30, cars.get(cars.size()-1).mPosition.x, -10))
+    {
+      cars.add(new Car(myUniverse, new PVector(-20, 4, 100)));
+      message("Car added", x - 2.5, y);
+    }
+    else
+    {
+      message("Parking lot occupied", x-2.5, y);
+    }
   }
 }
 void addTruck1(float x, float y)

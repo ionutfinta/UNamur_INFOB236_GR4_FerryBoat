@@ -12,6 +12,11 @@ Ferry mFerry;
 
 boolean return3D;
 
+ArrayList<Car> cars = new ArrayList<Car>();
+ArrayList<CyberTruck> CyberTrucks = new ArrayList<CyberTruck>();
+ArrayList<Limousine> Limousines = new ArrayList<Limousine>();
+ArrayList<Truck> Trucks = new ArrayList<Truck>();
+
 SelectionDetectorObject selector;
 
 // Instance principale de l'ui:
@@ -36,6 +41,12 @@ void setup(){
   Scaner scan = new Scaner(myUniverse, true,myEventBMachine);
   Scaner scan2 = new Scaner(myUniverse, false,myEventBMachine);
   Lift mLift = new Lift(myUniverse, myEventBMachine, new PVector(-14.5, -10, 131.65));
+  
+  //first vehicles
+  cars.add(new Car(myUniverse, new PVector(-20, 4, 100)));
+  CyberTrucks.add(new CyberTruck(myUniverse, new PVector(-12, 4, 84)));
+  Limousines.add(new Limousine(myUniverse, new PVector(-12, 4, 100)));
+  Trucks.add(new Truck(myUniverse, new PVector(-20, 4, 84)));
   
   mBarriere1 = new Barriere(myUniverse, myEventBMachine, new PVector(-11.5, 2.629905, 123.5));
   mBarriere2 = new Barriere(myUniverse, null, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));

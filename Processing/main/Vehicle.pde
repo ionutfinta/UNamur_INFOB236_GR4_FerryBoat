@@ -83,4 +83,8 @@ class Vehicle extends U3DObject{
     return apparent_id;
   }
   
+  void setID(int ID) //Setter
+  {
+    this.apparent_id  = ID;
+  }
 }
