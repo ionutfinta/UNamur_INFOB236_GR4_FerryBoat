@@ -57,6 +57,10 @@ class Earth extends U3DObject{
     
     tmpObj = new U3DObject(uni, new PVector(-26.5, -8, 250).add(mPosition), "./assets/concreteWall2.obj");
     tmpObj.setAngles(new PVector(0,3*HALF_PI, 0));
+    
+    // Bureaux
+    tmpObj = new U3DObject(uni, new PVector(0, 10, -20).add(mPosition), "./assets/bureaux.obj");
+    tmpObj = new AuraBureau(uni, new PVector(0, .7, -7.7).add(mPosition), "./assets/bureau_aura.obj");
   }
   
   @Override
