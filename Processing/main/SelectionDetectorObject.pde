@@ -60,7 +60,7 @@ class SelectionDetectorObject extends U3DObject{
   
   void correctDirection(){
      //default FOV is perspective(PI/3.0, width/height, cameraZ/10.0, cameraZ*10.0), where cameraZ is((height/2.0) / tan(PI*60.0/360.0)), PI/3 vertical angle
-    //=> the angle between k_hat and the i_hat*width/2 is PI/3 rad, same for j_hat*height/2
+    //=> the angle between k_hat and the i_hat*width/2 is PI/3 rad, same for j_hat*(width/height)/2
     
     //percentage of distance from center
     float mouse_x = (float) mouseX;
@@ -95,7 +95,7 @@ class SelectionDetectorObject extends U3DObject{
     //X rotation(up_down)
     correction.y = cos(dir_angle_V)*correction.y-sin(dir_angle_V)*correction.z;
     correction.z = sin(dir_angle_V)*correction.y+cos(dir_angle_V)*correction.z;
-    //Y rotation
+    //Y rotationf
     correction.x = cos(dir_angle_H)*correction.x+sin(dir_angle_H)*correction.z;
     correction.z = -sin(dir_angle_H)*correction.x+cos(dir_angle_H)*correction.z;
     
