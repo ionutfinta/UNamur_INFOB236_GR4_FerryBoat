@@ -47,8 +47,8 @@ void setup(){
   Scaner scan2 = new Scaner(myUniverse, false,myEventBMachine);
   Lift mLift = new Lift(myUniverse, myEventBMachine, new PVector(-14.5, -10, 131.65));
   
-  //mBarriere1 = new Barriere(myUniverse, myEventBMachine, new PVector(-11.5, 2.629905, 123.5));
-  //mBarriere2 = new Barriere(myUniverse, null, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
+  mBarriere1 = new Barriere(myUniverse, myEventBMachine, new PVector(-11.5, 2.629905, 123.5));
+  mBarriere2 = new Barriere(myUniverse, null, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0));
   
   // Spawn Ferry avec 3 compartiments
   mFerry = new Ferry(myUniverse, 3, myEventBMachine);
@@ -83,8 +83,8 @@ void mousePressed(){
   myEventBMachine.set_lvl_1_access(true);
   myEventBMachine.set_lvl_2_access(true);
   myEventBMachine.set_lvl_3_access(true);
-  //mBarriere1.setOuvert();
-  //mBarriere2.setOuvert();
+  mBarriere1.setOuvert();
+  mBarriere2.setOuvert();
   if(mouseButton == LEFT){
     //SelectEntity(me, myUniverse, 30);
     selector.send(me.getPosition(), me.getCamDir(), me.getCamRotationAngle(), me.getCamElevationAngle());

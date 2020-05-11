@@ -186,7 +186,7 @@ class U3DObject {
       else{
           
         try{
-         iter2 = everything.n_closest(7, o1);
+         iter2 = everything.n_closest(10, o1);
         }catch(IllegalArgumentException i){
           System.err.println(i);
           print(i);
