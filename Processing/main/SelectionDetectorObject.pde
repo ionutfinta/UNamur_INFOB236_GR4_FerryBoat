@@ -81,6 +81,7 @@ class SelectionDetectorObject extends U3DObject{
     //jk value
       //angle is PI/3*centerRelative.y /2
       float jk_angle = (PI/3)*centerRelative.y/2;
+      println(ik_angle/(PI/3), jk_angle/(PI/3));
       
     //assume inertia to have k component 1
     float i_val, j_val, k_val;
@@ -125,7 +126,7 @@ class SelectionDetectorObject extends U3DObject{
   
   @Override
   PVector getSize(){
-    return new PVector(1,1,1);
+    return new PVector(0.35,0.35,0.35);
   }
   
   

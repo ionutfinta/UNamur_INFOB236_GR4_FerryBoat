@@ -26,6 +26,7 @@ class Scaner extends U3DObject{
     if(everything==null)
       return;
       
+    
     for(U3DObject o: everything){
       if(o instanceof Vehicle){
         Vehicle v = vehicleFromObject(o);
@@ -34,24 +35,24 @@ class Scaner extends U3DObject{
           if(isLeft){
             if(vPos.x >= mPosition.x && vPos.x<= mPosition.x+vSize.x*4 && vPos.z >= mPosition.z-vSize.z*2 && vPos.z <= mPosition.z+vSize.z){
               
-              if(v instanceof Car)
-                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.voiture, isLeft); println("requesting authorization for id: ", v.getId());
-              if(v instanceof Truck)
-                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_2, isLeft); println("requesting authorization for id: ", v.getId());
-              if(v instanceof Limousine)
-                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_3, isLeft); println("requesting authorization for id: ", v.getId());
+              if(v instanceof Car){
+                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.voiture, isLeft); println("requesting authorization for id: ", v.getId());}
+              if(v instanceof Truck){
+                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_2, isLeft); println("requesting authorization for id: ", v.getId());}
+              if(v instanceof Limousine){
+                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_3, isLeft); println("requesting authorization for id: ", v.getId());}
             }
           }
           else{
             if(vPos.x <= mPosition.x && vPos.x >= mPosition.x-vSize.x*4 && vPos.z >= mPosition.z-vSize.z*2 && vPos.z <= mPosition.z+vSize.z){
               
               if(v instanceof Car)
-                if(o instanceof Car)
-                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.voiture, isLeft); println("requesting authorization for id: ", v.getId());
-              if(v instanceof Truck)
-                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_2, isLeft); println("requesting authorization for id: ", v.getId());
-              if(v instanceof Limousine)
-                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_3, isLeft); println("requesting authorization for id: ", v.getId());
+                if(o instanceof Car){
+                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.voiture, isLeft); println("requesting authorization for id: ", v.getId());}
+              if(v instanceof Truck){
+                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_2, isLeft); println("requesting authorization for id: ", v.getId());}
+              if(v instanceof Limousine){
+                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_3, isLeft); println("requesting authorization for id: ", v.getId());}
             }
           }
       }

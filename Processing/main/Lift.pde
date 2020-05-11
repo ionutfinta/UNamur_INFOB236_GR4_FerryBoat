@@ -19,7 +19,7 @@ class Lift extends U3DObject {
     mCollide = false;
     mShape.setName("noStroke");
 
-    mPlateforme = new U3DObject(uni, new PVector(0,11.5321,0).add(mPosition), "./assets/lift.obj");
+    mPlateforme = new U3DObject(uni, new PVector(0,11.5521,0).add(mPosition), "./assets/lift.obj");
     
     mGF1 = new U3DObject(uni, new PVector(6.14,12.7321,0).add(mPosition), "./assets/lift_gardeFou.obj");
     mGF2 = new U3DObject(uni, new PVector(-6.14,12.7321,0).add(mPosition), "./assets/lift_gardeFou.obj");
