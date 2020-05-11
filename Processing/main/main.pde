@@ -10,6 +10,8 @@ Barriere mBarriere1;
 Barriere mBarriere2;
 Ferry mFerry;
 
+boolean return3D;
+
 SelectionDetectorObject selector;
 
 // Instance principale de l'ui:
@@ -24,17 +26,13 @@ void setup(){
   myEventBMachine = new fifthRef();
   myUniverse = new Universe();
   myUniverse.init();
+  return3D = false;
   
   me = new Me(myUniverse, "Laniakea>Virgo Supercluster>Local Sheet>Local Group>Milky Way subgroup>"+
                            "Milky Way Galaxy>Orbit of the Solar System>Orion Arm>Gould Belt>Local Bubble>Local Interstellar Cloud>" +
                            "Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>" +
                            "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject");
 
-  myFirstCar = new Car(myUniverse, new PVector(-20, 4, 120));
-  mCar2 = new Car(myUniverse, new PVector(-20, 4, 100));
-  Truck mTruck = new Truck(myUniverse, new PVector(-20, 4, 84));
-  CyberTruck mCyberTruck = new CyberTruck(myUniverse, new PVector(-12, 4, 84));
-  Limousine mLimousine = new Limousine(myUniverse, new PVector(-12, 4, 100));
   Scaner scan = new Scaner(myUniverse, true,myEventBMachine);
   Scaner scan2 = new Scaner(myUniverse, false,myEventBMachine);
   Lift mLift = new Lift(myUniverse, myEventBMachine, new PVector(-14.5, -10, 131.65));
@@ -53,7 +51,7 @@ void setup(){
 
 void draw(){
   background(255);
-  if(mainUI.canIReturn3D()){
+  if(return3D){ //TODO change that
     me.setBackground();
     myUniverse.display();
   }else{
@@ -78,6 +76,4 @@ void mousePressed(){
     //SelectEntity(me, myUniverse, 30);
     selector.send(me.getPosition(), me.getCamDir(), me.getCamRotationAngle(), me.getCamElevationAngle());
   }
-
-  mainUI.mousePressed();
 }

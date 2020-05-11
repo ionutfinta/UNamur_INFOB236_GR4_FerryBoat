@@ -71,7 +71,7 @@ void addCar(float x, float y)
   boolean isCalled = button("Add car", x ,y);
   if(isCalled)
   {
-    //do something
+    Car mcar = new Car(myUniverse, new PVector(-20, 4, 100));
   }
 }
 void addTruck1(float x, float y)
@@ -79,7 +79,7 @@ void addTruck1(float x, float y)
   boolean isCalled = button("Add truck of size 1", x ,y);
   if(isCalled)
   {
-    //do something
+    CyberTruck mCyberTruck = new CyberTruck(myUniverse, new PVector(-12, 4, 84));
   }
 }
 void addTruck2(float x, float y)
@@ -87,7 +87,7 @@ void addTruck2(float x, float y)
   boolean isCalled = button("Add truck of size 2", x ,y);
   if(isCalled)
   {
-    //do something
+     Limousine mLimousine = new Limousine(myUniverse, new PVector(-12, 4, 100));
   }
 }
 void addTruck3(float x, float y)
@@ -95,7 +95,7 @@ void addTruck3(float x, float y)
   boolean isCalled = button("Add truck of size 3", x ,y);
   if(isCalled)
   {
-    //do something
+    Truck mTruck = new Truck(myUniverse, new PVector(-20, 4, 84));
   }
 }
 
