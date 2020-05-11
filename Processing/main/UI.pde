@@ -2,16 +2,16 @@ class UI{
   //setup
   UI()
   {
-    background(255);
-    fill(255);
-    stroke(0);
-    rectMode(CENTER);
-    textAlign(CENTER, CENTER);
+    ui.background(255);
+    ui.fill(255);
+    ui.stroke(0);
+    ui.rectMode(CENTER);
+    ui.textAlign(CENTER, CENTER);
   }
   
   void draw()
   {
-    background(255);
+    ui.background(255);
     
     //buttons
     readyBoat(1.2, 0.7);

@@ -11,8 +11,9 @@ public class Reserve{
 	
 	private boolean checkPrioriteCamionsP1(int floor, int vehicle_type) {
 		if(vehicle_type == machine.voiture && floor < machine.floors.max()) {
-			for(int a = machine.floors.max(); a > floor; a++) {
-				if(machine.get_reserved_spaces().apply(a).compareTo(machine.get_max_bs_p().apply(a)) < 0)
+			for(int a = floor; a > 1; a--) {
+				if(machine.get_reserved_spaces().apply(a)
+						.compareTo(machine.get_max_bs_p().apply(a)) < 0)
 					return false;
 			}
 		}else if(vehicle_type != machine.voiture && floor > 1) {
@@ -31,10 +32,14 @@ public class Reserve{
 	public /*@ pure */ boolean guard_Reserve( Integer floor, Integer vehicle_type) {
 		return (machine.VEHICLE_TYPES.has(vehicle_type)
 				&& machine.floors.has(floor)
+				&& machine.get_max_bs_p() != null
 				// grd4_2 && grd2_2 a été générée en && true
 				// On en fait une fonction à part:
 				&& checkPrioriteCamionsP1(floor, vehicle_type)
-				&& (new Integer(machine.get_reserved_spaces().apply(floor) + machine.vehicle_slot.apply(vehicle_type))).compareTo(machine.get_max_bs_p().apply(floor)) <= 0); //grd5_2
+				&& (machine.get_reserved_spaces().apply(floor) == null || (new Integer(machine.get_reserved_spaces().apply(floor) 
+						+ machine.vehicle_slot.apply(vehicle_type)))
+				.compareTo(machine.get_max_bs_p()
+						.apply(floor)) <= 0)); //grd5_2
 	}
 
 	/*@ public normal_behavior
@@ -49,9 +54,17 @@ public class Reserve{
 		if(guard_Reserve(floor,vehicle_type)) {
 			BRelation<Integer,Pair<Integer,Integer>> reservations_tmp = machine.get_reservations();
 			BRelation<Integer,Integer> reserved_spaces_tmp = machine.get_reserved_spaces();
+			int befSpace = 0;
+			if(reserved_spaces_tmp.apply(floor) != null)
+				befSpace = reserved_spaces_tmp.apply(floor);
 
 			machine.set_reservations((reservations_tmp.override(new BRelation<Integer,Pair<Integer,Integer>>(new Pair<Integer,Pair<Integer,Integer>>(new Integer(new Integer(reservations_tmp.size()) + 1),new Pair<Integer,Integer>(floor,vehicle_type))))));
-			machine.set_reserved_spaces((reserved_spaces_tmp.override(new BRelation<Integer,Integer>(new Pair<Integer,Integer>(floor,new Integer(reserved_spaces_tmp.apply(floor) + machine.vehicle_slot.apply(vehicle_type)))))));
+			machine.set_reserved_spaces((reserved_spaces_tmp.override(
+					new BRelation<Integer,Integer>(
+							new Pair<Integer,Integer>(
+									floor,
+									new Integer(
+											befSpace + machine.vehicle_slot.apply(vehicle_type)))))));
 
 			System.out.println("Reserve executed floor: " + floor + " vehicle_type: " + vehicle_type + " ");
 		}

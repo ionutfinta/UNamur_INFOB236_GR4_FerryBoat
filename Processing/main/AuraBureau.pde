@@ -7,7 +7,7 @@ class AuraBureau extends U3DObject{
   @Override
   void handle_collision(U3DObject o){ 
     if(o instanceof SelectionDetectorObject){
-      //TODO Ajouter le code ici pour ouvrir l'UI ! 
+      return3D = false;
     }
   }
   

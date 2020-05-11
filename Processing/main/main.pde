@@ -2,6 +2,8 @@ import processing.opengl.*;
 
 static final boolean DEBUG = true;
 static final fifthRef myEventBMachine = new fifthRef();
+static PGraphics ui;
+
 Universe myUniverse;
 Me me;
 Car myFirstCar, mCar2;
@@ -22,11 +24,9 @@ int lvl = 1;
 
 SelectionDetectorObject selector;
 
-// Instance principale de l'ui:
-UI mainUI;
-
 void setup(){
   size(1024,768,P3D);
+  ui = createGraphics(width,height);
   shapeMode(CORNER);
   smooth(4);
   
@@ -58,19 +58,11 @@ void setup(){
   mFerry = new Ferry(myUniverse, 3, myEventBMachine);
   
   selector = myUniverse.initSelector();  
-  
-  // Instantiation de l'ui:
-  mainUI = new UI();
 }
 
 void draw(){
-  background(255);
-  if(return3D){ //TODO change that
-    me.setBackground();
-    myUniverse.display();
-  }else{
-    mainUI.draw();
-  }
+  me.setBackground();
+  myUniverse.display();
 }
 
 void keyReleased(){

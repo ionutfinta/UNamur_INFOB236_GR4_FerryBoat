@@ -6,10 +6,10 @@ boolean button(String name, float x, float y)
   float xCenter = x*width/10;
   float yCenter = y*height/10;
   
-  stroke(0);
-  noFill();
-  strokeWeight(3);
-  rect(xCenter, yCenter, width/5, height/10, 30);
+  ui.stroke(0);
+  ui.noFill();
+  ui.strokeWeight(3);
+  ui.rect(xCenter, yCenter, width/5, height/10, 30);
   
   if(mouseX < xCenter + width/10 && mouseX > xCenter - width/10
   && mouseY < yCenter + height/20 && mouseY > yCenter - height/20)
@@ -19,15 +19,15 @@ boolean button(String name, float x, float y)
   
   if(overBox == true)
   {
-    textSize(height/35);
-    fill(0);
-    text(name, xCenter, yCenter);
+    ui.textSize(height/35);
+    ui.fill(0);
+    ui.text(name, xCenter, yCenter);
   }
   else
   {
-    textSize(height/40);
-    fill(0);
-    text(name, xCenter, yCenter);
+    ui.textSize(height/40);
+    ui.fill(0);
+    ui.text(name, xCenter, yCenter);
   }
   if(mousePressed && overBox)
   {
@@ -43,8 +43,8 @@ void message(String name, float x, float y)
   float xCenter = x*width/10;
   float yCenter = y*height/10;
   
-  fill(0);
-  text(name, xCenter, yCenter);
+  ui.fill(0);
+  ui.text(name, xCenter, yCenter);
 }
 
 boolean leaveUI(float x, float y)

@@ -3,14 +3,12 @@ class Me extends U3DObject{
   
   private PVector mSize; // I'm not a shape
   private float cameraSpeed;
-  private float rotationAngle;
-  private float elevationAngle;
+  float rotationAngle;
+  float elevationAngle;
   
   
   PImage mClouds0;
   PImage mSun;
-  
-  PGraphics mBackground;
   
  Me(Universe uni, String ap){
    super(uni);
@@ -20,7 +18,7 @@ class Me extends U3DObject{
      println("Welcome to FerryBoat Simulator !");
    
    mPosition = new PVector(-17.180944, 5.1451683, 102.502914 );
-   cameraDir = new PVector(-0.033744603, -0.15778065, 0.9994305);
+   cameraDir = new PVector(0,0,0);
    elevationAngle = 0;
    rotationAngle = 0;
    cameraSpeed = 1;
@@ -29,7 +27,6 @@ class Me extends U3DObject{
    
    mClouds0 = loadImage("./assets/clouds0.gif");
    mSun = loadImage("./assets/sun.png");
-   mBackground = createGraphics(width, height);
  }
  
  void applyInertia(){
@@ -120,34 +117,42 @@ class Me extends U3DObject{
  }
 
   void setBackground(){
+    if(return3D){
      int factorx = (int) (tan(-rotationAngle/2) * width),
        factory = (int) (sin(elevationAngle) * height * 0.5);
        
-     mBackground.beginDraw();
-     mBackground.background(#8EC6FE);
+     ui.beginDraw();
+     ui.background(#8EC6FE);
      
-     mBackground.image(mClouds0, factorx, factory - 200);
-     mBackground.image(mClouds0, (int) (tan(-rotationAngle/2 + QUARTER_PI) * width), factory - 250);
-     mBackground.image(mClouds0, (int) (tan(-rotationAngle/2 + 3*QUARTER_PI) * width), factory - 150);
-     mBackground.image(mClouds0, (int) (tan(-rotationAngle/2 + HALF_PI) * width), factory - 225);
+     ui.image(mClouds0, factorx, factory - 200);
+     ui.image(mClouds0, (int) (tan(-rotationAngle/2 + QUARTER_PI) * width), factory - 250);
+     ui.image(mClouds0, (int) (tan(-rotationAngle/2 + 3*QUARTER_PI) * width), factory - 150);
+     ui.image(mClouds0, (int) (tan(-rotationAngle/2 + HALF_PI) * width), factory - 225);
        
      if(rotationAngle > -1.576932 && rotationAngle < 0.34054446){
-       mBackground.image(mSun, factorx, factory);
+       ui.image(mSun, factorx, factory);
      }
      
      PVector forLenses = new PVector(cos(-rotationAngle) ,cos(-elevationAngle) );
-     mBackground.fill(color(#FFFFFF, 80));
-     mBackground.noStroke();
-     mBackground.translate(forLenses.x* width*.5, forLenses.y* height*.5);
-     mBackground.rotate(rotationAngle/2);
-     mBackground.circle(0, 0, 45);
-     mBackground.circle(exp(abs(forLenses.x)+5)-350, exp(forLenses.y+5)-350, 25);
-     mBackground.endDraw();
+     ui.fill(color(#FFFFFF, 80));
+     ui.noStroke();
+     ui.translate(forLenses.x* width*.5, forLenses.y* height*.5);
+     ui.rotate(rotationAngle/2);
+     ui.circle(0, 0, 45);
+     ui.circle(exp(abs(forLenses.x)+5)-350, exp(forLenses.y+5)-350, 25);
+     ui.endDraw();
    
-   if(mBackground.height == height && mBackground.width == width)
-     background(mBackground);
+   if(ui.height == height && ui.width == width)
+     background(ui);
    else
      background(#FFFFFF);
+    }else{
+     cameraDir.y = MAX_INT;
+     ui.beginDraw();
+     new UI().draw();
+     ui.endDraw();
+     background(ui);
+    }
  }
  
  void display(){
@@ -157,7 +162,6 @@ class Me extends U3DObject{
      println("Elevation: " + elevationAngle);
      println("Rotation: " + rotationAngle);
    }
-   
    perspective(PI/3, float(width)/float(height), 
           ((height/2.0) / tan(PI/6))/2200, ((height/2.0) / tan(THIRD_PI))*2);
    camera(mPosition.x, mPosition.y, mPosition.z, mPosition.x+cameraDir.x, mPosition.y+cameraDir.y, mPosition.z+cameraDir.z, 0, -1, 0);
