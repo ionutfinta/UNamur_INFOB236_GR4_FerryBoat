@@ -1,6 +1,4 @@
 class UI{
-  //Parameters
-  
   //setup
   UI()
   {
@@ -11,11 +9,11 @@ class UI{
     textAlign(CENTER, CENTER);
   }
   
-  //Fonctions
   void draw()
   {
     background(255);
     
+    //buttons
     readyBoat(1.2, 0.7);
     return3D = leaveUI(8.8,  9.3);
     leaveBoat(1.2, 1.8);
@@ -24,6 +22,9 @@ class UI{
     addTruck2(3.95, 5.6);
     addTruck3(6.05, 5.6);
     exitApp(8.8, 0.7);
+    
+    //ID
+    textSize(height/35);
+    message("Next Vehicle ID will be : " + ID, 5, 2);
   }
- //etc...  
 }

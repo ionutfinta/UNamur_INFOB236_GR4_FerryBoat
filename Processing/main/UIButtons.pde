@@ -37,7 +37,7 @@ boolean button(String name, float x, float y)
   return isCalled;
 }
 
-//preset for temporary messages
+//preset for messages
 void message(String name, float x, float y)
 {
   float xCenter = x*width/10;
@@ -84,6 +84,8 @@ void addCar(float x, float y)
     if(!inBetween(-22, cars.get(cars.size()-1).mPosition.x, -18))
     {
       cars.add(new Car(myUniverse, new PVector(-20, 4, 100)));
+      cars.get(cars.size()-1).setID(ID);
+      ID++;
       message("Car added", x - 2.5, y);
     }
     else
@@ -100,6 +102,8 @@ void addTruck1(float x, float y)
     if(!inBetween(-14, CyberTrucks.get(CyberTrucks.size()-1).mPosition.x, -10))
     {
       CyberTrucks.add(new CyberTruck(myUniverse, new PVector(-12, 4, 84)));
+      CyberTrucks.get(CyberTrucks.size()-1).setID(ID);
+      ID++;
       message("CyberTruck added", x + 2.5, y);
     }
     else
@@ -116,6 +120,8 @@ void addTruck2(float x, float y)
     if(!inBetween(-14, Limousines.get(Limousines.size()-1).mPosition.x, -10))
     {
       Limousines.add(new Limousine(myUniverse, new PVector(-12, 4, 100)));
+      Limousines.get(Limousines.size()-1).setID(ID);
+      ID++;
       message("Limousine added", x - 2.5, y);
     }
     else
@@ -132,6 +138,8 @@ void addTruck3(float x, float y)
     if(!inBetween(-22, Trucks.get(Trucks.size()-1).mPosition.x, -18))
     {
       Trucks.add(new Truck(myUniverse, new PVector(-20, 4, 84)));
+      Trucks.get(Trucks.size()-1).setID(ID);
+      ID++;
       message("Truck added", x + 2.5, y);
     }
     else
