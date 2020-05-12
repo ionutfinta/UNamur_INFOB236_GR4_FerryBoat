@@ -18,8 +18,8 @@ class LiftPlatform extends U3DObject{
     mPosition.y = 2-this.getSize().y;
     
      positions = new int[2];
-     positions[0] = 0;
-     positions[1] = 0;
+     positions[0] = 1;
+     positions[1] = 1;
      vehicles = new U3DObjects();
   }
   
@@ -37,7 +37,7 @@ class LiftPlatform extends U3DObject{
       PVector oSize = o.getSize();
       
       
-      if(oPos.x<-15.5)
+      if(oPos.x<-16)
         queue = 1;
       else
         queue = 2;
@@ -45,6 +45,7 @@ class LiftPlatform extends U3DObject{
       positionToBe=DEPTH-positions[queue-1];
       
       //if no chance of spot
+      
       if(positionToBe<=0){
         println("Illegal lift boarding, lift is full");
         return;
@@ -56,7 +57,7 @@ class LiftPlatform extends U3DObject{
       
       v = vehicleFromObject(o);
       vID = v.getId();
-      
+      println(vID, queue, positionToBe);
       if(v instanceof Car){
         if(myEventBMachine.evt_BoardLift.guard_BoardLift(vID, myEventBMachine.voiture, queue, positionToBe)){
           vehicles.add(o);

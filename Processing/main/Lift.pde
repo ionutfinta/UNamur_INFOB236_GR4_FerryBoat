@@ -192,7 +192,7 @@ class Lift extends U3DObject {
     }
     for(U3DObject v: mPlatform.getVehicles()){
       tmp = v.getPosition().copy();
-      tmp.y = elevation+(v.getSize().y);
+      tmp.y = elevation+(v.getSize().y*2);
       tmp.z = zOffset+(v.getPosition().z-mPlatform.getPosition().z);
       v.addAnimation(v.getPosition(), tmp, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
     }
