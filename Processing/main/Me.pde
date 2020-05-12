@@ -38,7 +38,7 @@ class Me extends U3DObject{
  }
  
  void animate(){
-   if(DEBUG && keyPressed == true){
+   if(keyPressed == true){
      if(key == CODED){
        if(keyCode == UP){
          mInertia = cameraDir;
@@ -184,7 +184,7 @@ class Me extends U3DObject{
  
  @Override
  boolean doCollisions(){
-   return true;
+   return inBetween(-2,mPosition.x,2) && inBetween(-10,mPosition.z, -5) && inBetween(2, mPosition.y, 4);
  }
  
  @Override
