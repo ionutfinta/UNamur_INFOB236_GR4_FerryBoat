@@ -46,7 +46,7 @@ class LiftPlatform extends U3DObject{
       else
         queue = 2;
         
-      positionToBe=DEPTH-positions[queue];
+      positionToBe=DEPTH-positions[queue-1];
       
       //if no chance of spot
       if(positionToBe<=0){
