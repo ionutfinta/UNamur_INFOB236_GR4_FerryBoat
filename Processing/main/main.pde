@@ -22,6 +22,15 @@ int ID = 1;
 int lvl = 1;
 boolean reservation = true;
 
+String topLeft = "";
+int TLfade = 255;
+String bottomLeft = "";
+int BLfade = 255;
+String topRight = "";
+int TRfade = 255;
+String bottomRight = "";
+int BRfade = 255;
+
 SelectionDetectorObject selector;
 
 void setup(){

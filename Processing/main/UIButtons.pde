@@ -39,51 +39,12 @@ boolean button(String name, float x, float y)
 
 //preset for messages
 
- private class Message{
-  int iterations;
-  int currentIteration;
-  float x;
-  float y;
-  String message;
-  final int defaultDuration = 15;
-  
-  public Message(String content, float x_coord, float y_coord, int duration){
-    message = content;
-    x = x_coord*width/10;
-    y = y_coord*height/10;
-    iterations = duration;
-    currentIteration = iterations;
-    
-  }
-  public Message(String content, float x_coord, float y_coord){
-    message = content;
-    x = x_coord*width/10;
-    y = y_coord*height/10;
-    iterations = defaultDuration;
-    currentIteration = iterations;
-  }
-  
-  void display(){
-    if(currentIteration<iterations){
-      ui.fill(0);
-      ui.text(message, x, y);
-      currentIteration++;
-    }
-  }
-  void activate(){
-    currentIteration=0;
-  
-  }
-
-}
-
-
-void message(String name, float x, float y)
+void message(String name, float x, float y, int intColor)
 {
   float xCenter = x*width/10;
   float yCenter = y*height/10;
   
-  ui.fill(0);
+  ui.fill(intColor);
   ui.text(name, xCenter, yCenter);
 }
 
@@ -129,13 +90,13 @@ void addCar(float x, float y)
       if(reservation) myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.voiture);
       cars.get(cars.size()-1).setID(ID);
       ID++;
-      message("Car added", x - 2.5, y);
+      topLeft = "Car added";
     }
     else
     {
-      message("Car cannot be added here", x-2, y);
-      message("Select topmost available floor", x-2, y-2);
+      topLeft = "Car could not be added";
     }
+    TLfade = 0;
   }
 }
 void addTruck1(float x, float y)
@@ -149,12 +110,13 @@ void addTruck1(float x, float y)
       if(reservation) myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.camion_1);
       CyberTrucks.get(CyberTrucks.size()-1).setID(ID);
       ID++;
-      message("CyberTruck added", x + 2.5, y);
+      topRight = "CyberTruck added";
     }
     else
     {
-      message("Maximum number or EventBMachine error", x + 2.5, y);
+      topRight = "CyberTruck could not be added";
     }
+    TRfade = 0;
   }
 }
 void addTruck2(float x, float y)
@@ -168,12 +130,13 @@ void addTruck2(float x, float y)
       if(reservation) myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.camion_2);
       Trucks.get(Trucks.size()-1).setID(ID);
       ID++;
-      message("Truck added", x - 2.5, y);
+      bottomLeft = "Truck added";
     }
     else
     {
-      message("Parking lot occupied", x-2.5, y);
+      bottomLeft = "Truck could not be added";
     }
+    BLfade = 0;
   }
 }
 void addTruck3(float x, float y)
@@ -187,12 +150,13 @@ void addTruck3(float x, float y)
       if(reservation) myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.camion_3);
       Limousines.get(Limousines.size()-1).setID(ID);
       ID++;
-      message("Limousine added", x + 2.5, y);
+      bottomRight = "Limousine added";
     }
     else
     {
-      message("Parking lot occupied", x + 2.5, y);
+      bottomRight = "Limousine could not be added";
     }
+    BRfade = 0;
   }
 }
 
