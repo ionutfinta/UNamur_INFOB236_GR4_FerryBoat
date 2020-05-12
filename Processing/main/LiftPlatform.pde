@@ -90,7 +90,6 @@ class LiftPlatform extends U3DObject{
         }
       }
       else if(v instanceof Limousine){
-        println(positionToBe, queue, vID, myEventBMachine.evt_BoardLift.guard_BoardLift(vID, myEventBMachine.camion_3, queue, positionToBe));
         if(myEventBMachine.evt_BoardLift.guard_BoardLift(vID, myEventBMachine.camion_3, queue, positionToBe)){
           vehicles.add(o);
           myEventBMachine.evt_BoardLift.run_BoardLift(vID, myEventBMachine.camion_3, queue, positionToBe);
@@ -116,10 +115,60 @@ class LiftPlatform extends U3DObject{
       oPos = o2.getPosition();
       oSize = o2.getSize();
       
+      v = vehicleFromObject(o2);
+      
+      
       //out boarding
      if(oPos.z>140){
-       
        //v = vehicleFromObject(o2);
+       if(o2 instanceof Car){
+        if(myEventBMachine.evt_Board.guard_Board(v.getId(), myEventBMachine.voiture)){
+          myEventBMachine.evt_Board.run_Board(v.getId(), myEventBMachine.voiture);
+          removal.add(o2);
+          print("Car, id ", v.getId(), " has boarded the ship");
+      }
+        else
+          println("A car has entered the wrong floor");
+      }
+      else if(o2 instanceof CyberTruck){/*
+     println(myEventBMachine.VEHICLE_TYPES.has(myEventBMachine.camion_1)); //grd2_2
+        println( (new Integer(myEventBMachine.get_busy_slots() + myEventBMachine.vehicle_slot.apply(myEventBMachine.camion_1))).compareTo(myEventBMachine.get_max_busy_slots()) <= 0); //grd3_2
+        println( (myEventBMachine.vehicle_slot.apply(myEventBMachine.camion_1)).compareTo(myEventBMachine.get_bs_m()) <= 0 );*/
+        println ((new Integer(myEventBMachine.vehicle_slot.apply(myEventBMachine.camion_1))));
+        println(myEventBMachine.get_bs_p().apply(myEventBMachine.get_lift_level())); //.compareTo(
+        println(myEventBMachine.get_max_bs_p());//.apply(myEventBMachine.get_lift_level())) <= 0 );
+        /*println(myEventBMachine.get_reservations().domain().has(v.getId()));
+        println(myEventBMachine.get_reservations().apply(v.getId()).equals(new Pair<Integer,Integer>(myEventBMachine.get_lift_level(),myEventBMachine.camion_1)));
+        println(myEventBMachine.get_lift_vehicles().range().has(v.getId()));
+        println(myEventBMachine.get_lift_out().equals(true));
+        println( BOOL.implication(myEventBMachine.get_lift_level().equals(new Integer(1)),myEventBMachine.get_lvl_1_access().equals(true)));
+        println(BOOL.implication(myEventBMachine.get_lift_level().equals(new Integer(2)),myEventBMachine.get_lvl_2_access().equals(true)));
+        println(BOOL.implication(myEventBMachine.get_lift_level().equals(new Integer(3)),myEventBMachine.get_lvl_3_access().equals(true)));
+        println(myEventBMachine.get_Sensor_state().apply(myEventBMachine.get_lift_level()).equals(myEventBMachine.Detecting));*/
+        if(myEventBMachine.evt_Board.guard_Board(v.getId(), myEventBMachine.camion_1)){
+          myEventBMachine.evt_Board.run_Board(v.getId(), myEventBMachine.camion_1);
+          removal.add(o2);
+          print("Cybertruck, id ", v.getId(), " has boarded the ship");  
+      }
+        else
+          println("A cybertruck has entered the wrong floor");
+      }
+      else if(o2 instanceof Truck)
+        if(myEventBMachine.evt_Board.guard_Board(v.getId(), myEventBMachine.camion_2)){
+          myEventBMachine.evt_Board.run_Board(v.getId(), myEventBMachine.camion_2);
+          removal.add(o2);
+          print("Truck, id ", v.getId(), " has boarded the ship");
+     }
+        else
+          println("A truck has entered the wrong floor");
+      else if(o2 instanceof Limousine)
+        if(myEventBMachine.evt_Board.guard_Board(v.getId(), myEventBMachine.camion_3)){
+          myEventBMachine.evt_Board.run_Board(v.getId(), myEventBMachine.camion_3);
+          removal.add(o2);
+          print("Limousine, id ", v.getId(), " boarded the ship");
+      }
+        else
+          println("A limousine has entered the wrong floor");
      
      }
       //out front

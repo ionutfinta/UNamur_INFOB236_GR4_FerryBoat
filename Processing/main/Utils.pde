@@ -62,5 +62,6 @@ public static Vehicle vehicleFromObject(U3DObject o){
   if(o instanceof Vehicle){
     return (Vehicle) o;
   }
+  println("returning null instead of vehicle");
   return null;
 }
