@@ -84,7 +84,7 @@ void addCar(float x, float y)
     if(myEventBMachine.evt_Reserve.guard_Reserve(lvl, myEventBMachine.voiture))
     {
       cars.add(new Car(myUniverse, new PVector(-20, 4, 100 - (20*cars.size()))));
-      myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.voiture);
+      if(reservation) myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.voiture);
       cars.get(cars.size()-1).setID(ID);
       ID++;
       message("Car added", x - 2.5, y);
@@ -103,7 +103,7 @@ void addTruck1(float x, float y)
     if(myEventBMachine.evt_Reserve.guard_Reserve(lvl, myEventBMachine.camion_1))
     {
       CyberTrucks.add(new CyberTruck(myUniverse, new PVector(-12, 4, 100 - (20*CyberTrucks.size()))));
-      myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.camion_1);
+      if(reservation) myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.camion_1);
       CyberTrucks.get(CyberTrucks.size()-1).setID(ID);
       ID++;
       message("CyberTruck added", x + 2.5, y);
@@ -122,7 +122,7 @@ void addTruck2(float x, float y)
      if(myEventBMachine.evt_Reserve.guard_Reserve(lvl, myEventBMachine.camion_2))
     {
       Trucks.add(new Truck(myUniverse, new PVector(-28, 4, 100 - (20*Trucks.size()))));
-      myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.camion_2);
+      if(reservation) myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.camion_2);
       Trucks.get(Trucks.size()-1).setID(ID);
       ID++;
       message("Truck added", x - 2.5, y);
@@ -141,7 +141,7 @@ void addTruck3(float x, float y)
     if(myEventBMachine.evt_Reserve.guard_Reserve(lvl, myEventBMachine.camion_3))
     {
       Limousines.add(new Limousine(myUniverse, new PVector(-4, 4, 100 - (20*Limousines.size()))));
-      myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.camion_3);
+      if(reservation) myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.camion_3);
       Limousines.get(Limousines.size()-1).setID(ID);
       ID++;
       message("Limousine added", x + 2.5, y);
@@ -158,6 +158,7 @@ void selectLvl1(float x, float y)
   boolean isCalled = button("Level 1 reservations", x ,y);
   if(isCalled)
   {
+    reservation = true;
     lvl = 1;
   }
 }
@@ -166,6 +167,7 @@ void selectLvl2(float x, float y)
   boolean isCalled = button("Level 2 reservations", x ,y);
   if(isCalled)
   {
+    reservation = true;
     lvl = 2;
   }
 }
@@ -174,7 +176,17 @@ void selectLvl3(float x, float y)
   boolean isCalled = button("Level 3 reservations", x ,y);
   if(isCalled)
   {
+    reservation = true;
     lvl = 3;
+  }
+}
+
+void noReservation(float x, float y)
+{
+  boolean isCalled = button("No reservation", x ,y);
+  if(isCalled)
+  {
+    reservation = false;
   }
 }
 

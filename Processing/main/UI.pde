@@ -24,11 +24,19 @@ class UI{
     selectLvl1(2.8, 6.8);
     selectLvl2(5, 6.8);
     selectLvl3(7.2, 6.8);
+    noReservation(1.2, 9.3);
     exitApp(8.8, 0.7);
     
     //ID
-    textSize(height/40);
+    textSize(50);
     message("Next Vehicle ID will be : " + ID, 5, 2);
-    message("Current selected level for reservations is : " + lvl, 5 , 8);
+    if(reservation)
+    {
+      message("Current selected level for reservations is : " + lvl, 5 , 8);
+    }
+    else
+    {
+      message("The vehicule will not have a reservation", 5 , 8);
+    }
   }
 }

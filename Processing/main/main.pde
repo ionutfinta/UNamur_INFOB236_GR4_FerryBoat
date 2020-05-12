@@ -20,6 +20,7 @@ ArrayList<Truck> Trucks = new ArrayList<Truck>();
 
 int ID = 1;
 int lvl = 1;
+boolean reservation = true;
 
 SelectionDetectorObject selector;
 
