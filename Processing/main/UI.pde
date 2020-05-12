@@ -29,14 +29,25 @@ class UI{
     
     //ID
     textSize(50);
-    message("Next Vehicle ID will be : " + ID, 5, 2);
+    message("Next Vehicle ID will be : " + ID, 5, 2, 0);
     if(reservation)
     {
-      message("Current selected level for reservations is : " + lvl, 5 , 8);
+      message("Current selected level for reservations is : " + lvl, 5 , 8, 0);
     }
     else
     {
-      message("The vehicule will not have a reservation", 5 , 8);
+      message("The vehicule will not have a reservation", 5 , 8, 0);
     }
+    
+    message(topLeft, 1.5, 4.4, TLfade);
+    message(bottomLeft, 1.5, 5.6, BLfade);
+    message(topRight, 8.5, 4.4, TRfade);
+    message(bottomRight, 8.5, 5.6, BRfade);
+    
+    //fade effects for the messages
+    TLfade += 2;
+    BLfade += 2;
+    TRfade += 2;
+    BRfade += 2;
   }
 }
