@@ -6,7 +6,6 @@ static PGraphics ui;
 
 Universe myUniverse;
 Me me;
-Car myFirstCar, mCar2;
 Barriere mBarriere1;
 Barriere mBarriere2;
 Ferry mFerry;
@@ -48,14 +47,15 @@ void setup(){
   mBarriere2 = new Barriere(myUniverse, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0), true);
   
   // Spawn Ferry avec 3 compartiments
-  mFerry = new Ferry(myUniverse, 3, myEventBMachine);
+  mFerry = new Ferry(myUniverse, 3);
   
   selector = myUniverse.initSelector();  
 }
 
 void draw(){
   me.setBackground();
-  myUniverse.display();
+  if(return3D)
+    myUniverse.display();
 }
 
 void keyReleased(){
@@ -64,6 +64,18 @@ void keyReleased(){
        if(mBarriere1.switchState());
          mBarriere2.switchState();
        break;
+    case '1':
+      if(mFerry != null)
+        mFerry.switchRDC();
+      break;
+    case '2':
+      if(mFerry != null)
+        mFerry.switchP2();
+      break;
+    case '3':
+      if(mFerry != null)
+        mFerry.switchP3();
+      break;
     case '4':
       mLift.switchLiftIn();
       break;

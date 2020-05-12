@@ -1,5 +1,5 @@
 class Me extends U3DObject{
-  private PVector cameraDir;
+  PVector cameraDir;
   
   private PVector mSize; // I'm not a shape
   private float cameraSpeed;
@@ -17,7 +17,7 @@ class Me extends U3DObject{
    if(ap.equals("Laniakea>Virgo Supercluster>Local Sheet>Local Group>Milky Way subgroup>Milky Way Galaxy>Orbit of the Solar System>Orion Arm>Gould Belt>Local Bubble>Local Interstellar Cloud>Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject"))
      println("Welcome to FerryBoat Simulator !");
    
-   mPosition = new PVector(-17.180944, 5.1451683, 102.502914 );
+   mPosition = new PVector(-17.180944, 3.7, 102.502914 );
    cameraDir = new PVector(0,0,0);
    elevationAngle = 0;
    rotationAngle = 0;
@@ -31,8 +31,9 @@ class Me extends U3DObject{
  
  void applyInertia(){
    if(!DEBUG){
-     mInertia.y = 0;
+     mInertia.y =0;
    }
+   
    super.applyInertia();
  }
  
@@ -147,7 +148,6 @@ class Me extends U3DObject{
    else
      background(#FFFFFF);
     }else{
-     cameraDir.y = MAX_INT;
      ui.beginDraw();
      new UI().draw();
      ui.endDraw();
@@ -162,6 +162,7 @@ class Me extends U3DObject{
      println("Elevation: " + elevationAngle);
      println("Rotation: " + rotationAngle);
    }
+   
    perspective(PI/3, float(width)/float(height), 
           ((height/2.0) / tan(PI/6))/2200, ((height/2.0) / tan(THIRD_PI))*2);
    camera(mPosition.x, mPosition.y, mPosition.z, mPosition.x+cameraDir.x, mPosition.y+cameraDir.y, mPosition.z+cameraDir.z, 0, -1, 0);
@@ -182,5 +183,10 @@ class Me extends U3DObject{
  }
  
  @Override
- boolean isMovable(){ return !DEBUG; }
+ boolean doCollisions(){
+   return true;
+ }
+ 
+ @Override
+ boolean isMovable(){ return false; }
 }
