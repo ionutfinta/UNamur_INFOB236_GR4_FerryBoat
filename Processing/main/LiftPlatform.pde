@@ -42,15 +42,15 @@ class LiftPlatform extends U3DObject{
       
       
       if(oPos.x<-15.5)
-        queue = 0;
-      else
         queue = 1;
+      else
+        queue = 2;
         
       positionToBe=DEPTH-positions[queue];
       
       //if no chance of spot
       if(positionToBe<=0){
-        println("Illegal lift boarding, contact authorities");
+        println("Illegal lift boarding, lift is full");
         return;
       }
       //if vehicle already in
@@ -61,12 +61,13 @@ class LiftPlatform extends U3DObject{
       
       v = vehicleFromObject(o);
       vID = v.getId();
+      print(vID, queue, positionToBe);
       
       if(v instanceof Car){
         if(myEventBMachine.evt_BoardLift.guard_BoardLift(vID, myEventBMachine.voiture, queue, positionToBe)){
           vehicles.add(o);
           myEventBMachine.evt_BoardLift.run_BoardLift(vID, myEventBMachine.voiture, queue, positionToBe);
-          positions[queue]+=1;
+          positions[queue-1]+=1;
           confirmed.add(o);
           vehicles.add(o);
           println("Vehicle ", vID, "has boarded the lift");
@@ -79,7 +80,7 @@ class LiftPlatform extends U3DObject{
         if(myEventBMachine.evt_BoardLift.guard_BoardLift(vID, myEventBMachine.camion_1, queue, positionToBe)){
           vehicles.add(o);
           myEventBMachine.evt_BoardLift.run_BoardLift(vID, myEventBMachine.camion_1, queue, positionToBe);
-          positions[queue]+=1;
+          positions[queue-1]+=1;
           confirmed.add(o);
           vehicles.add(o);
           println("Vehicle ", vID, "has boarded the lift");
@@ -90,7 +91,7 @@ class LiftPlatform extends U3DObject{
         if(myEventBMachine.evt_BoardLift.guard_BoardLift(vID, myEventBMachine.camion_2, queue, positionToBe)){
           vehicles.add(o);
           myEventBMachine.evt_BoardLift.run_BoardLift(vID, myEventBMachine.camion_2, queue, positionToBe);
-          positions[queue]+=2;
+          positions[queue-1]+=2;
           confirmed.add(o);
           vehicles.add(o);
           println("Vehicle ", vID, "has boarded the lift");
@@ -102,7 +103,7 @@ class LiftPlatform extends U3DObject{
         if(myEventBMachine.evt_BoardLift.guard_BoardLift(vID, myEventBMachine.camion_3, queue, positionToBe)){
           vehicles.add(o);
           myEventBMachine.evt_BoardLift.run_BoardLift(vID, myEventBMachine.camion_3, queue, positionToBe);
-          positions[queue]+=3;
+          positions[queue-1]+=3;
           confirmed.add(o);
           vehicles.add(o);
           println("Vehicle ", vID, "has boarded the lift");
@@ -115,6 +116,10 @@ class LiftPlatform extends U3DObject{
     
   }
   void checkLeavers(){
+    PVector oPos;
+    PVector oSize;
+    Vehicle v;
+    
     U3DObjects removal = new U3DObjects();
     for(U3DObject o1: vehicles){
       if(!inArray(confirmed, o1)){
@@ -123,8 +128,23 @@ class LiftPlatform extends U3DObject{
     }
     
     for(U3DObject o2: removal){
+      oPos = o2.getPosition();
+      oSize = o2.getSize();
+      v = vehicleFromObject(o2);
+      
       vehicles.remove(o2);
-      //if()
+      
+      if(o2 instanceof Car && oPos.z+oSize.z<125 ){
+        myEventBMachine.evt_LeaveLift.run_LeaveLift(v.getId(), myEventBMachine.voiture);
+      }
+      else if(o2 instanceof CyberTruck)
+        myEventBMachine.evt_LeaveLift.run_LeaveLift(v.getId(), myEventBMachine.camion_1);
+      else if(o2 instanceof Truck)
+        myEventBMachine.evt_LeaveLift.run_LeaveLift(v.getId(), myEventBMachine.camion_2);
+      else if(o2 instanceof Limousine)
+        myEventBMachine.evt_LeaveLift.run_LeaveLift(v.getId(), myEventBMachine.camion_3);
+        
+      print("A vehicle exited the lift through the entryway");
     }
   }
   

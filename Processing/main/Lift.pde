@@ -63,33 +63,33 @@ class Lift extends U3DObject {
     isOuvert = true;
   }*/
    void check_detectors(){
-     if(sensors[0]==true && !inBetween(11.5,mPosition.y,11.7)){
+     if(sensors[0]==true && !inBetween(1.9-mPlatform.getSize().y,mPosition.y,2.2-mPlatform.getSize().y)){
        myEventBMachine.evt_Sensor_stops_detecting.run_Sensor_stops_detecting(1);
        sensors[0] = false;
        println("stops detecting platform 1");
      }
-     else if(inBetween(16.3,mPosition.y,16.4) && sensors[1] == false){
+     else if(!inBetween(7,mPosition.y,7.3) && sensors[1] == true){
        myEventBMachine.evt_Sensor_stops_detecting.run_Sensor_stops_detecting(2);
        sensors[1] = false;
        println("stops detecting platform 2");
      }
-     else if(inBetween(19.5,mPosition.y,19.7) && sensors[2] == false){
+     else if(!inBetween(10,mPosition.y,11) && sensors[2] == true){
        myEventBMachine.evt_Sensor_stops_detecting.run_Sensor_stops_detecting(3);
        sensors[2] = false;
        println("stops detecting platform 3");
      }
      
-     if(inBetween(11.5,mPosition.y,11.7) && sensors[0] == false){
+     if(inBetween(1.9-mPlatform.getSize().y,mPosition.y,2.2-mPlatform.getSize().y) && sensors[0] == false){
        myEventBMachine.evt_Sensor_detects.run_Sensor_detects(1);
        sensors[0] = true;
        println("detecting platform 1");
      }
-     else if(inBetween(16.3,mPosition.y,16.4) && sensors[1] == false){
+     else if(inBetween(7,mPosition.y,7.3) && sensors[1] == false){
        myEventBMachine.evt_Sensor_detects.run_Sensor_detects(2);
        sensors[1] = true;
        println("detecting platform 2");
      }
-     else if(inBetween(19.5,mPosition.y,19.7) && sensors[2] == false){
+     else if(inBetween(10,mPosition.y,11) && sensors[2] == false){
        myEventBMachine.evt_Sensor_detects.run_Sensor_detects(3);
        sensors[2] = true;
        println("detecting platform 3");

@@ -42,21 +42,21 @@ class Scaner extends U3DObject{
                 machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.voiture, isLeft); 
                 println("requesting authorization for id: ", v.getId());
               }
-              if(v instanceof CyberTruck){
+              else if(v instanceof CyberTruck){
                 if( !machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(v.getId(),machine.camion_1, isLeft) )
                   return;
                   
                 machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_1, isLeft); 
                 println("requesting authorization for id: ", v.getId());
                 }
-              if(v instanceof Truck){
+              else if(v instanceof Truck){
                 if( !machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(v.getId(),machine.camion_2, isLeft) )
                   return;
                   
                 machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_2, isLeft); 
                 println("requesting authorization for id: ", v.getId());
                 }
-              if(v instanceof Limousine){
+              else if(v instanceof Limousine){
                 if( !machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(v.getId(),machine.camion_3, isLeft) )
                   return;
                   
@@ -74,29 +74,29 @@ class Scaner extends U3DObject{
                 machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.voiture, isLeft); 
                 println("requesting authorization for id: ", v.getId());
               }
-              if(v instanceof CyberTruck){
+              else if(v instanceof CyberTruck){
                 if( !machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(v.getId(),machine.camion_1, isLeft) )
                   return;
                   
                 machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_1, isLeft); 
                 println("requesting authorization for id: ", v.getId());
                 }
-              if(v instanceof Truck){
+              else if(v instanceof Truck){
                 if( !machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(v.getId(),machine.camion_2, isLeft) )
                   return;
                   
                 machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_2, isLeft); 
                 println("requesting authorization for id: ", v.getId());
                 }
-              if(v instanceof Limousine){
+              else if(v instanceof Limousine){
                 if( !machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(v.getId(),machine.camion_3, isLeft) )
                   return;
                   
                 machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_3, isLeft); 
                 println("requesting authorization for id: ", v.getId());}
             }
-            
           }
+          print("Authorized ids are now: ", myEventBMachine.get_auth_on_ids());
       }
     }
     
