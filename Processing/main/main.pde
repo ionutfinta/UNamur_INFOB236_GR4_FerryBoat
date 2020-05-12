@@ -50,7 +50,6 @@ void setup(){
   Scaner scan2 = new Scaner(myUniverse, false,myEventBMachine);
   mLift = new Lift(myUniverse, new PVector(-14.5, -10, 131.65));
   
-  
   mBarriere1 = new Barriere(myUniverse, new PVector(-11.5, 2.629905, 123.5));
   mBarriere2 = new Barriere(myUniverse, new PVector(-19.5, 2.629905, 123.5), new PVector(0,PI,0), true);
   

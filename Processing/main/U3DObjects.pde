@@ -44,6 +44,8 @@ class U3DObjects implements Iterable<U3DObject>{
     int N;
     int current;
     float lastDistance;
+    PVector compareePosition;
+    PVector compareePositionSize;
     
     //If N ends up often being big, consider merge sort once by distance or using a SortedSet
     
@@ -59,6 +61,9 @@ class U3DObjects implements Iterable<U3DObject>{
       current = 0;
       lastDistance = 0;
       comparee = o;
+      compareePosition = comparee.getPosition();
+      compareePositionSize = compareePosition.copy().add(comparee.getSize());
+      
     }
     
     boolean hasNext(){
@@ -72,9 +77,10 @@ class U3DObjects implements Iterable<U3DObject>{
       float min_encountered = Float.MAX_VALUE;
       float dist;
       U3DObject min_object = null;
-      
+      PVector oPos;
       for(U3DObject o: objects){
-          dist = comparee.getPosition().dist(o.getPosition());
+          oPos = o.getPosition();
+          dist = min(compareePositionSize.dist(oPos),compareePosition.dist(oPos));
           
           
           //works on assumtion that there will be N items at varying distances

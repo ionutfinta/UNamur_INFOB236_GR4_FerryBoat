@@ -4,7 +4,7 @@
 class LiftPlatform extends U3DObject{
 
   
-  private U3DObjects cars;
+  private U3DObjects vehicles;
   
   private Lift parentLift;
   boolean tmp = false;
@@ -18,10 +18,20 @@ class LiftPlatform extends U3DObject{
   
   @Override
   void handle_collision(U3DObject o){
-    if(o instanceof Vehicle){
-      //if
+    //removes old ones
     
+    
+    /*
+    //add new ones
+    if(o instanceof Vehicle){
+      if(inArray(vehicles, o))
+        return;
+      
+      if()
+      vehicles.add(o);
     }
+    
+    */
   }
   
 }
