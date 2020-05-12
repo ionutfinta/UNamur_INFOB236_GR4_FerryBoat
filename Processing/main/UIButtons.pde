@@ -38,6 +38,46 @@ boolean button(String name, float x, float y)
 }
 
 //preset for messages
+
+ private class Message{
+  int iterations;
+  int currentIteration;
+  float x;
+  float y;
+  String message;
+  final int defaultDuration = 15;
+  
+  public Message(String content, float x_coord, float y_coord, int duration){
+    message = content;
+    x = x_coord*width/10;
+    y = y_coord*height/10;
+    iterations = duration;
+    currentIteration = iterations;
+    
+  }
+  public Message(String content, float x_coord, float y_coord){
+    message = content;
+    x = x_coord*width/10;
+    y = y_coord*height/10;
+    iterations = defaultDuration;
+    currentIteration = iterations;
+  }
+  
+  void display(){
+    if(currentIteration<iterations){
+      ui.fill(0);
+      ui.text(message, x, y);
+      currentIteration++;
+    }
+  }
+  void activate(){
+    currentIteration=0;
+  
+  }
+
+}
+
+
 void message(String name, float x, float y)
 {
   float xCenter = x*width/10;
@@ -91,7 +131,8 @@ void addCar(float x, float y)
     }
     else
     {
-      message("Maximum number or EventBMachine error", x-2.5, y);
+      message("Car cannot be added here", x-2, y);
+      message("Select topmost available floor", x-2, y-2);
     }
   }
 }

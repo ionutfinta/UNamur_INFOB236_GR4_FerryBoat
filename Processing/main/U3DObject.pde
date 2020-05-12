@@ -77,6 +77,8 @@ class U3DObject {
   }
     
   void animate(){
+    ArrayList<Animation> removal = new ArrayList<Animation>();
+    
     if(isMovable())
     applyInertia();
     
@@ -92,10 +94,10 @@ class U3DObject {
       }
       
       if(a.isElapsed()){
-        ait.remove();
+        removal.add(a);
       }
     }
-    
+    mAnimations.removeAll(removal);
     
   }
   void display(){

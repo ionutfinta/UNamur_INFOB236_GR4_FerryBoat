@@ -155,9 +155,9 @@ class Lift extends U3DObject {
     PVector destination = mPlatform.getPosition().copy();
     destination.y = elevation;// - mPlatform.getPosition().y;
     PVector gf1_destination = mGF1.getPosition().copy();
-    gf1_destination.y = elevation+mGF1.getSize().y;// - mGF1.getPosition().y;
+    gf1_destination.y = elevation+(mGF1.getSize().y*2);// - mGF1.getPosition().y;
     PVector gf2_destination = mGF2.getPosition().copy();
-    gf2_destination.y = elevation+mGF2.getSize().y;// - mGF2.getPosition().y;
+    gf2_destination.y = elevation+(mGF2.getSize().y*2);// - mGF2.getPosition().y;
     
     PVector tmp = new PVector();
     
@@ -166,25 +166,25 @@ class Lift extends U3DObject {
     mGF2.addAnimation(mGF2.getPosition(), gf2_destination, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
     for(Barriere b: mBarriereOUT){
       tmp = b.getPosition().copy();
-      tmp.y = elevation+b.getSize().y;
+      tmp.y = elevation+(b.getSize().y*2);
       b.addAnimation(b.getPosition(), tmp, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
       
       tmp = b.lisse().getPosition().copy();
-      tmp.y = elevation+b.lisse().getSize().y;
+      tmp.y = elevation+(b.lisse().getSize().y*2);
       b.lisse().addAnimation(b.getPosition(), tmp, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
     }
     for(Barriere b: mBarriereIN){
       tmp = b.getPosition().copy();
-      tmp.y = elevation+b.getSize().y;
+      tmp.y = elevation+(b.getSize().y*2);
       b.addAnimation(b.getPosition(), tmp, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
       
       tmp = b.lisse().getPosition().copy();
-      tmp.y = elevation+b.lisse().getSize().y;
+      tmp.y = elevation+(b.lisse().getSize().y*2);
       b.lisse().addAnimation(b.getPosition(), tmp, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
     }
     for(U3DObject v: mPlatform.getVehicles()){
       tmp = v.getPosition().copy();
-      tmp.y = elevation+v.getSize().y;
+      tmp.y = elevation+(v.getSize().y*2);
       v.addAnimation(v.getPosition(), tmp, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
     }
     currentFloor = floor;

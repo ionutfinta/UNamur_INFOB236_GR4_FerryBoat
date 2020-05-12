@@ -24,7 +24,5 @@ class CyberTruck extends Vehicle {
     everything = u.objs;
   
     setSelectionState(false);
-    
-    speedMult = 2;
   }
 }
