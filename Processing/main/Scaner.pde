@@ -33,7 +33,7 @@ class Scaner extends U3DObject{
         
         if((isLeft && vQueue == 1) || (!isLeft && vQueue == 2)){
           if(machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(vID,((Vehicle) o).getVehicleType(), isLeft)){
-            machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(vID,machine.voiture, isLeft);
+            machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(vID,((Vehicle) o).getVehicleType(), isLeft);
           }else{
             println("You're not allowed to board !");
           }

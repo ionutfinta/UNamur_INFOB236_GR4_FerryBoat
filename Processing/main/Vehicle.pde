@@ -64,7 +64,7 @@ class Vehicle extends U3DObject{
     
     // ---- Gestion de Vehicle_in et Vehicle_out(Event-B)
     PVector mSize = getSize();
-    if(mPosition.z - mSize.z >= 100 && mPosition.z + mSize.z <= 115 && inBetween(-19.5, mPosition.x, -12)){
+    if(inBetween(111, mPosition.z + mSize.z, 115) && inBetween(-19.5, mPosition.x, -12)){
       if(mQueue == 0){
         boolean is_left = mPosition.x + mSize.x <= -14.8;
         if(is_left && myEventBMachine.evt_Vehicle_in.guard_Vehicle_in(true, myEventBMachine.get_queue2())){
@@ -74,8 +74,12 @@ class Vehicle extends U3DObject{
           myEventBMachine.evt_Vehicle_in.run_Vehicle_in(myEventBMachine.get_queue1(), true);
           mQueue = 2;
         }
-      } 
-    }else if (mQueue > 0 && !myEventBMachine.get_auth_on_ids().has(getId())){
+      }
+    }
+    
+    // THIS IS THE MOST EPIC THING I'VE EVER SEEN !
+    // IF YOU REPLACE THAT BY AN `ELSE IF` AND REMOVE THE COUNTRARY OF THE CONDITION OF THE IF ABOVE THIS SHOULD BE THE SAME BUT IN PROCESSING IT IS NOT 
+    if (mQueue > 0 && !inBetween(111, mPosition.z + mSize.z, 115) && !inBetween(-19.5, mPosition.x, -12) && !myEventBMachine.get_auth_on_ids().has(getId())){
       if(mQueue == 1 && myEventBMachine.evt_Vehicle_out.guard_Vehicle_out(false, myEventBMachine.get_queue2())){
         myEventBMachine.evt_Vehicle_out.run_Vehicle_out(false, myEventBMachine.get_queue2());
         mQueue = 0;
