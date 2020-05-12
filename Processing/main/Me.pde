@@ -38,7 +38,7 @@ class Me extends U3DObject{
  }
  
  void animate(){
-   if(keyPressed == true){
+   if(keyPressed){
      if(key == CODED){
        if(keyCode == UP){
          mInertia = cameraDir;
@@ -70,19 +70,19 @@ class Me extends U3DObject{
          updateCameraDir();
        }
      }
-     if(key == '4'){
+     if(pressedKeys.contains('4')){
          rotationAngle -= radians(cameraSpeed);
          updateCameraDir();
      }
-     if(key == '6'){
+     if(pressedKeys.contains('6')){
          rotationAngle += radians(cameraSpeed);
          updateCameraDir();
      }
-     if(key == '8'){
+     if(pressedKeys.contains('8')){
          elevationAngle += radians(cameraSpeed);
          updateCameraDir();
      }
-     if(key == '2'){
+     if(pressedKeys.contains('2')){
          elevationAngle -= radians(cameraSpeed);
          updateCameraDir();
      }

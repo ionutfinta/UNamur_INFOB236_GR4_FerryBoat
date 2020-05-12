@@ -86,7 +86,7 @@ void addCar(float x, float y)
   {
     if(myEventBMachine.evt_Reserve.guard_Reserve(lvl, myEventBMachine.voiture))
     {
-      cars.add(new Car(myUniverse, new PVector(-20, 4, 100 - (20*cars.size()))));
+      cars.add(new Car(myUniverse, new PVector(-16, 4, 96.5 - (2.75*cars.size()))));
       if(reservation) myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.voiture);
       cars.get(cars.size()-1).setID(ID);
       ID++;
@@ -106,7 +106,7 @@ void addTruck1(float x, float y)
   {
     if(myEventBMachine.evt_Reserve.guard_Reserve(lvl, myEventBMachine.camion_1))
     {
-      CyberTrucks.add(new CyberTruck(myUniverse, new PVector(-12, 4, 100 - (20*CyberTrucks.size()))));
+      CyberTrucks.add(new CyberTruck(myUniverse, new PVector(-9, 4, 96.5 - (2.75*CyberTrucks.size()))));
       if(reservation) myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.camion_1);
       CyberTrucks.get(CyberTrucks.size()-1).setID(ID);
       ID++;
@@ -126,7 +126,7 @@ void addTruck2(float x, float y)
   {
      if(myEventBMachine.evt_Reserve.guard_Reserve(lvl, myEventBMachine.camion_2))
     {
-      Trucks.add(new Truck(myUniverse, new PVector(-28, 4, 100 - (20*Trucks.size()))));
+      Trucks.add(new Truck(myUniverse, new PVector(-28, 4, 96.7 - (3*Trucks.size()))));
       if(reservation) myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.camion_2);
       Trucks.get(Trucks.size()-1).setID(ID);
       ID++;
@@ -146,7 +146,7 @@ void addTruck3(float x, float y)
   {
     if(myEventBMachine.evt_Reserve.guard_Reserve(lvl, myEventBMachine.camion_3))
     {
-      Limousines.add(new Limousine(myUniverse, new PVector(-4, 4, 100 - (20*Limousines.size()))));
+      Limousines.add(new Limousine(myUniverse, new PVector(8, 4, 96.5 - (2.75*Limousines.size()))));
       if(reservation) myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.camion_3);
       Limousines.get(Limousines.size()-1).setID(ID);
       ID++;

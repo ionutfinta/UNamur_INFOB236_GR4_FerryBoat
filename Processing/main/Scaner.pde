@@ -10,10 +10,10 @@ class Scaner extends U3DObject{
     mShape = loadShape("./assets/Scaner.obj");
     isLeft = is_left;
     if(isLeft){
-      mPosition = new PVector(-19.5, 2.7, 111);
+      mPosition = new PVector(-19.5, 2.7, 114);
     }
     else{
-      mPosition = new PVector(-12, 2.7, 111);
+      mPosition = new PVector(-12, 2.7, 114);
       mShape.rotate(PI, 0,1,0);
     }
     mCollide = true;

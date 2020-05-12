@@ -19,9 +19,10 @@ class Vehicle extends U3DObject{
     mCollide = true;
     speedMult = 0.2;
     angularSpeed = 0.05;
-    rotationAngle = 0;
-    directionalVector = new PVector(0,0,1);
+    rotationAngle = HALF_PI;
+    directionalVector = new PVector(1,0,0);
     mQueue = 0;
+    setAngles(new PVector(0,HALF_PI, 0));
   }
   
   void initWheels(){
@@ -35,36 +36,32 @@ class Vehicle extends U3DObject{
    }
   }
   
-  /* Inspiration for turning the wheels:
-  
-      mShape.getChild(0).resetMatrix();
-      mShape.getChild(0).rotateY(-HALF_PI);
-      mShape.getChild(0).translate(mWheelsPos[i].x, mWheelsPos[i].y, mWheelsPos[i].z);
-  */
-  
   void animate(){
     super.animate();
     if(keyPressed == true && isSelected()){
-      if(key == 'z'){
+      if(pressedKeys.contains('z')){
         mInertia.add(directionalVector);
       }
-      if(key == 's')
+      if(pressedKeys.contains('s'))
         mInertia.sub(directionalVector);
       
-      if(key == 'q'){
+      if(pressedKeys.contains('q')){
          updateRotation(true);
-     }
-     if(key == 'd'){
+         steere(-QUARTER_PI);
+     }else{steere(0);}
+     if(pressedKeys.contains('d')){
          updateRotation(false);
-     }
-        
+         steere(QUARTER_PI);
+     }else{steere(0);}
+        if(key == 'c')
+        println(mPosition);
       mInertia.z*=speedMult;
       mInertia.x*=speedMult;
     }
     
     // ---- Gestion de Vehicle_in et Vehicle_out(Event-B)
     PVector mSize = getSize();
-    if(inBetween(111, mPosition.z + mSize.z, 115) && inBetween(-19.5, mPosition.x, -12)){
+    if(inBetween(114, mPosition.z + mSize.z, 116) && inBetween(-19.5, mPosition.x, -12)){
       if(mQueue == 0){
         boolean is_left = mPosition.x + mSize.x <= -14.8;
         if(is_left && myEventBMachine.evt_Vehicle_in.guard_Vehicle_in(true, myEventBMachine.get_queue2())){
@@ -125,6 +122,16 @@ class Vehicle extends U3DObject{
    directionalVector.z = cos(rotationAngle);
    
  }
+ 
+ void steere(float a){
+   // Doesn't Work because of Processing :'(
+   /*for(int i = 0; i < 2; i++){
+     mShape.getChild(i).resetMatrix();
+     mShape.getChild(i).rotateY(a);
+     mShape.getChild(i).translate(mWheelsPos[i].x, mWheelsPos[i].y, mWheelsPos[i].z);
+   }*/
+ }
+ 
  @Override
  void handle_collision(U3DObject o){/*
            PVector oPos,

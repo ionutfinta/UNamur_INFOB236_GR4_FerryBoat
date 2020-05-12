@@ -2,6 +2,7 @@ import processing.opengl.*;
 
 static final boolean DEBUG = true;
 static final fifthRef myEventBMachine = new fifthRef();
+static final ArrayList<Character> pressedKeys = new ArrayList<Character>(); 
 static PGraphics ui;
 
 Universe myUniverse;
@@ -66,7 +67,17 @@ void draw(){
     myUniverse.display();
 }
 
+void keyPressed(){
+  if(! pressedKeys.contains(key)){
+    pressedKeys.add(key);
+  }
+}
+
 void keyReleased(){
+  if(pressedKeys.contains(key)){
+    pressedKeys.remove((Character) key);
+  }
+  
   switch(key){
     case '0':
        if(mBarriere1.switchState());
