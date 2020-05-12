@@ -18,8 +18,8 @@ class LiftPlatform extends U3DObject{
     mPosition.y = 2-this.getSize().y;
     
      positions = new int[2];
-     positions[0] = 1;
-     positions[1] = 1;
+     positions[0] = 0;
+     positions[1] = 0;
      vehicles = new U3DObjects();
   }
   

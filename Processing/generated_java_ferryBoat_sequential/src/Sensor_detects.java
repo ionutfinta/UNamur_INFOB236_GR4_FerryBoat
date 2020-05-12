@@ -19,7 +19,7 @@ public class Sensor_detects{
 				&& machine.get_Sensor_state().apply(machine.get_lift_level()).equals(machine.Not_Detecting) //grd1
 				&& sensor.equals(machine.get_lift_level()) //grd4
 				//grd5 was missing, checked for whether a sensor was "detecting"
-				&& machine.get_Sensor_state().range().has(machine.Detecting));
+				&& !machine.get_Sensor_state().range().has(machine.Detecting));
 	}
 
 	/*@ public normal_behavior
