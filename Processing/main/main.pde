@@ -29,6 +29,7 @@ void setup(){
   ui = createGraphics(width,height);
   shapeMode(CORNER);
   smooth(4);
+  frame.setResizable(false);
   
   // --- Initialisation
   myUniverse = new Universe();

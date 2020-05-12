@@ -241,10 +241,6 @@ class U3DObject {
             &&(inBetween(mPosNext.z-mSize.z, oPos.z+oSize.z, mPosNext.z+mSize.z) ||inBetween(mPosNext.z-mSize.z, oPos.z-oSize.z, mPosNext.z+mSize.z) || inBetween(oPos.z-oSize.z, mPosNext.z-mSize.z, oPos.z+oSize.z) || inBetween(oPos.z-oSize.z, mPosNext.z+mSize.z, oPos.z+oSize.z))
             &&(inBetween(mPos.y-mSize.y, oPos.y+oSize.y, mPos.y+mSize.y) ||inBetween(mPos.y-mSize.y, oPos.y-oSize.y, mPos.y+mSize.y) || inBetween(oPos.y-oSize.y, mPos.y-mSize.y, oPos.y+oSize.y) || inBetween(oPos.y-oSize.y, mPos.y+mSize.y, oPos.y+oSize.y))){
               mInertia.z-=mInertia.z;
-              if(o1 instanceof Limousine)
-                println(o2);
-                if(o2 instanceof Limousine)
-                println(o1);
               collided_once = true;
             }
             
