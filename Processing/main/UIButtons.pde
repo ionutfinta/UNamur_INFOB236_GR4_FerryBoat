@@ -119,13 +119,13 @@ void addTruck2(float x, float y)
   boolean isCalled = button("Add truck of size 2", x ,y);
   if(isCalled)
   {
-    if(!inBetween(-14, Limousines.get(Limousines.size()-1).mPosition.x, -10) && myEventBMachine.evt_Reserve.guard_Reserve(lvl, myEventBMachine.camion_2))
+     if(!inBetween(-22, Trucks.get(Trucks.size()-1).mPosition.x, -18) && myEventBMachine.evt_Reserve.guard_Reserve(lvl, myEventBMachine.camion_2))
     {
-      Limousines.add(new Limousine(myUniverse, new PVector(-12, 4, 100)));
+      Trucks.add(new Truck(myUniverse, new PVector(-20, 4, 84)));
       myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.camion_2);
-      Limousines.get(Limousines.size()-1).setID(ID);
+      Trucks.get(Trucks.size()-1).setID(ID);
       ID++;
-      message("Limousine added", x - 2.5, y);
+      message("Truck added", x + 2.5, y);
     }
     else
     {
@@ -138,13 +138,13 @@ void addTruck3(float x, float y)
   boolean isCalled = button("Add truck of size 3", x ,y);
   if(isCalled)
   {
-    if(!inBetween(-22, Trucks.get(Trucks.size()-1).mPosition.x, -18) && myEventBMachine.evt_Reserve.guard_Reserve(lvl, myEventBMachine.camion_3))
+    if(!inBetween(-14, Limousines.get(Limousines.size()-1).mPosition.x, -10) && myEventBMachine.evt_Reserve.guard_Reserve(lvl, myEventBMachine.camion_3))
     {
-      Trucks.add(new Truck(myUniverse, new PVector(-20, 4, 84)));
+      Limousines.add(new Limousine(myUniverse, new PVector(-12, 4, 100)));
       myEventBMachine.evt_Reserve.run_Reserve(lvl, myEventBMachine.camion_3);
-      Trucks.get(Trucks.size()-1).setID(ID);
+      Limousines.get(Limousines.size()-1).setID(ID);
       ID++;
-      message("Truck added", x + 2.5, y);
+      message("Limousine added", x - 2.5, y);
     }
     else
     {
