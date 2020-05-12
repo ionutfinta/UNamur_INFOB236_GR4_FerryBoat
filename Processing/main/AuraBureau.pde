@@ -6,7 +6,9 @@ class AuraBureau extends U3DObject{
   
   @Override
   void handle_collision(U3DObject o){ 
-    if(o instanceof SelectionDetectorObject){
+    if(o instanceof Me){
+      o.setPos(new PVector(0,0,5).add(o.getPosition()));
+      ((Me)o).cameraDir = new PVector(0,0,0);
       return3D = false;
     }
   }
