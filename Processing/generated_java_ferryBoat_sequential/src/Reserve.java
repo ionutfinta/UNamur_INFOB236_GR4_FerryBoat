@@ -9,16 +9,23 @@ public class Reserve{
 		this.machine = m;
 	}
 	
-	private boolean checkPrioriteCamionsP1(int floor, int vehicle_type) {
+	private boolean checkPrioriteCamionsP1(int floor, int vehicle_type){
 		if(vehicle_type == machine.voiture && floor < machine.floors.max()) {
-			for(int a = floor; a > 1; a--) {
-				if(machine.get_reserved_spaces().apply(a)
-						.compareTo(machine.get_max_bs_p().apply(a)) < 0)
+			for(int a = machine.floors.max(); a > floor; a--) {
+				if(machine.get_max_bs_p().apply(a) == null)
 					return false;
+				if(machine.get_reserved_spaces().apply(a) == null ||
+						machine.get_reserved_spaces().apply(a)
+						.compareTo(machine.get_max_bs_p().apply(a)) > 0) {
+					return false;
+				}
 			}
 		}else if(vehicle_type != machine.voiture && floor > 1) {
 			for(int a = 1; a < floor; a++) {
-				if(machine.get_reserved_spaces().apply(a).compareTo(machine.get_max_bs_p().apply(a)) <= machine.vehicle_slot.apply(vehicle_type))
+				/*if(true)
+						throw new Exception("Hello world !µ" + machine.get_reserved_spaces().apply(a).compareTo(machine.get_max_bs_p().apply(a)));*/
+				if(machine.get_reserved_spaces().apply(a) == null || 
+						machine.get_reserved_spaces().apply(a).compareTo(machine.get_max_bs_p().apply(a)) >= machine.vehicle_slot.apply(vehicle_type))
 					return false;
 			}
 		}
@@ -33,13 +40,13 @@ public class Reserve{
 		return (machine.VEHICLE_TYPES.has(vehicle_type)
 				&& machine.floors.has(floor)
 				&& machine.get_max_bs_p() != null
-				// grd4_2 && grd2_2 a été générée en && true
-				// On en fait une fonction à part:
-				&& checkPrioriteCamionsP1(floor, vehicle_type)
 				&& (machine.get_reserved_spaces().apply(floor) == null || (new Integer(machine.get_reserved_spaces().apply(floor) 
 						+ machine.vehicle_slot.apply(vehicle_type)))
 				.compareTo(machine.get_max_bs_p()
-						.apply(floor)) <= 0)); //grd5_2
+						.apply(floor)) <= 0)
+				// grd4_2 && grd2_2 a été générée en && true
+				// On en fait une fonction à part:
+				&& checkPrioriteCamionsP1(floor, vehicle_type)); //grd5_2
 	}
 
 	/*@ public normal_behavior
