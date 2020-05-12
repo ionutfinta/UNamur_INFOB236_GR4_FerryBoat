@@ -27,7 +27,7 @@ class UI{
     exitApp(8.8, 0.7);
     
     //ID
-    textSize(height/35);
+    textSize(height/40);
     message("Next Vehicle ID will be : " + ID, 5, 2);
     message("Current selected level for reservations is : " + lvl, 5 , 8);
   }

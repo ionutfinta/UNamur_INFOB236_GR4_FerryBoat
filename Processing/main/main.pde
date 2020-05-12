@@ -39,12 +39,6 @@ void setup(){
                            "Milky Way Galaxy>Orbit of the Solar System>Orion Arm>Gould Belt>Local Bubble>Local Interstellar Cloud>" +
                            "Solar System>Oort cloud>Scattered disc>Heliosphere>Kuiper belt>Outer Solar System>Inner Solar System>" +
                            "Earth's orbit>Geospace>Orbit of the Moon>Earth>Europe>Belgium>Anvers>Port d'Anvers>ferryBoatProject");
-
-  //init vehicles
-  cars.add(new Car(myUniverse, new PVector(-100, -100, -100)));
-  CyberTrucks.add(new CyberTruck(myUniverse, new PVector(-100, -100, -100)));
-  Limousines.add(new Limousine(myUniverse, new PVector(-100, -100, -100)));
-  Trucks.add(new Truck(myUniverse, new PVector(-100, -100, -100)));
   
   Scaner scan = new Scaner(myUniverse, true,myEventBMachine);
   Scaner scan2 = new Scaner(myUniverse, false,myEventBMachine);
