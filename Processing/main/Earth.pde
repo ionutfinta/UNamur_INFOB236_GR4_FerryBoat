@@ -94,7 +94,7 @@ class Earth extends U3DObject{
       
     popMatrix();
     pushMatrix();
-      translate(-25.5,1.30,125);
+      translate(-25.5,0.6,125);
       scale(1,1,1.33);
       rotateX(HALF_PI);
       mEauEcluse.updateNoise();

@@ -18,7 +18,7 @@ public class Board{
 		return (machine.VEHICLE_TYPES.has(vehicle_type) //grd2_2
 				&& (new Integer(machine.get_busy_slots() + machine.vehicle_slot.apply(vehicle_type))).compareTo(machine.get_max_busy_slots()) <= 0 //grd3_2
 				&& (machine.vehicle_slot.apply(vehicle_type)).compareTo(machine.get_bs_m()) <= 0 
-				&& (new Integer(machine.vehicle_slot.apply(vehicle_type) + machine.get_bs_p().apply(machine.get_lift_level()))).compareTo(machine.get_max_bs_p().apply(machine.get_lift_level())) <= 0 
+				&& (new Integer(machine.vehicle_slot.apply(vehicle_type) + (machine.get_bs_p().apply(machine.get_lift_level())==null?(new Integer(0)):(machine.get_bs_p().apply(machine.get_lift_level()))))).compareTo((machine.get_max_bs_p().apply(machine.get_lift_level())==null?0:machine.get_max_bs_p().apply(machine.get_lift_level()))) <= 0 
 				&& machine.get_reservations().domain().has(vehicle_id) 
 				&& machine.get_reservations().apply(vehicle_id).equals(new Pair<Integer,Integer>(machine.get_lift_level(),vehicle_type)) 
 				&& machine.get_lift_vehicles().range().has(vehicle_id) 
