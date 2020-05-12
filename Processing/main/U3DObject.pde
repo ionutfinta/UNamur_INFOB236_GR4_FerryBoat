@@ -202,7 +202,7 @@ class U3DObject {
         while(iter2.hasNext()){
           o2 = iter2.next();
           
-          if(o1==o2 || o2 instanceof Me || o2 instanceof SelectionArrow);
+          if(o1==o2 || (o2 instanceof Me && o1 instanceof SelectionDetectorObject) || o2 instanceof SelectionArrow);
           else{
             handle_entity_collision(o1,o2);
           }
