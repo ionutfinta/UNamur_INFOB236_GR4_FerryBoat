@@ -20,9 +20,6 @@ class Universe{
       o.animate();
       o.display();
     }
-    
-    if(earth != null)
-      earth.finishedFrame();
   }
   
   void addObject(U3DObject o){

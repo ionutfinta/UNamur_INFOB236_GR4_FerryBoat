@@ -3,14 +3,11 @@ import java.util.Iterator;
 class Earth extends U3DObject{
   private float gravity;
   private Wave mWave, mEauEcluse;
-  private int lastGravity;
   
   // --- Constructor
   Earth(){
     mShape = loadShape("./assets/berge.obj");
     mPosition = new PVector(0, 2, 0);
-    
-    lastGravity = 0;
     gravity = 9.81/7;
     
     mWave = new Wave();
@@ -67,9 +64,6 @@ class Earth extends U3DObject{
   void animate(){}
   
   void applyGravity(U3DObject o){
-    /* skips when it shouldn't
-    if(second()-lastGravity == 0)
-      return;*/
     PVector pos = o.getPosition();
     if(inBetween(-125, pos.x, 125) && inBetween(-125, pos.z, 125)){
       PVector a = o.getInertia();
@@ -85,10 +79,6 @@ class Earth extends U3DObject{
     }
   }
   
-  void finishedFrame(){
-    lastGravity = second();
-  }
-  
   // --- Display Planet
   void display(){
     super.display();
@@ -96,12 +86,6 @@ class Earth extends U3DObject{
       /* Water */
       translate(-14.35, -12, -90);
       rotateX(HALF_PI);
-      
-      pushMatrix();
-        fill(#002045);
-        translate(0,0,15);
-        rect(400,0,2100,2100);
-      popMatrix();
       
       mWave.updateNoise();
       translate(-475, 0, 0);
