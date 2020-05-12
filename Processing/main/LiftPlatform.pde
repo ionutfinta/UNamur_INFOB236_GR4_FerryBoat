@@ -15,7 +15,7 @@ class LiftPlatform extends U3DObject{
     parentLift = lift;
     mShape = loadShape("./assets/lift.obj");
     mPosition = lift.getPosition().copy();
-    mPosition.y = 2-mShape.getHeight();
+    mPosition.y = 2-this.getSize().y;
     
      positions = new int[2];
      positions[0] = 1;

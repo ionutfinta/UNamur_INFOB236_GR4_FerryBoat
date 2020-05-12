@@ -15,7 +15,7 @@ class Lift extends U3DObject {
   // Barrières
   Barriere[] mBarriereIN, mBarriereOUT;
   
-  boolean[] sensors = {false,false,false};
+  boolean[] sensors = {true,false,false};
   
   // --- Constructeurs
   Lift(Universe uni, PVector pos){
@@ -63,33 +63,33 @@ class Lift extends U3DObject {
     isOuvert = true;
   }*/
    void check_detectors(){
-     if(sensors[0]==true && !inBetween(1.9-mPlatform.getSize().y,mPosition.y,2.2-mPlatform.getSize().y)){
+     if(sensors[0]==true && 2-mPlatform.getSize().y != mPlatform.getPosition().y){
        myEventBMachine.evt_Sensor_stops_detecting.run_Sensor_stops_detecting(1);
        sensors[0] = false;
        println("stops detecting platform 1");
      }
-     else if(!inBetween(7,mPosition.y,7.3) && sensors[1] == true){
+     else if(sensors[1] == true && 5.3!=mPlatform.getPosition().y){
        myEventBMachine.evt_Sensor_stops_detecting.run_Sensor_stops_detecting(2);
        sensors[1] = false;
        println("stops detecting platform 2");
      }
-     else if(!inBetween(10,mPosition.y,11) && sensors[2] == true){
+     else if(sensors[2] == true && 9.2 != mPlatform.getPosition().y){
        myEventBMachine.evt_Sensor_stops_detecting.run_Sensor_stops_detecting(3);
        sensors[2] = false;
        println("stops detecting platform 3");
      }
      
-     if(inBetween(1.9-mPlatform.getSize().y,mPosition.y,2.2-mPlatform.getSize().y) && sensors[0] == false){
+     if(sensors[0] == false && 2-mPlatform.getSize().y ==mPlatform.getPosition().y){
        myEventBMachine.evt_Sensor_detects.run_Sensor_detects(1);
        sensors[0] = true;
        println("detecting platform 1");
      }
-     else if(inBetween(7,mPosition.y,7.3) && sensors[1] == false){
+     if(sensors[1] == false && 5.3==mPlatform.getPosition().y){
        myEventBMachine.evt_Sensor_detects.run_Sensor_detects(2);
        sensors[1] = true;
        println("detecting platform 2");
      }
-     else if(inBetween(10,mPosition.y,11) && sensors[2] == false){
+     if(sensors[2] == false && 9.2==mPlatform.getPosition().y){
        myEventBMachine.evt_Sensor_detects.run_Sensor_detects(3);
        sensors[2] = true;
        println("detecting platform 3");
@@ -127,6 +127,7 @@ class Lift extends U3DObject {
   //moves lift 
   void move_lift(int floor){
     float elevation = 0;
+    float zOffset = 0;
     
     if(floor==currentFloor)
       return;
@@ -142,9 +143,9 @@ class Lift extends U3DObject {
     myEventBMachine.evt_MoveLift.run_MoveLift(floor);
     
     switch(floor){
-      case 1: elevation = 2-mPlatform.getSize().y; break;
-      case 2: elevation = 7.12; break;
-      case 3: elevation = 10.5; break;
+      case 1: elevation = 2-mPlatform.getSize().y; zOffset = 131.2; break;
+      case 2: elevation = 5.3; zOffset = 135; break; //3.8 offset
+      case 3: elevation = 9.2; zOffset = 135.1; break;
       default: println("floor ", floor, " doesn't exist.."); return;
     }
         
@@ -153,11 +154,14 @@ class Lift extends U3DObject {
     GF2pos0 = mGF2.getPosition().copy();
     
     PVector destination = mPlatform.getPosition().copy();
-    destination.y = elevation;// - mPlatform.getPosition().y;
+    destination.y = elevation;
+    destination.z = zOffset;
     PVector gf1_destination = mGF1.getPosition().copy();
-    gf1_destination.y = elevation+(mGF1.getSize().y*2);// - mGF1.getPosition().y;
+    gf1_destination.y = elevation+(mGF1.getSize().y);// - mGF1.getPosition().y;
+    gf1_destination.z = zOffset+(mGF1.getPosition().z-mPlatform.getPosition().z);
     PVector gf2_destination = mGF2.getPosition().copy();
-    gf2_destination.y = elevation+(mGF2.getSize().y*2);// - mGF2.getPosition().y;
+    gf2_destination.y = elevation+(mGF2.getSize().y);// - mGF2.getPosition().y;
+    gf2_destination.z = zOffset+(mGF2.getPosition().z-mPlatform.getPosition().z);
     
     PVector tmp = new PVector();
     
@@ -166,25 +170,30 @@ class Lift extends U3DObject {
     mGF2.addAnimation(mGF2.getPosition(), gf2_destination, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
     for(Barriere b: mBarriereOUT){
       tmp = b.getPosition().copy();
-      tmp.y = elevation+(b.getSize().y*2);
+      tmp.y = elevation+(b.getSize().y);
+      tmp.z = zOffset+(b.getPosition().z-mPlatform.getPosition().z);
       b.addAnimation(b.getPosition(), tmp, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
       
       tmp = b.lisse().getPosition().copy();
-      tmp.y = elevation+(b.lisse().getSize().y*2);
+      tmp.y = elevation+(b.lisse().getPosition().y-mPlatform.getPosition().y);
+      tmp.z = zOffset + (b.lisse().getPosition().z-mPlatform.getPosition().z);
       b.lisse().addAnimation(b.getPosition(), tmp, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
     }
     for(Barriere b: mBarriereIN){
       tmp = b.getPosition().copy();
-      tmp.y = elevation+(b.getSize().y*2);
+      tmp.y = elevation+(b.getSize().y);
+      tmp.z = zOffset+(b.getPosition().z-mPlatform.getPosition().z);
       b.addAnimation(b.getPosition(), tmp, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
       
       tmp = b.lisse().getPosition().copy();
-      tmp.y = elevation+(b.lisse().getSize().y*2);
+      tmp.y = elevation+(b.lisse().getPosition().y-mPlatform.getPosition().y);
+      tmp.z = zOffset + (b.lisse().getPosition().z-mPlatform.getPosition().z);
       b.lisse().addAnimation(b.getPosition(), tmp, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
     }
     for(U3DObject v: mPlatform.getVehicles()){
       tmp = v.getPosition().copy();
-      tmp.y = elevation+(v.getSize().y*2);
+      tmp.y = elevation+(v.getSize().y);
+      tmp.z = zOffset+(v.getPosition().z-mPlatform.getPosition().z);
       v.addAnimation(v.getPosition(), tmp, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
     }
     currentFloor = floor;
