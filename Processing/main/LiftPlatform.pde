@@ -154,4 +154,8 @@ class LiftPlatform extends U3DObject{
     checkLeavers();
   }
   
+  U3DObjects getVehicles(){
+    return vehicles;
+  }
+  
 }

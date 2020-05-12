@@ -91,4 +91,8 @@ class Barriere extends U3DObject {
   public boolean isBusy(){
     return nOuvert != isOuvert();
   }
+  
+  U3DObject lisse(){
+    return myLisse;
+  }
 }
