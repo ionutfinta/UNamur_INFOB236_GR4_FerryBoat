@@ -1,7 +1,11 @@
 //Mostly necessary to retrieve cars touching the lift
+// allows for implementation of board_lift;
 
 class LiftPlatform extends U3DObject{
 
+  
+  private U3DObjects cars;
+  
   private Lift parentLift;
   boolean tmp = false;
   public LiftPlatform(Universe uni, Lift lift){
@@ -14,7 +18,10 @@ class LiftPlatform extends U3DObject{
   
   @Override
   void handle_collision(U3DObject o){
-    //get all current vehicles from here
+    if(o instanceof Vehicle){
+      //if
+    
+    }
   }
   
 }

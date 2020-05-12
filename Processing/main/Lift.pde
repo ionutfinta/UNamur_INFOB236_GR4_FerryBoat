@@ -7,6 +7,8 @@ class Lift extends U3DObject {
   //GF = Garde-Fou
   private U3DObject mGF1, mGF2;
   
+  private PVector GF1pos0, GF2pos0, platformPos0;
+  
   private int currentFloor;
   private LiftPlatform mPlatform;
   
@@ -32,6 +34,10 @@ class Lift extends U3DObject {
     mGF2 = new U3DObject(uni, tmp_position.copy(), "./assets/lift_gardeFou.obj");
     mGF2.setAngles(new PVector(0,PI,0));
     
+    platformPos0 = mPlatform.getPosition().copy();
+    GF1pos0 = mGF1.getPosition().copy();
+    GF2pos0 = mGF2.getPosition().copy();
+    
     mBarriereIN = new Barriere[2];
     mBarriereIN[0] = new Barriere(myUniverse, new PVector(4.58, 1.15, -6.12).add(mPlatform.getPosition()), true);
     mBarriereIN[1] = new Barriere(myUniverse, new PVector(-5, 1.15, -6.12).add(mPlatform.getPosition()), new PVector(0,PI,0), true);
@@ -43,42 +49,7 @@ class Lift extends U3DObject {
     nOuvert = true;*/
   }
   
-  //@requires floor>0 && floor<=3
-  //moves lift 
-  void move_lift(int floor){
-    float elevation = 0;
-    
-    if(floor==currentFloor)
-      return;
-    if(floor<=0 || floor>3){
-      println("not a valid floor");
-      return;
-    }
-    if(!myEventBMachine.evt_MoveLift.guard_MoveLift(floor)){
-      println("Lift cannot be moved");
-      return;
-    }
-    
-    myEventBMachine.evt_MoveLift.run_MoveLift(floor);
-    
-    switch(floor){
-      case 1: elevation = 2; break;
-      case 2: elevation = 7.12; break;
-      case 3: elevation = 10.5; break;
-      default: println("floor ", floor, " doesn't exist..");
-    }
-    
-    PVector destination = mPlatform.getPosition().copy();
-    destination.y = elevation - mPlatform.getPosition().y;
-    PVector gf1_destination = mGF1.getPosition().copy();
-    gf1_destination.y = elevation+3 - mGF1.getPosition().y;
-    PVector gf2_destination = mGF2.getPosition().copy();
-    gf2_destination.y = elevation+3 - mGF2.getPosition().y;
-    
-    mPlatform.addAnimation(mPlatform.getPosition(), destination, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
-    mGF1.addAnimation(mGF1.getPosition(), gf1_destination, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
-    mGF2.addAnimation(mGF2.getPosition(), gf2_destination, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
-  }
+
   
   
   // -- Mutateurs privés
@@ -152,8 +123,54 @@ class Lift extends U3DObject {
   }
   
   // --- Mutateurs publics
+    //@requires floor>0 && floor<=3
+  //moves lift 
+  void move_lift(int floor){
+    float elevation = 0;
+    
+    if(floor==currentFloor)
+      return;
+    if(floor<=0 || floor>3){
+      println("not a valid floor");
+      return;
+    }
+    if(!myEventBMachine.evt_MoveLift.guard_MoveLift(floor)){
+      println("Lift cannot be moved");
+      return;
+    }
+    
+    myEventBMachine.evt_MoveLift.run_MoveLift(floor);
+    
+    switch(floor){
+      case 1: elevation = 2-mPlatform.getSize().y; break;
+      case 2: elevation = 7.12; break;
+      case 3: elevation = 10.5; break;
+      default: println("floor ", floor, " doesn't exist.."); return;
+    }
+        
+    platformPos0 = mPlatform.getPosition().copy();
+    GF1pos0 = mGF1.getPosition().copy();
+    GF2pos0 = mGF2.getPosition().copy();
+    
+    PVector destination = mPlatform.getPosition().copy();
+    destination.y = elevation;// - mPlatform.getPosition().y;
+    PVector gf1_destination = mGF1.getPosition().copy();
+    gf1_destination.y = elevation;// - mGF1.getPosition().y;
+    PVector gf2_destination = mGF2.getPosition().copy();
+    gf2_destination.y = elevation;// - mGF2.getPosition().y;
+    
+    mPlatform.addAnimation(mPlatform.getPosition(), destination, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
+    mGF1.addAnimation(mGF1.getPosition(), gf1_destination, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
+    mGF2.addAnimation(mGF2.getPosition(), gf2_destination, 10000*(max(floor, currentFloor)-min(floor, currentFloor)));
+    currentFloor = floor;
+  }
   
   // --- Actualisation du statut en fonction de l'animation
   
   // --- Getters
+  
+  int getFloor(){
+    return currentFloor;
+  }
+  
 }

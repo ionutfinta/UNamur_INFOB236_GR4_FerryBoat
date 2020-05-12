@@ -77,6 +77,14 @@ void keyReleased(){
     case '5':
       mLift.switchLiftOut();
       break;
+      
+    case 'o':
+      mLift.move_lift(mLift.getFloor()-1);
+      break;
+    
+    case 'p':
+      mLift.move_lift(mLift.getFloor()+1);
+      break;
   }
 }
 
