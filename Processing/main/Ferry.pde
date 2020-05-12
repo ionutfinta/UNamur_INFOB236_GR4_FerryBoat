@@ -120,4 +120,24 @@ class Ferry extends U3DObject{
     myEventBMachine.evt_Switch_lvl_3_access.run_Switch_lvl_3_access(!state);
     portePont3.addAnimation("rotateX", state?0:-PI/2, 10000);
   }
+  
+  // --- Remove
+  @Override
+  void remove(Universe uni){
+    if(!myEventBMachine.evt_Boat_leave.guard_Boat_leave()){
+      println("EventB Guard not satisfied in order to remove the Ferry.");
+      return;
+    }
+    myEventBMachine.evt_Boat_leave.run_Boat_leave();
+    for(U3DObject o:coques){uni.remove(o);}
+    for(U3DObject o:coqueBabord){uni.remove(o);}
+    for(U3DObject o:coqueTribord){uni.remove(o);}
+    for(U3DObject o:planchers1){uni.remove(o);}
+    for(U3DObject o:planchers2){uni.remove(o);}
+    uni.remove(facadeArriere);
+    uni.remove(porteRDC);
+    uni.remove(portePont2);
+    uni.remove(portePont3);
+    uni.remove(this);
+  }
 }

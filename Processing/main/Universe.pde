@@ -26,6 +26,10 @@ class Universe{
     objs.add(o);
   }
   
+  void remove(U3DObject o){
+    objs.remove(o);
+  }
+  
   SelectionDetectorObject initSelector(){
     SelectionArrow arr = new SelectionArrow();
     objs.add(arr);

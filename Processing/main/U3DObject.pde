@@ -394,6 +394,10 @@ class U3DObject {
     mRotationYr = mPosition.x - mRotationYCenter.x;
   }
   
+  void remove(Universe uni){
+    uni.remove(this);
+  }
+  
   void disableCollisions(){
     mCollidable = false;
   }

@@ -103,7 +103,8 @@ void readyBoat(float x, float y)
   if(isCalled)
   {
     //ask for user input and summon right amount of compartments?
-    myEventBMachine.evt_Boat_ready.run_Boat_ready(new BRelation<Integer, Integer>(new Pair<Integer,Integer>(1,3), new Pair<Integer,Integer>(1,3), new Pair<Integer,Integer>(1,3))); //ferry has BRelation mCapacities which represents that
+    // Spawn Ferry avec 3 compartiments
+    mFerry = new Ferry(myUniverse, 3);
     println(myEventBMachine.get_bs_p());
   }
 }
@@ -113,7 +114,7 @@ void leaveBoat(float x, float y)
   boolean isCalled = button("Leave dock", x ,y);
   if(isCalled)
   {
-    myEventBMachine.evt_Boat_leave.run_Boat_leave();
+    mFerry.remove(myUniverse);
   }
 }
 
