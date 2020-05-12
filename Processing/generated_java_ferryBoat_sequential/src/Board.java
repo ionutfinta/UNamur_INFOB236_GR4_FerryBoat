@@ -18,7 +18,8 @@ public class Board{
 		return (machine.VEHICLE_TYPES.has(vehicle_type) //grd2_2
 				&& (new Integer(machine.get_busy_slots() + machine.vehicle_slot.apply(vehicle_type))).compareTo(machine.get_max_busy_slots()) <= 0 //grd3_2
 				&& (machine.vehicle_slot.apply(vehicle_type)).compareTo(machine.get_bs_m()) <= 0 
-				&& (new Integer(machine.vehicle_slot.apply(vehicle_type) + (machine.get_bs_p().apply(machine.get_lift_level())==null?(new Integer(0)):(machine.get_bs_p().apply(machine.get_lift_level()))))).compareTo((machine.get_max_bs_p().apply(machine.get_lift_level())==null?0:machine.get_max_bs_p().apply(machine.get_lift_level()))) <= 0 
+				&& machine.get_max_bs_p().apply(machine.get_lift_level()) != null
+				&& (machine.get_bs_p().apply(machine.get_lift_level()) == null || (new Integer(machine.vehicle_slot.apply(vehicle_type) + (machine.get_bs_p().apply(machine.get_lift_level())))).compareTo(machine.get_max_bs_p().apply(machine.get_lift_level())) <= 0) 
 				&& machine.get_reservations().domain().has(vehicle_id) 
 				&& machine.get_reservations().apply(vehicle_id).equals(new Pair<Integer,Integer>(machine.get_lift_level(),vehicle_type)) 
 				&& machine.get_lift_vehicles().range().has(vehicle_id) 
@@ -46,7 +47,11 @@ public class Board{
 			BRelation<Pair<Integer,Integer>,Integer> lift_vehicles_tmp = machine.get_lift_vehicles();
 
 			machine.set_busy_slots(new Integer(busy_slots_tmp + machine.vehicle_slot.apply(vehicle_type)));
-			machine.set_bs_p((bs_p_tmp.override(new BRelation<Integer,Integer>(new Pair<Integer,Integer>(machine.get_lift_level(),new Integer(bs_p_tmp.apply(machine.get_lift_level()) + machine.vehicle_slot.apply(vehicle_type)))))));
+			int bs = 0;
+			if(bs_p_tmp.apply(machine.get_lift_level()) != null)
+				bs = bs_p_tmp.apply(machine.get_lift_level());
+			
+			machine.set_bs_p((bs_p_tmp.override(new BRelation<Integer,Integer>(new Pair<Integer,Integer>(machine.get_lift_level(),new Integer(bs + machine.vehicle_slot.apply(vehicle_type)))))));
 			machine.set_bs_m(new Integer(bs_m_tmp - machine.vehicle_slot.apply(vehicle_type)));
 			machine.set_in_lift_ids(in_lift_ids_tmp.difference(new BSet<Integer>(vehicle_id)));
 			

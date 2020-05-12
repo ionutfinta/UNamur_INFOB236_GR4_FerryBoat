@@ -22,8 +22,6 @@ public class Reserve{
 			}
 		}else if(vehicle_type != machine.voiture && floor > 1) {
 			for(int a = 1; a < floor; a++) {
-				/*if(true)
-						throw new Exception("Hello world !µ" + machine.get_reserved_spaces().apply(a).compareTo(machine.get_max_bs_p().apply(a)));*/
 				if(machine.get_reserved_spaces().apply(a) == null || 
 						machine.get_reserved_spaces().apply(a).compareTo(machine.get_max_bs_p().apply(a)) >= machine.vehicle_slot.apply(vehicle_type))
 					return false;

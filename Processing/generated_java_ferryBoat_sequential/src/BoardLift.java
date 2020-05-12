@@ -61,12 +61,12 @@ public class BoardLift{
 			machine.set_bs_m(new Integer(machine.vehicle_slot.apply(vehicle_type) + bs_m_tmp));
 			machine.set_auth_on_ids(auth_on_ids_tmp.difference(new BSet<Integer>(vehicle_id)));
 			machine.set_in_lift_ids((in_lift_ids_tmp.union(new BSet<Integer>(vehicle_id))));
-			machine.set_boarded_ids((new BSet<Integer>(vehicle_id).union(boarded_ids_tmp)));
+			machine.set_boarded_ids(boarded_ids_tmp.insert(vehicle_id));
 			
 			// La génération par défaut pose problème:
 			//machine.set_lift_vehicles((lift_vehicles_tmp.union(new BRelation<Pair<Integer,Integer>,Integer>(new JMLObjectSet {Pair<Integer,Integer> x | (\exists BRelation<Pair<Integer,Integer>,Integer> e; (BRelation.cross(new BSet<Integer>(position_q),new Enumerated(position_s,new Integer(new Integer(position_s + machine.vehicle_slot.apply(vehicle_type)) - 1))).has(null)); e.equals(new Pair<Integer,ERROR>(null,vehicle_id)))}))));
 			// On la redéfinit comme suit:
-			lift_vehicles_tmp.insert(new Pair<Integer, Integer>(position_q, position_s), vehicle_id);
+			lift_vehicles_tmp.add(new Pair<Integer, Integer>(position_q, position_s), vehicle_id);
 			machine.set_lift_vehicles(lift_vehicles_tmp);
 
 			System.out.println("BoardLift executed vehicle_id: " + vehicle_id + " vehicle_type: " + vehicle_type + " position_q: " + position_q + " position_s: " + position_s + " ");

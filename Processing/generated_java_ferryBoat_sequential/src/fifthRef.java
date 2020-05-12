@@ -552,7 +552,7 @@ public class fifthRef{
 		busy_slots = 0;
 		
 		BRelation<Integer, Integer> eachfloor0 = new BRelation<Integer, Integer>();
-		for(int  i = 0; i <= floors.max(); i++) {
+		for(Integer  i: floors) {
 			eachfloor0.insert(i, 0);
 		}
 		//max_bs_p = new no_type(new JMLObjectSet {Integer f | (\exists no_type e; (floors.has(null)); e.equals(new Pair<Integer,ERROR>(null,0)))});

@@ -88,7 +88,6 @@ class Vehicle extends U3DObject{
         mQueue = 0;
       }
     }
-    
   }
   
   // --- Usefull for Event-B
