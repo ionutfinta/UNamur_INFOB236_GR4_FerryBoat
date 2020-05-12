@@ -335,27 +335,29 @@ class U3DObject {
     mInertia = i;
   }
   
-  void setAngles(PVector angle){
-    PVector alpha = angle.copy().sub(mAngles);
-    mShape.rotate(alpha.x, 1,0,0);
-    mShape.rotate(alpha.y, 0,1,0);
-    mShape.rotate(alpha.z, 0,0,1);
-    if(alpha.z != 0 && mRotationZCenter != null){
+    void setAngles(PVector angle){
+    mAngles = angle;
+    mShape.resetMatrix();
+    mShape.rotate(mAngles.x, 1,0,0);
+    mShape.rotate(mAngles.y, 0,1,0);
+    mShape.rotate(mAngles.z, 0,0,1);
+    
+    
+    if(mAngles.z != 0 && mRotationZCenter != null){
       setPos(new PVector( mRotationZCenter.x + cos(mAngles.z)*mRotationZr,
                           mRotationZCenter.y + sin(mAngles.z)*mRotationZr,
                           mPosition.z));
     }
-    if(alpha.x != 0 && mRotationXCenter != null){
+    if(mAngles.x != 0 && mRotationXCenter != null){
       setPos(new PVector( mPosition.x,
                           mRotationXCenter.y + cos(mAngles.x)*mRotationXr,
                           mRotationXCenter.z + sin(mAngles.x)*mRotationXr));
     }
-    if(alpha.y != 0 && mRotationYCenter != null){
+    if(mAngles.y != 0 && mRotationYCenter != null){
       setPos(new PVector( mRotationYCenter.x + cos(mAngles.y)*mRotationYr,
                           mPosition.y,
                           mRotationYCenter.z + sin(mAngles.y)*mRotationYr));
     }
-    mAngles = angle;
   }
   
   void setShapeName(String str){
