@@ -25,4 +25,10 @@ class CyberTruck extends Vehicle {
   
     setSelectionState(false);
   }
+  
+  
+  @Override
+  int getVehicleType(){
+    return myEventBMachine.camion_1;
+  }
 }

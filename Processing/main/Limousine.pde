@@ -25,4 +25,10 @@ class Limousine extends Vehicle {
   
     setSelectionState(false);
   }
+  
+  
+  @Override
+  int getVehicleType(){
+    return myEventBMachine.camion_3;
+  }
 }

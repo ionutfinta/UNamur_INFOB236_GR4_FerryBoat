@@ -55,7 +55,7 @@ class LiftPlatform extends U3DObject{
         return;
       }
       
-      v = vehicleFromObject(o);
+      v = (Vehicle) o;
       vID = v.getId();
       println(vID, queue, positionToBe);
       if(v instanceof Car){
@@ -116,7 +116,7 @@ class LiftPlatform extends U3DObject{
       oPos = o2.getPosition();
       oSize = o2.getSize();
       
-      v = vehicleFromObject(o2);
+      v = (Vehicle) o2;
       
       
       //out boarding
@@ -175,7 +175,7 @@ class LiftPlatform extends U3DObject{
       //out front
      else if(oPos.z+oSize.z<125){
        
-       v = vehicleFromObject(o2);
+       v = (Vehicle) o2;
       
       removal.add(o2);
       

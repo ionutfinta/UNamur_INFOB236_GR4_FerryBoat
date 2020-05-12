@@ -10,7 +10,7 @@ class Vehicle extends U3DObject{
   private float rotationAngle;
   private PVector  directionalVector;
   
-  private int enteredIn;
+  private int mQueue;
   public int apparent_id = 0;
   
   Vehicle(Universe uni, PVector pos, String shape) {
@@ -21,7 +21,7 @@ class Vehicle extends U3DObject{
     angularSpeed = 0.05;
     rotationAngle = 0;
     directionalVector = new PVector(0,0,1);
-    enteredIn = 0;
+    mQueue = 0;
   }
   
   void initWheels(){
@@ -65,29 +65,49 @@ class Vehicle extends U3DObject{
     // ---- Gestion de Vehicle_in et Vehicle_out(Event-B)
     PVector mSize = getSize();
     if(mPosition.z - mSize.z >= 100 && mPosition.z + mSize.z <= 115 && inBetween(-19.5, mPosition.x, -12)){
-      if(enteredIn == 0){
+      if(mQueue == 0){
         boolean is_left = mPosition.x + mSize.x <= -14.8;
         if(is_left && myEventBMachine.evt_Vehicle_in.guard_Vehicle_in(true, myEventBMachine.get_queue2())){
           myEventBMachine.evt_Vehicle_in.run_Vehicle_in(true, myEventBMachine.get_queue2());
-          enteredIn = 1;
+          mQueue = 1;
         }else if(!is_left && myEventBMachine.evt_Vehicle_in.guard_Vehicle_in(myEventBMachine.get_queue1(), true)){
           myEventBMachine.evt_Vehicle_in.run_Vehicle_in(myEventBMachine.get_queue1(), true);
-          enteredIn = 2;
+          mQueue = 2;
         }
       } 
-    }else if (enteredIn > 0 && !myEventBMachine.get_auth_on_ids().has(getId())){
-      if(enteredIn == 1 && myEventBMachine.evt_Vehicle_out.guard_Vehicle_out(false, myEventBMachine.get_queue2())){
+    }else if (mQueue > 0 && !myEventBMachine.get_auth_on_ids().has(getId())){
+      if(mQueue == 1 && myEventBMachine.evt_Vehicle_out.guard_Vehicle_out(false, myEventBMachine.get_queue2())){
         myEventBMachine.evt_Vehicle_out.run_Vehicle_out(false, myEventBMachine.get_queue2());
-        enteredIn = 0;
-      }if(enteredIn == 2 && myEventBMachine.evt_Vehicle_out.guard_Vehicle_out(myEventBMachine.get_queue1(), false)){
+        mQueue = 0;
+      }if(mQueue == 2 && myEventBMachine.evt_Vehicle_out.guard_Vehicle_out(myEventBMachine.get_queue1(), false)){
         myEventBMachine.evt_Vehicle_out.run_Vehicle_out(myEventBMachine.get_queue1(), false);
-        enteredIn = 0;
+        mQueue = 0;
       }
     }
     
   }
   
-   
+  // --- Usefull for Event-B
+  int getId(){
+    return apparent_id;
+  }
+  
+  
+  void setID(int ID) //Setter
+  {
+    this.apparent_id  = ID;
+  }
+  
+  int getQueue(){
+    return mQueue;
+  }
+  
+  /** Must be Overriden ! **/
+  int getVehicleType(){
+    return 0;
+  }
+  
+  // --- Driving Functions
  void updateRotation(boolean positive){
    if(positive){
      mShape.rotate(-angularSpeed,0,1,0);
@@ -137,14 +157,5 @@ class Vehicle extends U3DObject{
   @Override
   void setSelectionState(boolean state){
     isSelected = state;
-  }
-  
-  int getId(){
-    return apparent_id;
-  }
-  
-  void setID(int ID) //Setter
-  {
-    this.apparent_id  = ID;
   }
 }

@@ -56,12 +56,3 @@ public static PVector planeFrom(PVector v, int i, int j, int k){
   }
   return ret;
 }
-
-//returns a vehicle type or null if not a vehicle
-public static Vehicle vehicleFromObject(U3DObject o){
-  if(o instanceof Vehicle){
-    return (Vehicle) o;
-  }
-  println("returning null instead of vehicle");
-  return null;
-}

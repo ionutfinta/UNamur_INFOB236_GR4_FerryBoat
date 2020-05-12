@@ -25,4 +25,9 @@ class Car extends Vehicle {
   
     setSelectionState(false);
   }
+  
+  @Override
+  int getVehicleType(){
+    return myEventBMachine.voiture;
+  }
 }

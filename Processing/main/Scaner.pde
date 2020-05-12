@@ -28,77 +28,17 @@ class Scaner extends U3DObject{
       
     
     for(U3DObject o: everything){
-      if(o instanceof Vehicle){
-        Vehicle v = vehicleFromObject(o);
-        PVector vPos = o.getPosition();
-        PVector vSize = o.getSize();
-          if(isLeft){
-            if(vPos.x >= mPosition.x && vPos.x<= mPosition.x+vSize.x*4 && vPos.z >= mPosition.z-vSize.z*2 && vPos.z <= mPosition.z+vSize.z){
-              
-              if(v instanceof Car){
-                if(!machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(v.getId(),machine.voiture, isLeft))
-                  return;
-                  
-                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.voiture, isLeft); 
-                println("requesting authorization for id: ", v.getId());
-              }
-              else if(v instanceof CyberTruck){
-                if( !machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(v.getId(),machine.camion_1, isLeft) )
-                  return;
-                  
-                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_1, isLeft); 
-                println("requesting authorization for id: ", v.getId());
-                }
-              else if(v instanceof Truck){
-                if( !machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(v.getId(),machine.camion_2, isLeft) )
-                  return;
-                  
-                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_2, isLeft); 
-                println("requesting authorization for id: ", v.getId());
-                }
-              else if(v instanceof Limousine){
-                if( !machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(v.getId(),machine.camion_3, isLeft) )
-                  return;
-                  
-                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_3, isLeft); 
-                println("requesting authorization for id: ", v.getId());}
-            }
+      if(o instanceof Vehicle && ((Vehicle) o).getQueue() > 0){
+        int vQueue = ((Vehicle) o).getQueue(), vID = ((Vehicle) o).getId();
+        
+        if((isLeft && vQueue == 1) || (!isLeft && vQueue == 2)){
+          if(machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(vID,((Vehicle) o).getVehicleType(), isLeft)){
+            machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(vID,machine.voiture, isLeft);
+          }else{
+            println("You're not allowed to board !");
           }
-          else{
-            if(vPos.x <= mPosition.x && vPos.x >= mPosition.x-vSize.x*4 && vPos.z >= mPosition.z-vSize.z*2 && vPos.z <= mPosition.z+vSize.z){
-              
-              if(v instanceof Car){
-                if(!machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(v.getId(),machine.voiture, isLeft))
-                  return;
-                  
-                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.voiture, isLeft); 
-                println("requesting authorization for id: ", v.getId());
-              }
-              else if(v instanceof CyberTruck){
-                if( !machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(v.getId(),machine.camion_1, isLeft) )
-                  return;
-                  
-                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_1, isLeft); 
-                println("requesting authorization for id: ", v.getId());
-                }
-              else if(v instanceof Truck){
-                if( !machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(v.getId(),machine.camion_2, isLeft) )
-                  return;
-                  
-                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_2, isLeft); 
-                println("requesting authorization for id: ", v.getId());
-                }
-              else if(v instanceof Limousine){
-                if( !machine.evt_Vehicle_auth_on.guard_Vehicle_auth_on(v.getId(),machine.camion_3, isLeft) )
-                  return;
-                  
-                machine.evt_Vehicle_auth_on.run_Vehicle_auth_on(v.getId(),machine.camion_3, isLeft); 
-                println("requesting authorization for id: ", v.getId());}
-            }
-          }
-          print("Authorized ids are now: ", myEventBMachine.get_auth_on_ids());
+        }
       }
     }
-    
   }
 }
