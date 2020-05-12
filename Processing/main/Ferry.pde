@@ -13,7 +13,7 @@ class Ferry extends U3DObject{
   // --- Constructeur
   Ferry(Universe uni, int lg){
     //modifying Y of constructor doesn't move the bow
-    super(uni, new PVector(-14.88295,0.695,125 + 20.2 + lg*18.1416), "./assets/ferry_proue.obj");
+    super(uni, new PVector(-14.88295,0,125 + 20.2 + lg*18.1416), "./assets/ferry_proue.obj");
     mCapacities = new BRelation<Integer, Integer>().insert(1, lg*6).insert(2,lg*6).insert(3,lg*6);
     setMovable(uni);
     
@@ -37,7 +37,7 @@ class Ferry extends U3DObject{
     
     // Porte RDC
     porteRDC = new U3DObject(uni, new PVector(0.0, 3.35, -24.8-(lg-1)*16.1113).add(mPosition), "./assets/ferry_porteRDC.obj");
-    porteRDC.setRotationXCenter(new PVector(0, -2.6, 0.67).add(porteRDC.getPosition()));
+    porteRDC.setRotationXCenter(new PVector(0, -2.6, 0.69).add(porteRDC.getPosition()));
 
     // Porte Pont2
     portePont2 = new U3DObject(uni, new PVector(-0.17, 4.1551237+2.3, -24.222954-(lg-1)*16.1113).add(mPosition), "./assets/ferry_porte2.obj");

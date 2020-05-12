@@ -79,6 +79,7 @@ class U3DObjects implements Iterable<U3DObject>{
       U3DObject min_object = null;
       PVector oPos;
       for(U3DObject o: objects){
+        if(o.collidable()){
           oPos = o.getPosition();
           dist = min(compareePositionSize.dist(oPos),compareePosition.dist(oPos));
           
@@ -88,6 +89,7 @@ class U3DObjects implements Iterable<U3DObject>{
              min_encountered = dist;
              min_object = o;
           }
+        }
         
         }
         

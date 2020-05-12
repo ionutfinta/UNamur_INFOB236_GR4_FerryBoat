@@ -20,6 +20,7 @@ class U3DObject {
   protected float mAirResistFactor;
   
   protected boolean mCollide;
+  protected boolean mCollidable;
   protected ArrayList<Animation> mAnimations;
   
   
@@ -34,6 +35,7 @@ class U3DObject {
     
     mAirResistFactor = 0.58f;
     mCollide = false;
+    mCollidable = true;
     
     
     
@@ -213,6 +215,10 @@ class U3DObject {
   }
   
   void handle_entity_collision(U3DObject o1,U3DObject o2){
+    
+      if(!o2.collidable()) //should not happen unless forced collision
+        return;
+    
           boolean collided_once = false;
     
             PVector oPos,
@@ -322,6 +328,10 @@ class U3DObject {
     return everything != null;
   }
   
+  boolean collidable(){
+    return mCollidable;
+  }
+  
   // --- Mutators
   void setPos(PVector p){
     mPosition = p;
@@ -385,7 +395,7 @@ class U3DObject {
   }
   
   void disableCollisions(){
-    mCollide = false;
+    mCollidable = false;
   }
   
   /** Sets the source of the main shape of the object. Don't call this at each frame, it is verry slow ! */
