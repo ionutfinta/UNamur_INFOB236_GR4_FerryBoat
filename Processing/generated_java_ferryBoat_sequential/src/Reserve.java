@@ -39,7 +39,7 @@ public class Reserve{
 	public /*@ pure */ boolean guard_Reserve( Integer floor, Integer vehicle_type) {
 		return (machine.VEHICLE_TYPES.has(vehicle_type)
 				&& machine.floors.has(floor)
-				&& machine.get_max_bs_p() != null
+				&& machine.get_max_bs_p().apply(floor) != null
 				&& (machine.get_reserved_spaces().apply(floor) == null || (new Integer(machine.get_reserved_spaces().apply(floor) 
 						+ machine.vehicle_slot.apply(vehicle_type)))
 				.compareTo(machine.get_max_bs_p()
