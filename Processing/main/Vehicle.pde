@@ -72,11 +72,7 @@ class Vehicle extends U3DObject{
           mQueue = 2;
         }
       }
-    }
-    
-    // THIS IS THE MOST EPIC THING I'VE EVER SEEN !
-    // IF YOU REPLACE THAT BY AN `ELSE IF` AND REMOVE THE COUNTRARY OF THE CONDITION OF THE IF ABOVE THIS SHOULD BE THE SAME BUT IN PROCESSING IT IS NOT 
-    if (mQueue > 0 && !inBetween(111, mPosition.z + mSize.z, 115) && !inBetween(-19.5, mPosition.x, -12) && !myEventBMachine.get_auth_on_ids().has(getId())){
+    }else if (mQueue > 0 && !inBetween(111, mPosition.z + mSize.z, 115) && !inBetween(-19.5, mPosition.x, -12) && !myEventBMachine.get_auth_on_ids().has(getId())){
       if(mQueue == 1 && myEventBMachine.evt_Vehicle_out.guard_Vehicle_out(false, myEventBMachine.get_queue2())){
         myEventBMachine.evt_Vehicle_out.run_Vehicle_out(false, myEventBMachine.get_queue2());
         mQueue = 0;
