@@ -1,5 +1,7 @@
 //Mostly necessary to retrieve cars touching the lift
-// allows for implementation of board_lift;
+// allows for implementation of board_lift and unboard
+
+/*represents the platform on which the vehicles appear*/
 
 class LiftPlatform extends U3DObject{
 
@@ -57,7 +59,6 @@ class LiftPlatform extends U3DObject{
       
       v = (Vehicle) o;
       vID = v.getId();
-      println(vID, queue, positionToBe);
       if(myEventBMachine.evt_BoardLift.guard_BoardLift(vID, v.getVehicleType(), queue, positionToBe)){
         //vehicles.add(o);
         myEventBMachine.evt_BoardLift.run_BoardLift(vID, v.getVehicleType(), queue, positionToBe);
@@ -72,6 +73,8 @@ class LiftPlatform extends U3DObject{
     }
     
   }
+  
+  //checks for vehicles who were on the lift and have now left, takes appropriate actions
   void checkLeavers(){
     PVector oPos;
     PVector oSize;
@@ -124,6 +127,7 @@ class LiftPlatform extends U3DObject{
     
   }
   
+  //returns vehicles that were on the lift last time checkleavers was executed
   U3DObjects getVehicles(){
     return vehicles;
   }
