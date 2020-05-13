@@ -58,47 +58,14 @@ class LiftPlatform extends U3DObject{
       v = (Vehicle) o;
       vID = v.getId();
       println(vID, queue, positionToBe);
-      if(v instanceof Car){
-        if(myEventBMachine.evt_BoardLift.guard_BoardLift(vID, myEventBMachine.voiture, queue, positionToBe)){
-          vehicles.add(o);
-          myEventBMachine.evt_BoardLift.run_BoardLift(vID, myEventBMachine.voiture, queue, positionToBe);
-          positions[queue-1]+=1;
-          vehicles.add(o);
-          println("Vehicle ", vID, "has boarded the lift");
-          return;
-        }
-      }
-        
-      
-      else if(v instanceof CyberTruck){
-        if(myEventBMachine.evt_BoardLift.guard_BoardLift(vID, myEventBMachine.camion_1, queue, positionToBe)){
-          vehicles.add(o);
-          myEventBMachine.evt_BoardLift.run_BoardLift(vID, myEventBMachine.camion_1, queue, positionToBe);
-          positions[queue-1]+=1;
-          vehicles.add(o);
-          println("Vehicle ", vID, "has boarded the lift");
-          return;
-        }
-      }
-      else if(v instanceof Truck){
-        if(myEventBMachine.evt_BoardLift.guard_BoardLift(vID, myEventBMachine.camion_2, queue, positionToBe)){
-          vehicles.add(o);
-          myEventBMachine.evt_BoardLift.run_BoardLift(vID, myEventBMachine.camion_2, queue, positionToBe);
-          positions[queue-1]+=2;
-          vehicles.add(o);
-          println("Vehicle ", vID, "has boarded the lift");
-          return;
-        }
-      }
-      else if(v instanceof Limousine){
-        if(myEventBMachine.evt_BoardLift.guard_BoardLift(vID, myEventBMachine.camion_3, queue, positionToBe)){
-          vehicles.add(o);
-          myEventBMachine.evt_BoardLift.run_BoardLift(vID, myEventBMachine.camion_3, queue, positionToBe);
-          positions[queue-1]+=3;
-          vehicles.add(o);
-          println("Vehicle ", vID, "has boarded the lift");
-          return;
-        }
+      if(myEventBMachine.evt_BoardLift.guard_BoardLift(vID, v.getVehicleType(), queue, positionToBe)){
+        //vehicles.add(o);
+        myEventBMachine.evt_BoardLift.run_BoardLift(vID, v.getVehicleType(), queue, positionToBe);
+        positions[queue-1]+=1;
+        vehicles.add(o);
+        o.attachObject(this);
+        println("Vehicle ", vID, "has boarded the lift");
+        return;
       }
       
         println("Illegal lift boarding, contact authorities");
@@ -121,59 +88,25 @@ class LiftPlatform extends U3DObject{
       
       //out boarding
      if(oPos.z>140){
-       //v = vehicleFromObject(o2);
-       if(o2 instanceof Car){
-        if(myEventBMachine.evt_Board.guard_Board(v.getId(), myEventBMachine.voiture)){
-          myEventBMachine.evt_Board.run_Board(v.getId(), myEventBMachine.voiture);
-          removal.add(o2);
-          print("Car, id ", v.getId(), " has boarded the ship");
+      if(myEventBMachine.evt_Board.guard_Board(v.getId(), v.getVehicleType())){
+        myEventBMachine.evt_Board.run_Board(v.getId(), v.getVehicleType());
+        removal.add(o2);
+        o2.detachObjects();
+        print("Vehicle id ", v.getId(), " has boarded the ship");
       }
-        else
-          println("A car has entered the wrong floor");
-      }
-      else if(o2 instanceof CyberTruck){
-        if(myEventBMachine.evt_Board.guard_Board(v.getId(), myEventBMachine.camion_1)){
-          myEventBMachine.evt_Board.run_Board(v.getId(), myEventBMachine.camion_1);
-          removal.add(o2);
-          print("Cybertruck, id ", v.getId(), " has boarded the ship");  
-      }
-        else
-          println("A cybertruck has entered the wrong floor");
-      }
-      else if(o2 instanceof Truck)
-        if(myEventBMachine.evt_Board.guard_Board(v.getId(), myEventBMachine.camion_2)){
-          myEventBMachine.evt_Board.run_Board(v.getId(), myEventBMachine.camion_2);
-          removal.add(o2);
-          print("Truck, id ", v.getId(), " has boarded the ship");
-     }
-        else
-          println("A truck has entered the wrong floor");
-      else if(o2 instanceof Limousine)
-        if(myEventBMachine.evt_Board.guard_Board(v.getId(), myEventBMachine.camion_3)){
-          myEventBMachine.evt_Board.run_Board(v.getId(), myEventBMachine.camion_3);
-          removal.add(o2);
-          print("Limousine, id ", v.getId(), " boarded the ship");
-      }
-        else
-          println("A limousine has entered the wrong floor");
-     
-     }
+      else
+        println("A vehicle has boarded the wrong floor");
       //out front
-     else if(oPos.z+oSize.z<125){
+     }else if(oPos.z+oSize.z<125){
        
        v = (Vehicle) o2;
       
       removal.add(o2);
+      o2.detachObjects();
       
       if(o2 instanceof Car){
-        myEventBMachine.evt_LeaveLift.run_LeaveLift(v.getId(), myEventBMachine.voiture);
+        myEventBMachine.evt_LeaveLift.run_LeaveLift(v.getId(), v.getVehicleType());
       }
-      else if(o2 instanceof CyberTruck)
-        myEventBMachine.evt_LeaveLift.run_LeaveLift(v.getId(), myEventBMachine.camion_1);
-      else if(o2 instanceof Truck)
-        myEventBMachine.evt_LeaveLift.run_LeaveLift(v.getId(), myEventBMachine.camion_2);
-      else if(o2 instanceof Limousine)
-        myEventBMachine.evt_LeaveLift.run_LeaveLift(v.getId(), myEventBMachine.camion_3);
         
       print("A vehicle exited the lift through the entryway");
      }

@@ -15,6 +15,7 @@ class Barriere extends U3DObject {
     
     myLisse = new U3DObject(uni, new PVector(angle.y==PI?1.6403:-1.6403, .2, 0.260741).add(mPosition), "./assets/barrier.obj");
     myLisse.setRotationZCenter(new PVector(angle.y==PI?-0.51325:0.51325, 0).add(mPosition));
+    myLisse.attachObject(this);
     myLisse.setAngles(angle);
     
     isOuvert = false;

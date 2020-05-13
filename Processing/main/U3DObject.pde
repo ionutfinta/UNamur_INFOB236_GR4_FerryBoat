@@ -23,7 +23,11 @@ class U3DObject {
   protected boolean mCollidable;
   protected ArrayList<Animation> mAnimations;
   
+  // An object can be attached to another.
+  U3DObject attachedTo;
+  PVector attachedTo_oldPos;
   
+  // A movable object must have referece to all the others objects. NOTE: Why ?
   U3DObjects everything;
   
   U3DObject(){
@@ -77,13 +81,10 @@ class U3DObject {
     }
           
   }
-    
+  
   void animate(){
-    ArrayList<Animation> removal = new ArrayList<Animation>();
-    
     if(isMovable())
-    applyInertia();
-    
+      applyInertia();
     
     Iterator<Animation> ait = mAnimations.iterator();
     while(ait.hasNext()){
@@ -92,16 +93,25 @@ class U3DObject {
         setAngles(a.getNewValue());
       }
       else{
-        mPosition = a.getNewValue();
+        setPos(a.getNewValue());
       }
       
       if(a.isElapsed()){
-        removal.add(a);
+        ait.remove();
       }
     }
-    mAnimations.removeAll(removal);
     
+    if(attachedTo != null){
+      PVector atPos = attachedTo.getPosition().copy();
+      atPos.sub(attachedTo_oldPos);
+      if(atPos.x != 0 || atPos.y != 0 || atPos.z != 0){
+        updateCenters(atPos);
+        mPosition.add(atPos);
+        attachedTo_oldPos = attachedTo.getPosition().copy();
+      }
+    }
   }
+  
   void display(){
     pushMatrix();
       translate(mPosition.x, mPosition.y, mPosition.z);
@@ -162,8 +172,8 @@ class U3DObject {
       
       if(mInertia.x!=0||mInertia.z!=0||mInertia.y!=0){
          handle_entity_collision();
-          mPosition.add(mInertia);
-          mInertia.mult(mAirResistFactor);
+         mPosition.add(mInertia);
+         mInertia.mult(mAirResistFactor);
         
       }
   }
@@ -345,7 +355,7 @@ class U3DObject {
     mInertia = i;
   }
   
-    void setAngles(PVector angle){
+  void setAngles(PVector angle){
     mAngles = angle;
     mShape.resetMatrix();
     mShape.rotate(mAngles.x, 1,0,0);
@@ -392,6 +402,29 @@ class U3DObject {
   void setRotationYCenter(PVector center){
     mRotationYCenter = center;
     mRotationYr = mPosition.x - mRotationYCenter.x;
+  }
+  
+  void updateCenters(PVector p){
+    if(mRotationZCenter != null){
+      mRotationZCenter.add(p);
+    }
+    if(mRotationXCenter != null){
+      mRotationXCenter.add(p);
+    }
+    if(mRotationYCenter != null){
+      mRotationYCenter.add(p);
+    }
+  }
+    
+  
+  void attachObject(U3DObject o){
+    attachedTo = o;
+    attachedTo_oldPos = o.getPosition().copy();
+  }
+  
+  void detachObjects(){
+    attachedTo = null;
+    attachedTo_oldPos = null;
   }
   
   void remove(Universe uni){
