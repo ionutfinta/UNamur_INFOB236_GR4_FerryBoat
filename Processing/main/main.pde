@@ -80,8 +80,9 @@ void keyReleased(){
   
   switch(key){
     case '0':
-       if(mBarriere1.switchState());
+       if(mBarriere1.switchState()){
          mBarriere2.switchState();
+       }
        break;
     case '1':
       if(mFerry != null)
