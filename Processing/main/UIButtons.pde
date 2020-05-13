@@ -6,8 +6,8 @@ boolean button(String name, float x, float y)
   float xCenter = x*width/10;
   float yCenter = y*height/10;
   
-  ui.stroke(0);
-  ui.noFill();
+  ui.stroke(metalicGold);
+  ui.fill(255);
   ui.strokeWeight(3);
   ui.rect(xCenter, yCenter, width/5, height/10, 30);
   
@@ -17,16 +17,15 @@ boolean button(String name, float x, float y)
     overBox = true;
   }
   
+  ui.fill(deepSkyBlue);
   if(overBox == true)
   {
     ui.textSize(height/35);
-    ui.fill(0);
     ui.text(name, xCenter, yCenter);
   }
   else
   {
     ui.textSize(height/40);
-    ui.fill(0);
     ui.text(name, xCenter, yCenter);
   }
   if(mousePressed && overBox)
@@ -44,6 +43,7 @@ void message(String name, float x, float y, int intColor)
   float xCenter = x*width/10;
   float yCenter = y*height/10;
   
+  ui.textSize(height/40);
   ui.fill(intColor);
   ui.text(name, xCenter, yCenter);
 }
@@ -207,6 +207,42 @@ void noReservation(float x, float y)
   if(isCalled)
   {
     reservation = false;
+  }
+}
+
+void editFerry(float x, float y)
+{
+  boolean isCalled = button("Edit Ferry", x ,y);
+  if(isCalled)
+  {
+    editFerry = true;
+  }
+}
+
+void returnUI(float x, float y)
+{
+  boolean isCalled = button("Return to UI", x ,y);
+  if(isCalled)
+  {
+    editFerry = false;
+  }
+}
+
+void increaseFerry(float x, float y)
+{
+  boolean isCalled = button("Increase capacity", x ,y);
+  if(isCalled)
+  {
+    if(ferryLength < 10) ferryLength ++;
+  }
+}
+
+void decreaseFerry(float x, float y)
+{
+  boolean isCalled = button("Decrease capacity", x ,y);
+  if(isCalled)
+  {
+    if(ferryLength > 1) ferryLength --;
   }
 }
 
