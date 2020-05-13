@@ -1,12 +1,12 @@
 import processing.opengl.*;
 
-static final boolean DEBUG = true;
+static final boolean DEBUG = false;
 static final fifthRef myEventBMachine = new fifthRef();
 static final ArrayList<Character> pressedKeys = new ArrayList<Character>(); 
 static PGraphics ui;
+static Me me;
 
 Universe myUniverse;
-Me me;
 Barriere mBarriere1;
 Barriere mBarriere2;
 Ferry mFerry;

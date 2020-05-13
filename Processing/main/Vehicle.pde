@@ -167,5 +167,10 @@ class Vehicle extends U3DObject{
   @Override
   void setSelectionState(boolean state){
     isSelected = state;
+    if(state = true){
+      me.attachObject(this);
+      me.getPosition().y = 7;
+      me.getPosition().z -= 5;
+    }
   }
 }
