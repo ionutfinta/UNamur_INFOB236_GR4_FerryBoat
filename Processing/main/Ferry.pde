@@ -18,13 +18,6 @@ class Ferry extends U3DObject{
     setMovable(uni);
     
     
-    if(!myEventBMachine.evt_Boat_ready.guard_Boat_ready(mCapacities)){
-      println("Fatal Error ! Guard for Boat Ready Unsatisfaied, Could not create a new Ferry !");
-      return;
-    }
-    
-    myEventBMachine.evt_Boat_ready.run_Boat_ready(mCapacities);
-    
     coques = new U3DObjects();
     coqueBabord = new U3DObjects();
     coqueTribord = new U3DObjects();
@@ -124,11 +117,6 @@ class Ferry extends U3DObject{
   // --- Remove
   @Override
   void remove(Universe uni){
-    if(!myEventBMachine.evt_Boat_leave.guard_Boat_leave()){
-      println("EventB Guard not satisfied in order to remove the Ferry.");
-      return;
-    }
-    myEventBMachine.evt_Boat_leave.run_Boat_leave();
     for(U3DObject o:coques){uni.remove(o);}
     for(U3DObject o:coqueBabord){uni.remove(o);}
     for(U3DObject o:coqueTribord){uni.remove(o);}

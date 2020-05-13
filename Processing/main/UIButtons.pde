@@ -63,8 +63,15 @@ void readyBoat(float x, float y)
   boolean isCalled = button("Prepare ferry", x ,y);
   if(isCalled)
   {
-    //ask for user input and summon right amount of compartments?
-    // Spawn Ferry avec 3 compartiments
+     //ask for user input and summon right amount of compartments?
+    BRelation<Integer, Integer> capacities =  new BRelation<Integer, Integer>(new Pair<Integer, Integer>(1,12),new Pair<Integer, Integer>(2,12),new Pair<Integer, Integer>(3,12));
+     if(!myEventBMachine.evt_Boat_ready.guard_Boat_ready(capacities)){
+      println("Fatal Error ! Guard for Boat Ready Unsatisfaied, Could not create a new Ferry !");
+      return;
+    }
+    
+    myEventBMachine.evt_Boat_ready.run_Boat_ready(capacities);
+
     mFerry = new Ferry(myUniverse, 3);
     println(myEventBMachine.get_bs_p());
   }
@@ -75,6 +82,12 @@ void leaveBoat(float x, float y)
   boolean isCalled = button("Leave dock", x ,y);
   if(isCalled)
   {
+     if(mFerry==null || !myEventBMachine.evt_Boat_leave.guard_Boat_leave()){
+      println("EventB Guard not satisfied in order to remove the Ferry.");
+      return;
+    }
+    myEventBMachine.evt_Boat_leave.run_Boat_leave();
+
     mFerry.remove(myUniverse);
   }
 }
