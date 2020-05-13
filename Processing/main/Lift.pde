@@ -55,7 +55,7 @@ class Lift extends U3DObject {
        sensors[0] = false;
        println("stops detecting platform 1");
      }
-     else if(sensors[1] == true && 5.3!=mPlatform.getPosition().y){
+     else if(sensors[1] == true && 5.4!=mPlatform.getPosition().y){
        myEventBMachine.evt_Sensor_stops_detecting.run_Sensor_stops_detecting(2);
        sensors[1] = false;
        println("stops detecting platform 2");
@@ -71,7 +71,7 @@ class Lift extends U3DObject {
        sensors[0] = true;
        println("detecting platform 1");
      }
-     if(sensors[1] == false && 5.3==mPlatform.getPosition().y){
+     if(sensors[1] == false && 5.4==mPlatform.getPosition().y){
        myEventBMachine.evt_Sensor_detects.run_Sensor_detects(2);
        sensors[1] = true;
        println("detecting platform 2");
@@ -131,8 +131,8 @@ class Lift extends U3DObject {
     
     switch(floor){
       case 1: elevation = 2-mPlatform.getSize().y; zOffset = 131.2; break;
-      case 2: elevation = 5.3; zOffset = 135; break; //3.8 offset
-      case 3: elevation = 9.2; zOffset = 135.1; break;
+      case 2: elevation = 5.4; zOffset = 136; break; //3.8 offset
+      case 3: elevation = 9.2; zOffset = 136.2; break;
       default: println("floor ", floor, " doesn't exist.."); return;
     }
     
