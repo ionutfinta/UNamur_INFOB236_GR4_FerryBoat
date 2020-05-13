@@ -72,7 +72,7 @@ void readyBoat(float x, float y)
     
     myEventBMachine.evt_Boat_ready.run_Boat_ready(capacities);
 
-    mFerry = new Ferry(myUniverse, 3);
+    mFerry = new Ferry(myUniverse, ferryLength);
     println(myEventBMachine.get_bs_p());
   }
 }
