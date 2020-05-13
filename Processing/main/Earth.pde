@@ -6,7 +6,7 @@ class Earth extends U3DObject{
   
   // --- Constructor
   Earth(){
-    mShape = loadShape("./assets/berge.obj");
+    mShape = loadShape("berge.obj");
     mPosition = new PVector(0, 2, 0);
     gravity = 9.81/7;
     
@@ -18,7 +18,7 @@ class Earth extends U3DObject{
   void load(Universe uni){
     // Spawn des Gardes-fous et insertion dans l'univers des objets
     U3DObject tmpObj = new U3DObject();
-    tmpObj.setShapeSRC("./assets/poteau.obj");
+    tmpObj.setShapeSRC("poteau.obj");
     tmpObj.setShapeName("noStroke");
       
     for(int i = 100; i >= 0; i-=2){
@@ -33,31 +33,31 @@ class Earth extends U3DObject{
     }
     
     // Spawn du panneau de signalisation berge
-    tmpObj = new U3DObject(uni, new PVector(-21.5, 1.5, 123.51).add(mPosition), "./assets/signalisation_berge.obj");
+    tmpObj = new U3DObject(uni, new PVector(-21.5, 1.5, 123.51).add(mPosition), "signalisation_berge.obj");
     
     // Spawn des Murs de soutènement gardes-fous
-    tmpObj = new U3DObject(uni, new PVector(123.5, 8, 0).add(mPosition), "./assets/concreteWall.obj");
+    tmpObj = new U3DObject(uni, new PVector(123.5, 8, 0).add(mPosition), "concreteWall.obj");
     tmpObj.setAngles(new PVector(0,HALF_PI, 0));
     
-    tmpObj = new U3DObject(uni, new PVector(-123.5, 8, 0).add(mPosition), "./assets/concreteWall.obj");
+    tmpObj = new U3DObject(uni, new PVector(-123.5, 8, 0).add(mPosition), "concreteWall.obj");
     tmpObj.setAngles(new PVector(0,3*HALF_PI, 0));
     
-    tmpObj = new U3DObject(uni, new PVector(0, 8, -123.5).add(mPosition), "./assets/concreteWall.obj");
+    tmpObj = new U3DObject(uni, new PVector(0, 8, -123.5).add(mPosition), "concreteWall.obj");
     
     // Ecluse
-    tmpObj = new U3DObject(uni, new PVector(0, -8.009, 121).add(mPosition), "./assets/concreteWall2.obj");
+    tmpObj = new U3DObject(uni, new PVector(0, -8.009, 121).add(mPosition), "concreteWall2.obj");
     
     tmpObj = new U3DObject(uni, new PVector(0, -23.009, 121).add(mPosition));
     
-    tmpObj = new U3DObject(uni, new PVector(-2.8, -8, 250).add(mPosition), "./assets/concreteWall2.obj");
+    tmpObj = new U3DObject(uni, new PVector(-2.8, -8, 250).add(mPosition), "concreteWall2.obj");
     tmpObj.setAngles(new PVector(0,HALF_PI, 0));
     
-    tmpObj = new U3DObject(uni, new PVector(-26.5, -8, 250).add(mPosition), "./assets/concreteWall2.obj");
+    tmpObj = new U3DObject(uni, new PVector(-26.5, -8, 250).add(mPosition), "concreteWall2.obj");
     tmpObj.setAngles(new PVector(0,3*HALF_PI, 0));
     
     // Bureaux
-    tmpObj = new U3DObject(uni, new PVector(0, 10, -20).add(mPosition), "./assets/bureaux.obj");
-    tmpObj = new AuraBureau(uni, new PVector(0, .7, -7.7).add(mPosition), "./assets/bureau_aura.obj");
+    tmpObj = new U3DObject(uni, new PVector(0, 10, -20).add(mPosition), "bureaux.obj");
+    tmpObj = new AuraBureau(uni, new PVector(0, .7, -7.7).add(mPosition), "bureau_aura.obj");
   }
   
   @Override

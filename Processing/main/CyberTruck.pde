@@ -1,7 +1,7 @@
 class CyberTruck extends Vehicle {
   CyberTruck(Universe u, PVector pos){
-    super(u, pos, "./assets/CyberTruck.obj");
-    mWheelShape = "./assets/CyberTruck_wheels.obj";
+    super(u, pos, "CyberTruck.obj");
+    mWheelShape = "CyberTruck_wheels.obj";
     
     float frontPos = 0.66,
            wh_height = -0.504888,

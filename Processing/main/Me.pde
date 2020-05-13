@@ -25,8 +25,8 @@ class Me extends U3DObject{
    
    mSize = new PVector(1, 1.75, 1);
    
-   mClouds0 = loadImage("./assets/clouds0.gif");
-   mSun = loadImage("./assets/sun.png");
+   mClouds0 = loadImage("clouds0.gif");
+   mSun = loadImage("sun.png");
  }
  
  void applyInertia(){

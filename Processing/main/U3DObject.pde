@@ -35,7 +35,7 @@ class U3DObject {
     mInertia = new PVector(0,0,0);
     everything = null;
     
-    mShape = loadShape("./assets/interrogationPoint.obj");
+    mShape = loadShape("interrogationPoint.obj");
     
     mAirResistFactor = 0.58f;
     mCollide = false;

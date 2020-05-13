@@ -7,7 +7,7 @@ class Scaner extends U3DObject{
     super(uni);
     everything = uni.objs;
     machine = m;
-    mShape = loadShape("./assets/Scaner.obj");
+    mShape = loadShape("Scaner.obj");
     isLeft = is_left;
     if(isLeft){
       mPosition = new PVector(-19.5, 2.7, 114);

@@ -13,7 +13,7 @@ class LiftPlatform extends U3DObject{
   public LiftPlatform(Universe uni, Lift lift){
     super(uni);
     parentLift = lift;
-    mShape = loadShape("./assets/lift.obj");
+    mShape = loadShape("lift.obj");
     mPosition = lift.getPosition().copy();
     mPosition.y = 2-this.getSize().y;
     

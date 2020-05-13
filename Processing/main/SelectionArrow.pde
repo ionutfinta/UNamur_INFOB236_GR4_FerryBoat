@@ -11,7 +11,7 @@ class SelectionArrow extends U3DObject {
   
   SelectionArrow(){
     mPosition = new PVector(1000, 1000, 1020);
-    mShape = loadShape("./assets/arrow.obj");
+    mShape = loadShape("arrow.obj");
   }
   
   void updateSelected(U3DObject selected){

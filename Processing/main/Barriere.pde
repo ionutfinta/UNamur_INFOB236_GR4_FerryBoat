@@ -11,9 +11,9 @@ class Barriere extends U3DObject {
   // --- Constructeurs
   // `angle` représente l'angle de la lisse (utile pour mettre 2 barrières en mirroir) */
   Barriere(Universe uni, PVector pos, PVector angle){
-    super(uni, pos, "./assets/mainBarrier.obj");
+    super(uni, pos, "mainBarrier.obj");
     
-    myLisse = new U3DObject(uni, new PVector(angle.y==PI?1.6403:-1.6403, .2, 0.260741).add(mPosition), "./assets/barrier.obj");
+    myLisse = new U3DObject(uni, new PVector(angle.y==PI?1.6403:-1.6403, .2, 0.260741).add(mPosition), "barrier.obj");
     myLisse.setRotationZCenter(new PVector(angle.y==PI?-0.51325:0.51325, 0).add(mPosition));
     myLisse.attachObject(this);
     myLisse.setAngles(angle);

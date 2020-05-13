@@ -18,7 +18,7 @@ class Lift extends U3DObject {
   
   // --- Constructeurs
   Lift(Universe uni, PVector pos){
-    super(uni, pos, "./assets/liftStructure.obj");
+    super(uni, pos, "liftStructure.obj");
     mCollide = false;
     mShape.setName("noStroke");
 
@@ -28,10 +28,10 @@ class Lift extends U3DObject {
     PVector tmp_position = pos.copy();
     tmp_position.x+= 6.14;
     tmp_position.y=2.5;
-    mGF1 = new U3DObject(uni, tmp_position.copy(), "./assets/lift_gardeFou.obj");
+    mGF1 = new U3DObject(uni, tmp_position.copy(), "lift_gardeFou.obj");
     mGF1.attachObject(mPlatform);
     tmp_position.x-= 6.14*2;
-    mGF2 = new U3DObject(uni, tmp_position.copy(), "./assets/lift_gardeFou.obj");
+    mGF2 = new U3DObject(uni, tmp_position.copy(), "lift_gardeFou.obj");
     mGF2.attachObject(mPlatform);
     mGF2.setAngles(new PVector(0,PI,0));
     

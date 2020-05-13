@@ -1,7 +1,7 @@
 class Car extends Vehicle {
   Car(Universe u, PVector pos){
-    super(u, pos, "./assets/car_chassis.obj");
-    mWheelShape = "./assets/car_wheel.obj";
+    super(u, pos, "car_chassis.obj");
+    mWheelShape = "car_wheel.obj";
     
     float frontPos = 0.80754,
            wh_height = -0.43194,
