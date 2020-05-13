@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="0">
+<org.eventb.core.poFile org.eventb.core.poStamp="1">
 <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="integral" org.eventb.core.type="ℙ(ℙ(ℤ×ℤ)×ℤ)"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="f_integral/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Axiom" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/FerryBoat/integral_ctx.bpo|org.eventb.core.poFile#integral_ctx|org.eventb.core.poPredicateSet#ABSHYP"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℙ(ℤ×ℤ)·x∈ℤ ⇸ ℤ∧finite(x)∧card(x)&gt;0∧finite(dom(x))⇒dom(x)≠(∅ ⦂ ℙ(ℤ))∧(∃b⦂ℤ·∀x0⦂ℤ·x0∈dom(x)⇒b≥x0)∧max(dom(x))∈dom(x)∧x ∖ {max(dom(x)) ↦ x(max(dom(x)))}∈dom(integral)∧integral∈ℙ(ℤ × ℤ) ⇸ ℤ" org.eventb.core.source="/FerryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.axiom#("/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/FerryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.axiom#("/>
-<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/FerryBoat/integral_ctx.bpo|org.eventb.core.poFile#integral_ctx|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/FerryBoat/integral_ctx.bpo|org.eventb.core.poFile#integral_ctx|org.eventb.core.poPredicateSet#ABSHYP"/>
+<org.eventb.core.poSequent name="f_integral/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Axiom" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/ferryBoat/integral_ctx.bpo|org.eventb.core.poFile#integral_ctx|org.eventb.core.poPredicateSet#ABSHYP"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="∀x⦂ℙ(ℤ×ℤ)·x∈ℤ ⇸ ℤ∧finite(x)∧card(x)&gt;0∧finite(dom(x))⇒dom(x)≠(∅ ⦂ ℙ(ℤ))∧(∃b⦂ℤ·∀x0⦂ℤ·x0∈dom(x)⇒b≥x0)∧max(dom(x))∈dom(x)∧x ∖ {max(dom(x)) ↦ x(max(dom(x)))}∈dom(integral)∧integral∈ℙ(ℤ × ℤ) ⇸ ℤ" org.eventb.core.source="/ferryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.axiom#("/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/ferryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.axiom#("/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/ferryBoat/integral_ctx.bpo|org.eventb.core.poFile#integral_ctx|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/ferryBoat/integral_ctx.bpo|org.eventb.core.poFile#integral_ctx|org.eventb.core.poPredicateSet#ABSHYP"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/FerryBoat/integral_ctx.bpo|org.eventb.core.poFile#integral_ctx|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="integral=(λx⦂ℙ(ℤ×ℤ)·x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ⇸ ℤ∧finite(x)∧card(x)&gt;0∧finite(dom(x)) ∣ integral(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))" org.eventb.core.source="/FerryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.axiom#("/>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/ferryBoat/integral_ctx.bpo|org.eventb.core.poFile#integral_ctx|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="integral=(λx⦂ℙ(ℤ×ℤ)·x=(∅ ⦂ ℙ(ℤ×ℤ)) ∣ 0)∪(λx⦂ℙ(ℤ×ℤ)·x∈ℤ ⇸ ℤ∧finite(x)∧card(x)&gt;0∧finite(dom(x)) ∣ integral(x ∖ {max(dom(x)) ↦ x(max(dom(x)))})+x(max(dom(x))))" org.eventb.core.source="/ferryBoat/integral_ctx.buc|org.eventb.core.contextFile#integral_ctx|org.eventb.core.axiom#("/>
 </org.eventb.core.poPredicateSet>
 </org.eventb.core.poFile>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="0">
+<org.eventb.core.poFile org.eventb.core.poStamp="1">
 <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="lift_depth" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="queues" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/FerryBoat/thirdRef_ctx.bpo|org.eventb.core.poFile#thirdRef_ctx|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/ferryBoat/thirdRef_ctx.bpo|org.eventb.core.poFile#thirdRef_ctx|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="1">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="queues=2" org.eventb.core.source="/FerryBoat/thirdRef_ctx.buc|org.eventb.core.contextFile#thirdRef_ctx|org.eventb.core.axiom#)"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="lift_depth=3" org.eventb.core.source="/FerryBoat/thirdRef_ctx.buc|org.eventb.core.contextFile#thirdRef_ctx|org.eventb.core.axiom#*"/>
 </org.eventb.core.poPredicateSet>

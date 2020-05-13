@@ -64,7 +64,7 @@ void readyBoat(float x, float y)
   if(isCalled)
   {
      //ask for user input and summon right amount of compartments?
-    BRelation<Integer, Integer> capacities =  new BRelation<Integer, Integer>(new Pair<Integer, Integer>(1,12),new Pair<Integer, Integer>(2,12),new Pair<Integer, Integer>(3,12));
+    BRelation<Integer, Integer> capacities =  new BRelation<Integer, Integer>(new Pair<Integer, Integer>(1,ferryLength*6),new Pair<Integer, Integer>(2,ferryLength*6),new Pair<Integer, Integer>(3,ferryLength*6));
      if(!myEventBMachine.evt_Boat_ready.guard_Boat_ready(capacities)){
       println("Fatal Error ! Guard for Boat Ready Unsatisfaied, Could not create a new Ferry !");
       return;
