@@ -21,7 +21,9 @@ ArrayList<Truck> Trucks = new ArrayList<Truck>();
 
 int ID = 1;
 int lvl = 1;
+int ferryLength = 4;
 boolean reservation = true;
+boolean editFerry = false;
 
 String topLeft = "";
 int TLfade = 255;
