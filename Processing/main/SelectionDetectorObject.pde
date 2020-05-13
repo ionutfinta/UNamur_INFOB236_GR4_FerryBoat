@@ -66,12 +66,12 @@ class SelectionDetectorObject extends U3DObject{
     PVector centerRelative = new PVector((mouse_x-((float)width/2))/((float)width/2), -1*(mouse_y-((float)height/2))/((float)height/2));
     
     //basis
-    PVector i_hat = new PVector(1,0,0); //lateral
+    PVector i_hat = new PVector(-1,0,0); //lateral
     PVector j_hat = new PVector(0,1,0); //top/down
     PVector k_hat = new PVector(0,0,1); //depth
     
     float dir_angle_H = rotationAngle; //horizontal PVector.angleBetween(new PVector(0,1), planeFrom(mInertia,1,0,1))
-    float dir_angle_V = -elevationAngle; //vertical
+    float dir_angle_V = elevationAngle/2; //vertical
     
     //ik value
       //angle is PI/3*centerRelative.x /2
@@ -87,15 +87,18 @@ class SelectionDetectorObject extends U3DObject{
     i_val = tan(ik_angle);
     j_val = tan(jk_angle);
     PVector correction = new PVector(i_val,j_val,k_val);
+    mInertia.normalize();
+    correction = correction.copy().mult(cos(dir_angle_H)).add(j_hat.copy().cross(correction).mult(sin(dir_angle_H))).add(j_hat.copy().mult(j_hat.copy().dot(correction)).mult(1-cos(dir_angle_H)));
+    correction = correction.copy().mult(cos(dir_angle_V)).add(i_hat.copy().cross(correction).mult(sin(dir_angle_V))).add(i_hat.copy().mult(i_hat.copy().dot(correction)).mult(1-cos(dir_angle_V)));
     /*Y rotation  [cos 0 sin][0 1 0][-sin 0 cos] 
     x rotation [1 0 0][0 cos -sin][0 sin cos]
     Z rotation [cos -sin 0][sin cos 0][0 0 1] unneeded(would be yaw)*/
     //X rotation(up_down)
-    correction.y = cos(dir_angle_V)*correction.y-sin(dir_angle_V)*correction.z;
-    correction.z = sin(dir_angle_V)*correction.y+cos(dir_angle_V)*correction.z;
-    //Y rotationf
-    correction.x = cos(dir_angle_H)*correction.x+sin(dir_angle_H)*correction.z;
-    correction.z = -sin(dir_angle_H)*correction.x+cos(dir_angle_H)*correction.z;
+    //correction.y = cos(dir_angle_V)*correction.y-sin(dir_angle_V)*correction.z;
+    //correction.z = sin(dir_angle_V)*correction.y+cos(dir_angle_V)*correction.z;
+    //Y rotation
+    //correction.x = cos(dir_angle_H)*correction.x+sin(dir_angle_H)*correction.z;
+    //correction.z = -sin(dir_angle_H)*correction.x+cos(dir_angle_H)*correction.z;
     
     mInertia = correction;
     
